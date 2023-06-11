@@ -41,14 +41,76 @@ s
 \end{tikzpicture}
 \end{center}
 
-Where we have taken $\subseteq$ as $\leq$. We have that this group is
+Where we have taken $\leq$ to be $\subseteq$. We have that this group is
 \begin{equation}
 	G = \left\langle\,
 	a,b \,|\, aba=bab
 	\,\right\rangle .
 \end{equation}
 
-We can construct a cell complex $K$ from $P$ such that $\pi(1, K)$ is $G$. We do this by initially creating a simplicial complex $\Delta$, where each $n$ simplex is an $n$--chain of $P$.
+We can construct a cell complex $K$ from $P$ such that $\pi(1, K)$ is $G$. We do this by initially creating a simplicial complex $\Delta(P)$, where each $n$ simplex is an $n$--chain of $P$. We define an $n$--chain to have $n-1$ elements. E.g.~$\{\{1,2\}\}$ is a 0--chain here (the $n$ corr.~to the number of comparisons). In this example $\Delta(P)$ would be two solid tetrahedrons sharing an edge corr.~to the chain $\{\emptyset \subseteq \{1,2,3\}\}$.
+
+For an example that requires slightly less 3-D drawing consider the following poset $P$ and corr.~$\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
+
+\begin{center}
+	\scalebox{1.15}{
+	\begin{tikzpicture}
+		\tikzstyle{every label}=[font=\footnotesize]
+		\begin{scope}[on grid]
+			\node[FSM] (base left)    	at (0,0)   	[label=below:{$\{2\}$}]   	{};
+			\node[FSM] (base right)      		    [right=1cm of base left,
+														label=below:{$\{1\}$}]   	{};
+														
+			\node[FSM] (middle left)    	    	[above left=0.866cm and 0.5cm of base left,
+														label=left:{$\{2,4\}$}]   	{};
+			\node[FSM] (middle middle)				[right=1cm of middle left,
+														label=above right:{$\{1,2\}$}]	{};
+			\node[FSM] (middle right)				[right=1cm of middle middle,
+														label=right:{$\{1,4\}$}]	{};
+														
+			\node[FSM] (top)						[above right=0.866cm and 0.5cm of middle left,
+														label=above:{$\{1,2,4\}$}]	{};
+														
+			\draw	(base left) to (middle left);
+			\draw	(base left) to (middle middle);
+			\draw	(base right) to (middle middle);
+			\draw 	(base right) to (middle right);
+			\draw	(middle left)	to (top);
+			\draw 	(middle middle)	to (top);
+		\end{scope}
+\end{tikzpicture} \hspace{1cm}
+\tikzstyle{green polyfill}=[fill=green!20, draw=green!50!black, thick]
+\begin{tikzpicture}
+	\tikzstyle{every label}=[font=\footnotesize]
+	\begin{scope}[on grid]
+		\node[FSM] (base left)    	at (0,0)   	[label=below:{$\{1,2\}$}]   	{};
+		\node[FSM] (base middle)      		    [right=1cm of base left,
+		label=below:{$\{1\}$}]   	{};
+		\node[FSM] (base right)      		    [right=1cm of base middle,
+		label=below:{$\{1,4\}$}]   	{};	
+		
+		\node[FSM] (middle left)    	    	[above left=0.866cm and 0.5cm of base left,
+		label=left:{$\{2\}$}]   	{};
+		\node[FSM] (middle middle)    	    	[right=1cm of middle left,
+		label=right:{$\{1,2,4\}$}]   {};
+		
+		\node[FSM] (top)						[above right=0.866cm and 0.5cm of middle left,
+		label=above:{$\{2,4\}$}]		{};
+		
+		\begin{pgfonlayer}{background}
+			\filldraw[green polyfill] (base left.center) -- (middle left.center) -- (middle middle.center) -- cycle;
+			\filldraw[green polyfill] (middle left.center) -- (middle middle.center) -- (top.center) -- cycle;
+			\filldraw[green polyfill] (base left.center) -- (middle middle.center) -- (base middle.center) -- cycle;
+			\draw[green polyfill] (base middle) to (base right);		
+		\end{pgfonlayer}
+		
+		
+	\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+This simplicial complex $\Delta(P)$ will be retractable to the base minimum element in $P$ (existence of a minimum element is a requirement of being a Garside structure) in our case. To get a space with a more interesting topology, we use the edge labelling of $P$ to generate a quotient of $\Delta(P)$.
 
 
 \end{document}
