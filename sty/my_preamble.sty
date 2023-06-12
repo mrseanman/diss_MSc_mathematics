@@ -1,12 +1,48 @@
+% ======  LOADING PACKAGES  ====================================================
 \usepackage[subpreambles=true]{standalone}
 \usepackage{import}
 
-\usepackage{sty/my_macros} % Custom maths macros
+% Images
+\usepackage{graphicx}
 
-\usepackage{graphicx} % Required for inserting images
+% Math symbol packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{mathabx}
+% bold maths symbols
+\usepackage{bm}
+\usepackage{amsbsy}
+% Custom maths macros
+\usepackage{sty/my_macros}
 
+% skip line after paragraph
+\usepackage{parskip}
 
-% TikZ stuff ---------------------------------------------------
+% -----  TikZ stuff  -----------------------------------------------------------
 \usepackage{tikz}
 \usetikzlibrary{arrows,decorations,backgrounds}
-\usetikzlibrary{positioning} % For detailed rekative positioning of nodes e.g. "below left=of othernode]"
+% For detailed rekative positioning of nodes e.g. "below left=of othernode]"
+\usetikzlibrary{positioning}
+% For exact numeric calculation of relative positioning
+% (allows coordinate addition etc)
+\usetikzlibrary{calc}
+% For arrows in lines etc.
+\usetikzlibrary{decorations.markings, arrows}
+
+% For easier use of arrows mid line and multi-arrows mid line etc
+% (for polygon model)
+% https://tex.stackexchange.com/questions/85244/adding-double-arrows-to-the-middle-of-a-line-with-tikz
+\tikzset{
+	arrow_me/.style={
+		postaction=decorate,
+		decoration={
+			markings,
+			mark=at position .6 with {\arrow[thick]{#1}}
+		}
+	}
+}
+\pgfarrowsdeclaredouble{<<s}{>>s}{stealth}{stealth}%   double stealth
+\pgfarrowsdeclaretriple{<<<s}{>>>s}{stealth}{stealth}% triple stealth
+%\pgfarrowsdeclaredouble{<<<<s}{>>>>s}{<<s}{>>s}%    quadruple stealth
+
