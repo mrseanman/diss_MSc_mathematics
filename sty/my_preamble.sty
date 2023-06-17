@@ -2,6 +2,10 @@
 \usepackage[subpreambles=true]{standalone}
 \usepackage{import}
 
+% Bibliography
+\usepackage{biblatex}
+\addbibresource{bib/bibliography.bib}
+
 % Images
 \usepackage{graphicx}
 
@@ -18,6 +22,35 @@
 
 % skip line after paragraph
 \usepackage{parskip}
+
+% Theorems, Definitions, Examples
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% Custom theorem style that removes trailing "." from "Definition 2.2." etc
+\newtheoremstyle{plain}
+{\topsep}   % ABOVESPACE
+{\topsep}   % BELOWSPACE
+{}       % BODYFONT
+{0pt}       % INDENT (empty value is the same as 0pt)
+{\bfseries} % HEADFONT
+{}         % HEADPUNCT
+{5pt plus 1pt minus 1pt} % HEADSPACE
+{}          % CUSTOM-HEAD-SPEC
+
+% Hyperref 
+\usepackage[
+bookmarks         = true,%     % Signets
+bookmarksnumbered = true,%     % Signets numérotés%
+bookmarksopen     = true,%     % Signets ouverts
+colorlinks        = true,%     % Liens en couleur : true ou false
+urlcolor          = blue,%     % Couleur des liens externes
+linkcolor         = black,%    % Couleur des liens internes
+citecolor         = black,%    % Couleur des citations
+]{hyperref}% 
 
 % -----  TikZ stuff  -----------------------------------------------------------
 \usepackage{tikz}
