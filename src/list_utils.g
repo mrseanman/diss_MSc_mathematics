@@ -22,20 +22,6 @@ remove_many_indices := function(list, indices_to_remove)
   return dummy_list;;
 end;;
 
-# Given a test value, a boolean valued two argument function and a list,
-# Return all indices for which test_func(test_val, list[i]) = true.
-find_matching_indices := function(test_val, test_func, list)
-  local i, matching_indices;;
-  matching_indices := [];;
-  
-  for i in [1..Length(list)] do
-    if test_func(test_val, list[i]) then
-      Add(matching_indices, i);;
-    fi;;
-  od;;
-  return matching_indices;;
-end;;
-
 # Given a list of letters (any object really) and an integer n, generate
 # all lists of length n containing objects from letters. There will be
 # Length(letters)^n many items in the returned list of lists.
