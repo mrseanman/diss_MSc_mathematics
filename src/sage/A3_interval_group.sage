@@ -22,9 +22,6 @@ names = {
 
 letters = [a,b,c,s,t,u]
 
-all_3_words = tuple(iter.product(letters, repeat=3))
-
-all_matching_words = tuple(word for word in all_3_words if prod(word)==a*b*c)
-
-levels = form_levels(all_matching_words)
+levels, all_matching_words = find_words_form_levels(letters, (a,b,c))
 levels_with_name = recursive_apply_func(levels, lambda x: names[x])
+pprint_levels(levels_with_name)

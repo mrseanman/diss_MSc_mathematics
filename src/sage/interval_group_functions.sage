@@ -1,10 +1,20 @@
+def find_words_form_levels(letters, target):
+    all_n_words = tuple(iter.product(letters, repeat=len(target)))
+    all_matching_words = tuple(word for word in all_n_words if prod(word)==prod(target))
+    levels = form_levels(all_matching_words)
+
+    return levels, all_matching_words
+
+
+
+
 def form_levels(chains):
     all_levels = ()
     
-    for i in range(len(chains[0])):
+    for i in range(len(chains[0]) + 1):
         current_level = ()
         # Initialize prefixes
-        remaining_prefixes = tuple(chain[0:i+1] for chain in chains)
+        remaining_prefixes = tuple(chain[0:i] for chain in chains)
 
         while not len(remaining_prefixes)==0:
             current_test = remaining_prefixes[0]
