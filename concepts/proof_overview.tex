@@ -1,0 +1,56 @@
+\documentclass[class=article, crop=false]{standalone}
+% For whatever reason these must be in here as well as in my_preamble
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+
+\usepackage{sty/my_preamble}
+
+
+\begin{document}
+	
+Here we compile many theorems from \cite{paolini_salvetti_kpi1_2021} in to one theorem.
+
+
+\begin{theorem}[{\cite{paolini_salvetti_kpi1_2021}}]
+	Given an affine Coxeter group $W$, the classifying space $Y_W$ is homotopy equivalent to the order complex $K_W$.
+	\label{thm:proof_overview}
+\end{theorem}
+\begin{proof}
+	This is done through a composition of homotopy equivalences
+	\begin{equation}
+		Y_W \labelrel\simeq{eqmid:configspace_salvetti}
+		X_w \labelrel\simeq{eqmid:salvetti_salvettiprime}
+		X^\prime_w \labelrel\simeq{eqmid:salvettiprime_intervalcomplexprime}
+		K^\prime_W \labelrel\simeq{eqmid:intervalcomplexprime_intervalcomplex}
+		K_W
+	\end{equation}
+
+	Where the results are gathered from the following sources:
+	
+	\eqref{eqmid:configspace_salvetti}: \cite[Theorem 1]{salvetti_topology_1987} \quad
+	\eqref{eqmid:salvetti_salvettiprime}: \cite[Theorem 5.5]{paolini_salvetti_kpi1_2021} \quad
+	\eqref{eqmid:salvettiprime_intervalcomplexprime}: \cite[Theorem 8.14]{paolini_salvetti_kpi1_2021} \quad
+	\eqref{eqmid:intervalcomplexprime_intervalcomplex}: \cite[Theorem 7.9]{paolini_salvetti_kpi1_2021} \quad
+\end{proof}
+
+Furthermore, in the same paper another main result is shown.
+
+\begin{theorem}[{\cite[Theorem 6.6]{paolini_salvetti_kpi1_2021}}]
+	Given an affine Coxeter group $W$, corresponding affine Artin group $G_W$ and Coxeter element $w\in W$, the complex $K_W$ is a classifying space for the dual artin group $W_w$. I.e.
+	\[
+		K_W \simeq K(W_w, 1)
+	\]
+	\label{thm:KW_classifyingspace}
+\end{theorem}
+
+It was already known \cite{where?} that $\pi_1(Y_W) = G_W$. Thus considering $\pi_1(Y_W)$ and combining theorems \ref{thm:proof_overview} and \ref{thm:KW_classifyingspace} gives
+\begin{align}
+	Y_W &\simeq K(G_W,1)\\
+	G_W &\cong W_w
+	\label{eq:artin_iso_dual}
+\end{align}
+for affine $G_W$.
+
+This proves the $K(\pi, 1)$ conjecture for affine Artin groups and provides a new proof than an affine Artin group is naturally isomorphic to its dual, which was already known for finite \cite{bessis_dual_2003} and affine \cite{mccammond_sulway_artin_2017} cases.
+
+\end{document}

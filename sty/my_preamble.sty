@@ -3,7 +3,10 @@
 \usepackage{import}
 
 % Bibliography
-\usepackage{biblatex}
+\usepackage[
+backend=biber,
+style=alphabetic-verb,
+]{biblatex}
 \addbibresource{bib/bibliography.bib}
 
 % Images
@@ -51,6 +54,22 @@ urlcolor          = blue,%     % Couleur des liens externes
 linkcolor         = black,%    % Couleur des liens internes
 citecolor         = black,%    % Couleur des citations
 ]{hyperref}% 
+
+% Custom mid-equation counter
+
+\newcounter{relctr} %% <- counter for relations
+\everydisplay\expandafter{\the\everydisplay\setcounter{relctr}{0}} %% <- reset every eq
+\renewcommand*\therelctr{\alph{relctr}} %% <- label format
+
+\newcommand\labelrel[2]{%
+	\begingroup
+	\refstepcounter{relctr}%
+	\stackrel{\textnormal{(\alph{relctr})}}{\mathstrut{#1}}%
+	\originallabel{#2}%
+	\endgroup
+}
+\AtBeginDocument{\let\originallabel\label} %% <- store original definition
+
 
 % -----  TikZ stuff  -----------------------------------------------------------
 \usepackage{tikz}
