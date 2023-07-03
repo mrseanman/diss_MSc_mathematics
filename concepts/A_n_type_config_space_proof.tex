@@ -8,11 +8,25 @@
 
 \begin{document}
 
-The Coxeter group of type $A_n$ is the symmetry group on a regular $n$-simplex. Being totally symmetric, any of the $n+1$ vertices can be interchanged so $A_n = S_{n+1}$ the symmetric group on $n+1$ letters. 
+Here we will give the definition of the configuration space $Y_W$ for a given Coxeter group $W$ and explain the name \emph{configuration space} by going through an example where we will show that $\pi_1(Y_W) \cong G_W$ for $W$ of type $A_n$ following from \cite{fox_braid_1962}.
 
-Here we will overview the definition of the configuration space $Y_W$ for a given Coxeter group $W$, and show why this space is indeed a configuration space, in that it is the space of configurations of $n$ distinct points on $\R^2 \cong \C$. We will follow \cite{fox_braid_1962} and show that indeed $\pi_1$ of this space is $G_W$, which in this case is the braid group on $n$ strands $B_n$.
+For some Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ acts on $\R^n$ by reflection through hyperplanes. For some $r \in R$ denote its hyperplane by $H(r) \subseteq \R^n$. Dentote the union of all hyperplanes by $\mathcal{H} \coloneqq \bigcup_{r \in R} H(r)$. We associate $\R^n \otimes \C$ with $\C^n$ under the natural isomorphism. This also extends the action $W\acts \R^n$ to $W\acts \C^n$ via $w\cdot(x \otimes \lambda) = (w\cdot x)\otimes \lambda$. We can then make our definition.
 
-Given a Euclidean space $\E^n$ with basis $\{e_i\}$, we have an action $S_n \acts \E^n$ by permutation of components with respect to that basis.
+\begin{definition}[Configuration space] 
+For some Coxeter group $W$ and associated hyperplane system $\mathcal{H}$ as above, we define
+\begin{equation*}
+    Y \coloneqq \C^n \, \setminus \, \left( \mathcal{H} \otimes \C \right)
+\end{equation*}
+and define the configuration space $Y_W$ to be the quotient $Y/W$.
+\label{eq:config_space_def}
+\end{definition}
+
+\subsubsection{Proof that $\pi_1(Y_W) \cong G_W$ for $A_n$ type. }
+
+The Coxeter group $A_n$ is naturally isomorphic to $S_{n+1}$ and so here we will talk about $S_n$ and use its associated cycle notation. Given $\R^n$ with basis $\{e_i\}$, the relevant action $S_n \acts \R^n$ is by permutation of components with respect to that basis.
+The set of reflections $R$ of $S_n$ is all conjugations of the generating adjacent transpositions $(l, l+1)$, which is to say $R$ is the set of all transpositions $(l, n)$. Some $(l, n) \in R$ acts on $\R^n$ as reflection through the plane $P_{(l,n)} = \{ (x_1, \ldots, x_n ) \in \R^n \mid x_l = x_n\}$. Thus here we have $Y = \{(\mu_1, \ldots \mu_n) \in \C^n \mid \forall i,j \,\,\, \mu_i \neq \mu_j\}$. We can think of this as the space of $n$ distinct labelled points in $\C$. The action $W \acts \C^n$ is also permutation components, so we can think of the configuration space $Y_W$ as the set of $n$ distinct \emph{unlabelled} points in $\C$.
+
+In this way, the natural picture for a point in $Y_W$ is $n$ unlabelled dots in $\C$, which we think of as the plane. We can draw a path in $Y_W$ by drawing an arrow from a starting dot to a terminal dot for each of these dots in the plane. These paths can cross on the completed picture, just as long as at a given time $t$, all dots are distinct. In this way, we see that any continuous injection $f \colon \C \to \C$ corresponds to a map $\bar{f} \colon Y_W \to Y_W$ and any continous inection $h \colon \C \times I \to \C$ corresponds to a homotopy $\bar{\text{Id}_\C} \sim h(1,\_) $
 
 
 
