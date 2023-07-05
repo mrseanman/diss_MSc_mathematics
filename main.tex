@@ -1,7 +1,8 @@
 \documentclass{article}
 
 \usepackage{sty/my_preamble}
-
+% for some reason this cant be inside the above
+\addbibresource{bib/bibliography.bib}
 
 \title{Diss}
 \author{Sean O'Brien}
@@ -14,12 +15,13 @@
 
 \maketitle
 
-\section{Introduction}
+\import{sections/introduction/}{introduction_main.tex}
+
 
 \section{Bin}
 
 \subsection{Configuration space}
-\import{concepts/}{A_n_type_config_space_proof.tex}
+%\import{concepts/}{A_n_type_config_space_proof.tex}
 
 
 \subsection{Proof Overview}

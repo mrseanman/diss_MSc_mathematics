@@ -28,21 +28,39 @@ style=alphabetic-verb,
 
 % Theorems, Definitions, Examples
 \usepackage{amsthm}
+
+\makeatletter
+\newtheoremstyle{indented}
+{3pt}% space before
+{3pt}% space after
+{\addtolength{\@totalleftmargin}{1.5em}
+	\addtolength{\linewidth}{-2.5em}
+	\parshape 1 1.5em \linewidth}% body font
+{}% indent
+{\bfseries}% header font
+{.}% punctuation
+{.5em}% after theorem header
+{}% header specification (empty for default)
+\makeatother
+
+\theoremstyle{indented}
+%\newtheorem{definition}{Definition}
+
 \newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
 
 % Custom theorem style that removes trailing "." from "Definition 2.2." etc
-\newtheoremstyle{plain}
-{\topsep}   % ABOVESPACE
-{\topsep}   % BELOWSPACE
-{}       % BODYFONT
-{0pt}       % INDENT (empty value is the same as 0pt)
-{\bfseries} % HEADFONT
-{}         % HEADPUNCT
-{5pt plus 1pt minus 1pt} % HEADSPACE
-{}          % CUSTOM-HEAD-SPEC
+%\newtheoremstyle{plain}
+%{\topsep}   % ABOVESPACE
+%{\topsep}   % BELOWSPACE
+%{}       % BODYFONT
+%{0pt}       % INDENT (empty value is the same as 0pt)
+%{\bfseries} % HEADFONT
+%{}         % HEADPUNCT
+%{5pt plus 1pt minus 1pt} % HEADSPACE
+%{}          % CUSTOM-HEAD-SPEC
 
 % Hyperref 
 \usepackage[
@@ -103,5 +121,7 @@ citecolor         = black,%    % Couleur des citations
 \tikzstyle{FSC}=[circle,draw=black!50,fill=black!20,thick, inner sep=0pt,minimum size=1.5mm]
 \tikzstyle{a}=[red]
 \tikzstyle{b}=[blue]
+
+\usetikzlibrary{decorations.pathreplacing,calligraphy}
 
 
