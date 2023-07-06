@@ -1,11 +1,4 @@
 \documentclass[class=article, crop=false]{standalone}
-% For whatever reason these must be in here as well as in my_preamble
-\usepackage[subpreambles=true]{standalone}
-\usepackage{import}
-
-\usepackage{sty/my_preamble}
-
-
 \begin{document}
 
 Here we will give the definition of the configuration space $Y_W$ for a given Coxeter group $W$ and explain the name \emph{configuration space} by going through an example where we will show that $\pi_1(Y_W) \cong G_W$ for $W$ of type $A_n$ following from \cite{fox_braid_1962}.
@@ -31,7 +24,7 @@ Historically, Emile Artin \cite{artin_braids_1947} originally defined the braid 
 
 In this way, the natural picture for a point in $X^n$ is $n$ unlabelled dots in $\C$, which we will draw in the plane. We can draw a path in $X^n$ by drawing an arrow from a starting dot to a terminal dot for each of these dots in the plane. These paths can cross on the completed picture, just as long as at a given time $t$, all dots are distinct. If the paths do not intersect in the final picture then a valid path in $X^n$ is guaranteed. With this picture in mind, we see that any continuous injection $f \colon \C \to \C$ corresponds to a continuous map $\bar{f} \colon X^n \to X^n$ and any continuous injection $h \colon \C \times I \to \C$ corresponds to a homotopy $h|_{\C\times \{0\}} \sim h|_{\C\times \{1\}}$.
 
-When considering paths in $X^n$ up to homotopy it is beneficial to use the point $(1,2,3,\ldots,n) \in X^n$, which we call the \emph{ordered point}, as our base point. As in Figure \ref{fig:example_path_in_X4}, we can form a curvefrom any point to the ordered. Hopefully it is clear that this is always possible using straight lines given a sensible choice when pairing up the dots. So $X^n$ is path connected.
+When considering paths in $X^n$ up to homotopy it is beneficial to use the point $(1,2,3,\ldots,n) \in X^n$, which we call the \emph{ordered point}, as our base point. As in \cref{fig:example_path_in_X4}, we can form a curvefrom any point to the ordered. Hopefully it is clear that this is always possible using straight lines given a sensible choice when pairing up the dots. So $X^n$ is path connected.
 
 \begin{figure}[h]
 \centering

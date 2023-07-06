@@ -14,3 +14,20 @@
 
 \newcommand{\acts}{\,\rotatebox[origin=c]{-180}{$\circlearrowright$}\,}
 
+
+% -----  Custom set comprehension  --------------------------------------------
+
+\providecommand\given{} % is redefined in \Set
+\newcommand\SetSymbol[1][]{\nonscript\:#1\vert\nonscript\:}
+\DeclarePairedDelimiterX\Set[1]{\{}{\}}{
+	\renewcommand\given{\,\SetSymbol[\delimsize]\,}
+	#1
+}
+
+% -----  Custom group presentation comprehension  ------------------------------
+
+\providecommand\relations{} % is redefined in \Set
+\DeclarePairedDelimiterX\GroupPres[1]{\langle}{\rangle}{
+	\renewcommand\relations{\,\SetSymbol[\delimsize]\,}
+	\,#1\,
+}

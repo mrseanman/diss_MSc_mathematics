@@ -1,5 +1,7 @@
+% ======  SETTING PAGE GEOMETRY  ===============================================
+\usepackage[a4paper, margin=3.4cm]{geometry}
+
 % ======  LOADING PACKAGES  ====================================================
-\usepackage[subpreambles=true]{standalone}
 \usepackage{import}
 
 % Bibliography
@@ -20,15 +22,35 @@ style=alphabetic-verb,
 % bold maths symbols
 \usepackage{bm}
 \usepackage{amsbsy}
-% Custom maths macros
+
+% ----- Custom maths macros ----------------------------------------------------
 \usepackage{sty/my_macros}
+% ------------------------------------------------------------------------------
 
 % skip line after paragraph
 \usepackage{parskip}
 
+% tikz
+\usepackage{tikz}
+\usepackage{tkz-graph}
+
 % Theorems, Definitions, Examples
 \usepackage{amsthm}
+% Hyperref ####### BE CAREFUL this needs to be loaded immediately after amsthm
+\usepackage[
+%bookmarks         = true,%     % Signets
+%bookmarksnumbered = true,%     % Signets numérotés%
+%bookmarksopen     = true,%     % Signets ouverts
+colorlinks        = true,%     % Liens en couleur : true ou false
+urlcolor          = blue,%     % Couleur des liens externes
+linkcolor         = black,%    % Couleur des liens internes
+citecolor         = black,%    % Couleur des citations
+]{hyperref}% 
+\usepackage[capitalize]{cleveref}
 
+% ======  Manipulating packages  ===============================================
+
+% ----- theorems and numbering etc ---------------------------------------------
 \makeatletter
 \newtheoremstyle{indented}
 {3pt}% space before
@@ -43,36 +65,16 @@ style=alphabetic-verb,
 {}% header specification (empty for default)
 \makeatother
 
-\theoremstyle{indented}
-%\newtheorem{definition}{Definition}
+\numberwithin{figure}{section}
+\numberwithin{equation}{section}
 
+\theoremstyle{indented}
 \newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
 
-% Custom theorem style that removes trailing "." from "Definition 2.2." etc
-%\newtheoremstyle{plain}
-%{\topsep}   % ABOVESPACE
-%{\topsep}   % BELOWSPACE
-%{}       % BODYFONT
-%{0pt}       % INDENT (empty value is the same as 0pt)
-%{\bfseries} % HEADFONT
-%{}         % HEADPUNCT
-%{5pt plus 1pt minus 1pt} % HEADSPACE
-%{}          % CUSTOM-HEAD-SPEC
-
-% Hyperref 
-\usepackage[
-bookmarks         = true,%     % Signets
-bookmarksnumbered = true,%     % Signets numérotés%
-bookmarksopen     = true,%     % Signets ouverts
-colorlinks        = true,%     % Liens en couleur : true ou false
-urlcolor          = blue,%     % Couleur des liens externes
-linkcolor         = black,%    % Couleur des liens internes
-citecolor         = black,%    % Couleur des citations
-]{hyperref}% 
-
+% ------------------------------------------------------------------------------
 % Custom mid-equation counter
 
 \newcounter{relctr} %% <- counter for relations
@@ -90,8 +92,6 @@ citecolor         = black,%    % Couleur des citations
 
 
 % -----  TikZ stuff  -----------------------------------------------------------
-\usepackage{tikz}
-\usepackage{tkz-graph}
 \usetikzlibrary{arrows,decorations,backgrounds}
 % For detailed rekative positioning of nodes e.g. "below left=of othernode]"
 \usetikzlibrary{positioning}

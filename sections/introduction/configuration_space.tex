@@ -1,15 +1,11 @@
 \documentclass[class=article, crop=false]{standalone}
-% For whatever reason these must be in here as well as in my_preamble
-\usepackage[subpreambles=true]{standalone}
-\usepackage{import}
-\usepackage{sty/my_preamble}
 \begin{document}
 
 \subsection{Configuration Space}
 
-Here we will give the definition of the configuration space $Y_W$ for a given Coxeter group $W$ and explain the name \emph{configuration space} by going through an example where we will show that $\pi_1(Y_W) \cong G_W$ for $W$ of type $A_n$ following from \cite{fox_braid_1962}.
+Here we will give the definition of the configuration space $Y_W$ for a given Coxeter group $W$ and go through an example where we will show that $\pi_1(Y_W) \cong G_W$ for $W$ of type $A_n$ following from \cite{fox_braid_1962}.
 
-For some Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ acts on $\R^n$ by reflection through hyperplanes. For some $r \in R$ denote its hyperplane by $H(r) \subseteq \R^n$. Dentote the union of all hyperplanes by $\mathcal{H} \coloneqq \bigcup_{r \in R} H(r)$. We associate $\R^n \otimes \C$ with $\C^n$ under the natural isomorphism. This also extends the action $W\acts \R^n$ to $W\acts \C^n$ via $w\cdot(x \otimes \lambda) = (w\cdot x)\otimes \lambda$. We can then make our definition.
+For some Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ acts on $\R^n$ by reflection through hyperplanes. For some $r \in R$ denote its hyperplane by $H(r) \subseteq \R^n$. Dentote the union of all hyperplanes by $\mathcal{H} \coloneqq \bigcup_{r \in R} H(r)$. We associate $\R^n \otimes \C$ with $\C^n$ under the natural isomorphism $x \otimes \lambda \mapsto x\lambda$. This also extends the action $W\acts \R^n$ to $W\acts \C^n$ via $w\cdot(x \otimes \lambda) = (w\cdot x)\otimes \lambda$. We call this act of transporting objects related to $\R^n$ over to $\C^n$ via the tensor product \emph{complexification}. With these tools in mid, we can then make our definition.
 
 \begin{definition}[Configuration space] 
 	For some Coxeter group $W$ and associated hyperplane system $\mathcal{H}$ as above, we define
@@ -17,17 +13,30 @@ For some Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ ac
 		Y \coloneqq \C^n \, \setminus \, \left( \mathcal{H} \otimes \C \right)
 	\end{equation*}
 	and define the configuration space $Y_W$ to be the quotient $Y/W$.
-	\label{eq:config_space_def}
+	\label{def:config_space_def}
 \end{definition}
 
-For a concrete example, we will introduce the $A_n$ family of Coxeter groups and show that the space $Y_W$ for Coxeter groups of type $A_n$ is the space of configurations of $n+1$ points in $\C$, explaining the name.
+It is important to note that the importance of $\C$ here is that it is 2 dimensional. When one takes the complement of a co-dimension 1 object, you typically will not get any interesting topology. By complexifying the hyperplanes and then taking the complement within $\C^n$, we are effectively taking the complement of a co-dimension 2 object, and there is much more room for interesting topologies. The same construction can be achieved using $\R^{2n}$ and $\mathcal{H}\times\mathcal{H}$ but here we choose $\C$ because once spelled out explicitly, the construction is more intuitive.
 
-The family $A_n$ all have Coxeter-Dynkin diagrams of the form as in Figure \ref{fig:A_n_dynkin_diagrams}. This means they have presentation $\langle \sigma_1, \sigma_2, \ldots ,\sigma_n \mid \sigma_i^2 = 1 \,\, \forall i, \,\, (\sigma_i \sigma_{i+1})^3 = 1 \,\, \forall i<n\,\,\rangle$. This well known to be a presentation for the symmetric group $S_{n+1}$ with generators being adjacent transpositions \cite[Proposition 1.5.4]{bjorner_combinatorics_2005}. Accordingly,  we will use the associated cycle notation in $S_{n+1}$ to talk about elements of $A_n$. 
+For a concrete example, we will introduce the $A_n$ family of Coxeter groups and show that the space $Y_W$ for these groups is the space of configurations of $n+1$ points in $\C$, thus explaining the name \emph{configuration space} for general $Y_W$.
+
+The family $A_n$ all have Coxeter-Dynkin diagrams of the form as in \cref{fig:A_n_dynkin_diagrams} and a specific $A_n$ will have presentation.
+\begin{equation}
+	A_n = 
+	\GroupPres*{ \sigma_1, \sigma_2, \ldots ,\sigma_n \relations
+	\begin{aligned}
+		\sigma_i^2 &= 1 													&&\forall i\\
+		(\sigma_i\sigma_j)^2 &= 1 											&&\forall(i+1 < j \leq n) \\
+		(\sigma_i\sigma_{i+1})^3 &= 1 										&&\forall(i < n)
+	\end{aligned}}
+	\label{eq:A_n_presentation}
+\end{equation}
+ 
+ This is well known to be a presentation for the symmetric group $S_{n+1}$ with generators being adjacent transpositions \cite[Proposition 1.5.4]{bjorner_combinatorics_2005}. Accordingly,  we will use the associated cycle notation for symmetric groups to talk about elements of $A_n$. 
 
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}
-
 \node[FSC] (1) 			at (0,0) 	{};
 \node[FSC] (2) 			at (1,0) 	{};
 \node[FSC] (3) 			at (2,0) 	{};
@@ -53,9 +62,21 @@ The family $A_n$ all have Coxeter-Dynkin diagrams of the form as in Figure \ref{
 \label{fig:A_n_dynkin_diagrams}
 \end{figure}
 
-The action of $A_n$ as a reflection group is realised on the space $\R^{n+1}$ with basis $\{e_i\}$, where $A_n \acts \R^{n+1}$ by permuting components with respect to that basis.
-The set of reflections $R$ of $A_n$ is all conjugations of the $n$ adjacent generating transpositions $(l, l+1)$. Which is to say, $R$ is the set of all transpositions $(l, n)$. Some $(l, n) \in R$ acts on $\R^{n+1}$ as reflection through the plane $P_{(l,n)} = \{ (x_1, \ldots, x_{n+1} ) \in \R^{n+1} \mid x_l = x_n\}$. Thus here we have $Y = \{(\mu_1, \ldots \mu_n) \in \C^n \mid \forall i,j \,\,\, \mu_i \neq \mu_j\}$. We can think of this as the space of $n$ distinct labelled points in $\C$. The action $A_n \acts \C^n$ is also permutation components, so we can think of the configuration space $Y_{W}$ as the set of $n$ distinct \emph{unlabelled} points in $\C$, which we will denote $X^n$.
+The action of $A_n$ as a reflection group is realised on the space $\R^{n+1}$ with basis $\Set{e_i}$, where $A_n \acts \R^{n+1}$ by permuting components with respect to that basis.
+The set of reflections $R$ of $A_n$ is all conjugations of the $n$ adjacent generating transpositions $(l, l+1)$. So, $R$ is the set of all transpositions $(l, n)$. Some $(l, n) \in R$ acts on $\R^{n+1}$ as reflection through the plane $\Set{ (x_1, \ldots, x_{n+1} ) \in \R^{n+1} \mid x_l = x_n}$. Thus, taking the complement of the complexification of all such planes, as in \cref{def:config_space_def} we have $Y = \Set{(\mu_1, \ldots \mu_{n+1}) \in \C^{n+1} \given \forall i,j \,\,\, \mu_i \neq \mu_j}$. We can think of this as the space of $n+1$ distinct labelled points in $\C$. The action $A_n \acts \C^{n+1}$ also permutes components, so we can think of the configuration space $Y_{W}$ as the set of $n+1$ distinct \emph{unlabelled} points in $\C$, which we will denote $X^{n+1}$.
 
-Historically, Emile Artin \cite{artin_braids_1947} originally defined the braid group $B_n$ to be $\pi_1(X^n)$. He then showed the validity of the well known presentation of the braid group. In this context, showing the validity of that presentation in turn proves $B_n = G_W$. This proof by Artin is often considered dubious and other proofs are available. One good example is \cite{fox_braid_1962}.
+Historically, Emile Artin \cite{artin_braids_1947} originally defined the braid group on $n$ strands $B_n$ to be $\pi_1(X^n)$. He then showed the validity of the well known presentation of the braid group. 
+
+\begin{equation*}
+	B_n = \GroupPres*{ \,\, \sigma_1, \sigma_2, \ldots , \sigma_{n-1}
+		\relations
+	\begin{aligned}
+		\sigma_i\sigma_j &= \sigma_j\sigma_i &&\forall(i+1 < j \leq n) \\
+		\sigma_i\sigma_{i+1}\sigma_i &= \sigma_{i+1}\sigma_{i}\sigma_{i+1} &&\forall(i < n)
+	\end{aligned}
+	}
+\end{equation*}
+
+In this context, showing the validity of that presentation immediately proves $B_{n+1} = G_W$. This proof by Artin is often considered dubious and other proofs are available. One good example is \cite{fox_braid_1962}.
 
 \end{document}
