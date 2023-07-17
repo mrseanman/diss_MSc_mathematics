@@ -36,6 +36,7 @@ As is typical, we will draw the lesser (with respect to $\leq$) elements towards
 \tikzstyle{a}=[red]
 \tikzstyle{b}=[blue]
 \tikzstyle{c}=[black!30!green]
+\tikzstyle{light}=[black!22!white]
 
 \begin{figure}
 \centering
@@ -57,7 +58,36 @@ As is typical, we will draw the lesser (with respect to $\leq$) elements towards
 	\draw[a] (top left) 	to 	node[auto] 			{a} 	(top);
 	\draw[b] (top right) 	to 	node[auto, swap] 	{b} 	(top);
 \end{tikzpicture}
-\caption{A simple example of an edge labelled poset where we have taken $\leq$ to be $\subseteq$.}
+\hspace{1cm}
+\begin{tikzpicture}[baseline=-18pt]
+	\node[FSC] (base)          	at (0,0)    						    {};
+	\node[FSC] (bottom left)    at ($(base) + (-0.8,1) $)   		    {};
+	\node[FSC] (bottom right)   at ($(bottom left) + (1.6,0)$)  		{};
+	\node[FSC] (top left)       at ($(bottom left) + (-1.1,0.5)$)    	    {};
+	\node[FSC] (top middle)    	at ($(base) + (0,1.5)$)  				    {};
+	\node[FSC] (top right)    	at ($(bottom right) + (1.1,0.5)$)  	    {};
+	\node[FSC] (top)          	at ($(base) + (0,3)$)    			  	{};
+	
+	\draw (base) 			to 	 				(bottom left);
+	\draw (base) 			to 	  				(bottom right);
+	\draw (bottom left) 	to 	 				(top left);
+	\draw (bottom left) 	to 	 				(top middle);
+	\draw (top middle) 		to 					(top);
+	\draw (bottom right) 	to 	  				(top right);
+	\draw (top left) 		to 	 				(top);
+	\draw (top right) 		to 	  				(top);
+	
+	
+	\begin{pgfonlayer}{background}
+		\draw[light] (base) 			to 	 				(top middle);
+		\draw[light] (base) 			to 	  				(top);
+		\draw[light] (base) 			to 	 				(top left);
+		\draw[light] (base) 			to 	 				(top right);
+		\draw[light] (bottom left) 	to 					(top);
+		\draw[light] (bottom right) 	to 	  				(top);
+	\end{pgfonlayer}
+\end{tikzpicture}
+\caption{A simple example of an edge labelled poset where we have taken $\leq$ to be $\subseteq$ (left). The same poset with all chains drawn in light lines to aid visualiseing $\Delta(P)$ (right).}
 \label{fig:example_edge_labelled_poset}
 \end{figure}
 
