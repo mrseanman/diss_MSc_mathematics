@@ -30,24 +30,24 @@ When considering paths in $X^n$ up to homotopy it is beneficial to use the point
 \centering
 \begin{tikzpicture}
 
-    \draw[help lines, color=gray!30, dashed] (-1.9,-1.9) grid (4.9, 4.9);
-    \draw[->,ultra thick] (-2,0)--(5,0) ;
-    \draw[->,ultra thick] (0,-2)--(0,5) ;
+  \draw[help lines, color=gray!30, dashed] (-1.9,-1.9) grid (4.9, 4.9);
+  \draw[->,ultra thick] (-2,0)--(5,0) ;
+  \draw[->,ultra thick] (0,-2)--(0,5) ;
     
 	\node[FSC] (start 1)     at (-1.2, 1.5)	   {};
 	\node[FSC] (start 2)     at (-1.2, 3.1)    {};
 	\node[FSC] (start 3)     at (1.9, -1.4)    {};
 	\node[FSC] (start 4)     at (4.6, 3.9)     {};
 
-    \node[FSC] (end 1)       at (1, 0)         {};
+  \node[FSC] (end 1)       at (1, 0)         {};
 	\node[FSC] (end 2)       at (2, 0)         {};
 	\node[FSC] (end 3)       at (3, 0)         {};
 	\node[FSC] (end 4)       at (4, 0)         {};
 
 	\draw[arrow_me=stealth] (start 1) .. controls (-1,0) and (0.5,2) .. (end 1);
-    \draw[arrow_me=stealth] (start 2) .. controls (0,4) and (1,1) ..	(end 2);
-    \draw[arrow_me=stealth] (start 3) .. controls (2,-1) and (3,-1) ..	(end 3);
-    \draw[arrow_me=stealth] (start 4) to (end 4);
+  \draw[arrow_me=stealth] (start 2) .. controls (0,4) and (1,1) ..	(end 2);
+  \draw[arrow_me=stealth] (start 3) .. controls (2,-1) and (3,-1) ..	(end 3);
+  \draw[arrow_me=stealth] (start 4) to (end 4);
 
 \end{tikzpicture}
 	\caption{A path in $X^4$ where the terminal point is the ordered point}

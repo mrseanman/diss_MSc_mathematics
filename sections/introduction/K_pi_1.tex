@@ -4,8 +4,24 @@
 \subsection{The $K(\pi,1)$ Conjecture}
 For a group $G$, an Eilenberg-MacLane space \cite{eilenberg_relations_1945} for $G$ is a space $X$ such that $\pi_n(X)=G$ for some $n$ and $\pi_i(X) = 0$ for all $i\neq n$. We will use the terminology ``$X$ is a $K(G,n)$ space''. The $K(\pi,1)$ conjecture for Artin groups states that for all Coxeter groups $W$, the space $Y_W$ is a $K(G_W,1)$ space. Admittedly the use of $\pi$ in the name of the conjecture is confusing.
 
-We have already seen in \cref{sec:config_space_intro} that indeed $\pi_1(Y_W) \cong G_W$, thus to prove the $K(\pi, 1)$ conjecture for type $A_n$ coxeter groups we need to verify that the higher homotopy groups of $Y_W$ are trivial. This can be done by observing that $\conf_n(\C)$ is a fibre bundle over $\conf_{n-1}(\C)$ with fibres homeomorphic to $\C \setminus \Set{\text{n distinct points}}$, as spelled out in \cite{sinha_homology_2010}.
+We have already seen in \cref{sec:config_space_intro} that indeed $\pi_1(Y_W) \cong G_W$, thus to prove the $K(\pi, 1)$ conjecture for type $A_n$ coxeter groups we need to verify that the higher homotopy groups of $Y_W$ are trivial. This can be done by observing that $\conf_n(\C)$ is a fibre bundle over $\conf_{n-1}(\C)$ with projection $p$ forgetting a point and fibres homeomorphic to $\C \setminus \Set{\text{n distinct points}}$, as spelled out in \cite{sinha_homology_2010}.
 
-The TEST TEST TEST
+The space $\C \setminus \Set{\text{n distinct points}}$ is homotopy equivalent to $\bigvee_n S^1$ and so we can use the fibration
+\begin{equation*}
+	\begin{tikzcd}
+		&\bigvee_{n-1} S^1 \arrow[hook]{r} &\conf_n(\C) \arrow{r}{p} &\conf_{n-1}(\C)
+	\end{tikzcd}
+\end{equation*}
+to build a tower of fibrations
+\begin{equation*}
+	\begin{tikzcd}
+		& 							&\vdots \arrow{d} 	\\
+		&\bigvee_3 S^1 	\arrow[hook]{r} 	&\conf_4(\C)  \arrow{d} \\
+		&\bigvee_2 S^1 	\arrow[hook]{r} 	&\conf_3(\C)  \arrow{d} \\
+		&S^1 	\arrow[hook]{r} 	&\conf_2(\C)
+	\end{tikzcd}
+\end{equation*}
+where the is a short exact sequence in homotopy groups starting at each $\pi_k(\bigvee_n S^1)$ going right and down to $\pi_k(\conf_n(\C))$ for any $k$. We note that $\conf_2(\C) \simeq S^1$ and so has trivial homotopy above $\pi_1$. Similarly, $\bigvee_2 S^1$ has trivial higher homotopy. So $\pi_k(\conf_3(\C)) \cong 0$ for $k>1$ and we can continue up the tower inductively to show $\pi_k(\conf_n(\C)) \cong 0$ for $k>1$ for all $n$. So indeed $\conf_{n+1}(\C) = Y_W$ is a $K(G_W,1)$ for $W=A_n$. A proof of this for all shperical type $W$ is in \cite{deligne_les_1972}. The paper of interest to us, \cite{paolini_salvetti_kpi1_2021}, proves the $K(\pi,1)$ for affine type Coxeter groups. 
+
 
 \end{document}
