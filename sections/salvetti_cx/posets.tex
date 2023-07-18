@@ -5,7 +5,7 @@
 
 A partially ordered set or \emph{poset} $(P, \leq)$ is a set $P$ with a relation $\leq$ on pairs in $P$ which encodes the topology of $\R$. The textbook \cite{gratzer_lattice_2011} provides a good introduction. An important note is that there is no requirement for every pair to be related, hence partial. We will use $P$ as shorthand for $(P, \leq)$ where possible.
 
-In a poset $P$ we define the \emph{interval} between two elements $[x,y]$ as $[x,y] \coloneq \Set{u \in P \given x\leq u \leq y}$, which is itself a poset. A \emph{chain} is a subset $C \subseteq P$ that is a totally ordered, i.e~every pair in $(u,v) \in C\times C$ satisfies either $u\leq v$ or $v\leq u$. The \emph{covering relations} of $P$, denoted $\mathcal{E}(P)$ are defined,
+In a poset $P$ we define the \emph{interval} between two elements $[x,y]$ as $[x,y] \coloneq \Set{u \in P \given x\leq u \leq y}$, which is itself a poset. A \emph{chain} is a subset $C \subseteq P$ that is a totally ordered, i.e.~every pair in $(u,v) \in C\times C$ satisfies either $u\leq v$ or $v\leq u$. The \emph{covering relations} of $P$, denoted $\mathcal{E}(P)$ are defined,
 \begin{equation*}
 	\mathcal{E}(P) = \Set{(x,y) \in P\times P \given x\leq y \,\, \text{and} \,\,  [x,y] = \Set{x,y}}
 \end{equation*}
@@ -41,39 +41,39 @@ As is typical, we will draw the lesser (with respect to $\leq$) elements towards
 \begin{figure}
 \centering
 \begin{tikzpicture}
-	\node[FSC] (base)          	at (0,0)    						[label=below:$\emptyset$]         			{};
-	\node[FSC] (bottom left)    at ($(base) + (-0.8,1) $)   		[label={[label distance=-0.1cm]200:$\{1\}$}]    {};
-	\node[FSC] (bottom right)   at ($(bottom left) + (1.6,0)$)  	[label={[label distance=-0.1cm]300:$\{2\}$}]             		{};
-	\node[FSC] (top left)       at ($(bottom left) + (-1.1,1)$)    	[label=left:{$\{1,4\}$}]          			{};
-	\node[FSC] (top middle)    	at ($(base) + (0,2)$)  				[label=right:{$\{1,3\}$}]          			{};
-	\node[FSC] (top right)    	at ($(bottom right) + (1.1,1)$)  	[label=right:{$\{2,3\}$}]          			{};
-	\node[FSC] (top)          	at ($(base) + (0,3)$)    			[label=above:{$\{1,2,3,4\}$}]   				{};
+	\node[FSC] (base)		at (0,0)				[label=below:$\emptyset$]			{};
+	\node[FSC] (bottom left)	at ($(base) + (-0.8,1) $)   		[label={[label distance=-0.1cm]200:$\{1\}$}]    {};
+	\node[FSC] (bottom right)	at ($(bottom left) + (1.6,0)$)  	[label={[label distance=-0.1cm]300:$\{2\}$}]    {};
+	\node[FSC] (top left)		at ($(bottom left) + (-1.1,1)$)    	[label=left:{$\{1,4\}$}]          		{};
+	\node[FSC] (top middle)    	at ($(base) + (0,2)$)  			[label=right:{$\{1,3\}$}]			{};
+	\node[FSC] (top right)    	at ($(bottom right) + (1.1,1)$)  	[label=right:{$\{2,3\}$}]          		{};
+	\node[FSC] (top)          	at ($(base) + (0,3)$)    		[label=above:{$\{1,2,3,4\}$}]			{};
 	
-	\draw[a] (base) 		to 	node[auto] 			{a} 	(bottom left);
+	\draw[a] (base) 		to 	node[auto] 		{a} 	(bottom left);
 	\draw[b] (base) 		to 	node[auto, swap] 	{b} 	(bottom right);
-	\draw[b] (bottom left) 	to 	node[auto] 			{b} 	(top left);
-	\draw[c] (bottom left) 	to 	node[auto] 			{c} 	(top middle);
-	\draw[a] (top middle) 	to 	node[auto]			{a}		(top);
-	\draw[a] (bottom right) to 	node[auto, swap] 	{a} 	(top right);
-	\draw[a] (top left) 	to 	node[auto] 			{a} 	(top);
-	\draw[b] (top right) 	to 	node[auto, swap] 	{b} 	(top);
+	\draw[b] (bottom left)		to 	node[auto] 		{b} 	(top left);
+	\draw[c] (bottom left)		to 	node[auto] 		{c} 	(top middle);
+	\draw[a] (top middle)		to 	node[auto]		{a}	(top);
+	\draw[a] (bottom right)		to 	node[auto, swap] 	{a} 	(top right);
+	\draw[a] (top left)		to 	node[auto] 		{a} 	(top);
+	\draw[b] (top right)		to 	node[auto, swap] 	{b} 	(top);
 \end{tikzpicture}
 \hspace{1cm}
 \begin{tikzpicture}[baseline=-18pt]
-	\node[FSC] (base)          	at (0,0)    						    {};
-	\node[FSC] (bottom left)    at ($(base) + (-0.9,1) $)   		    {};
-	\node[FSC] (bottom right)   at ($(bottom left) + (1.6,0)$)  		{};
-	\node[FSC] (top left)       at ($(bottom left) + (-1.1,0.5)$)    	    {};
-	\node[FSC] (top middle)    	at ($(base) + (-0.38,1.15)$)  				    {};
-	\node[FSC] (top right)    	at ($(bottom right) + (1.1,0.5)$)  	    {};
-	\node[FSC] (top)          	at ($(base) + (0,3)$)    			  	{};
+	\node[FSC] (base)          	at (0,0)					{};
+	\node[FSC] (bottom left)	at ($(base) + (-0.9,1) $)			{};
+	\node[FSC] (bottom right)	at ($(bottom left) + (1.6,0)$)  		{};
+	\node[FSC] (top left)		at ($(bottom left) + (-1.1,0.5)$)		{};
+	\node[FSC] (top middle)    	at ($(base) + (-0.38,1.15)$)			{};
+	\node[FSC] (top right)    	at ($(bottom right) + (1.1,0.5)$)		{};
+	\node[FSC] (top)          	at ($(base) + (0,3)$)    			{};
 	
-	\draw (base) 			to 	 				(bottom left);
+	\draw (base) 			to					(bottom left);
 	\draw (base) 			to 	  				(bottom right);
-	\draw (bottom left) 	to 	 				(top left);
-	\draw (bottom left) 	to 	 				(top middle);
+	\draw (bottom left)		to 	 				(top left);
+	\draw (bottom left)		to 	 				(top middle);
 	\draw (top middle) 		to 					(top);
-	\draw (bottom right) 	to 	  				(top right);
+	\draw (bottom right)	 	to 	  				(top right);
 	\draw (top left) 		to 	 				(top);
 	\draw (top right) 		to 	  				(top);
 	

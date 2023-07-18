@@ -18,31 +18,31 @@ For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be thr
 \centering
 \begin{tikzpicture}[scale=1.5]
 	\tikzstyle{every label}=[font=\footnotesize]
-	\node[FSC] (base left)    	at (0,0)   							[label=below:{$\{2\}$}]   	{};
-	\node[FSC] (base right)		at ($(base left) + (1,0)$)  		[label=below:{$\{1\}$}]   	{};							
-	\node[FSC] (middle left)	at ($(base left) + (-0.5, 0.866)$)  [label=left:{$\{2,3\}$}]   	{};
+	\node[FSC] (base left)    	at (0,0)   				[label=below:{$\{2\}$}]				{};
+	\node[FSC] (base right)		at ($(base left) + (1,0)$)  		[label=below:{$\{1\}$}]   			{};							
+	\node[FSC] (middle left)	at ($(base left) + (-0.5, 0.866)$)	[label=left:{$\{2,3\}$}]   			{};
 	\node[FSC] (middle middle)	at ($(middle left) + (1,0)$)		[label={[label distance=-4]40:{$\{1,2\}$}}]	{};
-	\node[FSC] (middle right)	at ($(middle middle) + (1,0)$)		[label=right:{$\{1,4\}$}]	{};
-	\node[FSC] (top)			at ($(middle middle) + (0, 0.866)$)	[label=above:{$\{1,2,3,4\}$}]	{};
+	\node[FSC] (middle right)	at ($(middle middle) + (1,0)$)		[label=right:{$\{1,4\}$}]			{};
+	\node[FSC] (top)		at ($(middle middle) + (0, 0.866)$)	[label=above:{$\{1,2,3,4\}$}]			{};
 												
-	\draw	(base left) to (middle left);
-	\draw	(base left) to (middle middle);
-	\draw	(base right) to (middle middle);
-	\draw 	(base right) to (middle right);
-	\draw	(middle left)	to (top);
-	\draw 	(middle middle)	to (top);
-	\draw	(middle right)	to (top);
+	\draw	(base left)		to		(middle left);
+	\draw	(base left)		to 		(middle middle);
+	\draw	(base right)		to 		(middle middle);
+	\draw 	(base right)		to 		(middle right);
+	\draw	(middle left)		to 		(top);
+	\draw 	(middle middle)		to 		(top);
+	\draw	(middle right)		to 		(top);
 \end{tikzpicture}
 \hspace{1cm}
 \tikzstyle{green polyfill}=[fill=green!20, draw=green!50!black, thick]
 \begin{tikzpicture}[scale = 1.5]
 	\tikzstyle{every label}=[font=\footnotesize]
-	\node[FSC] (base left)    	at (0,0)   							[label=below:{$\{2\}$}]   	{};
-	\node[FSC] (base right)		at ($(base left) + (2,0)$)  		[label=below:{$\{1\}$}]   	{};							
-	\node[FSC] (middle left)	at ($(base left) + (-0.5, 0.866)$)  [label=left:{$\{2,3\}$}]   	{};
-	\node[FSC] (middle middle)	at ($0.5*(base left) + 0.5*(base right) + (0,0.5)$)		[label={[label distance=4pt]270:{$\{1,2\}$}}]	{};
-	\node[FSC] (middle right)	at ($(base right) + (0.5,0.866)$)		[label=right:{$\{1,4\}$}]	{};
-	\node[FSC] (top)			at ($(middle middle) + (0, 0.866)$)	[label=above:{$\{1,2,3,4\}$}]	{};
+	\node[FSC] (base left)    	at (0,0)						[label=below:{$\{2\}$}]				{};
+	\node[FSC] (base right)		at ($(base left) + (2,0)$)				[label=below:{$\{1\}$}]   			{};							
+	\node[FSC] (middle left)	at ($(base left) + (-0.5, 0.866)$)			[label=left:{$\{2,3\}$}]   			{};
+	\node[FSC] (middle middle)	at ($0.5*(base left) + 0.5*(base right) + (0,0.5)$)	[label={[label distance=4pt]270:{$\{1,2\}$}}]	{};
+	\node[FSC] (middle right)	at ($(base right) + (0.5,0.866)$)			[label=right:{$\{1,4\}$}]			{};
+	\node[FSC] (top)		at ($(middle middle) + (0, 0.866)$)		[label=above:{$\{1,2,3,4\}$}]			{};
 	
 	\begin{pgfonlayer}{background}
 		\filldraw[green polyfill] (base left.center) -- (middle left.center) -- (top.center) -- cycle;
@@ -77,7 +77,7 @@ We continue, now using an edge labelling on $P$, to generate a quotient space $K
 	\draw[a] 	(middle middle)	to 	node[right] 		{a}		(top);
 	\draw[b]	(middle right)	to 	node[right]			{b}		(top);
 \end{tikzpicture}
-\hspace{1cm}
+\hspace{1.3cm}
 \tikzstyle{green polyfill}=[fill=green!20, draw=green!50!black, thick]
 \begin{tikzpicture}[scale = 1.5, baseline=-20pt]
 	\tikzstyle{every label}=[font=\footnotesize]
