@@ -10,7 +10,7 @@ In a poset $P$ we define the \emph{interval} between two elements $[x,y]$ as $[x
 	\mathcal{E}(P) = \Set{(x,y) \in P\times P \given x\leq y \,\, \text{and} \,\,  [x,y] = \Set{x,y}}
 \end{equation*}
 
-i.e.~ordered pairs such that there is nothing in between them in the order. If $(x,y) \in \mathcal{E}(P)$, we write $x \lessdot y$. We will call a chain $C$ \emph{saturated} if for all $x,y \in C$ such that $x \leq y$, there exists $z \in C$ such that $x \lessdot z$, i.e.~there are no gaps in the chain.
+i.e.~ordered pairs such that there is nothing in between them in the order. If $(x,y) \in \mathcal{E}(P)$, we write $x \lessdot y$. We will call a chain $C$ \emph{saturated} if for all $x,y \in C$ such that $x < y$, there exists $z \in C$ such that $x \lessdot z$, i.e.~there are no gaps in the chain.
 
 By transitivity, the covering relations encode the whole poset structure, which can in turn be drawn in a diagram which we will now define.
 
@@ -44,10 +44,10 @@ As is typical, we will draw the lesser (with respect to $\leq$) elements towards
 	\node[FSC] (base)          	at (0,0)    						[label=below:$\emptyset$]         			{};
 	\node[FSC] (bottom left)    at ($(base) + (-0.8,1) $)   		[label={[label distance=-0.1cm]200:$\{1\}$}]    {};
 	\node[FSC] (bottom right)   at ($(bottom left) + (1.6,0)$)  	[label={[label distance=-0.1cm]300:$\{2\}$}]             		{};
-	\node[FSC] (top left)       at ($(bottom left) + (-1.1,1)$)    	[label=left:{$\{1,2\}$}]          			{};
+	\node[FSC] (top left)       at ($(bottom left) + (-1.1,1)$)    	[label=left:{$\{1,4\}$}]          			{};
 	\node[FSC] (top middle)    	at ($(base) + (0,2)$)  				[label=right:{$\{1,3\}$}]          			{};
 	\node[FSC] (top right)    	at ($(bottom right) + (1.1,1)$)  	[label=right:{$\{2,3\}$}]          			{};
-	\node[FSC] (top)          	at ($(base) + (0,3)$)    			[label=above:{$\{1,2,3\}$}]   				{};
+	\node[FSC] (top)          	at ($(base) + (0,3)$)    			[label=above:{$\{1,2,3,4\}$}]   				{};
 	
 	\draw[a] (base) 		to 	node[auto] 			{a} 	(bottom left);
 	\draw[b] (base) 		to 	node[auto, swap] 	{b} 	(bottom right);
@@ -61,10 +61,10 @@ As is typical, we will draw the lesser (with respect to $\leq$) elements towards
 \hspace{1cm}
 \begin{tikzpicture}[baseline=-18pt]
 	\node[FSC] (base)          	at (0,0)    						    {};
-	\node[FSC] (bottom left)    at ($(base) + (-0.8,1) $)   		    {};
+	\node[FSC] (bottom left)    at ($(base) + (-0.9,1) $)   		    {};
 	\node[FSC] (bottom right)   at ($(bottom left) + (1.6,0)$)  		{};
 	\node[FSC] (top left)       at ($(bottom left) + (-1.1,0.5)$)    	    {};
-	\node[FSC] (top middle)    	at ($(base) + (0,1.5)$)  				    {};
+	\node[FSC] (top middle)    	at ($(base) + (-0.38,1.15)$)  				    {};
 	\node[FSC] (top right)    	at ($(bottom right) + (1.1,0.5)$)  	    {};
 	\node[FSC] (top)          	at ($(base) + (0,3)$)    			  	{};
 	

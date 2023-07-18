@@ -12,12 +12,13 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
 
 \newcommand{\acts}{\,\rotatebox[origin=c]{-180}{$\circlearrowright$}\,}
 
 \DeclareMathOperator{\conf}{Conf}
 \DeclareMathOperator{\image}{Im}
-
+\DeclareMathOperator{\sal}{{Sal}}
 
 % -----  Custom set comprehension  --------------------------------------------
 
@@ -33,5 +34,15 @@
 \providecommand\relations{} % is redefined in \Set
 \DeclarePairedDelimiterX\GroupPres[1]{\langle}{\rangle}{
 	\renewcommand\relations{\,\SetSymbol[\delimsize]\,}
+	#1
+}
+
+% -----  Custom abs  ------------------------------
+
+\DeclarePairedDelimiterX\Abs[1]{|}{|}{
 	\,#1\,
 }
+
+% vertical equal to 
+\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
+\newcommand{\smallvertequalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}

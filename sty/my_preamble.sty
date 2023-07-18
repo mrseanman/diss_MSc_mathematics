@@ -16,7 +16,7 @@ style=alphabetic-verb,
 \graphicspath{{figs/}}
 
 % Captions
-\usepackage{caption}
+\usepackage[font=footnotesize]{caption}
 \captionsetup{format=hang}
 
 % Math symbol packages
@@ -104,6 +104,11 @@ citecolor         = black,%    % Couleur des citations
 % For exact numeric calculation of relative positioning
 % (allows coordinate addition etc)
 \usetikzlibrary{calc}
+\usetikzlibrary{math}
+
+% for halo around text
+\usepackage[outline]{contour}
+\contourlength{1.2pt}
 % For arrows in lines etc.
 \usetikzlibrary{decorations.markings, arrows}
 
