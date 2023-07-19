@@ -1,3 +1,4 @@
+% !TeX root = ../../main.tex
 \documentclass[class=article, crop=false]{standalone}
 \begin{document}
 
@@ -11,7 +12,7 @@ Here we will define the \emph{Salvetti Complex} for a Coxeter group $W$ generate
 For some $T \subseteq S$, we say some $w \in W$ is $T$--minimal if $w$ is the unique element of minimum length (with respect to $S$) in the coset $wT$. Uniqueness is shown in \cite{bourbaki_elements_2008}.
 Define an order on the set $W \times \Delta_W$ by the following: $(u,X)\leq (v,Y)$ iff $X\subseteq Y$, $v^{-1}u \in W_Y$ and $v^{-1}u$ is $X$--minimal.
 
-\begin{definition}[Pre-Salvetti Complex]
+\begin{definition}[{Pre-Salvetti Complex \cite[Definition 2.19]{paolini_classifying_2017}}]
 	For a Coxeter group $W$, define $\sal(W)$ to be $\Delta(W \times \Delta_W)$ under the order $\leq$ prescribed above, where the first $\Delta$ is as in \cref{def:geometric_simplicial_cx}.
 	\label{def:pre_salvetti_cx}
 \end{definition}
@@ -63,12 +64,17 @@ Considering for a moment $s$ and $t$ as letters only, a normal form comprising m
 \end{equation*}
 recalling the meaning of $\Pi(s,t,n)$ from \cref{def:artin_group}. Note that $\Pi(t,s,m(s,t))$ is also a minimal length word but is not included for the above to be a normal form. Thus any $sts\ldots s$ is $\Set{t}$--minimal if the total length of $sts\ldots s$ is strictly less than $m(s,t)$. Similarly $sts\ldots t$ is $\Set{s}$--minimal if the total length of $sts\ldots t$ is strictly less than $m(s,t)$, with equivalent results for $tst\ldots s$ and $tst \ldots t$ depending on the last letter in the word. A local picture of the Hasse diagram for the cell $C(w,\Set{s,t})$ where $m(s,t)=3$ is shown in \cref{fig:hasse_for_salvetti_2_cell}. The CW cell itself has been drawn in \cref{fig:hasse_for_salvetti_CW_2_cell}.
 
-Note we have been talking about
-
-\begin{definition}[{Salvetti Complex \cite[Definition 2.19]{paolini_classifying_2017}}]
-	For a Coxeter group $W$, define the \emph{Salvetti Complex} $X_W$ to be $\sal(W)/W$, under the group action $w\cdot(u,T) = (wu,T)$.
-	\label{def:salvetti_cx}
+There is a natural action $W\acts \sal(W)$ with $w\cdot (u,T) \coloneq (wu, T)$. We can now define the following
+\begin{definition}[Salvetti Complex]
+	For a Coxeter group $W$ define the \emph{Salvetti Complex} $X_W$ to be $\sal(W)/W$ under the action specified above.
 \end{definition}
+
+The action is cellular, thus we have a CW structure for $X_W$ as well. We now have the following very important result.
+\begin{theorem}[{\cite[Corollary 3.4]{paris_kpi_2014}\cite{salvetti_topology_1987}}]
+	For a Coxeter group $W$, the Salvetti complex $X_W$ is homotopy equivalent to the configuration space $Y_W$.
+\end{theorem}
+
+Now let us consider the cell structure of $X_W$. There is one $\Abs{T}$--cell for each $T \in \Delta_W$, in particular, there is one 0--cell corresponding to the finite group $W_\emptyset$. Attached to this is a 1--cell for each $s\in S$. Then to this wedge of $S^1$'s is attached 2--cells following the procedure above for each $m(s,t) \neq \infty$. It should now be clear that $\pi_1(X_W) \cong G_W$. Thus combining with the previous theorem we have re-proved \cref{thm:fundamental_group_Y_W_is_G_W}.
 
 \tikzmath{
 	\hsep = 1.6;
@@ -146,9 +152,6 @@ Note we have been talking about
 \end{figure}
 
 
-\begin{theorem}[{\cite{salvetti_topology_1987}}]
-	For a Coxeter group $W$, the Salvetti complex $X_W$ is homotopy equivalent to the configuration space $Y_W$.
-\end{theorem}
 
 As in \cite{paolini_classifying_2017}.
 

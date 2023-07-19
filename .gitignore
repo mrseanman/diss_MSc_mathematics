@@ -8,3 +8,6 @@
 *.blg
 *.out
 *.run.xml
+*.fdb_latexmk
+*.fls
+build/*
