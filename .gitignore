@@ -1,6 +1,5 @@
 *.aux
 *.log
-*.pdf
 *.sta
 *.synctex.gz
 *.bbl
@@ -11,3 +10,4 @@
 *.fdb_latexmk
 *.fls
 build/*
+!build/*.pdf
