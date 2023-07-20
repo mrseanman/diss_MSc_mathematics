@@ -3,6 +3,7 @@
 \begin{document}
 
 \subsection{Poset Complex}
+\label{sec:poset_cx}
 
 For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. We do this by initially defining a simplicial complex $\Delta(P)$. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets. From this, we can define
 
@@ -13,9 +14,9 @@ For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P
 
 The set of all chains in a poset $P$ is an abstract simplicial complex. We define $\Delta(P)$ to be the geometric simplicial complex corresponding to the set of all chains in $P$ where each $n$--simplex is an $n$--chain of $P$. Note that as in \cite[Definition 1.7]{mccammond_sulway_artin_2017}, we define an $n$--chain to have $n-1$ elements. E.g.~$(\{1\} \subseteq \{1,2\})$ is a 1--chain.
 
-For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be three solid tetrahedrons all sharing an edge (a 1--simplex) corresponding to the 1--chain $(\emptyset \subseteq \{1,2,3,4\})$ with and two of them sharing a face corresponding to the 2--chain  $(\emptyset \subseteq \Set{1} \subseteq \Set{1,2,3,4})$. For a more two dimensional example consider the following poset $P$ and corresponding $\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
+For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be three solid tetrahedrons all sharing an edge (a 1--simplex) corresponding to the 1--chain $(\emptyset \subseteq \{1,2,3,4\})$ with and two of them sharing a face corresponding to the 2--chain  $(\emptyset \subseteq \Set{1} \subseteq \Set{1,2,3,4})$. For a more two--dimensional example consider the following poset $P$ and corresponding $\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{tikzpicture}[scale=1.5]
 	\tikzstyle{every label}=[font=\footnotesize]
@@ -58,7 +59,7 @@ For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be thr
 
 We continue, now using an edge labelling on $P$, to generate a quotient space $K(P)$ of $\Delta(P)$. Let us put some arbitrary edge labelling on $P$ to progress with this, shown in \cref{fig:example_edge_labelled_poset_with_KP} (left).
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{tikzpicture}[scale=1.5]
 	\tikzstyle{every label}=[font=\footnotesize]
@@ -136,10 +137,11 @@ Here a \emph{saturated chain} is a chain such that every relation is a covering 
 This extended labelling on chains naturally extends to a labelling on simplices in $\Delta(P)$. Using this labelling and the orientation induced on a chain by $\leq$, we can define $K(P)$.
 
 \begin{definition}[{Poset Complex \cite[Definition 1.6]{mccammond_introduction_to_garside}}]
-	For an edge--labelled poset $P$ the poset complex $K(P)$ is the quotient space $\Delta(P)/\sim$ where $\sim$ identifies simplices that share the same extended label pointwise, using the orientation on simplices induced by $\leq$.
+	For an edge--labelled poset $P$ the poset complex $K(P)$ is the quotient space $\Delta(P)/\sim$ where $\sim$ identifies pointwise simplices of the same dimension that share the same extended label, using the orientation on simplices induced by $\leq$.
+	\label{def:poset_complex}
 \end{definition}
 
-In the example in \cref{fig:example_edge_labelled_poset_with_KP}, three red edges are identiefied, four blue edges are identified, two orange triangles are identified and two purple triangles are identified. Note that the two black edges are in this case identified, but only because they belong to the two pairs of identified triangles. In the second example for $\mathcal{L}$ above, we see they have different labels.
+In the example in \cref{fig:example_edge_labelled_poset_with_KP}, three red edges are indentified, four blue edges are identified, two orange triangles are identified and two purple triangles are identified. Note that the two black edges are in this case identified, but only because they belong to the two pairs of identified triangles. In the second example for $\mathcal{L}$ above, we see they have different labels.
 
 We see that this space is homeomorphic to a torus, which has $\pi(1) \cong \mathbb{Z}^2 \cong \left\langle a,b \mid ab = ba \right\rangle$, which is also the $G(P)$ for this edge--labelled poset.
 

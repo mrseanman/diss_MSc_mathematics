@@ -7,7 +7,7 @@
 
 Here we will give the definition of the configuration space $Y_W$ for a given Coxeter group $W$ and go through an example where we will show that $\pi_1(Y_W) \cong G_W$ for $W$ of type $A_n$ following from \cite{fox_braid_1962}.
 
-For some Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ acts on $\R^n$ by reflection through hyperplanes. For some $r \in R$ denote its hyperplane by $H(r) \subseteq \R^n$. Dentote the union of all hyperplanes by $\mathcal{H} \coloneqq \bigcup_{r \in R} H(r)$. We associate $\R^n \otimes \C$ with $\C^n$ under the natural isomorphism $x \otimes \lambda \mapsto x\lambda$. This also extends the action $W\acts \R^n$ to $W\acts \C^n$ via $w\cdot(x \otimes \lambda) = (w\cdot x)\otimes \lambda$. We call this act of transporting objects related to $\R^n$ over to $\C^n$ via the tensor product \emph{complexification}. With these tools in mid, we can then make our definition.
+For some Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ acts on $\R^n$ by reflection through hyperplanes. For some $r \in R$ denote its hyperplane by $H(r) \subseteq \R^n$. Denote the union of all hyperplanes by $\mathcal{H} \coloneqq \bigcup_{r \in R} H(r)$. We associate $\R^n \otimes \C$ with $\C^n$ under the natural isomorphism $x \otimes \lambda \mapsto x\lambda$. This also extends the action $W\acts \R^n$ to $W\acts \C^n$ via $w\cdot(x \otimes \lambda) = (w\cdot x)\otimes \lambda$. We call this act of transporting objects related to $\R^n$ over to $\C^n$ via the tensor product \emph{complexification}. With these tools in mid, we can then make our definition.
 
 \begin{definition}[Configuration space] 
 	For some Coxeter group $W$ and associated hyperplane system $\mathcal{H}$ as above, we define
@@ -15,14 +15,14 @@ For some Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ ac
 		Y \coloneqq \C^n \, \setminus \, \left( \mathcal{H} \otimes \C \right)
 	\end{equation*}
 	and define the configuration space $Y_W$ to be the quotient $Y/W$.
-	\label{def:config_space_def}
+	\label{def:config_space}
 \end{definition}
 
 It is important to note that the importance of $\C$ here is that it is 2 dimensional. When one takes the complement of a co-dimension 1 object, you typically will not get any interesting topology. By complexifying the hyperplanes and then taking the complement within $\C^n$, we are effectively taking the complement of a co-dimension 2 object, and there is much more room for interesting topologies. The same construction can be achieved using $\R^{2n}$ and $\mathcal{H}\times\mathcal{H}$ but here we choose $\C$ because once spelled out explicitly, the construction is more intuitive.
 
 For a concrete example, we will introduce the $A_n$ family of Coxeter groups and show that the space $Y_W$ for these groups is the space of configurations of $n+1$ points in $\C$, thus explaining the name \emph{configuration space} for general $Y_W$.
 
-The family $A_n$ all have Coxeter-Dynkin diagrams of the form as in \cref{fig:A_n_dynkin_diagrams} and a specific $A_n$ will have presentation.
+The family $A_n$ all have Coxeter diagrams of the form as in \cref{fig:A_n_dynkin_diagrams} and a specific $A_n$ will have presentation.
 \begin{equation}
 	A_n = 
 	\GroupPres*{ \sigma_1, \sigma_2, \ldots ,\sigma_n \relations
@@ -60,12 +60,12 @@ The family $A_n$ all have Coxeter-Dynkin diagrams of the form as in \cref{fig:A_
 
 \end{tikzpicture}
 \end{center}
-\caption{The clasical Coxeter-Dynkin diagram for the Coxeter group of type $A_n$.}
+\caption{The clasical Coxeter diagram for the Coxeter group of type $A_n$.}
 \label{fig:A_n_dynkin_diagrams}
 \end{figure}
 
 The action of $A_n$ as a reflection group is realised on the space $\R^{n+1}$ with basis $\Set{e_i}$, where $A_n \acts \R^{n+1}$ by permuting components with respect to that basis.
-The set of reflections $R$ of $A_n$ is all conjugations of the $n$ adjacent generating transpositions $(l, l+1)$. So, $R$ is the set of all transpositions $(l, n)$. Some $(l, n) \in R$ acts on $\R^{n+1}$ as reflection through the plane $\Set{ (x_1, \ldots, x_{n+1} ) \in \R^{n+1} \mid x_l = x_n}$. Thus, taking the complement of the complexification of all such planes, we have $Y = \Set{(\mu_1, \ldots \mu_{n+1}) \in \C^{n+1} \given \forall i,j \,\,\, \mu_i \neq \mu_j}$ (here $Y$ is as in \cref{def:config_space_def}). We can think of this as the space of $n+1$ distinct labelled points in $\C$. The action $A_n \acts \C^{n+1}$ also permutes components, so we can think of the configuration space $Y_{W}$ as the set of $n+1$ distinct \emph{unlabelled} points in $\C$, denoted $\conf_{n+1}(\C)$.
+The set of reflections $R$ of $A_n$ is all conjugations of the $n$ adjacent generating transpositions $(l, l+1)$. So, $R$ is the set of all transpositions $(l, n)$. Some $(l, n) \in R$ acts on $\R^{n+1}$ as reflection through the plane $\Set{ (x_1, \ldots, x_{n+1} ) \in \R^{n+1} \mid x_l = x_n}$. Thus, taking the complement of the complexification of all such planes, we have $Y = \Set{(\mu_1, \ldots \mu_{n+1}) \in \C^{n+1} \given \forall i,j \,\,\, \mu_i \neq \mu_j}$ (here $Y$ is as in \cref{def:config_space}). We can think of this as the space of $n+1$ distinct labelled points in $\C$. The action $A_n \acts \C^{n+1}$ also permutes components, so we can think of the configuration space $Y_{W}$ as the set of $n+1$ distinct \emph{unlabelled} points in $\C$, denoted $\conf_{n+1}(\C)$.
 
 Historically, Emile Artin \cite{artin_braids_1947} originally defined the braid group on $n$ strands $B_n$ to be $\pi_1(\conf_n(\R^2))$. He then showed the validity of the well known presentation of the braid group. 
 
