@@ -1,0 +1,8 @@
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qsections/posets/ 0_prologue.tex sections/posets/ 1_posets.tex sections/posets/ 2_poset_complex.tex sections/posets/ 3_interval_complex.tex sections/posets/ 4_salvetti_cx.tex\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qsections/posets/ 0_prologue.tex sections/posets/ 1_posets.tex sections/posets/ 2_poset_complex.tex sections/posets/ 3_interval_complex.tex sections/posets/ 4_salvetti_cx.tex\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qconcepts/ proof_overview.tex The Garside Complex \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qconcepts/ interval_group_and_complex.tex\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qsections/introduction/ introduction_main.tex sections/posets/ posets_main.tex sections/further_cw_complexes/ further_cw_complexes_main.tex\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qconcepts/ proof_overview.tex The Garside Complex \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qconcepts/ interval_group_and_complex.tex\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qsections/further_cw_complexes/ 0_prologue.tex sections/further_cw_complexes/ 1_subcomplex_K_prime.tex sections/further_cw_complexes/ proof_thm_5_5.tex\\E$"}

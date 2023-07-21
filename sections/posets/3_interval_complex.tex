@@ -21,8 +21,10 @@ We apply the steps from \cref{sec:poset_cx} to $[1,w]^W$ to form a space.
 
 \begin{definition}[Interval Complex]
     For a Coxeter group $W$, and $w \in W$, we call $K_{W_w} \coloneq K([1,w]^W)$ the \emph{interval complex} where $K([1,w]^W)$ is as in \cref{def:poset_complex}.
+    \label{def:interval_complex}
 \end{definition}
 
+Note that in \cite{paolini_salvetti_kpi1_2021}  $K_{W_w}$ is denoted $K_W$. We will later show that this notation is justified, in that there is no dependence, up to homotopy equivalence, of $K_{W_w}$ on $w$. For now, we will stick with the notation as we have defined it.
 Certain properties of the poset permit a simplified notation for the simplices within $K_{W_w}$. In this context, for two chains $C=(C_1 \leq C_2 \leq \cdots \leq C_m)$ and $C^\prime = (C_1^\prime \leq C_2^\prime \leq \cdots \leq C_n^\prime)$ we have $\mathcal{L}(C) = \mathcal{L}(C^\prime)$ exactly when $(C_1)^{-1}C_m = (C_1^\prime)^{-1}C_n^\prime$. Thus, we can label 1--simplices in $K_{W_w}$ with group elements $x \in [1,w]^W$, we can label 2--simplices with factorisations of group elements in $[1,w]^W$ in to two parts (with the first part also in $[1,w]^W$) and so on. We denote an n--simplex $[x_1 | x_2 | \cdots | x_n]$ as in \cite[Definition 2.8]{paolini_salvetti_kpi1_2021}. This notation also gives the gluing of the faces of $[x_1 | x_2 | \cdots | x_n]$ in the following way. A codimention 1 face of $[x_1 | x_2 | \cdots | x_n]$ is a subchain of $x_1 \leq x_1x_2 \leq \cdots \leq x_1x_2\ldots x_n$ consisting of $n-1$ elements. There are three ways to obtain such a subchain.
 \begin{enumerate}
     \item \label{item:gluing_step_1} Remove the first element of the chain to get $x_2 \leq x_2x_3 \leq \cdots \leq x_2x_3\ldots x_n$
