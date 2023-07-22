@@ -81,6 +81,7 @@ citecolor         = black,%    % Couleur des citations
 
 \theoremstyle{indented}
 \newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{corollary}[theorem]{Corrolary}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
@@ -117,6 +118,12 @@ citecolor         = black,%    % Couleur des citations
 % For arrows in lines etc.
 \usetikzlibrary{decorations.markings, arrows}
 
+% polar plots
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+\pgfplotsset{compat=newest}
+
+\usetikzlibrary{intersections}
 % For easier use of arrows mid line and multi-arrows mid line etc
 % (for polygon model)
 % https://tex.stackexchange.com/questions/85244/adding-double-arrows-to-the-middle-of-a-line-with-tikz
