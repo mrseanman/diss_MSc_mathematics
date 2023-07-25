@@ -21,6 +21,13 @@ style=alphabetic-verb,
 \usepackage[font=footnotesize]{caption}
 \captionsetup{format=hang}
 
+% Text colours
+\usepackage{xcolor}
+% For a question 
+\newcommand{\what}[1][]{{
+{\textcolor{red}{Q #1}}
+}}
+
 %Enumerate using roman numerals etc
 \usepackage{enumerate}% http://ctan.org/pkg/enumerate
 
@@ -85,6 +92,7 @@ citecolor         = black,%    % Couleur des citations
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
 
 % ------------------------------------------------------------------------------
 % Custom mid-equation counter
