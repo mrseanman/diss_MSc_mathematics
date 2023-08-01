@@ -6,3 +6,7 @@
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qconcepts/ proof_overview.tex The Garside Complex \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qconcepts/ interval_group_and_complex.tex\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qsections/further_cw_complexes/ 0_prologue.tex sections/further_cw_complexes/ 1_subcomplex_K_prime.tex sections/further_cw_complexes/ proof_thm_5_5.tex\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qsections/introduction/ preamble.tex sections/introduction/ basic_definitions.tex sections/introduction/ configuration_space.tex sections/introduction/ k_pi_1.tex\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qsections/introduction/ preamble.tex sections/introduction/ basic_definitions.tex sections/introduction/ configuration_space.tex sections/introduction/ k_pi_1.tex\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qsections/introduction/ preamble.tex sections/introduction/ proof_overview.tex sections/introduction/ basic_definitions.tex sections/introduction/ configuration_space.tex sections/introduction/ k_pi_1.tex\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qsections/introduction/ preamble.tex sections/introduction/ proof_overview.tex sections/introduction/ basic_definitions.tex sections/introduction/ configuration_space.tex sections/introduction/ k_pi_1.tex\\E$"}

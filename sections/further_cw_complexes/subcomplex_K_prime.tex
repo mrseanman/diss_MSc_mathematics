@@ -2,22 +2,22 @@
 \documentclass[class=article, crop=false]{standalone}
 \begin{document}
 \subsection{The subcomplex $X_{W}^\prime$}
-The definition of $K_{W_w}$ depends on the data of some Coxeter element $w$ and thus implicitly some generating set $S$. For some $w = s_1s_2\cdots s_n$ and some $T\subseteq S$, define $w_T\in W$ to correspond subword of $w$ consisting of elements that are in $T$, respecting the original order in $w$. 
+The definition of $K_{W}$ depends on the data of some Coxeter element $w$ and thus implicitly some generating set $S$. For some $w = s_1s_2\cdots s_n$ and some $T\subseteq S$, define $w_T\in W$ to be the (non--consecutive) subword of $w$ consisting of elements that are in $T$, respecting the original order in $w$. 
 \begin{definition}[The subcomplex]
-    Define $X_{W}^\prime$ to be the finite subcomplex of $K_{W_w}$ consisting only of simplices $[x_1 | \cdots | x_n]$ such that $x_1x_2\cdots x_n \in [1,w_T]^W$ for some $T \in \Delta_W$. Recalling $\Delta_W$ from \cref{def:delta_W_finite}.
+    Define $X_{W}^\prime$ to be the finite subcomplex of $K_{W}$ consisting only of simplices $[x_1 | \cdots | x_n]$ such that $x_1x_2\cdots x_n \in [1,w_T]^W$ for some $T \in \Delta_W$. Recalling $\Delta_W$ from \cref{def:delta_W_finite}.
     \label{def:subcomplex_X_prime}
 \end{definition}
-Note that we have dropped the $w$ index. That will be justified in this section as we will show that, up to homotopy equivalence, $X_W^\prime$ has no $w$ dependence.
+Note again the absence of $w$ from the notation of $X^\prime_W$. That will be justified in this section as we will show that, up to homotopy equivalence, $X_W^\prime$ has no $w$ dependence.
 
 \begin{lemma}[{\cite[Lemma 5.2]{paolini_salvetti_kpi1_2021}}]
-    \what[As far as I can tell, what I write here is all we need, but there they seem to go in to more detail unnecessarily]
+    % \what[As far as I can tell, what I write here is all we need, but there they seem to go in to more detail unnecessarily]
     For a Coxeter group $W$ and any parabolic subgroup $W_T$, with sets of reflections $R_W$ and $R_{W_T}$ respectively. For some Coxeter element $w \in W$ and corresponding $w_T \in W_T$, all minimal factorisations of $w_T$ in $R_W$ consist of only elements from $R_{W_T}$.
 \end{lemma}
 An immediate consequence of this is that the intervals $[1,w_T]^W$ and $[1,w_T]^{W_T}$ agree. This allows us to decompose $X^\prime_W$ in a useful way. For each $T \in \Delta_W$ and corresponding $W_T$, the space corresponding to the whole interval $[1, w_T]^W=[1,w_T]^{W_T}$ is a subspace inside $X^\prime_W$. This subspace is exactly $X^\prime_{W_T}$ (with respect to $w_T$). Thus, we can think of $X^\prime_W$ as some union of all $X^\prime_{W_T}$ for $T \in \Delta_W$.
 
-Each $X^\prime_{W_T}$ is exactly the same as its interval complex $K_{{W_T}}$ since all subgroups of $T$ generate finite Coxeter groups. Thus, $X^\prime_{W_T}$ is a classifying space for the dual Artin group $W_w$ by \cref{thm:interval_cx_k_pi_1_finite}. Furthermore, $G_w$ is isomorphic to the Artin group $G_{W_T}$ by \cref{thm:dual_artin_iso_artin}.
+Each $X^\prime_{W_T}$ is exactly the same as its interval complex $K_{{W_T}}$ since all subgroups of $T$ generate finite Coxeter groups. Thus, using known results for finite Coxeter groups, $X^\prime_{W_T}$ is a classifying space for the dual Artin group $W_w$ by \cref{thm:interval_cx_k_pi_1_finite}. Furthermore, $G_w$ is isomorphic to the Artin group $G_{W_T}$ by \cref{thm:dual_artin_iso_artin}.
 
-In a very similar way, the Salvetti complex consists of subspaces corresponding to elements of $\Delta_W$. For each $T \in \Delta_W$, the Salvetti complex $X_{W_T}$ is a $\Abs{T}$--cell attached to all cells corresponding to $R \subseteq T$ is the appropriate way. This is a cellular subspace of $X_W$, and since $W_T$ is finite, by \cref{thm:k_pi_1_finite}, $Y_{W_T} \simeq X_{W_T}$ is a $K(G_{W_T},1)$. The following remark summarises.
+In a very similar way, the Salvetti complex consists of subspaces corresponding to elements of $\Delta_W$. For each $T \in \Delta_W$, the Salvetti complex $X_{W_T}$ is a $\Abs{T}$--cell attached to all cells corresponding to $R \subseteq T$ is the appropriate way. This is a cellular subspace of $X_W$, and since $W_T$ is finite, by \cref{thm:k_pi_1_finite}, $Y_{W_T} \simeq X_{W_T}$ is a $K(G_{W_T},1)$. The following remark summarises these observations.
 
 \begin{remark}
     The Salvetti complex $X_W$ decomposes in to cellular subspaces $X_{W_T}$ which are $K(G_{W_T},1)$ spaces. These subspaces are in bijection with cellular subspaces $X^\prime_{W_T}$ of $X^\prime_W$, which are also $K(G_{W_T},1)$ spaces.
@@ -48,9 +48,9 @@ In a very similar way, the Salvetti complex consists of subspaces corresponding 
 \end{theorem}
 
 \begin{proof}
-    Clearly we must have $\tilde{\phi}(x_0) = y_0$. The 1--skeleton $X^1$ will be a wedge of circles and there is thus a presentation of $\pi_1(X, x_0)$ with each cell $e_\alpha^1$ corresponding to a generator $ [e_\alpha^1] \in \pi_1(X, x_0)$. We can choose $\tilde{\phi}(e_\alpha)$ to trace to a path corresponding to $\phi([e_\alpha^1]) \in \pi_1(Y,y_0)$ for each $e_\alpha^1 \in X^1$.
+    Clearly we must have $\tilde{\phi}(x_0) = y_0$. The 1--skeleton $X^1$ will be a wedge of circles and there is thus a presentation of $\pi_1(X, x_0)$ with each cell $e_\alpha^1$ corresponding to a generator $ [e_\alpha^1] \in \pi_1(X, x_0)$. We can choose $\tilde{\phi}(e_\alpha)$ to trace out a path corresponding to $\phi([e_\alpha^1]) \in \pi_1(Y,y_0)$ for each $e_\alpha^1 \in X^1$.
     
-    Let $\psi_\beta \colon S^1 \to X^1$ be an attaching map for a 2--cell $e_\beta^2 \in X$. Let $i \colon X^1 \hookrightarrow X$ be the inclusion. We have that $i_*$ is the surjetcion from the free group generated by each $e_\alpha^1$ to $\pi_1(X,x_0)$. The attaching of the 2--cell $e_\beta^2$ provides a null homotopy for the path traced by $\psi_\beta$. In the presentation of $\pi_1(X, x_0)$ as above, each relation corresponds to the path of a $\psi_\beta$. Thus, $i_*([\psi_\beta]) = 0$ and so $\tilde{\phi}_*([\psi_\beta]) = \phi \circ i_*([\psi_\beta]) = 0$. Thus, $\tilde{\phi} \circ \psi_\beta$ is null homotopic and so can be extended over all of the closure of $e_\beta^2$ by \cref{lem:null_homotopic_extension}. This is an extension of $\tilde{\phi}$ and repeating this allows us to extend $\tilde{\phi}$ over all of $X^2$.
+    Let $\psi_\beta \colon S^1 \to X^1$ be an attaching map for a 2--cell $e_\beta^2 \subseteq X$. Let $i \colon X^1 \hookrightarrow X$ be the inclusion. We have that $i_*$ is the surjetcion from the free group generated by each $e_\alpha^1$ to $\pi_1(X,x_0)$. The attaching of the 2--cell $e_\beta^2$ provides a null homotopy for the path traced by $\psi_\beta$. In the presentation of $\pi_1(X, x_0)$ as above, each relation corresponds to the path of a $\psi_\beta$. Thus, $i_*([\psi_\beta]) = 0$ and so $\tilde{\phi}_*([\psi_\beta]) = \phi \circ i_*([\psi_\beta]) = 0$. Thus, $\tilde{\phi} \circ \psi_\beta$ is null homotopic and so can be extended over all of the closure of $e_\beta^2$ by \cref{lem:null_homotopic_extension}. This is an extension of $\tilde{\phi}$ and repeating this allows us to extend $\tilde{\phi}$ over all of $X^2$.
     
     To extend $\tilde{\phi}$ over $e_\gamma^3$ we use that $S^{2}$ is simply connected (as for any $S^n$ with $n\geq 2$) and so for the attaching map $\psi_\gamma \colon S^2 \to X^2$ we have that $\tilde{\phi} \circ \psi_\gamma$ lifts to the universal cover of $Y$, which is contractible since $Y$ is a $K(G,1)$, so $\tilde{\phi} \circ \psi_\gamma$ is null homotopic. This same argument applies for any $e_\delta^n$ for $n\geq 3$. We can thus extend $\tilde{\phi}$ over the 3--cells and proceeding inductively, over all of $X$.
 
@@ -108,7 +108,7 @@ In a very similar way, the Salvetti complex consists of subspaces corresponding 
 
 \begin{lemma}
     \label{lem:extendability_of_maps}
-    Let $T \in \Delta_W \setminus \emptyset$. Let $\phi \colon \bigcup_{Q \subsetneq T} X_{W_Q} \to \bigcup_{Q \subsetneq T} X^\prime_{W_Q}$ be a homotopy equivalence. We can extend $\phi$ to $\psi \colon X_{W_T} \to X^\prime_{W_T}$ such that the following diagram commutes.
+    Let $T \in \Delta_W \setminus \emptyset$. Let $\phi \colon \bigcup_{Q \subsetneq T} X_{W_Q} \to \bigcup_{Q \subsetneq T} X^\prime_{W_Q}$ be a homotopy equivalence. We can extend $\phi$ to a homotopy equivalence $\psi \colon X_{W_T} \to X^\prime_{W_T}$ such that the following diagram commutes.
     \begin{equation*}
         \begin{tikzcd}
 \bigcup_{Q \subsetneq T} X_{W_Q}  \ar[r, "\phi"]             &   \bigcup_{Q \subsetneq T} X^\prime_{W_Q}                                                   \\
@@ -121,7 +121,7 @@ X_{W_T} \ar[r, "\psi" ] \ar[from=u, hookrightarrow]                             
     \begin{enumerate}[i)]
         \item If $\Abs{T}=1$ then $Q$ is uniquely $\emptyset$. Let $\psi$ be any map witnessing $X_{W_T} \simeq X^\prime_{W_T}$ that fixes the point corresponding to $X_{W_Q}$.
         \item If $\Abs{T} = 2$ then we can extend $\phi$ to $\psi$ such that $\psi_* \colon \pi_1(X_{W_T}, X_{\emptyset}) \to \pi_1(X^\prime_{W_T}, X^\prime_{\emptyset})$ is an isomorphism using the same argument as in the proof of \cref{thm:iso_induces_unique_map_for_K_Pi_1}. This map is a homotopy equivalence by \cref{cor:iso_K_G_1_induces_hom_equiv}.
-        \item If $\Abs{T} \geq 3$ then we can extend $\phi$ to some map $\psi$ using the same methods as in \cref{thm:iso_induces_unique_map_for_K_Pi_1}. In this case, $\bigcup_{Q \subsetneq T} X_{W_Q}$ contains the 2--skeleton of $X_T$ and similarly for $\bigcup_{Q \subsetneq T} X^\prime_{W_Q}$ and $X^\prime_T$. So $\pi_1(\bigcup_{Q \subsetneq T} X_{W_Q}, X_{W_\emptyset}) =\pi_1(X_T, X_{W_\emptyset})$ and similarly for $X^\prime_T$.  By assumption $\phi$ is a homotopy equivalence and so $\phi_*$ is an isomorphism. Therefore $\psi_*$ is the same isomorphism and thus $\psi$ a homotopy equivalence by \cref{cor:iso_K_G_1_induces_hom_equiv}. 
+        \item If $\Abs{T} \geq 3$ then we can extend $\phi$ to some map $\psi$ using the same methods as in \cref{thm:iso_induces_unique_map_for_K_Pi_1}. In this case, $\bigcup_{Q \subsetneq T} X_{W_Q}$ contains the 2--skeleton of $X_T$ and similarly for $\bigcup_{Q \subsetneq T} X^\prime_{W_Q}$ and $X^\prime_T$. So $\pi_1(\bigcup_{Q \subsetneq T} X_{W_Q}, X_{W_\emptyset}) =\pi_1(X_T, X_{W_\emptyset})$ and similarly for $X^\prime_T$.  By assumption $\phi$ is a homotopy equivalence and so $\phi_*$ is an isomorphism. Therefore, $\psi_*$ is an isomorphism \cite[Corollary 4.12]{hatcher_algebraic_2001} and thus $\psi$ a homotopy equivalence by \cref{cor:iso_K_G_1_induces_hom_equiv}. 
     \end{enumerate}
     .  
 \end{proof}
@@ -162,18 +162,18 @@ If all $\phi_1$, $\phi_2$ and $\phi_3$ are homotopy equivalences then the follow
 
 The restriction of $i$ and $j$ being closed cofibrations is quite mild. In the cases important to us, $i$ and $j$ will be cellular inclusions in to finite CW complexes, and thus closed cofibrations. See \cite{brown_topology_2006} for more details on pushout squares and adjunction spaces.
 
-To use \cref{lem:adjunction_gluing} we must be able to construct $X_W$ and $X_W^\prime$ as a sequence of adjunction spaces. Consider $X_W$ in the following toy example.
+To use \cref{lem:adjunction_gluing} we must be able to construct $X_W$ and $X_W^\prime$ as a sequence of adjunction spaces. Consider $X_W$ in the following example.
 
 \begin{example}
     \label{eg:inductive_construction}
-    Let $\Delta_W = \Set{\emptyset, \Set{s}, \Set{t}, \Set{u}, \Set{s,t}, \Set{s,u}, \Set{t,u}}$ and let $\Delta_W^n \coloneq \Set{T \in \Delta_W \given \Abs{T} = n }$. Clearly we have that $X_W = \bigcup_{T \in \Delta_W^2} X_{W_T}$ with the appropriate gluing. Suppose we had the 1--skeleton $X^1_W \subsetneq X_W$, and some ordering on $\Delta_W^2 = (\Set{s,t}, \Set{s,u}, \Set{t,u})$. We would first glue $X_{\Set{s,t}}$ to $X_W^1$ as an adjunction space in the following way.
+    Let $\Delta_W = \Set{\emptyset, \Set{s}, \Set{t}, \Set{u}, \Set{s,t}, \Set{s,u}, \Set{t,u}}$ and let $\Delta_W^n \coloneq \Set{T \in \Delta_W \given \Abs{T} = n }$. Clearly we have that $X_W = \bigcup_{T \in \Delta_W^2} X_{W_T}$ with the appropriate gluing. Suppose we had the 1--skeleton $X^1_W \subsetneq X_W$, and some ordering on $\Delta_W^2 = (\Set{s,t}, \Set{s,u}, \Set{t,u})$. To construct $X_W$, we would first glue $X_{\Set{s,t}}$ to $X_W^1$ as an adjunction space in the following way.
     \begin{equation*}
         \begin{tikzcd}
                 X_{\Set{s}} \cup X_{\Set{t}} \ar[r, "f" ] \ar[d, "i_1"]   &   X_{\Set{s,t}}  \ar[d, "\overline{i_1}"]    \\
                 X_W^1 \ar[r, "\bar{f}"]                                 &   X^1_W \sqcup_f X_{\Set{s,t}}            \\
         \end{tikzcd}
     \end{equation*}
-    Where $f$ is inclusion of those 1--cells in to $X_{\Set{s,t}}$, which in this case makes $X^1_W \sqcup_f X_{\Set{s,t}} \cong X_{\Set{s,t}}$. Note that $ X_{\Set{s}} \cup X_{\Set{t}}$ is really shorthand for another adjunction space.
+    Where $f$ is inclusion of those 1--cells in to $X_{\Set{s,t}}$, which in this case makes $X^1_W \sqcup_f X_{\Set{s,t}} \cong X_{\Set{s,t}}$. Note that $ X_{\Set{s}} \cup X_{\Set{t}}$ is really shorthand for another adjunction space, which we assume to have been already constructed.
     We can then add $X_{\Set{t,u}}$ to the preceding adjunction space in the following way.
     \begin{equation}
         \begin{tikzcd}
@@ -182,31 +182,34 @@ To use \cref{lem:adjunction_gluing} we must be able to construct $X_W$ and $X_W^
         \end{tikzcd}
         \label{eqn:inductive_gluing_step_2}
     \end{equation}
-    After which we would continue with $\Set{u,v}$ in the same manner. In the final space, $X_{\Set{s,t}}$ is glued to $X_{\Set{t,u}}$ along $X_{\Set{t}}$. In general, for $T_1,T_2 \in \Delta_W^n$ are glued along $T_1 \cap T_2 \in \Delta_W^{n-1}$. We can always construct the $n$--skeleton from the $(n-1)$--skeleton in exactly this way. 
+    After which we would continue with $\Set{u,v}$ in the same manner. In the final space, $X_{\Set{s,t}}$ is glued to $X_{\Set{t,u}}$ along $X_{\Set{t}}$. In general, for $T_1,T_2 \in \Delta_W^n$, we have that $X_{T_1}$ and $X_{T_2}$ are glued along $X_{T_1 \cap T_2} \subseteq X^{n-1}_W$ where $T_1 \cap T_2 \in \Delta_W^{n-1}$. We can always construct the $n$--skeleton from the $(n-1)$--skeleton in exactly this way. 
 \end{example}
 
-The exact same construction works for $X^\prime_W$.
+The exact same construction works for $X^\prime_W$. This construction may seem too abstracted, in that much of the structure is hidden away in the maps $f$ and $g$. However, as it turns out, we can use this adjunction structure without considering the details of these maps.
 
 \begin{theorem}[{\cite[Theorem 5.5]{paolini_salvetti_kpi1_2021}}]
+    \label{thm:salvetti_cx_equiv_X_prime}
     For a Coxeter group $W$, the space $X^\prime_W$ as in \cref{def:subcomplex_X_prime} is homotopy equivalent to the Salvetti complex $X_W$. 
 \end{theorem}
 \begin{proof}
-    We achieve this inductively. To tidy our notation, in this proof we drop $W$ so that $X$, $X^\prime$, $X_T$ and $X^\prime_T$ correspond to $X_W$, $X^\prime_W$, $X_{W_T}$ and $X^\prime_{W_T}$ respectively. For convenience define $\Delta_W^n \coloneq \Set{T \in \Delta_W \given \Abs{T} = n}$. Suppose we have the $(n-1)$--skeletons $X^{n-1}$ and $(X^\prime)^{n-1}$ and a homotopy equivalence $\phi \colon X^{n-1} \to (X^\prime)^{n-1}$.
-    We wish to show that we can extend $\phi$ to a homotopy equivalence for the respective $n$--skeletons. We construct the $n$--skeletons as adjunction spaces of the $(n-1)$--skeletons as in \cref{eg:inductive_construction}.
-    To show this extension is a homotopy equivalence we use \cref{lem:adjunction_gluing}.
+    We achieve this inductively. To tidy our notation, in this proof we drop $W$ so that $X$, $X^\prime$, $X_T$ and $X^\prime_T$ correspond to $X_W$, $X^\prime_W$, $X_{W_T}$ and $X^\prime_{W_T}$ respectively. Let $\Delta_W^n$ be as in \cref{eg:inductive_construction}.
+    
+    Suppose we have the $(n-1)$--skeletons $X^{n-1}$ and $(X^\prime)^{n-1}$ and a homotopy equivalence $\phi \colon X^{n-1} \to (X^\prime)^{n-1}$.
+    We wish to show that we can extend $\phi$ to a homotopy equivalence for the respective $n$--skeletons. We do so by constructing the $n$--skeletons as adjunction spaces of the $(n-1)$--skeletons as in \cref{eg:inductive_construction} and use \cref{lem:adjunction_gluing}.
+
     Suppose we are gluing on the cells corresponding to some $T \in \Delta_W^n$. So any $Q \subsetneq T$ will correspond to a cell in $X^{n-1}$. Let $Y$ and $Y^\prime$ be some intermediate steps in the adjunction gluing, such as the bottom--left term of \eqref{eqn:inductive_gluing_step_2}. Suppose we have a homotopy equivalence $\phi_1 \colon Y \to Y^\prime$ such that ${\phi_1}|_{X^{n-1}} = \phi$ so the following commutes.
     \begin{equation}
         \begin{tikzcd}
 \bigcup_{Q \subsetneq T} X_{Q} \ar[r, "\phi" ] \ar[d, hookrightarrow]     &   \bigcup_{Q \subsetneq T} X^\prime_{Q}  \ar[d, hookrightarrow]       \\
-Y  \ar[r, "\phi_1"]                                                                 &   Y^\prime                                                                \\
+Y  \ar[r, "\phi_1"]                                                                 &   Y^\prime                                                  \\
         \end{tikzcd}
         \label{eqn:commutative_Y_inductive_hyp}  
     \end{equation}
 We wish to extend $\phi$ to a homotopy equivalence $\psi$ such that the following commutes.
     \begin{equation*}
         \begin{tikzcd}
-X_T \ar[r, "\psi" ] \ar[from=d, hookrightarrow]                                  &   X^\prime_T  \ar[from = d, hookrightarrow]      \\
-\bigcup_{Q \subsetneq T} X_{Q}  \ar[r, "\phi"]             &   \bigcup_{Q \subsetneq T} X^\prime_{Q}                                                   \\
+\bigcup_{Q \subsetneq T} X_{Q}  \ar[r, "\phi"]             &   \bigcup_{Q \subsetneq T} X^\prime_{Q}                                  \\
+X_T \ar[r, "\psi" ] \ar[from = u, hookrightarrow]                                  &   X^\prime_T  \ar[from = u, hookrightarrow]      \\
         \end{tikzcd}
     \end{equation*}
     This is possible by \cref{lem:extendability_of_maps}. Now we have the following commutative diagram.

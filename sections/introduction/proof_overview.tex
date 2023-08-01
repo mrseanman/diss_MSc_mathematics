@@ -1,28 +1,29 @@
-% !TeX root = ../main.tex
+% !TeX root = ../../main.tex
 \documentclass[class=article, crop=false]{standalone}
 \begin{document}
-	
-Here we compile many theorems from \cite{paolini_salvetti_kpi1_2021} in to one theorem.
 
+\subsection{Overview of Main Results}
+Here we compile the main results from \cite{paolini_salvetti_kpi1_2021} in to a few theorems. Many of the objects here are not yet defined. Those mentioned in this section and defined in this paper are;
+$Y_W$: \cref{def:config_space},
+$X_W$: \cref{def:salvetti_cx} and 
+$X^\prime_W$: \cref{def:subcomplex_X_prime}.
 
 \begin{theorem}[{\cite{paolini_salvetti_kpi1_2021}}]
 	Given an affine Coxeter group $W$, the configuration space $Y_W$ is homotopy equivalent to the order complex $K_W$.
 	\label{thm:proof_overview}
 \end{theorem}
 \begin{proof}
-	This is done through a composition of homotopy equivalences
-	\begin{equation}
-		Y_W \labelrel\simeq{eqmid:configspace_salvetti}
+	By \cref{thm:salvetti_hom_equiv_config} the Salvetti complex $X_W$ is homotopy equivalent to the configuration space $Y_W$. Therefore, we need only show $K_W \simeq X_W$. This is done through a composition of homotopy equivalences
+	\begin{equation*}
 		X_W \labelrel\simeq{eqmid:salvetti_salvettiprime}
 		X^\prime_W \labelrel\simeq{eqmid:salvettiprime_intervalcomplexprime}
 		K^\prime_W \labelrel\simeq{eqmid:intervalcomplexprime_intervalcomplex}
 		K_W
-	\end{equation}
+	\end{equation*}
 
 	Where the results are gathered from the following sources:
 	
-	\eqref{eqmid:configspace_salvetti}: \cite[Theorem 1]{salvetti_topology_1987} \quad
-	\eqref{eqmid:salvetti_salvettiprime}: \cite[Theorem 5.5]{paolini_salvetti_kpi1_2021} \quad
+	\eqref{eqmid:salvetti_salvettiprime}: \cref{thm:salvetti_cx_equiv_X_prime} \cite[Theorem 5.5]{paolini_salvetti_kpi1_2021} \quad
 	\eqref{eqmid:salvettiprime_intervalcomplexprime}: \cite[Theorem 8.14]{paolini_salvetti_kpi1_2021} \quad
 	\eqref{eqmid:intervalcomplexprime_intervalcomplex}: \cite[Theorem 7.9]{paolini_salvetti_kpi1_2021} \quad
 \end{proof}
@@ -30,7 +31,7 @@ Here we compile many theorems from \cite{paolini_salvetti_kpi1_2021} in to one t
 Furthermore, in the same paper another main result is shown.
 
 \begin{theorem}[{\cite[Theorem 6.6]{paolini_salvetti_kpi1_2021}}]
-	Given an affine Coxeter group $W$, corresponding affine Artin group $G_W$ and Coxeter element $w\in W$, the complex $K_W$ is a classifying space for the dual artin group $W_w$. I.e.
+	Given an affine Coxeter group $W$, corresponding affine Artin group $G_W$ and Coxeter element $w\in W$, the complex $K_W$ is a classifying space for the dual Artin group $W_w$. I.e.
 	\[
 		K_W \simeq K(W_w, 1)
 	\]
@@ -38,15 +39,15 @@ Furthermore, in the same paper another main result is shown.
 \end{theorem}
 
 It was already known \cite{brieskorn_fundamentalgruppe_1971} that $\pi_1(Y_W) = G_W$. Thus considering $\pi_1(Y_W)$ and combining \cref{thm:proof_overview,thm:KW_classifyingspace} gives
-\begin{align}
+\begin{align*}
 	Y_W &\simeq K(G_W,1)\\
 	G_W &\cong W_w
 	\label{eq:artin_iso_dual}
-\end{align}
+\end{align*}
 for affine $G_W$.
 
 This proves the $K(\pi, 1)$ conjecture for affine Artin groups and provides a new proof than an affine Artin group is naturally isomorphic to its dual, which was already known for finite \cite{bessis_dual_2003} and affine \cite{mccammond_sulway_artin_2017} cases.
 
-The proof of $\pi_1(Y_W) \cong G_W$ for all $W$ in \cite{brieskorn_fundamentalgruppe_1971} is in German and only German or Russian translations are available. This result is fundamental and non-trivial. Alternative proofs for Coxeter groups of type $A_n$ \cite{fox_braid_1962} or affine type \cite{viet_dung_fundamental_1983} are available in English. Here we will repeat roughly the proof in \cite{fox_braid_1962}, revealing the reason for the choice of name \emph{configuration space} for $Y_W$.
+The proof of $\pi_1(Y_W) \cong G_W$ for all $W$ in \cite{brieskorn_fundamentalgruppe_1971} is in German and only German or Russian translations are available. This result is fundamental and non-trivial. Alternative proofs for Coxeter groups of type $A_n$ \cite{fox_braid_1962} or affine type \cite{viet_dung_fundamental_1983} are available in English.
 
 \end{document}

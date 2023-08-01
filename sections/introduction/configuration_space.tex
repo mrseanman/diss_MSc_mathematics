@@ -5,20 +5,20 @@
 \subsection{Configuration Space}
 \label{sec:config_space_intro}
 
-Here we will give the definition of the configuration space $Y_W$ for a given Coxeter group $W$ and go through an example where we will show that $\pi_1(Y_W) \cong G_W$ for $W$ of type $A_n$ following from \cite{fox_braid_1962}.
+Here we will give the definition of the configuration space $Y_W$ for a given Coxeter group $W$ and go through an example where we will show that $\pi_1(Y_W) \cong G_W$ for $W$ of type $A_n$ \cite{fox_braid_1962}.
 
-For some Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ acts on $\R^n$ by reflection through hyperplanes. For some $r \in R$ denote its hyperplane by $H(r) \subseteq \R^n$. Denote the union of all hyperplanes by $\mathcal{H} \coloneqq \bigcup_{r \in R} H(r)$. We associate $\R^n \otimes \C$ with $\C^n$ under the natural isomorphism $x \otimes \lambda \mapsto x\lambda$. This also extends the action $W\acts \R^n$ to $W\acts \C^n$ via $w\cdot(x \otimes \lambda) = (w\cdot x)\otimes \lambda$. We call this act of transporting objects related to $\R^n$ over to $\C^n$ via the tensor product \emph{complexification}. With these tools in mid, we can then make our definition.
+For some finite or affine Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ acts on $\R^n$ by reflection through hyperplanes, one for each $r \in R$. For some $r \in R$ denote its hyperplane by $H(r) \subseteq \R^n$. Denote the union of all hyperplanes by $\mathcal{H} \coloneqq \bigcup_{r \in R} H(r)$. We associate $\R^n \otimes \C$ with $\C^n$ under the natural isomorphism $x \otimes \lambda \mapsto x\lambda$. This also extends the action $W\acts \R^n$ to $W\acts \C^n$ via $w\cdot(x \otimes \lambda) = (w\cdot x)\otimes \lambda$. We call this act of transporting objects related to $\R^n$ over to $\C^n$ via the tensor product \emph{complexification}. With these tools in mid, we can then make our definition.
 
 \begin{definition}[Configuration space] 
 	For some Coxeter group $W$ and associated hyperplane system $\mathcal{H}$ as above, we define
 	\begin{equation*}
 		Y \coloneqq \C^n \, \setminus \, \left( \mathcal{H} \otimes \C \right)
 	\end{equation*}
-	and define the configuration space $Y_W$ to be the quotient $Y/W$.
+	and define the configuration space $Y_W$ to be the quotient $Y/W$ with the action defined as above.
 	\label{def:config_space}
 \end{definition}
 
-It is important to note that the importance of $\C$ here is that it is 2 dimensional. When one takes the complement of a co-dimension 1 object, you typically will not get any interesting topology. By complexifying the hyperplanes and then taking the complement within $\C^n$, we are effectively taking the complement of a co-dimension 2 object, and there is much more room for interesting topologies. The same construction can be achieved using $\R^{2n}$ and $\mathcal{H}\times\mathcal{H}$ but here we choose $\C$ because once spelled out explicitly, the construction is more intuitive.
+It is important to note that the importance of $\C$ here is that it is 2 dimensional. When one takes the complement of a co-dimension 1 object, you typically will not get any interesting topology. By complexifying the hyperplanes and then taking the complement within $\C^n$, we are effectively taking the complement of a co-dimension 2 object, and there is much more room for interesting topologies. The same construction can be achieved using $\R^{2n}$ and $\mathcal{H}\times\mathcal{H}$ but here we choose $\C$. A more general construction for all Coxeter groups can be found in \cite{paris_kpi_2014}.
 
 For a concrete example, we will introduce the $A_n$ family of Coxeter groups and show that the space $Y_W$ for these groups is the space of configurations of $n+1$ points in $\C$, thus explaining the name \emph{configuration space} for general $Y_W$.
 

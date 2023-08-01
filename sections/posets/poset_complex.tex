@@ -5,16 +5,16 @@
 \subsection{Poset Complex}
 \label{sec:poset_cx}
 
-For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. We do this by initially defining a simplicial complex $\Delta(P)$. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets. From this, we can define
+For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. To do this, we must begin by initially defining a \emph{geometric simplicial complex} $\Delta(P)$. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets. Following from this, we can make our definition.
 
 \begin{definition}[Geometric Simplicial Complex]
-	Given an abstract simplicial complex $X$, the \emph{geometric realisation} of that simplicial complex is defined as follows: For each single element set in $X$ assign a point, for each three element set assign an edge attaching the two vertices it contains, for each two element set assign a triangle, comprising the three edges of its three subsets containing two elements. In this way continue constructing simplices of dimension $n$ for each $n+1$ size set in $X$.
+	Given a finite abstract simplicial complex $X$, the \emph{geometric realisation} of that simplicial complex is defined as follows: For each single element set in $X$ assign a point. For each two element set assign an open edge between the two vertices it contains. For each three element set assign an open triangle, the interior of the three edges of its three subsets of size two. In this way, continue constructing simplices of dimension $n$ for each $n+1$ size set in $X$.
 	\label{def:geometric_simplicial_cx}
 \end{definition}
 
 The set of all chains in a poset $P$ is an abstract simplicial complex. We define $\Delta(P)$ to be the geometric simplicial complex corresponding to the set of all chains in $P$ where each $n$--simplex is an $n$--chain of $P$. Note that as in \cite[Definition 1.7]{mccammond_sulway_artin_2017}, we define an $n$--chain to have $n-1$ elements. E.g.~$(\{1\} \subseteq \{1,2\})$ is a 1--chain.
 
-For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be three solid tetrahedrons all sharing an edge (a 1--simplex) corresponding to the 1--chain $(\emptyset \subseteq \{1,2,3,4\})$ with and two of them sharing a face corresponding to the 2--chain  $(\emptyset \subseteq \Set{1} \subseteq \Set{1,2,3,4})$. For a more two--dimensional example consider the following poset $P$ and corresponding $\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
+For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be three solid tetrahedrons all sharing an edge (a 1--simplex) corresponding to the 1--chain $(\emptyset \subseteq \{1,2,3,4\})$ with two of them sharing a face corresponding to the 2--chain  $(\emptyset \subseteq \Set{1} \subseteq \Set{1,2,3,4})$. For a more two--dimensional example, consider the following poset $P$ and corresponding $\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
 
 \begin{figure}[ht]
 \centering
@@ -86,9 +86,9 @@ We continue, now using an edge labelling on $P$, to generate a quotient space $K
 	\node[FSC] (base left)    	at (0,0)   							   	{};
 	\node[FSC] (base right)		at ($(base left) + (2,0)$)  		   	{};							
 	\node[FSC] (middle left)	at ($(base left) + (-0.5, 0.866)$)     	{};
-	\node[FSC] (middle middle)	at ($0.5*(base left) + 0.5*(base right) + (0,0.5)$)		{};
+	\node[FSC] (middle middle)	at ($0.5*(base left) + 0.5*(base right) + (0,0.4)$)		{};
 	\node[FSC] (middle right)	at ($(base right) + (0.5,0.866)$)			{};
-	\node[FSC] (top)			at ($(middle middle) + (0, 0.866)$)		{};
+	\node[FSC] (top)			at ($(middle middle) + (0, 1)$)		{};
 
 	
 	\begin{scope}[thick]
@@ -100,13 +100,13 @@ We continue, now using an edge labelling on $P$, to generate a quotient space $K
 		\draw[a, arrow_me=stealth] 	(middle middle)	to	(top);
 		\draw[b, arrow_me=>>s]		(middle right)	to	(top);
 		
-		\draw (base left) to (top);
-		\draw (base right) to (top); 
+		\draw[arrow_me=>>>s] (base left) to (top);
+		\draw[arrow_me=>>>s] (base right) to (top); 
 	\end{scope}	
 	
 	\node at ($1/3*(base left) + 1/3*(middle left) + 1/3*(top)$) {$\circlearrowright$};
-	\node at ($1/3*(base left) + 1/3*(middle middle) + 1/3*(top)$) {$\circlearrowright$};
-	\node at ($1/3*(base right) + 1/3*(middle middle) + 1/3*(top)$) {$\circlearrowleft$};
+	\node at ($1/3*(base left) + 1/3*(middle middle) + 1/3*(top) + (0.1,0)$) {$\circlearrowright$};
+	\node at ($1/3*(base right) + 1/3*(middle middle) + 1/3*(top) + (-0.1,0)$) {$\circlearrowleft$};
 	\node at ($1/3*(base right) + 1/3*(middle right) + 1/3*(top)$) {$\circlearrowleft$};
 	
 	\begin{pgfonlayer}{background}
@@ -121,11 +121,12 @@ We continue, now using an edge labelling on $P$, to generate a quotient space $K
 \end{figure}
 
 To construct $K(P)$, first we define a labelling on chains in $P$ which extends from the edge labelling in $P$.
+
 \begin{definition}[Extended Labelling]
-	 Given some edge--labelled poset $(P,\leq,l \colon \mathcal{E}(P) \to A)$ and some chain $C \subseteq P$, the \emph{extended label} $\mathcal{L}(\rho) \subseteq A^*$ is the language of all words corresponding to all saturated chains that contain every element of $C$.
+	 Given some edge--labelled poset $(P,\leq,l \colon \mathcal{E}(P) \to A)$ and some chain $C \subseteq P$, the \emph{extended label} $\mathcal{L}(C) \subseteq A^*$ is the language of all words corresponding to all saturated chains that contain every element of $C$.
 \end{definition}
 
-Here a \emph{saturated chain} is a chain such that every relation is a covering relation. For an example on extended labels, consider the chain $(\{2\} \subseteq \{1,2,3\})$ in the context of \cref{fig:example_edge_labelled_poset_with_KP}. There are two corresponding saturated chains, $(\{2\} \subseteq \{1,2\} \subseteq \{1,2,3\})$ and $(\{2\} \subseteq \{2,3\} \subseteq \{1,2,3\})$, which respectively correspond to the words $ba$ and $ab$. So $\mathcal{L}(\{2\} \subseteq \{1,2,3\}) = \{ba, ab\}$. Here are some illustrative examples:
+Here $A^*$ denotes the set of all words in the alphabet $A$. For an example on extended labels, consider the chain $(\Set{2} \subseteq \Set{1,2,3,4})$ in the context of \cref{fig:example_edge_labelled_poset_with_KP}. There are two corresponding saturated chains, $(\Set{2} \subseteq \Set{1,2} \subseteq \Set{1,2,3,4})$ and $(\Set{2} \subseteq \Set{2,3} \subseteq \Set{1,2,3,4})$, which respectively correspond to the words $ba$ and $ab$. So $\mathcal{L}(\{2\} \subseteq \{1,2,3\}) = \{ba, ab\}$. Here are some illustrative examples:
 
 \begin{itemize}
 	\item $\mathcal{L}(\{1\} \subseteq \{1,2\}) = \mathcal{L}(\{2\} \subseteq \{1,2\}) = \{b\}$.
@@ -141,10 +142,10 @@ This extended labelling on chains naturally extends to a labelling on simplices 
 	\label{def:poset_complex}
 \end{definition}
 
-In the example in \cref{fig:example_edge_labelled_poset_with_KP}, three red edges are indentified, four blue edges are identified, two orange triangles are identified and two purple triangles are identified. Note that the two black edges are in this case identified, but only because they belong to the two pairs of identified triangles. In the second example for $\mathcal{L}$ above, we see they have different labels.
+In the example in \cref{fig:example_edge_labelled_poset_with_KP}, three red edges are identified, four blue edges are identified, two black edges are identified, two orange triangles are identified and two purple triangles are identified. The orientation of the identification on triangles is denoted by a $\acts$ symbol.
 
-We see that this space is homeomorphic to a torus, which has $\pi(1) \cong \mathbb{Z}^2 \cong \left\langle a,b \mid ab = ba \right\rangle$, which is also the $G(P)$ for this edge--labelled poset.
+We see that this space is homeomorphic to a torus, which has fundamental group $\mathbb{Z}^2 \cong \left\langle a,b \mid ab = ba \right\rangle$, which is also the $G(P)$ for this edge--labelled poset.
 
-This is true in general. We can determine $\pi_1(K(P))$ from its 2--skeleton \cite[Corollary 4.12]{hatcher_algebraic_2001}. The 1--skeleton will be a wedge of circles, one for each unlabelled 1--chain in $P$ and one for each $a \in \image(l)$. Only labelled edges will contribute generators to $\pi_1(K(P))$ since a labelled path can always be deformed to an unlabelled 1--chain through the simplex in $K(P)$. If two $n$--chains start and end at the same points, they will share an edge in an $n$--simplex corresponding to an unlabelled 1--chain. So one of the paths can be deformed to the path corresponding to the edge of the unlabelled 1--chain, and then through that shared edge to the other path, making the paths homotopic. E.g.~in \cref{fig:example_edge_labelled_poset_with_KP} we can deform $(\Set{2} \subseteq \Set{1,2} \subseteq \Set{1,2,3})$ through $(\Set{2} \subseteq \Set{1,2,3})$ to $(\Set{2} \subseteq \Set{2,3} \subseteq \Set{1,2,3})$. Identification of $n$--simplices for $n>1$ does not affect the fundamental group, but does ensure that that higher homotopy groups are trivial. We can see if we did not identify the 2--simplices in \cref{fig:example_edge_labelled_poset_with_KP}, $\pi_2(K(P))$ would be non-trivial.
+It is true in general that $\pi_1(K(p)) \cong G(P)$. We can determine $\pi_1(K(P))$ from its 2--skeleton \cite[Corollary 4.12]{hatcher_algebraic_2001}. The 1--skeleton will be a wedge of circles, one for each $a \in \image(l)$ and some corresponding to unsaturated 1--chains in $P$ (the black edges in \cref{fig:example_edge_labelled_poset_with_KP}). Only labelled edges will contribute generators to $\pi_1(K(P))$ since a labelled path can always be deformed to an unlabelled 1--chain through the simplex in $K(P)$. If two $n$--chains start and end at the same points, they will share an edge in an $n$--simplex corresponding to an unlabelled 1--chain. So one of the paths can be deformed to the path corresponding to the edge of the unlabelled 1--chain, and then through that shared edge to the other path, making the paths homotopic. E.g.~in \cref{fig:example_edge_labelled_poset_with_KP} we can deform $(\Set{2} \subseteq \Set{1,2} \subseteq \Set{1,2,3,4})$ through $(\Set{2} \subseteq \Set{1,2,3,4})$ to $(\Set{2} \subseteq \Set{2,3} \subseteq \Set{1,2,3,4})$. Identification of $n$--simplices for $n>1$ does not affect the fundamental group, but does ensure that that higher homotopy groups are trivial. We can see if we did not identify the 2--simplices in \cref{fig:example_edge_labelled_poset_with_KP}, $\pi_2(K(P))$ would be non-trivial.
 
 \end{document}
