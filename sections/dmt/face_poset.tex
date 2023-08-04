@@ -1,0 +1,129 @@
+% !TeX root = ../../main.tex
+\documentclass[class=article, crop=false]{standalone}
+\begin{document}
+
+\subsection{The Face Poset and Acyclic Matchings}
+
+In previous sections we gave constructions that formed spaces from posets, we now give a construction in the opposite direction. Given a CW complex $X$ denote the set of open cells as $X^*$.
+
+\begin{definition}[The Face Poset]
+    Given a CW complex $X$, the \emph{face poset} $\mathcal{F}(X)$ is an ordering on $X^*$ where $\tau \leq \sigma$ when $\bar{\tau} \subseteq \bar{\sigma}$.
+\end{definition}
+
+For a finite dimensional and connected CW complex, $\mathcal{F}(X)$ is a bounded and graded poset with rank function $\rk(\sigma) = \dim(\sigma)$. Let $P$ denote $\mathcal{F}(X)$.
+\what[Here the use of rank is quite different compared to its introduction in \cref{sec:posets}. I think this sleight of hand is OK but can be changed if necessary]
+Consider some subset of the covering relations  $\mathcal{M} \subseteq \mathcal{E}(P)$. We consider this as a set of edges in the Hasse diagram for $P$, which is denoted $H$. From $\mathcal{M}$ we define an ordering on the graph $H$ such that $p \lessdot q$ is oriented from $p$ to $q$ if $(p \lessdot q) \in \mathcal{M}$, and otherwise in the opposite direction. We denote this oriented graph $H_\mathcal{M}$.
+We call $\mathcal{M}$ a \emph{matching} if for all $p \in P$, at most one $m \in \mathcal{M}$ contains $p$. A matching is \emph{acyclic} if $H_\mathcal{M}$ contains no directed cycles. Furthermore, a matching is \emph{proper} if for all $p\in P$, the set of all vertices in $H_\mathcal{M}$ reachable by a directed path from $p$ is finite. \cref{fig:matchings} gives some (non)examples of matchings.
+
+We observe that the requirement of being a matching means that any path through $H_\mathcal{M}$ will never consecutively go through two edges in $\mathcal{M}$. A cycle in $H_\mathcal{M}$ must clearly start and end at the same rank. Since edges in $\mathcal{M}$ increase rank and edges in $\mathcal{E}(P)\setminus\mathcal{M}$ decrease rank, a cycle must therefore be (cyclically)  alternating between edges in $\mathcal{M}$ and edges in $\mathcal{E}(P)\setminus\mathcal{M}$. Therefore, if a cycle is to start at $p\in P$, it must completely occur in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,1}}$ or completely in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,-1}}$. I.e.~the horizontal bands above or below $p$ in $H$. Since it is alternating, a cycle must also comprise an even number of edges.
+
+\tikzstyle{m}=[green!70!black, arrow_me=stealth]
+\tikzstyle{not_m}=[arrow_me=stealth]
+\tikzstyle{FSC_highlight}=[circle, draw=black!50,fill=red!40,thick, inner sep=0pt,minimum size=1.5mm]
+
+\begin{figure}[ht]
+\centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \node[FSC] (base middle) at (0,0) {};
+            \node[FSC] (base left)  at ($ (base middle) + (-1,0)$) {};
+            \node[FSC] (base right) at ($ (base middle) + (1,0)$)    {};
+        
+            \node[FSC] (top middle) at ($ (base middle) + (0,1)$)   {};
+            \node[FSC] (top left) at ($ (base left) + (0,1)$)   {};
+            \node[FSC] (top right) at ($ (base right) + (0,1)$)   {};
+        
+            \draw[m] (base left) to (top left);
+            \draw[not_m] (top middle) to (base left);
+            \draw[not_m] (top right) to (base middle);
+            \draw[m] (base right) to (top right);
+            \draw[arrow_me_ne=stealth] (top left) to (base right);
+            \draw[m] (base middle) to (top middle);
+        \end{tikzpicture}
+        \caption{A cyclic matching.}
+        \label{subfig:cyclic_matching}
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \node[FSC] (base middle) at (0,0) {};
+            \node[FSC] (base left)  at ($ (base middle) + (-1,0)$) {};
+            \node[FSC_highlight] (base right) at ($ (base middle) + (1,0)$)    {};
+        
+            \node[FSC] (top middle) at ($ (base middle) + (0,1)$)   {};
+            \node[FSC_highlight] (top left) at ($ (base left) + (0,1)$)   {};
+            \node[FSC] (top right) at ($ (base right) + (0,1)$)   {};
+        
+            \draw[not_m] (top left) to (base left);
+            \draw[m] (base left) to (top middle);
+            \draw[not_m] (top middle) to (base middle);
+            \draw[m] (base middle) to (top right);
+            \draw[not_m] (top right) to (base right);
+            \draw[arrow_me_ne=stealth] (top left) to (base right);
+        \end{tikzpicture}
+        \caption{An acyclic matching with invalid subcomplex.}
+        \label{subfig:acyclic_matching_invalid}
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \node[FSC] (base middle) at (0,0) {};
+            \node[FSC] (base left)  at ($ (base middle) + (-1,0)$) {};
+            \node[FSC_highlight] (base right) at ($ (base middle) + (1,0)$)    {};
+        
+            \node[FSC] (top middle) at ($ (base middle) + (0,1)$)   {};
+            \node[FSC] (top left) at ($ (base left) + (0,1)$)   {};
+            \node[FSC] (top right) at ($ (base right) + (0,1)$)   {};
+            
+            \node[FSC] (tippy top) at ($(top middle) + (0,0.8)$) {};
+
+            \draw[not_m] (top left) to (base left);
+            \draw[m] (base left) to (top middle);
+            \draw[not_m] (top middle) to (base middle);
+            \draw[m] (base middle) to (top right);
+            \draw[not_m] (top right) to (base right);
+            \draw[arrow_me_ne=stealth] (top left) to (base right);
+
+            \draw[not_m] (tippy top) to (top right);
+            \draw[not_m] (tippy top) to (top middle);
+            \draw[m] (top left) to (tippy top);
+        \end{tikzpicture}
+        \caption{An acyclic matching with valid subcomplex.}
+        \label{subfig:acyclic_matching_valid}
+    \end{subfigure}
+    \caption{Directed Hasse diagrams corresponding to face posets and choices of $\mathcal{M}$. Green edges are those in $\mathcal{M}$ and red nodes are critical cells.}
+    \label{fig:matchings}
+\end{figure}
+
+We call $\sigma$ a \emph{face} of $\tau$ if $\sigma \lessdot \tau$. Consider $\Phi$, the characteristic map of some  $n$--cell $\tau$ with $\Phi \colon D^n \to X$. We call $\sigma$ a \emph{regular face} of $\tau$ if it is a face and the following hold.
+
+\begin{enumerate}[1)]
+    \item $\Phi|_{\Phi^{-1}(\sigma)} \colon \Phi^{-1}(\sigma) \to \sigma$ is a homeomorphism.
+    \item $\overline{\Phi^{-1}(\sigma)}$ is homeomorphic to $D^{n-1}$ as a subset of $D^n$.
+    \what[Surely 2 always follows from 1. Since $\sigma \cong \Phi^{-1}(\sigma)$ and $\sigma$ is an open $(n-1)$--disk. Maybe this is to do with pathological CW complexes.]
+\end{enumerate}
+
+For a matching $\mathcal{M}$, any $p \in P$ that is disjoint from all of $\mathcal{M}$ is called \emph{critical}. In this context, a \emph{critical cell}.
+We can now state the version of discrete Morse theory we will use.
+
+\begin{theorem}[{\cite[Theorem 2.4]{paolini_salvetti_kpi1_2021}}]
+    Consider a CW complex $X$, a subcomplex $Y \subseteq X$, and a proper, acyclic matching $\mathcal{M}$ on $X$. If $\mathcal{F}(Y) \subseteq \mathcal{F}(X)$ is the set of critical cells in $X$ with respect to $\mathcal{M}$ and every if $\sigma$ is a regular face of $\tau$ for every $(\sigma \lessdot \tau) \in \mathcal{M}$, then $X$ deformation retracts on to $Y$.
+    \label{thm:dmt}
+\end{theorem}
+
+You may notice that this seems to have no link to discrete functions $X^* \to \N$, as promised in the prologue of this section. Indeed, this statement is a reformulation of Discrete Morse Theory due \cite{chari_discrete_2000} and \cite{batzies_discrete_2002}. The original formulation of Discrete Morse Theory is due to \cite{forman_morse_1998}. The exact wording of \cref{thm:dmt} is important, we explore this in the following example.
+
+\begin{example}
+    The Hasse diagrams in \cref{fig:matchings} correspond to the obvious CW complex for a triangle. \cref{subfig:cyclic_matching,subfig:acyclic_matching_invalid} are for a hollow 1--dimensional triangle and \cref{subfig:acyclic_matching_valid} is for a filled 2--dimensional triangle. We know that a hollow triangle cannot deformation retract on to any of its subcomplexes, thus the required construction for \cref{thm:dmt} should fail for \cref{subfig:cyclic_matching,subfig:acyclic_matching_invalid}. We see that \cref{subfig:cyclic_matching} is a cyclic matching, but we achieve an acyclic (vacuously proper) matching in \cref{subfig:acyclic_matching_invalid}. Importantly, the space corresponding to the union of the critical cells, which are highlighted in the figure, is not a valid subcomplex, thus \cref{thm:dmt} does not apply. For a subset of cells $Y^* \subseteq X^*$ to correspond to a valid subcomplex $Y \subseteq X$, we require
+    \begin{equation}
+        \bigcup_{y \in \mathcal{F}(Y)} [-\infty, y] = \mathcal{F}(Y)
+        \label{eqn:valid_subcomplex_requirement}
+    \end{equation}
+    where $[-\infty, y]$ is taken within the poset $\mathcal{F}(X)$. For \cref{subfig:acyclic_matching_invalid}, the left--hand side of \eqref{eqn:valid_subcomplex_requirement} would include the bottom left cell in the Hasse diagram, which we see is not critical. In \cref{subfig:acyclic_matching_valid}, we have a valid subcomplex and the critical cell corresponds to a vertex in the 2--dimensional triangle, which is of course a valid deformation retract of the whole complex.
+\end{example}
+
+
+\end{document}

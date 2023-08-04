@@ -3,10 +3,13 @@
 \begin{document}
 
 \subsection{Overview of Main Results}
-Here we compile the main results from \cite{paolini_salvetti_kpi1_2021} in to a few theorems. Many of the objects here are not yet defined. Those mentioned in this section and defined in this paper are;
-$Y_W$: \cref{def:config_space},
-$X_W$: \cref{def:salvetti_cx} and 
-$X^\prime_W$: \cref{def:subcomplex_X_prime}.
+Here we compile the main results from \cite{paolini_salvetti_kpi1_2021} in to a few theorems. Many of the objects here are not yet defined. Those mentioned in this section and defined in this paper are;\,\,
+$W$:~\labelcref{def:coxeter_group},\,\,
+$G_W$:~\labelcref{def:artin_group},\,\,
+$Y_W$:~\labelcref{def:config_space},\,\,
+$K_W$:~\labelcref{def:interval_complex}\,\,
+$X_W$:~\labelcref{def:salvetti_cx},\,\, and\,\, 
+$X^\prime_W$:~\labelcref{def:subcomplex_X_prime}.
 
 \begin{theorem}[{\cite{paolini_salvetti_kpi1_2021}}]
 	Given an affine Coxeter group $W$, the configuration space $Y_W$ is homotopy equivalent to the order complex $K_W$.
@@ -14,12 +17,13 @@ $X^\prime_W$: \cref{def:subcomplex_X_prime}.
 \end{theorem}
 \begin{proof}
 	By \cref{thm:salvetti_hom_equiv_config} the Salvetti complex $X_W$ is homotopy equivalent to the configuration space $Y_W$. Therefore, we need only show $K_W \simeq X_W$. This is done through a composition of homotopy equivalences
-	\begin{equation*}
+	\begin{equation}
 		X_W \labelrel\simeq{eqmid:salvetti_salvettiprime}
 		X^\prime_W \labelrel\simeq{eqmid:salvettiprime_intervalcomplexprime}
 		K^\prime_W \labelrel\simeq{eqmid:intervalcomplexprime_intervalcomplex}
 		K_W
-	\end{equation*}
+	\label{eqn:proof_overview}
+	\end{equation}
 
 	Where the results are gathered from the following sources:
 	

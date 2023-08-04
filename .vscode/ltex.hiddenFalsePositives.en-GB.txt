@@ -10,3 +10,16 @@
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qsections/introduction/ preamble.tex sections/introduction/ basic_definitions.tex sections/introduction/ configuration_space.tex sections/introduction/ k_pi_1.tex\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qsections/introduction/ preamble.tex sections/introduction/ proof_overview.tex sections/introduction/ basic_definitions.tex sections/introduction/ configuration_space.tex sections/introduction/ k_pi_1.tex\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qsections/introduction/ preamble.tex sections/introduction/ proof_overview.tex sections/introduction/ basic_definitions.tex sections/introduction/ configuration_space.tex sections/introduction/ k_pi_1.tex\\E$"}
+{"rule":"DT_JJ_NO_NOUN","sentence":"^\\QFurthermore, a matching is\\E$"}
+{"rule":"DT_JJ_NO_NOUN","sentence":"^\\QA matching is acyclic if \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q contains no directed cycles.\\E$"}
+{"rule":"DT_JJ_NO_NOUN","sentence":"^\\QFurthermore, a matching is proper if for all \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, the set of all vertices in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q reachable by a directed path from \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is finite.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qm=[green!70!black, arrow_me=stealth] not_m=[arrow_me=stealth] FSC_highlight=[circle, draw=black!50,fill=red!40,thick, inner sep=0pt,minimum size=1.5mm]\\E$"}
+{"rule":"NON_STANDARD_WORD","sentence":"^\\Qm=[green!70!black, arrow_me=stealth] not_m=[arrow_me=stealth] FSC_highlight=[circle, draw=black!50,fill=red!40,thick, inner sep=0pt,minimum size=1.5mm]\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qm=[green!70!black, arrow_me=stealth] not_m=[arrow_me=stealth] FSC_highlight=[circle, draw=black!50,fill=red!40,thick, inner sep=0pt,minimum size=1.5mm]\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qsections/dmt/ prologue.tex sections/dmt/ face_poset.tex\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qsections/dmt/ prologue.tex sections/dmt/ face_poset.tex\\E$"}
+{"rule":"ALL_OF_THE","sentence":"^\\QThus, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is null homotopic and so can be extended over all of the closure of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q by \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qgreen polyfill=[fill=green!20, draw=green!50!black, thick] An example poset \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q (left) with corresponding \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q (right).\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qgreen polyfill=[fill=green!20, draw=green!50!black, thick] The poset in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q with edge labelling (left) and the corresponding space \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q (right).\\E$"}
+{"rule":"COMMA_COMPOUND_SENTENCE_2","sentence":"^\\QIn the example in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, three red edges are identified, four blue edges are identified, two black edges are identified, two orange triangles are identified and two purple triangles are identified.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QFSC=[circle, draw=black!50,fill=black!20,thick, inner sep=0pt,minimum size=1.5mm] a=[red] b=[blue] c=[black!30!green] light=[black!22!white]\\E$"}

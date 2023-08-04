@@ -19,6 +19,7 @@ style=alphabetic-verb,
 
 % Captions
 \usepackage[font=footnotesize]{caption}
+\usepackage[font=scriptsize]{subcaption}
 \captionsetup{format=hang}
 
 % Text colours
@@ -142,6 +143,20 @@ citecolor         = black,%    % Couleur des citations
 		decoration={
 			markings,
 			mark=at position .6 with {\arrow[thick]{#1}}
+		}
+	},
+	arrow_me_ns/.style={
+		postaction=decorate,
+		decoration={
+			markings,
+			mark=at position .3 with {\arrow[thick]{#1}}
+		}
+	},
+	arrow_me_ne/.style={
+		postaction=decorate,
+		decoration={
+			markings,
+			mark=at position .9 with {\arrow[thick]{#1}}
 		}
 	}
 }
