@@ -53,7 +53,8 @@ Note that since for finite $f$, the Hasse diagram of $f$ is homeomorphic to $S^1
 The first property of $K^\prime_W$ we must prove is that $K^\prime_W$ is indeed a valid subcomplex, satisfying \eqref{eqn:valid_subcomplex_requirement}.
 
 \begin{lemma}
-    As defined above, $K^\prime_W$ is a valid subcomplex of $K_W$    
+    As defined above, $K^\prime_W$ is a valid subcomplex of $K_W$.
+    \label{lem:K_prime_valid_subcomplex}   
 \end{lemma}
 \begin{proof}
     We first concentrate on the infinite $f \in \eta^{-1}(d)$. We need to show that some infinite $f \in F$, if $\tau \in f^\prime$ and $\sigma \lessdot \tau$, then there exists some $g \in F$ such that $\sigma \in g^\prime$. Let $s = (x_n)_{n \in \Z}$ be the sequence of group elements corresponding to $f$ and let $\tau = [x_0|\cdots|x_{d-1}]$. Let $\tau$ be between $\alpha$ and $\omega$ both in $f \cap X^\prime_W$. By \cref{lem:all_decompositions_of_w_T_are_R} all of $[-\infty, \alpha]$ and $[-\infty, \omega]$ are also in $X^\prime_W$, so we may assume that both $\alpha$ and $\omega$ are in the \emph{bottom row} of the Hasse diagram of $f^\prime$ and accordingly consist of $d-1$ group elements. Choose $a,z \in \Z$ such that $\alpha = [x_a | \cdots | x_{a+d-2}]$ and $\omega = [x_z|\cdots|x_{z+d-2}]$.
@@ -133,7 +134,7 @@ We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M
         \node[FSC_highlight]  (b2) at ($(b1) + (\hsep, \vsep)$)       {};
         \node[FSC_highlight]  (b3) at ($(b2) + (\hsep, -\vsep)$)      {};
         \node[FSC_highlight]  (b4) at ($(b3) + (\hsep, \vsep)$)       {};
-        \node[FSC]  (b5) at ($(b4) + (\hsep, -\vsep)$)      [label=below:{$\omega$}] {};
+        \node[FSC]  (b5) at ($(b4) + (\hsep, -\vsep)$)      [label=below:{$\smallvertin{\omega}{X^\prime_W}$}] {};
         \node[FSC]  (b6) at ($(b5) + (\hsep, \vsep)$)       {};
         \node[FSC]  (b7) at ($(b6) + (\hsep, -\vsep)$)      {};
         \node[FSC]  (b8) at ($(b7) + (\hsep, \vsep)$)       {};
@@ -169,7 +170,7 @@ We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M
 	($(a6) + (-0.2, 0.2)$) --  ($ (b4) + (0.2,0.2)$)
 	node[pos=0.5, above=15pt]{$f^\prime$};
     \end{tikzpicture}
-    \caption{The unique acyclic matching $\mathcal{M}_{f}$ on $f$ such that the critical cells correspond to exactly $f\prime$. Here $\alpha$ and $\omega$ correspond to the relevant first and last el}
+    \caption{The unique acyclic matching $\mathcal{M}_{f}$ on $f$ such that the critical cells correspond to exactly $f\prime$. Here $\alpha$ and $\omega$ are relevant first and last elements in $f \cap X^\prime_W$ as in the proof of \cref{lem:K_prime_valid_subcomplex}. Critical cells are red and edges in $\mathcal{M}_f$ are green.}
 \end{figure}
 
 \end{proof}
