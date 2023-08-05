@@ -13,7 +13,7 @@ In previous sections we gave constructions that formed spaces from posets, we no
 For a finite dimensional and connected CW complex, $\mathcal{F}(X)$ is a bounded and graded poset with rank function $\rk(\sigma) = \dim(\sigma)$. Let $P$ denote $\mathcal{F}(X)$.
 \what[Here the use of rank is quite different compared to its introduction in \cref{sec:posets}. I think this sleight of hand is OK but can be changed if necessary]
 Consider some subset of the covering relations  $\mathcal{M} \subseteq \mathcal{E}(P)$. We consider this as a set of edges in the Hasse diagram for $P$, which is denoted $H$. From $\mathcal{M}$ we define an ordering on the graph $H$ such that $p \lessdot q$ is oriented from $p$ to $q$ if $(p \lessdot q) \in \mathcal{M}$, and otherwise in the opposite direction. We denote this oriented graph $H_\mathcal{M}$.
-We call $\mathcal{M}$ a \emph{matching} if for all $p \in P$, at most one $m \in \mathcal{M}$ contains $p$. A matching is \emph{acyclic} if $H_\mathcal{M}$ contains no directed cycles. Furthermore, a matching is \emph{proper} if for all $p\in P$, the set of all vertices in $H_\mathcal{M}$ reachable by a directed path from $p$ is finite. \cref{fig:matchings} gives some (non)examples of matchings.
+We call $\mathcal{M}$ a \emph{matching} if for all $p \in P$, at most one $m \in \mathcal{M}$ contains $p$. A matching is \emph{acyclic} if $H_\mathcal{M}$ contains no directed cycles. Furthermore, a matching is \emph{proper} if for all $p\in P$, the set of all nodes in $H_\mathcal{M}$ reachable by a directed path from $p$ is finite. \cref{fig:matchings} gives some (non)examples of matchings.
 
 We observe that the requirement of being a matching means that any path through $H_\mathcal{M}$ will never consecutively go through two edges in $\mathcal{M}$. A cycle in $H_\mathcal{M}$ must clearly start and end at the same rank. Since edges in $\mathcal{M}$ increase rank and edges in $\mathcal{E}(P)\setminus\mathcal{M}$ decrease rank, a cycle must therefore be (cyclically)  alternating between edges in $\mathcal{M}$ and edges in $\mathcal{E}(P)\setminus\mathcal{M}$. Therefore, if a cycle is to start at $p\in P$, it must completely occur in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,1}}$ or completely in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,-1}}$. I.e.~the horizontal bands above or below $p$ in $H$. Since it is alternating, a cycle must also comprise an even number of edges.
 
@@ -125,5 +125,10 @@ You may notice that this seems to have no link to discrete functions $X^* \to \N
     where $[-\infty, y]$ is taken within the poset $\mathcal{F}(X)$. For \cref{subfig:acyclic_matching_invalid}, the left--hand side of \eqref{eqn:valid_subcomplex_requirement} would include the bottom left cell in the Hasse diagram, which we see is not critical. In \cref{subfig:acyclic_matching_valid}, we have a valid subcomplex and the critical cell corresponds to a vertex in the 2--dimensional triangle, which is of course a valid deformation retract of the whole complex.
 \end{example}
 
+We will also require the following standard tool for forming acyclic matchings. For this we introduce the notion of a \emph{poset map}, which a map between posets $P \to Q$ that respects the poset structure. Given such a map $\phi$, we call preimages of single elements \emph{fibres}.
+
+\begin{theorem}[{Patchwork Theorem \cite[Theorem 11.10]{kozlov_combinatorial_2008}}]
+    Given a poset map $\phi \colon P \to Q$, assume we have acyclic matchings on all fibres $\phi^{-1}(q)$, where the matching need only be acyclic within the fibre itself. The union of all of these matchings is an acyclic matching on $P$.
+\end{theorem}
 
 \end{document}

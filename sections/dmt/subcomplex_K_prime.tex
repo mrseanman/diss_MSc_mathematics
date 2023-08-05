@@ -1,0 +1,178 @@
+% !TeX root = ../../main.tex
+\documentclass[class=article, crop=false]{standalone}
+\begin{document}
+
+\subsection{A New Subcomplex, $K^\prime_W$}
+
+We now introduce the particular poset map we will use. Recall that $w$ is a choice of Coxeter element. Given the standard ordering of $\N$, the map $\eta \colon \mathcal{F}(K_W) \to \N$ with
+\begin{equation*}
+    \eta([x_1|x_2|\cdots|x_d]) \coloneq \begin{cases}
+        d   &\text{if } x_1x_2\ldots x_d = w\\
+        d+1 &\text{otherwise }
+    \end{cases}
+\end{equation*}
+is a poset map. This can be readily checked. We call a connected component of $\eta^{-1}(d)$ a \emph{$d$--fibre component}. We now investigate the form of these $d$--fibre components. Again, denote $\mathcal{F}(K_W)$ by $P$. Consider such a $d$--fibre component $C$ such that $x \coloneq [x_1|x_2|\cdots|x_d] \in C$. Clearly $x_1x_2\ldots x_d = w$ and so $x$ is not the face of anything in $P$. The faces of $x$ are $[x_2|\cdots|x_d]$, $[x_1|\cdots|x_{d-1}]$ and $[x_1|\cdots|x_ix_{i+1}|\cdots|x_d]$ for all $i<d$. Only the first two faces will be in $C$ since $\eta([x_1|\cdots|x_ix_{i+1}|\cdots|x_d]) = d-1$. Therefore, a $d$--fibre component will look like the following.
+
+\begin{equation}
+\begin{tikzpicture}[scale=1.2, baseline=0.5cm]
+    \tikzstyle{every label}=[font=\scriptsize]
+    \tikzstyle{every node}=[font=\footnotesize]
+    \node[FSC] (a1) at (0,0)            [label=below:{$[x_0|\cdots|x_{d-2}]$}]      {};
+    \node[FSC] (a2) at (1,0.8666)       [label=above:{$[x_0|\cdots|x_{d-1}]$}]      {};
+    \node[FSC] (a3) at (2,0)            [label=below:{$[x_1|\cdots|x_{d-1}]$}]      {};
+    \node[FSC] (a4) at (3,0.8666)       [label=above:{$[x_1|\cdots|x_{d}]$}]        {};
+    \node[FSC] (a5) at (4,0)            [label=below:{$[x_2|\cdots|x_{d}]$}]        {};
+    \node[FSC] (a6) at (5,0.8666)       [label=above:{$[x_2|\cdots|x_{d+1}]$}]      {};
+    \node[FSC] (a7) at (6,0)            [label=below:{$[x_3|\cdots|x_{d+1}]$}]      {};
+
+    \node (fake_l) at (-1,0.8666) {};
+    \node (fake_r) at (7,0.8666) {};
+
+    \draw (a1) to (a2) to (a3) to (a4) to (a5) to (a6) to (a7);
+    \draw[thick, dotted] (a1) to (fake_l);
+    \draw[thick, dotted] (a7) to (fake_r);
+\end{tikzpicture}
+\label{eqn:fibre_component_eg}
+\end{equation}
+
+To each fibre component there is an associated sequence $(x_i)_{i \in \Z}$ such that every product of $d$ consecutive elements is equal to $w$ and each corresponding cell from the sequence is in $K_W$. Denote the set of all such sequences $S_d$. For each fibre component, the choice of $s \in S_d$ is unique up to translation of indices.
+
+\begin{remark}
+    A finite fibre component will have a repeating sequence. If the sequence repeats every $n$, then the Hasse diagram of the fibre component will contain $2n$ nodes. An infinite fibre component will be non--repeating, though an individual group element $x_i$ may be repeated in the sequence.
+    \label{rmk:finite_sequence_repetition}
+\end{remark}
+
+We will now define a subcomplex $K^\prime_W \subseteq K_W$ based on these fibre components, after which we will prove the necessary properties of $K^\prime_W$. Let $F\subseteq 2^{\mathcal{F}(K)}$ be the set of all connected fibre components such that $\bigcup_{f \in F}f = \eta^{-1}(\N)$. Recall  $X^\prime_W$ from \cref{def:subcomplex_X_prime}.
+
+\begin{definition}[The subcomplex $K^\prime_W$]
+    For each infinite $f \in F$ let $f^\prime$ be the elements of $f$ in between the first and last elements of $f \cap X_W^\prime$, where \emph{first}, \emph{last} and \emph{in between} derive from the linear form of the fibre components as in \eqref{eqn:fibre_component_eg}. Define $K^\prime_W$ to be the union of all finite $f$ and $f^\prime$ such that $f$ is infinite. 
+    \label{def:subcomplex_K_prime}
+\end{definition}
+
+Note that since for finite $f$, the Hasse diagram of $f$ is homeomorphic to $S^1$, so for finite $f$ there is no notion of \emph{in between}. Recall that $X^\prime_W$ is finite, so $f \cap X^\prime_W$ is finite and \emph{first} and \emph{last} are well--defined.
+The first property of $K^\prime_W$ we must prove is that $K^\prime_W$ is indeed a valid subcomplex, satisfying \eqref{eqn:valid_subcomplex_requirement}.
+
+\begin{lemma}
+    As defined above, $K^\prime_W$ is a valid subcomplex of $K_W$    
+\end{lemma}
+\begin{proof}
+    We first concentrate on the infinite $f \in \eta^{-1}(d)$. We need to show that some infinite $f \in F$, if $\tau \in f^\prime$ and $\sigma \lessdot \tau$, then there exists some $g \in F$ such that $\sigma \in g^\prime$. Let $s = (x_n)_{n \in \Z}$ be the sequence of group elements corresponding to $f$ and let $\tau = [x_0|\cdots|x_{d-1}]$. Let $\tau$ be between $\alpha$ and $\omega$ both in $f \cap X^\prime_W$. By \cref{lem:all_decompositions_of_w_T_are_R} all of $[-\infty, \alpha]$ and $[-\infty, \omega]$ are also in $X^\prime_W$, so we may assume that both $\alpha$ and $\omega$ are in the \emph{bottom row} of the Hasse diagram of $f^\prime$ and accordingly consist of $d-1$ group elements. Choose $a,z \in \Z$ such that $\alpha = [x_a | \cdots | x_{a+d-2}]$ and $\omega = [x_z|\cdots|x_{z+d-2}]$.
+    
+    $\bullet$ First we will prove the case where $\tau$ is in the top of the Hasse diagram for $f^\prime$ such that $x_0x_1\ldots x_{d-1} = w$. The two faces $[x_1|\cdots|x_{d-1}]$ and $[x_0|\cdots|x_{d-2}]$ are both already in $f^\prime$, so we need only check the faces
+    \begin{equation*}
+        \sigma^i = [x_0|\cdots|x_ix_{i+1}|\cdots|x_{d-1}] \lessdot \tau.
+    \end{equation*}
+    Clearly each $\sigma^i \in \eta^{-1}(d-1)$. From the sequence $s$, we define the following.
+    \begin{equation*}
+        s^i \coloneq (y^i_n)_{n \in \Z} = (\ldots, x_0, x_1, \ldots, x_ix_{i+1}, \ldots x_{d}, \ldots, x_{d+i}x_{d+i+1}, \ldots, x_{2d}, \ldots)
+    \end{equation*}
+    Where we multiply each adjacent pair $x_j,x_{j+1}$ by removing the comma wherever $j \equiv i \mod d$. We see that every product of $(d-1)$ consecutive terms in $s^i$ is $w$. Each $s^i$ is the sequence corresponding to some connected component of $\eta^{-1}(d-1)$. Each face $\sigma^i \lessdot \tau$ is associated to the connected component associated to $s^i$. Denote this component $g^i$. We need to show that there exists $\alpha^\prime, \omega^\prime \in g^i$ such that $\alpha^\prime \leq \alpha$ and $\omega^\prime \leq \omega$. We may choose $\alpha^\prime$ and $\omega^\prime$ to be any $[y^i_k|\cdots|y^i_{k+d-3}]$, i.e.~a cell on the bottom row of $g^i$ consisting of $(d-2)$ group elements. Let us concentrate on $\alpha^\prime$. There are three possibilities, remember that $\alpha = [x_a | \cdots | x_{a+d-2}]$ and $\omega = [x_z|\cdots|x_{z+d-2}]$.
+    \begin{enumerate}
+        \item $a-1 \equiv i \mod d$ in which case the relevant part of $s^i$ looks like
+        \begin{equation*}
+            \ldots, x_{a-2}, x_{a-1}x_a, x_{a+1}, \ldots, x_{a+d-2}, x_{a+d-1}x_{a+d}, x_{a+d+1}, \ldots.
+        \end{equation*}
+        We choose $\alpha^\prime = [x_{a+1}|\cdots|x_{a+d-2}]$.
+        \item $a-i \equiv k \mod d$ with $1<k<d$ in which case the relevant part of $s^i$ looks like
+        \begin{equation*}
+            \ldots, x_{a}, x_{a+1}, \ldots, x_{a+i}x_{a+i+1}, \ldots, x_{a+d-1}, x_{a+d}, \ldots.
+        \end{equation*}
+        We choose $\alpha^\prime = [x_a|\cdots|x_{a+i}x_{a+i+1}|\cdots|x_{a+d-2}]$
+        \item $a-i \equiv 0 \mod d$ in which case the relevant part of $s^i$ looks like
+        \begin{equation*}
+            \ldots, x_{a-1}, x_{a}x_{a+1},x_{a+2}, \ldots, \ldots, x_{a+d-1}, x_{a+d}x_{a+d+1},x_{a+d+2}, \ldots.
+        \end{equation*}
+        We choose $\alpha^\prime = [x_ax_{a+1}|x_{a+2}|\cdots|x_{d-2}]$.
+    \end{enumerate}
+    In all cases $\alpha^\prime$ is a cell in the bottom row of $g^\prime$ and a face of $\alpha$. For $\omega$ we do the exact same thing.
+
+    $\bullet$ For the case where $\tau$ is in the bottom row of $f^\prime$ we may set $\tau = [x_0|\cdots|x_{d-2}]$. We can use the same methods as before. The extra two faces $[x_1|\cdots|x_{d-2}]$ and $[x_0|\cdots|x_{d-3}]$ to consider do not pose any extra difficulty. We can choose an appropriate $s^i$ and proceed as before.
+
+    We now focus on the case where $\tau \in f$ and $f$ is finite. By \cref{rmk:finite_sequence_repetition} the sequence $s$ associated to $f$ will be repeating. We can again case--split whether $\tau$ is in the top or bottom row of the Hasse diagram for $f$. In either case, a face $\sigma \lessdot \tau$ will be in a component $g \in F$ associated to an appropriately chosen $s^i$. This $s^i$ will also be repeating, thus the associated $g$ will be finite.
+\end{proof}
+
+For the definition of $K^\prime$ to be well--defined, we require that the construction of each $f^\prime$ be well--defined. This requires that $f \cap X^\prime_W \neq \emptyset$ for each infinite $f$. This happens to be a detail for which the proof relies on $W$ being of affine type.
+
+\begin{lemma}[{\cite[Lemma 7.6]{paolini_salvetti_kpi1_2021}}]
+    If $W$ a Coxeter group of affine type and $f\in F$ is a $d$--fibre component, then there exists a simplex $\tau = [x_1|x_2|\cdots|x_{d-1}] \in f$ such that $\tau$ is also in $X_W^\prime$. 
+\end{lemma}
+
+This covers all the details of \cref{def:subcomplex_K_prime} and so $K_W^\prime$ is a valid subcomplex of $K_W$. We now get to reap the benefits of working in this strange setting of face posets.
+
+\begin{theorem}[{\cite[Theorem 7.9, Lemma 7.11]{paolini_salvetti_kpi1_2021}}]
+    The subcomplex $K_W^\prime$ is a deformation retract of $K_W$.
+\end{theorem}
+\begin{proof}
+We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M}_f$ such that the critical vertices corresponding to $\mathcal{M}_f$ are exactly those contained in $K_W^\prime$. For finite $f$, this is trivial. We choose $\mathcal{M}_f = \emptyset$. For infinite $f$, choosing such an $\mathcal{M}_f$ is very simple. As shown in the following picture.
+
+\tikzmath{
+	\hsep = 0.5;
+	\vsep = 0.9;
+}
+\tikzstyle{m}=[green!70!black, arrow_me=stealth]
+\tikzstyle{not_m}=[arrow_me=stealth]
+\tikzstyle{FSC_highlight}=[circle, draw=black!50,fill=red!40,thick, inner sep=0pt,minimum size=1.5mm]
+\begin{figure}
+    \begin{tikzpicture}[scale=1.2, baseline=0.5cm]
+        \tikzstyle{every label}=[font=\footnotesize]
+        \tikzstyle{every node}=[font=\footnotesize]
+
+        \node       (a1) at (0,0)                           {};
+        \node[FSC]  (a2) at ($(a1) + (\hsep, \vsep)$)       {};
+        \node[FSC]  (a3) at ($(a2) + (\hsep, -\vsep)$)      {};
+        \node[FSC]  (a4) at ($(a3) + (\hsep, \vsep)$)       {};
+        \node[FSC]  (a5) at ($(a4) + (\hsep, -\vsep)$)      [label=below:{$\smallvertin{\alpha}{X^\prime_W}$}] {};
+        \node[FSC_highlight]  (a6) at ($(a5) + (\hsep, \vsep)$)       {};
+        \node[FSC_highlight]  (a7) at ($(a6) + (\hsep, -\vsep)$)      {};
+        \node[FSC_highlight]  (a8) at ($(a7) + (\hsep, \vsep)$)       {};
+        \node[FSC_highlight]  (a9) at ($(a8) + (\hsep, -\vsep)$)      {};
+        \node       (a10) at ($(a9) + (\hsep, \vsep)$) {};
+
+        \node (b0)  at ($(a10) + (1.1,0)$) {};
+        \node[FSC_highlight]  (b1) at ($(b0) + (\hsep,-\vsep)$)                {};
+        \node[FSC_highlight]  (b2) at ($(b1) + (\hsep, \vsep)$)       {};
+        \node[FSC_highlight]  (b3) at ($(b2) + (\hsep, -\vsep)$)      {};
+        \node[FSC_highlight]  (b4) at ($(b3) + (\hsep, \vsep)$)       {};
+        \node[FSC]  (b5) at ($(b4) + (\hsep, -\vsep)$)      [label=below:{$\omega$}] {};
+        \node[FSC]  (b6) at ($(b5) + (\hsep, \vsep)$)       {};
+        \node[FSC]  (b7) at ($(b6) + (\hsep, -\vsep)$)      {};
+        \node[FSC]  (b8) at ($(b7) + (\hsep, \vsep)$)       {};
+        \node       (b9) at ($(b8) + (\hsep, -\vsep)$)      {};
+
+        % see https://tex.stackexchange.com/questions/646915/how-add-1-in-math-expression-inside-tikz-foreach-loop
+        \foreach \x in {3,5}
+        \draw[m] (a\x) to (a\the\numexpr \x - 1\relax);
+
+        \foreach \x in {3,5,7}
+        \draw[not_m] (a\the\numexpr \x +1\relax) to (a\x);
+
+        \foreach \x in {6,8}
+        \draw[not_m] (a\x) to (a\the\numexpr \x +1\relax);
+
+
+        \foreach \x in {5,7}
+        \draw[m] (b\x) to (b\the\numexpr \x + 1\relax);
+
+        \foreach \x in {3,5,7}
+        \draw[not_m] (b\the\numexpr \x -1\relax) to (b\x);
+
+        \foreach \x in {1,3}
+        \draw[not_m] (b\the\numexpr \x +1\relax) to (b\x);
+
+        \draw[dotted, thick] (a2) to (a1);
+        \draw[dotted, thick] (b8) to (b9);
+        \draw[dotted, thick] (a9) to (a10);
+        \draw[dotted, thick] (b0) to (b1);
+
+        \draw [decorate,
+			decoration = {calligraphic brace, raise=4pt, amplitude=8pt}]
+	($(a6) + (-0.2, 0.2)$) --  ($ (b4) + (0.2,0.2)$)
+	node[pos=0.5, above=15pt]{$f^\prime$};
+    \end{tikzpicture}
+    \caption{The unique acyclic matching $\mathcal{M}_{f}$ on $f$ such that the critical cells correspond to exactly $f\prime$. Here $\alpha$ and $\omega$ correspond to the relevant first and last el}
+\end{figure}
+
+\end{proof}
+
+
+\end{document}
