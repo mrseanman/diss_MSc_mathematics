@@ -11,9 +11,10 @@ We now introduce the particular poset map we will use. Recall that $w$ is a choi
         d+1 &\text{otherwise }
     \end{cases}
 \end{equation*}
-is a poset map. This can be readily checked. We call a connected component of $\eta^{-1}(d)$ a \emph{$d$--fibre component}. We now investigate the form of these $d$--fibre components. Again, denote $\mathcal{F}(K_W)$ by $P$. Consider such a $d$--fibre component $C$ such that $x \coloneq [x_1|x_2|\cdots|x_d] \in C$. Clearly $x_1x_2\ldots x_d = w$ and so $x$ is not the face of anything in $P$. The faces of $x$ are $[x_2|\cdots|x_d]$, $[x_1|\cdots|x_{d-1}]$ and $[x_1|\cdots|x_ix_{i+1}|\cdots|x_d]$ for all $i<d$. Only the first two faces will be in $C$ since $\eta([x_1|\cdots|x_ix_{i+1}|\cdots|x_d]) = d-1$. Therefore, a $d$--fibre component will look like the following.
+is a poset map. This can be readily checked. We call a connected component of $\eta^{-1}(d)$ a \emph{$d$--fibre component}. We now investigate the form of these $d$--fibre components. Again, denote $\mathcal{F}(K_W)$ by $P$. Consider such a $d$--fibre component $C$ such that $x \coloneq [x_1|x_2|\cdots|x_d] \in C$. Clearly $x_1x_2\ldots x_d = w$ and so $x$ is not the face of anything in $P$. The faces of $x$ are $[x_2|\cdots|x_d]$, $[x_1|\cdots|x_{d-1}]$ and $[x_1|\cdots|x_ix_{i+1}|\cdots|x_d]$ for all $i<d$. Only the first two faces will be in $C$ since $\eta([x_1|\cdots|x_ix_{i+1}|\cdots|x_d]) = d-1$. Therefore, a $d$--fibre component will look like \cref{fig:fibre_component_eg}.
 
-\begin{equation}
+\begin{figure}
+\centering
 \begin{tikzpicture}[scale=1.2, baseline=0.5cm]
     \tikzstyle{every label}=[font=\scriptsize]
     \tikzstyle{every node}=[font=\footnotesize]
@@ -32,12 +33,14 @@ is a poset map. This can be readily checked. We call a connected component of $\
     \draw[thick, dotted] (a1) to (fake_l);
     \draw[thick, dotted] (a7) to (fake_r);
 \end{tikzpicture}
-\label{eqn:fibre_component_eg}
-\end{equation}
+\caption{The general form of a connected $d$--fibre component.}
+\label{fig:fibre_component_eg}
+\end{figure}
 
-To each fibre component there is an associated sequence $(x_i)_{i \in \Z}$ such that every product of $d$ consecutive elements is equal to $w$ and each corresponding cell from the sequence is in $K_W$. Denote the set of all such sequences $S_d$. For each fibre component, the choice of $s \in S_d$ is unique up to translation of indices.
+To each fibre component there is an associated sequence $(x_i)_{i \in \Z}$ such that every product of $d$ consecutive elements is equal to $w$ and each corresponding cell from the sequence is in $K_W$. Denote the set of all such sequences $S_d$. For each fibre component, the choice of $s \in S_d$ is unique up translation of indices.
 
 \begin{remark}
+    Each sequence $s \in S_d$ is uniquely determined by any length $(d-1)$ subsequence. If you have such a subsequence you are in the bottom row of \cref{fig:fibre_component_eg}. You may choose to move to the right along the Hasse diagram from $[x_1|\cdots|x_{d-1}]$ to $[x_1|\cdots|x_{d}]$. This is always possible and completely deterministic, since $x_1x_2\ldots x_{d-1}$ is a prefix of a minimal factorisation of $w$ and the product $x_1x_2\ldots x_d$ must equal $w$. Similarly, a movement up and leftward is always possible and deterministic using the balanced property of $K_W$. Any downward movement is always possible and obviously deterministic. Thus, a fibre component does not have initial of final nodes and its Hasse diagram will either be homeomorphic to $\R$ or $S^1$.
     A finite fibre component will have a repeating sequence. If the sequence repeats every $n$, then the Hasse diagram of the fibre component will contain $2n$ nodes. An infinite fibre component will be non--repeating, though an individual group element $x_i$ may be repeated in the sequence.
     \label{rmk:finite_sequence_repetition}
 \end{remark}
@@ -45,7 +48,7 @@ To each fibre component there is an associated sequence $(x_i)_{i \in \Z}$ such 
 We will now define a subcomplex $K^\prime_W \subseteq K_W$ based on these fibre components, after which we will prove the necessary properties of $K^\prime_W$. Let $F\subseteq 2^{\mathcal{F}(K)}$ be the set of all connected fibre components such that $\bigcup_{f \in F}f = \eta^{-1}(\N)$. Recall  $X^\prime_W$ from \cref{def:subcomplex_X_prime}.
 
 \begin{definition}[The subcomplex $K^\prime_W$]
-    For each infinite $f \in F$ let $f^\prime$ be the elements of $f$ in between the first and last elements of $f \cap X_W^\prime$, where \emph{first}, \emph{last} and \emph{in between} derive from the linear form of the fibre components as in \eqref{eqn:fibre_component_eg}. Define $K^\prime_W$ to be the union of all finite $f$ and $f^\prime$ such that $f$ is infinite. 
+    For each infinite $f \in F$ let $f^\prime$ be the elements of $f$ in between and including the first and last elements of $f \cap X_W^\prime$, where \emph{first}, \emph{last} and \emph{in between} derive from the linear form of the fibre components as in \eqref{fig:fibre_component_eg}. Define $K^\prime_W$ to be the union of all finite $f$ and $f^\prime$ such that $f$ is infinite. 
     \label{def:subcomplex_K_prime}
 \end{definition}
 
@@ -100,12 +103,6 @@ For the definition of $K^\prime$ to be well--defined, we require that the constr
 
 This covers all the details of \cref{def:subcomplex_K_prime} and so $K_W^\prime$ is a valid subcomplex of $K_W$. We now get to reap the benefits of working in this strange setting of face posets.
 
-\begin{theorem}[{\cite[Theorem 7.9, Lemma 7.11]{paolini_salvetti_kpi1_2021}}]
-    The subcomplex $K_W^\prime$ is a deformation retract of $K_W$.
-\end{theorem}
-\begin{proof}
-We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M}_f$ such that the critical vertices corresponding to $\mathcal{M}_f$ are exactly those contained in $K_W^\prime$. For finite $f$, this is trivial. We choose $\mathcal{M}_f = \emptyset$. For infinite $f$, choosing such an $\mathcal{M}_f$ is very simple. As shown in the following picture.
-
 \tikzmath{
 	\hsep = 0.5;
 	\vsep = 0.9;
@@ -113,7 +110,8 @@ We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M
 \tikzstyle{m}=[green!70!black, arrow_me=stealth]
 \tikzstyle{not_m}=[arrow_me=stealth]
 \tikzstyle{FSC_highlight}=[circle, draw=black!50,fill=red!40,thick, inner sep=0pt,minimum size=1.5mm]
-\begin{figure}
+\begin{figure}[ht]
+    \centering
     \begin{tikzpicture}[scale=1.2, baseline=0.5cm]
         \tikzstyle{every label}=[font=\footnotesize]
         \tikzstyle{every node}=[font=\footnotesize]
@@ -122,9 +120,9 @@ We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M
         \node[FSC]  (a2) at ($(a1) + (\hsep, \vsep)$)       {};
         \node[FSC]  (a3) at ($(a2) + (\hsep, -\vsep)$)      {};
         \node[FSC]  (a4) at ($(a3) + (\hsep, \vsep)$)       {};
-        \node[FSC]  (a5) at ($(a4) + (\hsep, -\vsep)$)      [label=below:{$\smallvertin{\alpha}{X^\prime_W}$}] {};
-        \node[FSC_highlight]  (a6) at ($(a5) + (\hsep, \vsep)$)       {};
-        \node[FSC_highlight]  (a7) at ($(a6) + (\hsep, -\vsep)$)      {};
+        \node[FSC]  (a5) at ($(a4) + (\hsep, -\vsep)$)      {};
+        \node[FSC]  (a6) at ($(a5) + (\hsep, \vsep)$)       {};
+        \node[FSC_highlight]  (a7) at ($(a6) + (\hsep, -\vsep)$)    [label=below:{$\smallvertin{\alpha}{X^\prime_W}$}]  {};
         \node[FSC_highlight]  (a8) at ($(a7) + (\hsep, \vsep)$)       {};
         \node[FSC_highlight]  (a9) at ($(a8) + (\hsep, -\vsep)$)      {};
         \node       (a10) at ($(a9) + (\hsep, \vsep)$) {};
@@ -132,9 +130,9 @@ We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M
         \node (b0)  at ($(a10) + (1.1,0)$) {};
         \node[FSC_highlight]  (b1) at ($(b0) + (\hsep,-\vsep)$)                {};
         \node[FSC_highlight]  (b2) at ($(b1) + (\hsep, \vsep)$)       {};
-        \node[FSC_highlight]  (b3) at ($(b2) + (\hsep, -\vsep)$)      {};
-        \node[FSC_highlight]  (b4) at ($(b3) + (\hsep, \vsep)$)       {};
-        \node[FSC]  (b5) at ($(b4) + (\hsep, -\vsep)$)      [label=below:{$\smallvertin{\omega}{X^\prime_W}$}] {};
+        \node[FSC_highlight]  (b3) at ($(b2) + (\hsep, -\vsep)$)   [label=below:{$\smallvertin{\omega}{X^\prime_W}$}]   {};
+        \node[FSC]  (b4) at ($(b3) + (\hsep, \vsep)$)       {};
+        \node[FSC]  (b5) at ($(b4) + (\hsep, -\vsep)$)      {};
         \node[FSC]  (b6) at ($(b5) + (\hsep, \vsep)$)       {};
         \node[FSC]  (b7) at ($(b6) + (\hsep, -\vsep)$)      {};
         \node[FSC]  (b8) at ($(b7) + (\hsep, \vsep)$)       {};
@@ -142,37 +140,44 @@ We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M
 
         % see https://tex.stackexchange.com/questions/646915/how-add-1-in-math-expression-inside-tikz-foreach-loop
         \foreach \x in {3,5}
-        \draw[m] (a\x) to (a\the\numexpr \x - 1\relax);
+        \draw[m] (a\x) to (a\the\numexpr \x + 1\relax);
 
-        \foreach \x in {3,5,7}
-        \draw[not_m] (a\the\numexpr \x +1\relax) to (a\x);
+        \foreach \x in {3,5,7,9}
+        \draw[not_m] (a\the\numexpr \x -1\relax) to (a\x);
 
-        \foreach \x in {6,8}
-        \draw[not_m] (a\x) to (a\the\numexpr \x +1\relax);
+        \foreach \x in {8}
+        \draw[not_m] (a\x) to (a\the\numexpr \x -1\relax);
 
 
         \foreach \x in {5,7}
-        \draw[m] (b\x) to (b\the\numexpr \x + 1\relax);
+        \draw[m] (b\x) to (b\the\numexpr \x - 1\relax);
 
-        \foreach \x in {3,5,7}
-        \draw[not_m] (b\the\numexpr \x -1\relax) to (b\x);
-
-        \foreach \x in {1,3}
+        \foreach \x in {1,3,5,7}
         \draw[not_m] (b\the\numexpr \x +1\relax) to (b\x);
 
-        \draw[dotted, thick] (a2) to (a1);
-        \draw[dotted, thick] (b8) to (b9);
+        \foreach \x in {2}
+        \draw[not_m] (b\x) to (b\the\numexpr \x +1\relax);
+
+        \draw[dotted, thick, green!70!black] (a2) to (a1);
+        \draw[dotted, thick, green!70!black] (b8) to (b9);
         \draw[dotted, thick] (a9) to (a10);
         \draw[dotted, thick] (b0) to (b1);
 
         \draw [decorate,
-			decoration = {calligraphic brace, raise=4pt, amplitude=8pt}]
-	($(a6) + (-0.2, 0.2)$) --  ($ (b4) + (0.2,0.2)$)
+			decoration = {calligraphic brace, raise=4pt, amplitude=10pt}]
+	($(a7) + (-0.1, 0.2 + \vsep)$) --  ($ (b3) + (0.1,0.2+\vsep)$)
 	node[pos=0.5, above=15pt]{$f^\prime$};
     \end{tikzpicture}
-    \caption{The unique acyclic matching $\mathcal{M}_{f}$ on $f$ such that the critical cells correspond to exactly $f\prime$. Here $\alpha$ and $\omega$ are relevant first and last elements in $f \cap X^\prime_W$ as in the proof of \cref{lem:K_prime_valid_subcomplex}. Critical cells are red and edges in $\mathcal{M}_f$ are green.}
+    \caption{The unique acyclic matching $\mathcal{M}_{f}$ on $f$ such that the critical cells correspond to exactly $f^\prime$. Here $\alpha$ and $\omega$ are the relevant first and last elements in $f \cap X^\prime_W$ as in the proof of \cref{lem:K_prime_valid_subcomplex}. Critical cells are red and edges in $\mathcal{M}_f$ are green.}
+    \label{fig:acyclic_matching_fibre_components}
 \end{figure}
 
+\begin{theorem}[{\cite[Theorem 7.9, Lemma 7.11]{paolini_salvetti_kpi1_2021}}]
+    The subcomplex $K_W^\prime$ is a deformation retract of $K_W$.
+    \label{thm:subcomplex_K_prime_hom_equiv_K}
+\end{theorem}
+\begin{proof}
+We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M}_f$ such that the critical vertices corresponding to $\mathcal{M}_f$ are exactly those contained in $K_W^\prime$. For finite $f$, this is trivial. We choose $\mathcal{M}_f = \emptyset$. For infinite $f$, choosing such an $\mathcal{M}_f$ is very simple. As shown in \cref{fig:acyclic_matching_fibre_components}. There is a unique choice of $\mathcal{M}_f$. The union of these $\mathcal{M}_f$ is an acyclic matching on $\mathcal{F}(K_W)$ by \cref{thm:patchwork_theorem}. This acyclic matching gives a deformation retract on to the union of critical cells, which is exactly $K_W^\prime$, by \cref{thm:dmt}.
 \end{proof}
 
 
