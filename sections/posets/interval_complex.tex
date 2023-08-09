@@ -41,7 +41,7 @@ Certain properties of the poset permit a simplified notation for the simplices w
     \item \label{item:gluing_step_3} Multiply two adjacent elements $x_i$ and $x_{i+1}$ to get the chain $x_1 \leq \cdots \leq x_1 \ldots x_{i-1} \leq x_1 \ldots x_{i-1}x_ix_{i+1} \leq \cdots \leq x_1\cdots x_n$.
 \end{enumerate}
 
-So the $n$--simplex $[x_1 | x_2 | \cdots | x_n]$ glues to $[x_2|x_3|\cdots|x_n]$, $[x_1|x_2|\cdots|x_{n-1}]$ and $[x_1| \cdots | x_ix_{i+1} | \cdots |x_n]$ for all $i<n$.
+So the $n$--simplex $[x_1 | x_2 | \cdots | x_n]$ glues to $[x_2|x_3|\cdots|x_n]$, $[x_1|x_2|\cdots|x_{n-1}]$ and \newline $[x_1| \cdots | x_ix_{i+1} | \cdots |x_n]$ for all $i<n$.
 
 The particular poset group intervals $[1,w]^W$ we will consider will be \emph{balanced}. A balanced group interval is such that  $x \in [1,w]^W$ iff $l(g^{-1}x) + l(x) = l(g)$. I.e.~all minimal factorisation of $x \in [1,w]^W$ also appear as a suffix in a minimal factorisation of $w$ and all suffixes also appear as a prefix.
 
@@ -52,7 +52,7 @@ Where the interval is balanced, any such symbol  $[x_1 | x_2 | \cdots | x_n]$ co
     \item \label{item:interval_complex_requirement_3} $l(x_1x_2\cdots x_n) = l(x_1) + l(x_2) + \cdots + l(x_n)$ 
 \end{enumerate}
 
-Hopefully the first two requirements are obvious. The third is because we require the chain $x_1 \leq x_1x_2 \leq \cdots \leq x_1x_2\ldots x_{n}$ to be contained in $[1,w]^W$ which translates to every subword of $x_1\cdots x_n$ also being in $[1,w]^W$. By \labelcref{item:interval_complex_requirement_2} and \labelcref{item:interval_complex_requirement_3} we have that there is some $y$ such that $x_1 \cdots x_n y = w$ and there is a minimal factorisation of $w$ that respects the factors in $ x_1 \cdots x_n y$. We can take prefixes of this factorisation (and thus prefixes of $ x_1 \cdots x_n y$) and stay within $[1,w]^W$. We can use the balanced condition to move the suffix $x_2\cdots x_n y$ to the front. I.e.~there exists $y_2$ such that $x_2\cdots x_n yy_2=w$ and there is a minimal factorisation of $w$ that respects those factors. We can then repeat these steps to show every subword of $x_1 \cdots x_n $ is in $[1,w]^W$.
+Hopefully the first two requirements are obvious. The third is because we require the chain $x_1 \leq x_1x_2 \leq \cdots \leq x_1x_2\ldots x_{n}$ to be contained in $[1,w]^W$ which translates to every subword of $x_1\cdots x_n$ also being in $[1,w]^W$. By \labelcref{item:interval_complex_requirement_2} and \labelcref{item:interval_complex_requirement_3} we have that there is some $y$ such that $x_1 \cdots x_n y = w$ and there is a minimal factorisation of $w$ that respects the factors in $ x_1 \cdots x_n y$. We can take prefixes of this factorisation (and thus prefixes of $ x_1 \cdots x_n y$) and stay within $[1,w]^W$. We can use the balanced condition to move the suffix $x_2\cdots x_n y$ to the front, i.e.~there exists $y_2$ such that $x_2\cdots x_n yy_2=w$ and there is a minimal factorisation of $w$ that respects those factors. These steps can be repeated to show every subword of $x_1 \cdots x_n $ is in $[1,w]^W$.
 
 \begin{figure}
 	\centering

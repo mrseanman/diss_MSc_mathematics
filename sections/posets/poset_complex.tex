@@ -2,12 +2,12 @@
 \documentclass[class=article, crop=false]{standalone}
 \begin{document}
 
-\section{Poset Complex}
+\section{Poset complex}
 \label{sec:poset_cx}
 
 For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. To do this, we must begin by initially defining a \emph{geometric simplicial complex} $\Delta(P)$. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets. Following from this, we can make our definition.
 
-\begin{definition}[Geometric Simplicial Complex]
+\begin{definition}
 	Given a finite abstract simplicial complex $X$, the \emph{geometric realisation} of that simplicial complex is defined as follows: For each single element set in $X$ assign a point. For each two element set assign an open edge between the two vertices it contains. For each three element set assign an open triangle, the interior of the three edges of its three subsets of size two. In this way, continue constructing simplices of dimension $n$ for each $n+1$ size set in $X$.
 	\label{def:geometric_simplicial_cx}
 \end{definition}
@@ -122,7 +122,7 @@ We continue, now using an edge labelling on $P$, to generate a quotient space $K
 
 To construct $K(P)$, first we define a labelling on chains in $P$ which extends from the edge labelling in $P$.
 
-\begin{definition}[Extended Labelling]
+\begin{definition}
 	 Given some edge--labelled poset $(P,\leq,l \colon \mathcal{E}(P) \to A)$ and some chain $C \subseteq P$, the \emph{extended label} $\mathcal{L}(C) \subseteq A^*$ is the language of all words corresponding to all saturated chains that contain every element of $C$.
 \end{definition}
 

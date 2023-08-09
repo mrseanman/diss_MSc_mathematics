@@ -73,29 +73,35 @@ citecolor         = black,%    % Couleur des citations
 % ======  Manipulating packages  ===============================================
 
 % ----- theorems and numbering etc ---------------------------------------------
-\makeatletter
-\newtheoremstyle{indented}
-{3pt}% space before
-{3pt}% space after
-{\addtolength{\@totalleftmargin}{1.5em}
-	\addtolength{\linewidth}{-2.5em}
-	\parshape 1 1.5em \linewidth}% body font
-{}% indent
-{\bfseries}% header font
-{.}% punctuation
-{.5em}% after theorem header
-{}% header specification (empty for default)
-\makeatother
+% \makeatletter
+% \newtheoremstyle{indented}
+% {3pt}% space before
+% {3pt}% space after
+% {\addtolength{\@totalleftmargin}{1.5em}
+% 	\addtolength{\linewidth}{-2.5em}
+% 	\parshape 1 1.5em \linewidth}% body font
+% {}% indent
+% {\bfseries}% header font
+% {.}% punctuation
+% {.5em}% after theorem header
+% {}% header specification (empty for default)
+% \makeatother
 
 % \numberwithin{figure}{chapter}
 % \numberwithin{equation}{chapter}
 
 % \theoremstyle{indented}
+
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{corollary}[theorem]{Corrolary}
 \newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}[theorem]{Definition}
 \newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
 
