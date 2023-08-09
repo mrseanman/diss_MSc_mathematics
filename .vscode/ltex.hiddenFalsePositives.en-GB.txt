@@ -23,3 +23,5 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qgreen polyfill=[fill=green!20, draw=green!50!black, thick] The poset in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q with edge labelling (left) and the corresponding space \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q (right).\\E$"}
 {"rule":"COMMA_COMPOUND_SENTENCE_2","sentence":"^\\QIn the example in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, three red edges are identified, four blue edges are identified, two black edges are identified, two orange triangles are identified and two purple triangles are identified.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QFSC=[circle, draw=black!50,fill=black!20,thick, inner sep=0pt,minimum size=1.5mm] a=[red] b=[blue] c=[black!30!green] light=[black!22!white]\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qconjecture.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QK pi 1.\\E$"}
