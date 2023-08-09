@@ -2,10 +2,10 @@
 \documentclass[class=article, crop=false]{standalone}
 \begin{document}
 
-\subsection{Configuration Space}
+\section{Configuration Space}
 \label{sec:config_space_intro}
 
-Here we will give the definition of the configuration space $Y_W$ for a given Coxeter group $W$ and go through an example where we will show that $\pi_1(Y_W) \cong G_W$ for $W$ of type $A_n$ \cite{fox_braid_1962}.
+Here we will give the definition of the configuration space $Y_W$ for a given Coxeter group $W$ and go through an example where we will show that $\pi_1(Y_W) \cong G_W$ for $W$ of type $A_n$ \cite{fox_neuwirth_braid_1962}.
 
 For some finite or affine Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ acts on $\R^n$ by reflection through hyperplanes, one for each $r \in R$. For some $r \in R$ denote its hyperplane by $H(r) \subseteq \R^n$. Denote the union of all hyperplanes by $\mathcal{H} \coloneqq \bigcup_{r \in R} H(r)$. We associate $\R^n \otimes \C$ with $\C^n$ under the natural isomorphism $x \otimes \lambda \mapsto x\lambda$. This also extends the action $W\acts \R^n$ to $W\acts \C^n$ via $w\cdot(x \otimes \lambda) = (w\cdot x)\otimes \lambda$. We call this act of transporting objects related to $\R^n$ over to $\C^n$ via the tensor product \emph{complexification}. With these tools in mid, we can then make our definition.
 
@@ -18,7 +18,7 @@ For some finite or affine Coxeter group $W$ acting on $\R^n$, the set of reflect
 	\label{def:config_space}
 \end{definition}
 
-It is important to note that the importance of $\C$ here is that it is 2 dimensional. When one takes the complement of a co-dimension 1 object, you typically will not get any interesting topology. By complexifying the hyperplanes and then taking the complement within $\C^n$, we are effectively taking the complement of a co-dimension 2 object, and there is much more room for interesting topologies. The same construction can be achieved using $\R^{2n}$ and $\mathcal{H}\times\mathcal{H}$ but here we choose $\C$. A more general construction for all Coxeter groups can be found in \cite{paris_kpi_2014}.
+It is important to note that the importance of $\C$ here is that it is 2 dimensional. When one takes the complement of a co-dimension 1 object, you typically will not get any interesting topology. By complexifying the hyperplanes and then taking the complement within $\C^n$, we are effectively taking the complement of a co-dimension 2 object, and there is much more room for interesting topologies. The same construction can be achieved using $\R^{2n}$ and $\mathcal{H}\times\mathcal{H}$ but here we choose $\C$. A more general construction for all Coxeter groups can be found in \cite{paris_kpi1_2014}.
 
 For a concrete example, we will introduce the $A_n$ family of Coxeter groups and show that the space $Y_W$ for these groups is the space of configurations of $n+1$ points in $\C$, thus explaining the name \emph{configuration space} for general $Y_W$.
 
@@ -34,7 +34,7 @@ The family $A_n$ all have Coxeter diagrams of the form as in \cref{fig:A_n_dynki
 	\label{eq:A_n_presentation}
 \end{equation}
  
- This is well known to be a presentation for the symmetric group $S_{n+1}$ with generators being adjacent transpositions \cite[Proposition 1.5.4]{bjorner_combinatorics_2005}. Accordingly,  we will use the associated cycle notation for symmetric groups to talk about elements of $A_n$. 
+ This is well known to be a presentation for the symmetric group $S_{n+1}$ with generators being adjacent transpositions \cite[Proposition 1.5.4]{bjorner_brenti_combinatorics_2010}. Accordingly,  we will use the associated cycle notation for symmetric groups to talk about elements of $A_n$. 
 
 \begin{figure}
 \begin{center}
@@ -60,7 +60,7 @@ The family $A_n$ all have Coxeter diagrams of the form as in \cref{fig:A_n_dynki
 
 \end{tikzpicture}
 \end{center}
-\caption{The clasical Coxeter diagram for the Coxeter group of type $A_n$.}
+\caption{The classical Coxeter diagram for the Coxeter group of type $A_n$.}
 \label{fig:A_n_dynkin_diagrams}
 \end{figure}
 
@@ -79,13 +79,13 @@ Historically, Emile Artin \cite{artin_braids_1947} originally defined the braid 
 	}
 \end{equation*}
 
-In this context, showing the validity of that presentation immediately proves $B_{n+1} \cong G_W$ and thus that $\pi_1(Y_W) \cong G_W$. This proof by Artin is often considered dubious and other proofs are available. One good example is \cite{fox_braid_1962}. Importantly, this is also true in the general case.
+In this context, showing the validity of that presentation immediately proves $B_{n+1} \cong G_W$ and thus that $\pi_1(Y_W) \cong G_W$. This proof by Artin is often considered dubious and other proofs are available. One good example is \cite{fox_neuwirth_braid_1962}. Importantly, this is also true in the general case.
 
 \begin{theorem}[\cite{brieskorn_fundamentalgruppe_1971}]
 	For any Coxeter group $W$, we have $\pi_1(Y_W) \cong G_W$.
 	\label{thm:fundamental_group_Y_W_is_G_W}
 \end{theorem}
 
-The paper cited is in German and only German or Russian translations are available. Alternative proofs for Coxeter groups of affine type \cite{viet_dung_fundamental_1983} are available in English.
+The paper cited is in German and only German or Russian translations are available. Alternative proofs for Coxeter groups of affine type \cite{vietdung_fundamental_1983} are available in English.
 
 \end{document}

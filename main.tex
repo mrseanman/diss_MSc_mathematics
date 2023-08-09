@@ -1,30 +1,43 @@
-\documentclass[12pt]{article}
+\documentclass[msc]{guthesis}
 % for some reason this cant be inside my_preamble
 \usepackage[]{standalone}
+\usepackage{amsmath,amsfonts,cite,graphicx}
 \usepackage{sty/my_preamble}
-\addbibresource{bib/bibliography.bib}
+% \addbibresource{bib/bibliography.bib}
 
 \title{Combinatoric and poset structures for the $K(\pi,1)$ conjecture}
 \author{Sean O'Brien}
 \date{August 2023}
+\includeonly{
+introduction_main
+}
+
+\submissionmonth{August}
+\submissionyear{2023}
 
 \begin{document}
 
 \maketitle
+\import{sections/pre/}{declaration.tex}
+\import{sections/pre/}{abstract.tex}
+\import{sections/pre/}{acknowledge.tex}
+\tableofcontents
 \import{sections/introduction/}{introduction_main.tex}
 \import{sections/posets/}{posets_main.tex}
 \import{sections/further_cw_complexes/}{further_cw_complexes_main.tex}
 \import{sections/dmt/}{dmt_main.tex}
 
 % \section{Bin}
-% \subsection{Configuration space}
+% \section{Configuration space}
 %\import{concepts/}{A_n_type_config_space_proof.tex}
-% \subsection{Proof Overview}
+% \section{Proof Overview}
 % \import{concepts/}{proof_overview.tex}
-% \subsection{The Garside Complex $K$}
+% \section{The Garside Complex $K$}
 % \import{concepts/}{garside_complex_K.tex}
-% \subsection{Interval Groups}
+% \section{Interval Groups}
 % \import{concepts/}{interval_group_and_complex.tex}
 
-\printbibliography
+% \printbibliography
+\bibliographystyle{alpha}
+\bibliography{bib/refs}
 \end{document}

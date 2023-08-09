@@ -2,7 +2,7 @@
 \documentclass[class=article, crop=false]{standalone}
 \begin{document}
 
-\subsection{Poset Complex}
+\section{Poset Complex}
 \label{sec:poset_cx}
 
 For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. To do this, we must begin by initially defining a \emph{geometric simplicial complex} $\Delta(P)$. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets. Following from this, we can make our definition.
@@ -137,7 +137,7 @@ Here $A^*$ denotes the set of all words in the alphabet $A$. For an example on e
 
 This extended labelling on chains naturally extends to a labelling on simplices in $\Delta(P)$. Using this labelling and the orientation induced on a chain by $\leq$, we can define $K(P)$.
 
-\begin{definition}[{Poset Complex \cite[Definition 1.6]{mccammond_introduction_to_garside}}]
+\begin{definition}[{Poset Complex \cite[Definition 1.6]{mccammond_introduction_2005}}]
 	For an edge--labelled poset $P$ the poset complex $K(P)$ is the quotient space $\Delta(P)/\sim$ where $\sim$ identifies pointwise simplices of the same dimension that share the same extended label, using the orientation on simplices induced by $\leq$.
 	\label{def:poset_complex}
 \end{definition}

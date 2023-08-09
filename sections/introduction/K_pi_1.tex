@@ -2,8 +2,8 @@
 \documentclass[class=article, crop=false]{standalone}
 \begin{document}
 	
-\subsection{The $K(\pi,1)$ Conjecture}
-For a group $G$, an \emph{Eilenberg-MacLane space} \cite{eilenberg_relations_1945} for $G$ is a space $X$ such that $\pi_n(X)=G$ for some $n$ and $\pi_i(X) = 0$ for all $i\neq n$. We will use the terminology ``$X$ is a $K(G,n)$ space''. We will also use the terminology ``$X$ is a \emph{classifying space} for $G$'' to mean that $X$ is a $K(G,1)$ space.
+\section{The $K(\pi,1)$ Conjecture}
+For a group $G$, an \emph{Eilenberg-MacLane space} \cite{eilenberg_maclane_relations_1945} for $G$ is a space $X$ such that $\pi_n(X)=G$ for some $n$ and $\pi_i(X) = 0$ for all $i\neq n$. We will use the terminology ``$X$ is a $K(G,n)$ space''. We will also use the terminology ``$X$ is a \emph{classifying space} for $G$'' to mean that $X$ is a $K(G,1)$ space.
 \begin{conjecture}[$K(\pi,1)$ Conjecture]
 	For all Coxeter groups $W$, the space $Y_W$ is a $K(G_W,1)$ space.
 \end{conjecture}
@@ -29,7 +29,7 @@ to build a tower of fibrations
 \end{equation*}
 where there is a short exact sequence in homotopy groups starting at each $\pi_k(\bigvee_n S^1)$ going right and down to $\pi_k(\conf_n(\C))$ for any $k$. We note that $\conf_2(\C) \simeq S^1$ and so has trivial homotopy above $\pi_1$. Similarly, $\bigvee_2 S^1$ has trivial higher homotopy. So $\pi_k(\conf_3(\C)) \cong 0$ for $k>1$, and we can continue up the tower inductively to show $\pi_k(\conf_n(\C)) \cong 0$ for $k>1$ for all $n$. So indeed $\conf_{n+1}(\C) = Y_W$ is a $K(G_W,1)$ for $W=A_n$.
 
-\begin{theorem}[{\cite{deligne_les_1972}}]
+\begin{theorem}[{\cite{deligne_immeubles_1972}}]
 	The $K(\pi,1)$ conjecture holds for all finite Coxeter groups $W$.
 	\label{thm:k_pi_1_finite}
 \end{theorem}
