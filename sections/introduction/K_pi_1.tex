@@ -3,38 +3,48 @@
 \begin{document}
 	
 \section{The \texorpdfstring{$K(\pi,1)$}{K pi 1} conjecture}
-For a group $G$, an \emph{Eilenberg-MacLane space} \cite{eilenberg_maclane_relations_1945} for $G$ is a space $X$ such that $\pi_n(X)=G$ for some $n$ and $\pi_i(X) = 0$ for all $i\neq n$. We will use the terminology ``$X$ is a $K(G,n)$ space''. We will also use the terminology ``$X$ is a \emph{classifying space} for $G$'' to mean that $X$ is a $K(G,1)$ space.
+Given a group $G$ and natural number $n$, an \emph{Eilenberg-MacLane space} \cite{eilenberg_maclane_relations_1945} is a space $X$ such that $\pi_n(X)=G$ and $\pi_i(X) = 0$ for all $1\leq i \neq n$. We call such an $X$ a \emph{$K(G,n)$ space}. We will also use the terminology \emph{classifying space for $G$} to mean that $X$ is a $K(G,1)$ space.
 \begin{conjecture}[$K(\pi,1)$ Conjecture]
 	For all Coxeter groups $W$, the space $Y_W$ is a $K(G_W,1)$ space.
 \end{conjecture}
 
-Admittedly, the use of $\pi$ in the name of the conjecture is confusing. An equivalent formulation of the conjecture is that the universal cover of $Y_W$ is contractible. This would give us that the higher homotopy groups of $Y_W$ are trivial by \cite[Porposition 4.1]{hatcher_algebraic_2001}. A--priori this is a stronger statement than the conjecture as we have given it. But since weak homotopy equivalences are homotopy equivalences for CW complexes \cite[Theorem 4.5]{hatcher_algebraic_2001}, and $Y_W$ has a CW structure (\cref{sec:salvetti_cx}), these two statements of the conjecture are equivalent.
+Admittedly, the use of $\pi$ in the name of the conjecture is confusing. An equivalent formulation of the conjecture is that the universal cover of $Y_W$ is contractible. These statements are equivalent since a cover $p \colon \tilde{X} \to X$, induces an isomorphism  $p_* \colon \pi_n(\tilde{X},\tilde{x_0}) \to \pi_n(X,x_0)$ for all $n\geq 2$ \cite[Proposition 4.1]{hatcher_algebraic_2001}.
 
-In the previous section we focused on Coxeter groups of type $\tilde{A}_n$ and saw that for these groups $\pi_1(Y_W) \cong G_W$. We wish to focus again on the $\tilde{A}_n$ family and prove the $K(\pi, 1)$ conjecture in this case. To do so, we need only verify that the higher homotopy groups of $Y_W$ are trivial. This can be done by observing that $\conf_n(\C)$ is a fibre bundle over $\conf_{n-1}(\C)$ with projection $p$ forgetting a point and fibres homeomorphic to $\C \setminus \Set{\text{n distinct points}}$, as spelled out in \cite{sinha_homology_2010}.
+In the previous section we focused on Coxeter groups of type $A_n$, for which we showed $\pi_1(Y_W) \cong G_W$. We now prove the $K(\pi,1)$ conjecture for this same family of Coxeter groups. To do so, we need to verify that the higher homotopy groups of $Y_W$ are trivial.
 
-The space $\C \setminus \Set{\text{n distinct points}}$ is homotopy equivalent to $\bigvee_n S^1$, so we can use the fibration
-\begin{equation*}
+\begin{lemma}
+	For all $k>1$, $\pi_k(\conf_n(\C))$ is trivial.
+	\label{lem:labelled_conf_classiftying_space}
+\end{lemma}
+\begin{proof}
+	We use that $\conf_n(\C)$ is a fibre bundle over $\conf_{n-1}(\C)$ with projection $p$ forgetting a point and fibres homeomorphic to $\C \setminus \Set{\text{n distinct points}}$ \cite[Theorem 3]{fadell_neuwirth_configuration_1962}.
+
+The space $\C \setminus \Set{\text{n distinct points}}$ is homotopy equivalent to $\bigvee_n S^1$, so we have the fibration $\bigvee_n S^1 \hookrightarrow \conf_n(\C) \to \conf_{n-1}(\C)$ and the corresponding short exact sequence
+\begin{equation}
 	\begin{tikzcd}
-		&\bigvee_{n-1} S^1 \arrow[hook]{r} &\conf_n(\C) \arrow{r}{p} &\conf_{n-1}(\C)
+		&\pi_k(\bigvee_{n-1} S^1) \arrow[hook]{r} &\pi_k(\conf_n(\C)) \arrow{r}{p} &\pi_k(\conf_{n-1}(\C))
 	\end{tikzcd}
-\end{equation*}
-to build a tower of fibrations
-\begin{equation*}
-	\begin{tikzcd}
-		& 							&\vdots \arrow{d} 	\\
-		&\bigvee_3 S^1 	\arrow[hook]{r} 	&\conf_4(\C)  \arrow{d} \\
-		&\bigvee_2 S^1 	\arrow[hook]{r} 	&\conf_3(\C)  \arrow{d} \\
-		&S^1 	\arrow[hook]{r} 	&\conf_2(\C)
-	\end{tikzcd}
-\end{equation*}
-where there is a short exact sequence in homotopy groups starting at each $\pi_k(\bigvee_n S^1)$ going right and down to $\pi_k(\conf_n(\C))$ for any $k$. We note that $\conf_2(\C) \simeq S^1$ and so has trivial homotopy above $\pi_1$. Similarly, $\bigvee_2 S^1$ has trivial higher homotopy. So $\pi_k(\conf_3(\C)) \cong 0$ for $k>1$, and we can continue up the tower inductively to show $\pi_k(\conf_n(\C)) \cong 0$ for $k>1$ for all $n$. So indeed $\conf_{n+1}(\C) = Y_W$ is a $K(G_W,1)$ for $W=A_n$.
+	\label{eqn:conf_fibration}
+\end{equation}
+for all $k$.
+We prove that $\pi_k(\conf_n{\C})=0$ for all $k$ by induction on $n$. We know $\pi_k(\bigvee_nS^1)=0$ for all $k>1$ and for all $n$. So the leftmost term in \eqref{eqn:conf_fibration} is always trivial. Our base case is $n=2$. The rightmost term in \eqref{eqn:conf_fibration} is $\conf_1(\C) \cong \C$, which has trivial higher homotopy, thus $\conf_2(\C)$ also has trivial higher homotopy. Assuming now that $\pi_k(\conf_{n-1}(\C)) = 0$ for all $k>1$, the inductive step follows immediately from the short exact sequence.
+\end{proof}
 
-\begin{theorem}[{\cite{deligne_immeubles_1972}}]
+Note that so far we have only proved that $Y$ (from \cref{def:config_space}) has trivial higher homotopy, not $Y_W$.
+
+\begin{theorem}
+	The $K(\pi,1)$ conjecture holds for Coxeter groups of type $A_n$.
+\end{theorem}
+\begin{proof}
+	The action $A_n \acts Y$ is by permutation of points, therefore $Y_W$ is the space of configurations of $n+1$ \emph{unlabelled} points. Let $q \colon \tilde{Y} \to Y$ be the universal cover for $Y$. Let $r \colon Y \to Y_W$ be the quotient map induced by the group action. We see that $r$ is a covering map such that $r^{-1}(z)$ is finite for all $z \in Y_W$. Thus, by \cite[Exercise 53.4]{munkres_topology_2000} the composition $r \circ q$ is also a covering map so $\tilde{Y}$ is also the universal cover of $Y_W$ and so $Y_W$ also has trivial higher homotopy by \cref{lem:labelled_conf_classiftying_space}.
+\end{proof}
+
+A vital result due to Deligne states that this holds for all finite Coxeter groups.
+\begin{theorem}[\hspace{1sp}{\cite{deligne_immeubles_1972}}]
 	The $K(\pi,1)$ conjecture holds for all finite Coxeter groups $W$.
 	\label{thm:k_pi_1_finite}
 \end{theorem}
 
-The paper of interest to us, \cite{paolini_salvetti_kpi1_2021}, proves the $K(\pi,1)$ conjecture for affine type Coxeter groups. 
-
+The paper of interest to us, \cite{paolini_salvetti_kpi1_2021}, proves the $K(\pi,1)$ conjecture for affine Coxeter groups. 
 
 \end{document}

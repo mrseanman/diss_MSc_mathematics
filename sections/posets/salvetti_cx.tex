@@ -30,7 +30,7 @@ The Salvetti complex was originally defined (and refined) in \cite{salvetti_topo
 	\end{align*}
 	There is a homeomorphism $C(v,Y) \to D^n$ that restricts to a homeomorphism $\partial C(v,Y) \to S^{n-1}$ where $n=\Abs{Y}$.
 \end{lemma}
-This allows us to construct a CW complex for $\sal(W)$ where each $C(w,X)$ is a $\Abs{X}$--cell for each $X \in \Delta_W$. Let us see what these cells look like. Note that the cells of the CW-complex and the simplices in $\Delta(W \times \Delta_W)$ as in \cref{def:pre_salvetti_cx} comprise a completely different cell structure for $\sal(W)$. We define $\GroupPres{\emptyset}\coloneq \Set{1}$ to give $W_\emptyset$ meaning as the trivial subgroup inside $W$.
+This allows us to construct a CW complex for $\sal(W)$ where each $C(w,X)$ is a $\Abs{X}$--cell for each $X \in \Delta_W$. Let us see what these cells look like. Note that the cells of the CW-complex and the simplices in $\Delta(W \times \Delta_W)$ as in \cref{def:pre_salvetti_cx} comprise a completely different cell structure for $\sal(W)$. We define $\GroupPres{\emptyset} \coloneq \Set{1}$ to give $W_\emptyset$ meaning as the trivial subgroup inside $W$.
 
 Each $C(w,\emptyset)$ is a 0--cell. We will denote these cells $w$ as a shorthand. In general, we have that $(u,X) \leq (v,X) \implies (u,X) = (v,X)$ since we require $v^{-1}u \in X$ we have $v^{-1}uX = X$. So if $v^{-1}u$ is minimal in $v^{-1}uX$ then $v^{-1}u = 1$. In particular, there is no $(u,X) < (w,\emptyset)$, so these $w = C(w,\emptyset)$ are 0--simplices in $\Delta(W \times \Delta_W)$ as well.
 
@@ -156,6 +156,6 @@ The action is cellular, thus we have a CW structure for $X_W$ as well. We now qu
 	For a Coxeter group $W$, the Salvetti complex $X_W$ is homotopy equivalent to the configuration space $Y_W$.
 \end{theorem}
 
-Now let us consider the cell structure of $X_W$. There is one $\Abs{T}$--cell for each $T \in \Delta_W$, in particular, there is one 0--cell corresponding to the trivial group $W_\emptyset$. Attached to this is a 1--cell for each $s\in S$ forming $\bigvee_{s \in S} S^1$ as the 1--skeleton. Then to this wedge is attached 2--cells following the procedure above for each $m(s,t) \neq \infty$. Each two cell corresponding to $\Set{s,t}$ is attached to two 1--cells corresponding to $\Set{s}$ and $\Set{t}$. From examining this 2--skeleton it should be clear that $\pi_1(X_W) \cong G_W$. Thus combining with the previous theorem we have re-proved \cref{thm:fundamental_group_Y_W_is_G_W}.
+Now let us consider the cell structure of $X_W$. There is one $\Abs{T}$--cell for each $T \in \Delta_W$, in particular, there is one 0--cell corresponding to the trivial group $W_\emptyset$. Attached to this is a 1--cell for each $s\in S$ forming $\bigvee_{s \in S} S^1$ as the 1--skeleton. Then to this wedge is attached 2--cells following the procedure above for each $m(s,t) \neq \infty$. Each two cell corresponding to $\Set{s,t}$ is attached to two 1--cells corresponding to $\Set{s}$ and $\Set{t}$. From examining this 2--skeleton it should be clear that $\pi_1(X_W) \cong G_W$. Thus combining with the previous theorem we have re-proved $\pi_1(Y_W) \cong G_W$.
 
 \end{document}

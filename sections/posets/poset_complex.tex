@@ -5,16 +5,16 @@
 \section{Poset complex}
 \label{sec:poset_cx}
 
-For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. To do this, we must begin by initially defining a \emph{geometric simplicial complex} $\Delta(P)$. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets. Following from this, we can make our definition.
+For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. To do this, we must first make some definitions. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets.
 
 \begin{definition}
 	Given a finite abstract simplicial complex $X$, the \emph{geometric realisation} of that simplicial complex is defined as follows: For each single element set in $X$ assign a point. For each two element set assign an open edge between the two vertices it contains. For each three element set assign an open triangle, the interior of the three edges of its three subsets of size two. In this way, continue constructing simplices of dimension $n$ for each $n+1$ size set in $X$.
 	\label{def:geometric_simplicial_cx}
 \end{definition}
 
-The set of all chains in a poset $P$ is an abstract simplicial complex. We define $\Delta(P)$ to be the geometric simplicial complex corresponding to the set of all chains in $P$ where each $n$--simplex is an $n$--chain of $P$. Note that as in \cite[Definition 1.7]{mccammond_sulway_artin_2017}, we define an $n$--chain to have $n-1$ elements. E.g.~$(\{1\} \subseteq \{1,2\})$ is a 1--chain.
+The set of all chains in a poset $P$ is an abstract simplicial complex. We define $\Delta(P)$ to be the geometric simplicial complex corresponding to the set of all chains in $P$ where each $n$--simplex is an $n$--chain of $P$. Note that as in \cite[Definition 1.7]{mccammond_sulway_artin_2017}, we define an $n$--chain to have $n-1$ elements, e.g.~$(\{1\} \subseteq \{1,2\})$ is a 1--chain.
 
-For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be three solid tetrahedrons all sharing an edge (a 1--simplex) corresponding to the 1--chain $(\emptyset \subseteq \{1,2,3,4\})$ with two of them sharing a face corresponding to the 2--chain  $(\emptyset \subseteq \Set{1} \subseteq \Set{1,2,3,4})$. For a more two--dimensional example, consider the following poset $P$ and corresponding $\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
+For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be three 3--simplices all sharing an edge (a 1--simplex) corresponding to the 1--chain $(\emptyset \subseteq \{1,2,3,4\})$ with two of them sharing a face corresponding to the 2--chain  $(\emptyset \subseteq \Set{1} \subseteq \Set{1,2,3,4})$. For a two--dimensional example, consider the following poset $P$ and corresponding $\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
 
 \begin{figure}[ht]
 \centering
@@ -53,11 +53,11 @@ For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be thr
 		\filldraw[green polyfill] (base right.center) -- (middle right.center) -- (top.center) -- cycle;		
 	\end{pgfonlayer}	
 \end{tikzpicture}
-\caption{An example poset $P$ (left) with corresponding $\Delta(P)$ (right).}
+\caption{An example poset $P$ (left) and corresponding $\Delta(P)$ (right).}
 \label{fig:example_poset_with_simplicial_cx}
 \end{figure}
 
-We continue, now using an edge labelling on $P$, to generate a quotient space $K(P)$ of $\Delta(P)$. Let us put some arbitrary edge labelling on $P$ to progress with this, shown in \cref{fig:example_edge_labelled_poset_with_KP} (left).
+We continue, now using an edge labelling on $P$ (\cref{fig:example_edge_labelled_poset_with_KP} (left)).
 
 \begin{figure}[ht]
 \centering
@@ -120,13 +120,13 @@ We continue, now using an edge labelling on $P$, to generate a quotient space $K
 \label{fig:example_edge_labelled_poset_with_KP}
 \end{figure}
 
-To construct $K(P)$, first we define a labelling on chains in $P$ which extends from the edge labelling in $P$.
+To construct $K(P)$, first we define a labelling on chains in $P$ which extends the edge labelling in $P$. Let $A^*$ denote the set of all words corresponding to the alphabet $A$.
 
 \begin{definition}
 	 Given some edge--labelled poset $(P,\leq,l \colon \mathcal{E}(P) \to A)$ and some chain $C \subseteq P$, the \emph{extended label} $\mathcal{L}(C) \subseteq A^*$ is the language of all words corresponding to all saturated chains that contain every element of $C$.
 \end{definition}
 
-Here $A^*$ denotes the set of all words in the alphabet $A$. For an example on extended labels, consider the chain $(\Set{2} \subseteq \Set{1,2,3,4})$ in the context of \cref{fig:example_edge_labelled_poset_with_KP}. There are two corresponding saturated chains, $(\Set{2} \subseteq \Set{1,2} \subseteq \Set{1,2,3,4})$ and $(\Set{2} \subseteq \Set{2,3} \subseteq \Set{1,2,3,4})$, which respectively correspond to the words $ba$ and $ab$. So $\mathcal{L}(\{2\} \subseteq \{1,2,3\}) = \{ba, ab\}$. Here are some illustrative examples:
+For example, consider the chain $(\Set{2} \subseteq \Set{1,2,3,4})$ in the context of \cref{fig:example_edge_labelled_poset_with_KP} (left). There are two corresponding saturated chains, $(\Set{2} \subseteq \Set{1,2} \subseteq \Set{1,2,3,4})$ and $(\Set{2} \subseteq \Set{2,3} \subseteq \Set{1,2,3,4})$, which respectively correspond to the words $ba$ and $ab$. So $\mathcal{L}(\Set{2} \subseteq \Set{1,2,3,4}) = \Set{ba, ab}$. Here are some illustrative examples:
 
 \begin{itemize}
 	\item $\mathcal{L}(\{1\} \subseteq \{1,2\}) = \mathcal{L}(\{2\} \subseteq \{1,2\}) = \{b\}$.
@@ -138,14 +138,176 @@ Here $A^*$ denotes the set of all words in the alphabet $A$. For an example on e
 This extended labelling on chains naturally extends to a labelling on simplices in $\Delta(P)$. Using this labelling and the orientation induced on a chain by $\leq$, we can define $K(P)$.
 
 \begin{definition}[{Poset Complex \cite[Definition 1.6]{mccammond_introduction_2005}}]
-	For an edge--labelled poset $P$ the poset complex $K(P)$ is the quotient space $\Delta(P)/\sim$ where $\sim$ identifies pointwise simplices of the same dimension that share the same extended label, using the orientation on simplices induced by $\leq$.
+	Given some finite height edge--labelled poset $P$, the poset complex $K(P)$ is the quotient space $\Delta(P)/\sim$ where $\sim$ pointwise identifies simplices of the same dimension that share the same extended label, using the orientation on simplices induced by $\leq$.
 	\label{def:poset_complex}
 \end{definition}
 
-In the example in \cref{fig:example_edge_labelled_poset_with_KP}, three red edges are identified, four blue edges are identified, two black edges are identified, two orange triangles are identified and two purple triangles are identified. The orientation of the identification on triangles is denoted by a $\acts$ symbol.
+In the example in \cref{fig:example_edge_labelled_poset_with_KP}, three red edges are identified, four blue edges are identified, two black edges are identified, two orange triangles are identified and two purple triangles are identified. The orientation of the triangles is indicated by a $\acts$ symbol.
 
-We see that this space is homeomorphic to a torus, which has fundamental group $\mathbb{Z}^2 \cong \left\langle a,b \mid ab = ba \right\rangle$, which is also the $G(P)$ for this edge--labelled poset.
+We see that this space is homeomorphic to a torus, which has fundamental group $\mathbb{Z}^2 \cong \left\langle a,b \mid ab = ba \right\rangle$, which is also the $G(P)$ for this edge--labelled poset. This fact holds in general.
 
-It is true in general that $\pi_1(K(p)) \cong G(P)$. We can determine $\pi_1(K(P))$ from its 2--skeleton \cite[Corollary 4.12]{hatcher_algebraic_2001}. The 1--skeleton will be a wedge of circles, one for each $a \in \image(l)$ and some corresponding to unsaturated 1--chains in $P$ (the black edges in \cref{fig:example_edge_labelled_poset_with_KP}). Only labelled edges will contribute generators to $\pi_1(K(P))$ since a labelled path can always be deformed to an unlabelled 1--chain through the simplex in $K(P)$. If two $n$--chains start and end at the same points, they will share an edge in an $n$--simplex corresponding to an unlabelled 1--chain. So one of the paths can be deformed to the path corresponding to the edge of the unlabelled 1--chain, and then through that shared edge to the other path, making the paths homotopic. E.g.~in \cref{fig:example_edge_labelled_poset_with_KP} we can deform $(\Set{2} \subseteq \Set{1,2} \subseteq \Set{1,2,3,4})$ through $(\Set{2} \subseteq \Set{1,2,3,4})$ to $(\Set{2} \subseteq \Set{2,3} \subseteq \Set{1,2,3,4})$. Identification of $n$--simplices for $n>1$ does not affect the fundamental group, but does ensure that that higher homotopy groups are trivial. We can see if we did not identify the 2--simplices in \cref{fig:example_edge_labelled_poset_with_KP}, $\pi_2(K(P))$ would be non-trivial.
+\begin{lemma}
+	Given an edge labelled poset $(P, \, \leq, \, l \colon \mathcal{E}(P) \to A)$, the group $\pi_1(K(P))$ is generated by a set of loops in bijection with $\image(l)$.
+	\label{lem:fund_group_poset_complex_gen_labels}
+\end{lemma}
+\begin{proof}
+	Each vertex $p \in \Delta(P)$ has extended label $\emptyset$ and so there is only one vertex in $K(P)$, denote this point $p_0$. The 1--skeleton of $K(P)$ will be a wedge of circles, one for each extended label in $\Set{\mathcal{L}(C) \given C \text{ is a 1--chain}}$. The following is the setup of our proof.
+
+	\begin{enumerate}
+		\item Let $\Sigma$ denote 1--chains in $P$.
+		\item Let $\Omega$ denote paths between vertices in $\Delta(P)$ and along edges in $\Delta(P)$ such that the direction along the edge corresponding to $(x \leq y)$ is from $x$ to $y$.
+		\item Let $\Lambda$ denote loops in $K(P)$ that start and end at $p_0$. If $\lambda \in \Lambda$, then $[\lambda] \in \pi_1(K(P),p_0)$.  
+	\end{enumerate}
+	
+	Let $\alpha$, be the map from 1--chains to corresponding paths in $\Delta(P)$ and $\beta \colon \Delta(P) \to K(P)$ be the quotient map. We have the following diagram.
+
+	\begin{equation*}
+		\begin{tikzcd}
+			&\Sigma \ar[r, "\alpha"] &\Omega \ar[r, "\beta"] &\Lambda
+		\end{tikzcd}
+	\end{equation*}
+	
+	By our remarks on the 1--skeleton of $K(P)$, we see that $\pi_1(K(P), p_0)$ is generated by loops in $\image(\beta \circ \alpha)$. Let $\sigma = (x \leq y) \in \Sigma$ be a 1--chain and let $\lambda$ be such that $\beta ( \alpha (\sigma)) = \lambda$. Let concatenation of loops $\lambda$ and $\lambda^\prime$ be denoted $\lambda\lambda^\prime$ such that $[\lambda][\lambda^\prime] = [\lambda\lambda^\prime]$. We will show that $\lambda$ has a factorisation where one of the factors is $\beta(\alpha(x \lessdot z))$ for some $z \in P$.
+
+
+	There exists $z \in P$ such that $x \lessdot z \leq y$. If $z \neq y$, there is a 2--simplex in $\Delta(P)$ corresponding to the 2--chain $(x \lessdot z < y)$. One of the edges of this 2--simplex corresponds to the 1--chain $(x\lessdot z)$.
+	The path $\alpha(x \leq y)$ is homotopic (through the 2--simplex $(x \lessdot z < y)$) to the path $\alpha(x \lessdot z)\alpha(z < y)$. Let $H$ witness this homotopy. We have that $\beta \circ H$ is well--defined (and continuous), so the loop $\lambda$ is homotopic to the loop $\beta(\alpha(x \lessdot z)\alpha(z < y)) = \beta(\alpha(x \lessdot z))\beta(\alpha(z < y))$. We repeat the process replacing $\sigma$ with $(z<y)$. Eventually this must stop since our poset is of finite height. After this, we achieve a factorisation of $\lambda$, entirely in factors of the form $\beta(\alpha(r\lessdot s))$.
+	
+	We see that $\pi_1(K(P),p_0)$ is generated by the loops in $\image(\beta \circ \alpha|_{\mathcal{E}(P)})$. Each covering relation $(r\lessdot s)$ has extended label $\Set{l(r\lessdot s)}$, therefore $\image(\beta \circ \alpha |_{\mathcal{E}(P)})$ is in bijection with $\image(l)$.
+\end{proof}
+
+\begin{lemma}
+	For an edge-labelled poset $P$, there exists a surjective homomorphism\newline$\phi \colon G(P) \to \pi_1(K(P),p_0)$ where $p_0$ is as in the previous lemma.
+	\label{lem:exists_surj_hom_onto_fund_group}
+\end{lemma}
+\begin{proof}
+	Let us follow from the notation in the proof of \cref{lem:fund_group_poset_complex_gen_labels} and let $\theta \colon \image(l) \to \pi_1(K(P), p_0)$ be the bijection at the end of that proof such that we have the group presentation $\pi_1(K(P),p_0) = \GroupPres{\,\image(\theta \circ l)\,}$.
+
+	Let $\sigma = (x_1 \lessdot \cdots \lessdot x_i)$ and $\sigma^\prime = (x^\prime_1 \lessdot \cdots \lessdot x^\prime_j)$ be two saturated chains such that $x_1 = x^\prime_1$ and $x_i = x^\prime_j$ with corresponding words $w = w_1\cdots w_{i-1}$, and $w^\prime = w^\prime_1\cdots w^\prime_{j-1}$ in $A^*$ such that $l(x_k \lessdot x_{k+1}) = w_k$ and similarly for $\sigma^\prime$. Recall that $w$ and $w^\prime$ are words that are identified by the relations in the defining presentation for $G(P)$. We want to show there exists a homotopy between the loop $\theta(w_1)\cdots\theta(w_i)$ and the loop $\theta(w^\prime_1)\cdots\theta(w^\prime_j)$.
+	
+	By doing the process in the proof of \cref{lem:fund_group_poset_complex_gen_labels} in reverse, we get a homotopy between  $\theta(w_1)\cdots\theta(w_i)$ and $\beta(\alpha(x_1 \leq x_i))$ through the two skeleton of $K(P)$. By the same argument, we get a homotopy between $\theta(w^\prime_1)\cdots\theta(w^\prime_j)$ and $\beta(\alpha(x^\prime_1 \leq x^\prime_j))$. Since $x_1 = x^\prime_1$ and $x_i = x^\prime_j$, we have $\theta(w_1)\cdots\theta(w_i) \sim \theta(w^\prime_1)\cdots\theta(w^\prime_j)$.
+	
+	We have shown that $\pi_1(K(P), p_0)$ has all necessary relations to extend $\theta$ to a surjective homomorphism $\phi \colon G(P) \to \pi_1(K(P), p_0)$. 
+\end{proof}
+
+To finish our proof, it is necessary to extend our toolset for dealing with extended labels. Previously, extended labels labelled edges in $\Delta(P)$, now they will also label edge loops in $K(P)$. Let $\ell$ be an extended label corresponding to some edge $e \in \Delta(P)$. Let $\omega$ be the path along $e$ with direction increasing with respect to $\leq$. Let $\ell$ also label the loop $\beta \circ \omega$ in $K(P)$. Define the opposite orientation of $\omega$ to be $\omega^{-1}$ and give this the extended label $\ell^{-1} \coloneq \Set{w^{-1}\given w \in \ell}$ where $w^{-1}$ is the formal inverse of the word $w$. We also define concatenation of extended labels $\ell$ and $\ell^\prime$ as $\ell\ell^\prime \coloneq \Set{ww^\prime \given w \in \ell \text{ and } w^\prime \in \ell^\prime}$ where $ww^\prime$ is concatenation of words proceeded by word reduction, as in free groups. Previously we defined the extended label for all vertices in $\Delta(P)$ to be $\emptyset$. Denote the trivial loop on to $p_0 \in K(P)$ as $0$. Give $0$ the extended label $\Set{\varepsilon}$ where $\varepsilon$ is the empty word. Note that concatenation of paths does not directly correspond to concatenation of labels.
+
+\begin{theorem}
+	Given an edge labelled poset $(P, \, \leq, \, l \colon \mathcal{E}(P) \to A)$, we have $\pi_1(K(P)) \cong G(P)$.
+\end{theorem}
+\begin{proof}
+	Let $\phi$ be the surjective homomorphism as in \cref{lem:exists_surj_hom_onto_fund_group}.
+	We need to show that $\ker(\phi)$ is trivial.
+
+	Suppose there is some word $a_1a_2\cdots a_i \in A^*$ such that $\phi(a_1)\cdots \phi(a_i) \sim 0$. The loop $\phi(a_1)\cdots \phi(a_i)$ traverses edges in $K(P)$ corresponding to covering relations.
+
+	Consider a 2--simplex in $e^2 \in K(P)$ with edges $e^1_i$, $i \in \Set{0,1,2}$ oriented as below.
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}[scale=1.5]
+			\node[FSC] (base) at (0,0) {};
+			\node[FSC] (middle) at (0,0.8) {};
+			\node[FSC] (top) at (1.0,1.3) {};
+
+			\draw[arrow_me=stealth] (base) to node[auto] {$e^1_0$} (middle);
+			\draw[arrow_me=stealth] (middle) to node[auto] {$e^1_1$} (top);
+			\draw[arrow_me=stealth] (base) to node[auto, swap] {$e^1_2$} (top) ;
+		\end{tikzpicture}
+		\caption{An oriented 2--simplex in $K(P)$. The arrows on the edges denote orientation not identification. All vertices are identified.}
+		\label{fig:example_2_simplex}
+	\end{figure}
+
+	 Note that each $e^1_i$ is not necessarily distinct in $K(P)$. Let each $\lambda_i \in \Lambda$ be the loop along $e^1_i$, following its orientation. The only homotopies in terms of other edge paths are the following.
+	\begin{align}
+		\begin{split}
+			\lambda_0 &\sim \lambda_2\lambda_1^{-1} \\
+			\lambda_1 &\sim \lambda_0^{-1}\lambda_2 \\
+			\lambda_2 &\sim \lambda_0\lambda_1
+		\end{split}
+		\label{eqn:possible_homotopies}
+	\end{align}
+	With equivalent homotopies for each $\lambda_i^{-1}$.
+
+	Let $\ell_i$ be the extended label corresponding to each $\lambda_i$. If the orientation in \cref{fig:example_2_simplex} is inherited from the poset order, then we have the following.
+	\begin{align}
+		\begin{split}
+			\ell_0\ell_1 \subseteq \ell_2 \\
+			\ell_2\ell_1^{-1} \cap \ell_0 \neq \emptyset \\
+			\ell_0^{-1}\ell_2 \cap \ell_1 \neq \emptyset
+		\end{split}
+		\label{eqn:extended_label_from_homotopies}
+	\end{align}
+	With equivalent relations for each $\ell_i^{-1}$.
+
+	Let $H$ witness the homotopy $\phi(a_1)\cdots \phi(a_i) \sim 0$. We see that $H$ defines a contractible subcomplex $X$ with boundary $\image(\phi(a_1)\cdots \phi(a_i))$. Suppose the loop $\phi(a_1)\cdots \phi(a_i)$ passes through an edge of a particular simplex $e^2 \subseteq X$. Within $e^2$, the homotopy $H$ must restrict to the subloop through $e^2$ according to \eqref{eqn:possible_homotopies}. Considering the movement of the loops $H_{t \times I}$ as $t$ increases from 0 to 1, we see that $H$ can be mimicked by successive application of the allowed homotopies in \eqref{eqn:possible_homotopies} on to the simplices of $X$ in such a way that reduces the number of edges in our path. Eventually, we achieve a homotopy from $\phi(a_1)\cdots \phi(a_i)$ to the path around a single simplex (which would look like $\lambda_0\lambda_1\lambda_2^{-1}$ in \cref{fig:example_2_simplex}) which is nullhomotopic by \eqref{eqn:possible_homotopies}. See \cref{fig:successive_discrete_homotopies}. By examining the form of the allowed homotopies and the effect on extended label in \eqref{eqn:extended_label_from_homotopies} we see that the reduction of the total concatenation $a_1a_2\cdots a_i$ must be in the extended label for $0$, so $a_1a_2\cdots a_i$ reduces to $\varepsilon$. So the word $a_1a_2\cdots a_i$ corresponds to the identity in $G(P)$ and $\ker(\phi)$ is trivial.
+\end{proof}
+
+
+\tikzmath{
+	\rad = 1.2;
+	\hsep = 3.7;
+}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\foreach \a in {0,...,5}
+		\node[FSC]	(l\a) at (\the\numexpr -\a*60 - 90\relax:\rad)	{};
+
+		\foreach \a in {0,...,5}
+		\node[FSC]	(ml\a) at ($ (\hsep,0) + (\the\numexpr -\a*60 - 90\relax:\rad)$)	{};
+
+		\foreach \a in {0,...,5}
+		\node[FSC]	(mr\a) at ($ 2*(\hsep,0) + (\the\numexpr -\a*60 - 90\relax:\rad)$)	{};
+
+		\foreach \a in {0,...,5}
+		\node[FSC]	(r\a) at ($ 3*(\hsep,0) + (\the\numexpr -\a*60 - 90\relax:\rad)$)	{};
+
+		%-----------------------------------------------------------------------------------
+
+		\foreach \x/\y in {0/1,1/2,2/3,4/3,5/4,0/5}
+		\draw[thick, arrow_me=stealth] (l\x) to (l\y);
+
+		\foreach \x/\y in {0/1,1/2,2/3,4/3,0/4}
+		\draw[thick, arrow_me=stealth] (ml\x) to (ml\y);
+
+		\foreach \x/\y in {0/1,1/2,2/3,0/3}
+		\draw[thick, arrow_me=stealth] (mr\x) to (mr\y);
+
+		\foreach \x/\y in {0/1,1/2,0/2}
+		\draw[thick, arrow_me=stealth] (r\x) to (r\y);
+
+		%-----------------------------------------------------------------------------------
+
+		\foreach \x in {2,3,4}
+		\draw[white!60!black, line width=0.05mm, arrow_me=stealth] (l0) to (l\x);
+
+		%-----------------------------------------------------------------------------------
+		\foreach \x in {2,3,5}
+		\draw[white!60!black, line width=0.05mm, arrow_me=stealth] (ml0) to (ml\x);
+
+		\draw[white!60!black, line width=0.05mm, arrow_me=stealth] (ml5) to (ml4);
+
+		%-----------------------------------------------------------------------------------
+		\foreach \x in {2,4,5}
+		\draw[white!60!black, line width=0.05mm, arrow_me=stealth] (mr0) to (mr\x);
+
+		\draw[white!60!black, line width=0.05mm, arrow_me=stealth] (mr5) to (mr4);
+		\draw[white!60!black, line width=0.05mm, arrow_me=stealth] (mr4) to (mr3);
+
+		%-----------------------------------------------------------------------------------
+
+		\foreach \x in {3,4,5}
+		\draw[white!60!black, line width=0.05mm, arrow_me=stealth] (r0) to (r\x);
+
+		\draw[white!60!black, line width=0.05mm, arrow_me=stealth] (r5) to (r4);
+		\draw[white!60!black, line width=0.05mm, arrow_me=stealth] (r4) to (r3);
+		\draw[white!60!black, line width=0.05mm, arrow_me=stealth] (r2) to (r3);
+
+	\end{tikzpicture}
+	\caption{A contractible subcomplex $X \subseteq K(P)$ and successive application of homotopies permitted in \eqref{eqn:possible_homotopies} giving a homotopy from the boundary of $X$ to a nullhomotopic loop around a single simplex. The arrows denote edge orientation as in \cref{fig:example_2_simplex}. The thick line indicates the nullhomotopic loop, which traverses each diagram in a clockwise direction (not in the direction of the arrows).}
+	\label{fig:successive_discrete_homotopies}
+\end{figure}
+
+Note that our proof of the above was ambivalent to the identification of $n$--simplices for $n>2$. Indeed, these identifications do not affect the fundamental group, but they do ensure that higher homotopy groups are trivial. We can see if we did not identify the 2--simplices in \cref{fig:example_edge_labelled_poset_with_KP}, $\pi_2(K(P))$ would be non-trivial.
 
 \end{document}
