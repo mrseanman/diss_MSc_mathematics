@@ -7,7 +7,7 @@
 Here we will develop a formalism for gluing together two spaces in to what is called an \emph{adjunction space}. Adjunction spaces inherit homotopic properties from their two parent spaces in a useful way, that will help us to exploit \cref{rmk:salvetti_X_prime_similarities}.
 
 \begin{definition}[Adjunction Space]
-    For two spaces $X$ and $U$, with a continuous map $f \colon A \to U$ for some subspace $A \subseteq X$. The \emph{adjunction space} $ X \sqcup_f U$  is the space formed by gluing $X$ and $U$ via the map $f$.
+    Given two spaces $X$ and $U$, with a continuous map $f \colon A \to U$ for some subspace $A \subseteq X$, the \emph{adjunction space} $ X \sqcup_f U$  is the space formed by gluing $X$ and $U$ via the map $f$.
     \begin{equation*}
         X \sqcup_f U \coloneq (X \sqcup Y)/(a \sim f(a))
     \end{equation*}
@@ -16,104 +16,129 @@ Here we will develop a formalism for gluing together two spaces in to what is ca
 An adjunction space is associated to the commutative diagram
 \begin{equation}
     \begin{tikzcd}
-            A \ar[r, "f" ] \ar[d, "i"]  &   U  \ar[d, "\bar{i}"]    \\
-            X \ar[r, "\bar{f}"]         &   X \sqcup_f U            \\
+            A \ar[r, "f" ] \ar[d, "i"]  &   U  \ar[d, "\widetilde{i}"]    \\
+            X \ar[r, "\widetilde{f}"]         &   X \sqcup_f U            \\
     \end{tikzcd}
 \label{eqn:adjunction_diagram}
 \end{equation}
-where $i$ is inclusion of $A$ in to $X$ and $\bar{i}$ is inclusion of $U$ in to $X \sqcup_f U $. Suppose we also have the adjunction space $Y \sqcup_g V$ with $g \colon B \to V$ and $B\subseteq Y$. Suppose further that we have maps $ \phi_1 \colon X \to Y$, $\phi_2 \colon A \to B$ and $\phi_3 \colon U \to V$ such that the following diagram commutes.
+where $i$ is inclusion of $A$ in to $X$ and $\widetilde{i}$ is inclusion of $U$ in to $X \sqcup_f U $. Suppose we also have the adjunction space $Y \sqcup_g V$ with $g \colon B \to V$ and $B\subseteq Y$. Suppose further that we have maps $ \phi_1 \colon X \to Y$, $\phi_2 \colon A \to B$ and $\phi_3 \colon U \to V$ such that the following diagram commutes.
 \begin{equation}
     \begin{tikzcd}[row sep=scriptsize, column sep=scriptsize]
-A \ar[dr, "\phi_2"'] \ar[rr, "f"] \ar[dd, "i"']     &                                                                           &   U \ar[dr, "\phi_3"] \ar[dd, "\bar{i}", near start]  &                         \\
-                                                &   B \ar[rr, crossing over, "g" near start]                                &                                                       &   V \ar[dd, "\bar{j}"]  \\
-X \ar[dr, "\phi_1"'] \ar[rr, "\bar{f}"', near end]  &                                                                           &   X \sqcup_f U \ar[dr, "\phi"]                        &                         \\
-                                                &   Y \ar[rr, "\bar{g}"']  \ar[from=uu, crossing over, "j"', near start]    &                                                       &   Y\sqcup_gV            \\
+A \ar[dr, "\phi_2"'] \ar[rr, "f"] \ar[dd, "i"']     &                                                                           &   U \ar[dr, "\phi_3"] \ar[dd, "\widetilde{i}", near start]  &                         \\
+                                                &   B \ar[rr, crossing over, "g" near start]                                &                                                       &   V \ar[dd, "\widetilde{j}"]  \\
+X \ar[dr, "\phi_1"'] \ar[rr, "\widetilde{f}"', near end]  &                                                                           &   X \sqcup_f U \ar[dr, "\phi"]                        &                         \\
+                                                &   Y \ar[rr, "\widetilde{g}"']  \ar[from=uu, crossing over, "j"', near start]    &                                                       &   Y\sqcup_gV            \\
     \end{tikzcd}
 \label{eqn:adjunction_gluing_diagram}
 \end{equation}
 If all $\phi_1$, $\phi_2$ and $\phi_3$ are homotopy equivalences then the following lemma tells us that $\phi$ is also a homotopy equivalence.
 
 
-\begin{lemma}[{\cite[Theorem 7.5.7]{brown_topology_2006}}]
+\begin{lemma}[{\hspace{1sp}\cite[Theorem 7.5.7]{brown_topology_2006}}]
     Consider a commutative diagram as in \eqref{eqn:adjunction_gluing_diagram} where the front and back faces define an adjunction space as in \eqref{eqn:adjunction_diagram}. If $i$ and $j$ are closed cofibrations and $\phi_1$, $\phi_2$ and $\phi_3$ are homotopy equivalences, then the $\phi$ as determined by the diagram is also a homotopy equivalence.
     \label{lem:adjunction_gluing}
 \end{lemma}
 
-The restriction of $i$ and $j$ being closed cofibrations is quite mild. In the cases important to us, $i$ and $j$ will be cellular inclusions in to finite CW--complexes, and thus closed cofibrations. See \cite{brown_topology_2006} for more details on pushout squares and adjunction spaces.
+In the cases important to us, $i$ and $j$ will be cellular inclusions in to finite CW--complexes, and thus closed cofibrations. See \cite{brown_topology_2006} for more details on adjunction spaces.
 
 To use \cref{lem:adjunction_gluing} we must be able to construct $X_W$ and $X_W^\prime$ as a sequence of adjunction spaces. Consider $X_W$ in the following example.
 
 \begin{example}
     \label{eg:inductive_construction}
-    Let $\Delta_W = \Set{\emptyset, \Set{s}, \Set{t}, \Set{u}, \Set{s,t}, \Set{s,u}, \Set{t,u}}$ and let $\Delta_W^n \coloneq \Set{T \in \Delta_W \given \Abs{T} = n }$. Clearly we have that $X_W = \bigcup_{T \in \Delta_W^2} X_{W_T}$ with the appropriate gluing. Suppose we had the 1--skeleton $X^1_W \subsetneq X_W$, and some ordering on $\Delta_W^2 = (\Set{s,t}, \Set{s,u}, \Set{t,u})$. To construct $X_W$, we would first glue $X_{\Set{s,t}}$ to $X_W^1$ as an adjunction space in the following way.
-    \begin{equation*}
-        \begin{tikzcd}
-                X_{\Set{s}} \cup X_{\Set{t}} \ar[r, "f" ] \ar[d, "i_1"]   &   X_{\Set{s,t}}  \ar[d, "\overline{i_1}"]    \\
-                X_W^1 \ar[r, "\bar{f}"]                                 &   X^1_W \sqcup_f X_{\Set{s,t}}            \\
-        \end{tikzcd}
-    \end{equation*}
-    Where $f$ is inclusion of those 1--cells in to $X_{\Set{s,t}}$, which in this case makes $X^1_W \sqcup_f X_{\Set{s,t}} \cong X_{\Set{s,t}}$. Note that $ X_{\Set{s}} \cup X_{\Set{t}}$ is really shorthand for another adjunction space, which we assume to have been already constructed.
-    We can then add $X_{\Set{t,u}}$ to the preceding adjunction space in the following way.
+    To clean our notation in this example let $X$ and $X_T$ be shorthand for $X_W$ and $X_{W_T}$ respectively. Accordingly $X^n$ is the $n$--skeleton for $X_W$ and $X_T^n$ is the $n$--skeleton for $X_{W_T}$.
+    Suppose $W$ is generated by $S = \Set{s,t.u}$ such suppose $\mathcal{S}_W  = \Set{Q \subsetneq S}$. For convenience define $\mathcal{S}_W^n \coloneq \Set{T \in \mathcal{S}_W \given \Abs{T} = n }$. When denoting adjunction spaces, we will use $\sqcup_f$ to denote a specific adjunction space that is currently being constructed. We use the $\cup$ symbol to denote some adjunction space or space resulting from a sequence of adjunctions without specifying the map $f$. We have that $X = \bigcup_{T \in \mathcal{S}_W^2} X_T$. Suppose we had the 1--skeleton $X^1 \subsetneq X$, and some ordering on $\mathcal{S}_W^2 = (\Set{s,t}, \Set{s,u}, \Set{t,u})$. To construct $X$, we would first glue $X_{\Set{s,t}}$ to $X^1$ as an adjunction space in the following way.
     \begin{equation}
         \begin{tikzcd}
-                X_{\Set{t}} \cup X_{\Set{u}} \ar[r, "g" ] \ar[d, "i_2"]   &   X_{\Set{t,u}}  \ar[d, "\overline{i_2}"]    \\
-                X^1_W \sqcup_f X_{\Set{s,t}} \ar[r, "\bar{g}"]            &   (X^1_W \sqcup_f X_{\Set{s,t}}) \sqcup_g X_{\Set{t,u}}            \\
+                X_{{\Set{s}}} \cup X_{{\Set{t}}} \ar[r, "f" ] \ar[d, "i_1"]   &    X_{{\Set{s,t}}} \ar[d, "\widetilde{i_1}"]    \\
+                X^1 \ar[r, "\widetilde{f}"]                                 &   X^1 \sqcup_f X_{{\Set{s,t}}}            \\
+        \end{tikzcd}
+        \label{eqn:inductive_gluing_step_1}
+    \end{equation}
+    Where $f$ is inclusion of the 1--cells $X_{{\Set{s}}}$ and $X_{{\Set{t}}}$ in to $X_{\Set{s,t}}$ and $i_1$ is the inclusion in to $X^1$, which in this case makes $X^1 \sqcup_f X_{{\Set{s,t}}} \cong X_{{\Set{s,t}}}$. When using this construction in the proof of \cref{thm:salvetti_cx_equiv_X_prime} we inductively assume to have already constructed $ X_{{\Set{s}}} \cup X_{{\Set{t}}}$.
+    We can now add $X_{\Set{t,u}}$ to the preceding adjunction space in the following way.
+    \begin{equation}
+        \begin{tikzcd}
+                X_{{\Set{t}}} \cup X_{{\Set{u}}} \ar[r, "g" ] \ar[d, "i_2"]   &  X_{{\Set{t,u}}}   \ar[d, "\widetilde{i_2}"]    \\
+                X^1 \sqcup_f X_{{\Set{s,t}}} \ar[r, "\widetilde{g}"]            &   (X^1 \sqcup_f X_{{\Set{s,t}}}) \sqcup_g X_{{\Set{t,u}}}            \\
         \end{tikzcd}
         \label{eqn:inductive_gluing_step_2}
     \end{equation}
-    After which we would continue with $\Set{u,v}$ in the same manner. In the final space, $X_{\Set{s,t}}$ is glued to $X_{\Set{t,u}}$ along $X_{\Set{t}}$. In general, for $T_1,T_2 \in \Delta_W^n$, we have that $X_{T_1}$ and $X_{T_2}$ are glued along $X_{T_1 \cap T_2} \subseteq X^{n-1}_W$ where $T_1 \cap T_2 \in \Delta_W^{n-1}$. We can always construct the $n$--skeleton from the $(n-1)$--skeleton in exactly this way. 
+    Again, $g$ and $i_2$ are just inclusions. After this step, we would continue with $\Set{u,v}$ in the same manner. In the final space, $X_{\Set{u,v}}$ is glued to $(X^1_W \sqcup_f X_{\Set{s,t}}) \sqcup_g X_{\Set{t,u}}$ along $X_{\Set{u}} \cup X_{\Set{v}}$. Given the $(n-1)$--skeleton, we can always choose an order on $\Set{X_{T} \given T \in \mathcal{S}^n_W}$ and attach each such $X_{T}$ to the previous adjunction space along the $(n-1)$--skeleton of $X_{T}$ (which is always a subspace of the adjunction space of the previous step).
 \end{example}
 
-The exact same construction works for $X^\prime_W$. This construction may seem too abstracted, in that much of the structure is hidden away in the maps $f$ and $g$. However, as it turns out, we can use this adjunction structure without considering the details of these maps.
+The exact same construction works for $X^\prime_W$. Note that none of the maps in \eqref{eqn:inductive_gluing_step_1} or \eqref{eqn:inductive_gluing_step_2} are the attaching maps of cells as in the CW--complex. It is possible to construct CW--complexes as a sequence of adjunction spaces, but that is not the construction presented in \cref{eg:inductive_construction}. In this construction we assume to already have fully-constructed $\Abs{T}$--dimensional CW--complexes $X_T$, then we just glue these on to the $(\Abs{T}-1)$--skeleton which is a subspace of the adjunction space formed in the previous step. All the internal structure of the CW--complexes $X_T$ is ignored. This construction may seem too abstracted to be useful, but we will soon see otherwise.
 
-\begin{theorem}[{\cite[Theorem 5.5]{paolini_salvetti_kpi1_2021}}]
+The following proof uses induction on the steps presented in \cref{eg:inductive_construction}. Note that a step is the gluing of a single $X_T$. In principle, to construct the $n$--skeleton from the $(n-1)$--skeleton takes multiple steps.
+
+\begin{theorem}[{\hspace{1sp}\cite[Theorem 5.5]{paolini_salvetti_kpi1_2021}}]
     \label{thm:salvetti_cx_equiv_X_prime}
     For a Coxeter group $W$, the space $X^\prime_W$ as in \cref{def:subcomplex_X_prime} is homotopy equivalent to the Salvetti complex $X_W$. 
 \end{theorem}
 \begin{proof}
-    We achieve this inductively. To tidy our notation, in this proof we drop $W$ so that $X$, $X^\prime$, $X_T$ and $X^\prime_T$ correspond to $X_W$, $X^\prime_W$, $X_{W_T}$ and $X^\prime_{W_T}$ respectively. Let $\Delta_W^n$ be as in \cref{eg:inductive_construction}.
-    
-    Suppose we have the $(n-1)$--skeletons $X^{n-1}$ and $(X^\prime)^{n-1}$ and a homotopy equivalence $\phi \colon X^{n-1} \to (X^\prime)^{n-1}$.
-    We wish to show that we can extend $\phi$ to a homotopy equivalence for the respective $n$--skeletons. We do so by constructing the $n$--skeletons as adjunction spaces of the $(n-1)$--skeletons as in \cref{eg:inductive_construction} and use \cref{lem:adjunction_gluing}.
+    We achieve this by induction on adjunction gluing steps. To tidy our notation, as in \cref{eg:inductive_construction}, we drop $W$ so that $X$, $X^\prime$, $X_T$ and $X^\prime_T$ correspond to $X_W$, $X^\prime_W$, $X_{W_T}$ and $X^\prime_{W_T}$ respectively. Let $\mathcal{S}_W^n$ be as in \cref{eg:inductive_construction}.
 
-    Suppose we are gluing on the cells corresponding to some $T \in \Delta_W^n$. So any $Q \subsetneq T$ will correspond to a cell in $X^{n-1}$. Let $Y$ and $Y^\prime$ be some intermediate steps in the adjunction gluing, such as the bottom--left term of \eqref{eqn:inductive_gluing_step_2}. Suppose we have a homotopy equivalence $\phi_1 \colon Y \to Y^\prime$ such that ${\phi_1}|_{X^{n-1}} = \phi$ so the following commutes.
+    Our inductive hypotheses are as follows:
+
+    \begin{enumerate}
+        \item We have a homotopy equivalence between $(n-1)$--skeletons $\phi_1 \colon X^{n-1} \to (X^\prime)^{n-1}$.
+        \item For any subset $\mathcal{T} \subseteq \mathcal{S}_W^{n-1}$ we have that $\phi_1$ restricts to a homotopy equivalence $\phi_2 \colon \bigcup_{Q \in \mathcal{T}}X_Q \to \bigcup_{Q \in \mathcal{T}}X^\prime_Q$ such that the following diagram commutes.
+        \begin{equation}
+            \begin{tikzcd}
+    \bigcup_{Q \in \mathcal{T}} X_{Q} \ar[r, "\phi_2" ] \ar[d, hookrightarrow]     &   \bigcup_{Q \in \mathcal{T}} X^\prime_{Q}  \ar[d, hookrightarrow]       \\
+    X^{n-1}  \ar[r, "\phi_1"]                                                                 &   (X^\prime)^{n-1}                                                  \\
+            \end{tikzcd}
+            \label{eqn:commutative_Y_inductive_hyp}  
+        \end{equation}
+        \item We have a homotopy equivalence $\phi_3 \colon Y \to Y^\prime$ where $Y \subseteq X$ and $Y^\prime \subseteq X^\prime$ are intermediate steps in constructing $X^n$ and $(X^\prime)^n$ respectively. For example, $Y$ could be the upper-right term in \eqref{eqn:inductive_gluing_step_2} for $n=2$. This homotopy equivalence $\phi_3$ restricts to the homotopy equivalence $\phi_1$ on $X^{n-1}$.
+    \end{enumerate}
+
+    The base case is $X_\emptyset \simeq X^\prime_\emptyset \simeq \Set{\bullet}$. Fix an ordering $(T_1, T_2, \ldots , T_k)$ on $\mathcal{S}^n_W$ and fix homotopy equivalences $\rho_l \colon X_{T_l} \to X^\prime_{T_l}$.
+
+    $\bullet$ Case 1: Suppose $Y = \bigcup_{m < i} X_{T_m}$ and $Y^\prime = \bigcup_{m < i} X^\prime_{T_m}$ and $i\leq k-1$, i.e.~in the next step, we will \emph{not} complete $X^n \simeq (X^\prime)^n$.
+
+    In this step, we will glue $X_{T_{i}}$ to $Y$ and $X^\prime_{T_{i}}$ to $Y^\prime$ such that the inductive hypotheses remain for these adjunction spaces.
+    By combining inductive hypothesis 3 and 2, we have the following commutative diagram.
+
     \begin{equation}
         \begin{tikzcd}
-\bigcup_{Q \subsetneq T} X_{Q} \ar[r, "\phi" ] \ar[d, hookrightarrow]     &   \bigcup_{Q \subsetneq T} X^\prime_{Q}  \ar[d, hookrightarrow]       \\
-Y  \ar[r, "\phi_1"]                                                                 &   Y^\prime                                                  \\
+\bigcup_{Q \subsetneq T_i} X_{Q} \ar[r, "\phi_2" ] \ar[d, hookrightarrow]     &   \bigcup_{Q \subsetneq T_i} X^\prime_{Q}  \ar[d, hookrightarrow]       \\
+Y  \ar[r, "\phi_3"]                                                                 &   Y^\prime                                                  \\
         \end{tikzcd}
         \label{eqn:commutative_Y_inductive_hyp}  
     \end{equation}
-We wish to extend $\phi$ to a homotopy equivalence $\psi$ such that the following commutes.
+
+    Where $\phi_2$ and $\phi_3$ are homotopy equivalences and the vertical maps are inclusions. We wish to extend $\phi_2 \colon \bigcup_{Q \subsetneq T_i} X_{Q} \to \bigcup_{Q \subsetneq T_i} X^\prime_{Q}$ to $\psi \colon X_{T_i} \to X^\prime_{T_i}$ such that we have the following commutative diagram.
     \begin{equation*}
         \begin{tikzcd}
-\bigcup_{Q \subsetneq T} X_{Q}  \ar[r, "\phi"]             &   \bigcup_{Q \subsetneq T} X^\prime_{Q}                                  \\
-X_T \ar[r, "\psi" ] \ar[from = u, hookrightarrow]                                  &   X^\prime_T  \ar[from = u, hookrightarrow]      \\
+\bigcup_{Q \subsetneq T_i} X_{Q}  \ar[r, "\phi_2"]             &   \bigcup_{Q \subsetneq T_i} X^\prime_{Q}                                  \\
+X_T \ar[r, "\phi_4" ] \ar[from = u, hookrightarrow]                                  &   X^\prime_T  \ar[from = u, hookrightarrow]      \\
         \end{tikzcd}
     \end{equation*}
-    This is possible by \cref{lem:extendability_of_maps}. Now we have the following commutative diagram.
+    This is possible by \cref{lem:extendability_of_maps}. We now have the following commutative diagram.
 
-\begin{equation}
-    \begin{tikzcd}[row sep=scriptsize, column sep=scriptsize]
-\bigcup_{Q \subsetneq T} X_{Q} \ar[dr, "\phi"'] \ar[rr, "f"] \ar[dd, hookrightarrow]     &  &   X_T \ar[dr, "\psi"] \ar[dd, hookrightarrow]  &  \\
- &   \bigcup_{Q \subsetneq T} X^\prime_{Q} \ar[rr, crossing over, "g" near start] & & X^\prime_T \ar[dd, hookrightarrow]                                    \\
-Y \ar[dr, "\phi_1"'] \ar[rr, "\bar{f}"', near end]  &                                                                           &   Y \sqcup_f X_T \ar[dr, "\sigma"]                        &                                   \\
-                                                &   Y^\prime \ar[rr, "\bar{g}"']  \ar[from=uu, crossing over, hookrightarrow]    &                                                       &   Y^\prime\sqcup_g X^\prime_T        \\
-    \end{tikzcd}
-\label{eqn:gluing_commutative_diagram_proof}
-\end{equation}
+    \begin{equation}
+        \begin{tikzcd}[row sep=scriptsize, column sep=scriptsize]
+            \bigcup_{Q \subsetneq T_i} X_{Q} \ar[dr, "\phi_2"'] \ar[rr, hookrightarrow, "f"] \ar[dd, hookrightarrow]     &  &   X_{T_i} \ar[dr, "\phi_4"] \ar[dd, hookrightarrow]  &  \\
+            &   \bigcup_{Q \subsetneq T_i} X^\prime_{Q} \ar[rr, crossing over, hookrightarrow, "g" near start] & &  X^\prime_{T_i}\ar[dd, hookrightarrow]                         \\
+            Y \ar[dr, "\phi_3"'] \ar[rr, hookrightarrow, "\widetilde{f}"', near end]  & &   Y \sqcup_f X_{T_i} \ar[dr, "\sigma"] &                                              \\
+            &   Y^\prime \ar[rr, hookrightarrow, "\widetilde{g}"']  \ar[from=uu, crossing over, hookrightarrow]    &    &   Y^\prime\sqcup_g X^\prime_{T_i}                     \\
+        \end{tikzcd}
+    \label{eqn:gluing_commutative_diagram_proof}
+    \end{equation}
+    Where all maps not coming out of the plane of the page are inclusions and front and back faces determine the adjunction spaces $ Y \sqcup_f X_{T_i}$ and $Y^\prime\sqcup_g X^\prime_{T_i}$ respectively. By \cref{lem:adjunction_gluing}, the map $\sigma$ determined by the maps $\phi_2$, $\phi_3$ and $\phi_4$ is a homotopy equivalence.
+    In the next step, we will be still constructing $X^n \simeq (X^\prime)^n$ and will be gluing $X_{T_{i+1}}$ to $Y$ and $X^\prime_{T_{i+1}}$ to $Y^\prime$. From \eqref{eqn:gluing_commutative_diagram_proof}, we see that $\sigma$ restricts to $\phi_3$ and so by induction also restricts to $\phi_1 \colon X^{n-1} \to (X^\prime)^{n-1}$. We replace $Y$ with $ Y \sqcup_f X_{T_i}$ and $Y^\prime$ with $Y^\prime\sqcup_g X^\prime_{T_i}$. Accordingly, we replace $\phi_3$ with $\sigma$. 
 
-    Where the induced map $\sigma$ is a homotopy equivalence by \cref{lem:adjunction_gluing}. At the next inductive step, $Y \sqcup_f X_T$ and $Y^\prime\sqcup_g X^\prime_T$ replace $Y$ and $Y^\prime$ respectively. Accordingly, $\sigma$ replaces $\phi_1$. Suppose we are next going to glue the cells corresponding to $\tilde{T} \in \Delta_W$. To proceed inductively, there are two possible outcomes:
-    \begin{enumerate}
-        \item We are still constructing $X^n \simeq (X^\prime)^n$ and $\tilde{T} \in \Delta_W^n$.
-        \item We completely constructed $X^n \simeq (X^\prime)^n$ in the previous step and $\tilde{T} \in \Delta_W^{n+1}$.
-    \end{enumerate}
+    With these replacements, we maintain all our inductive hypotheses and can continue.
+
+    $\bullet$ Case 2: Suppose $Y = \bigcup_{m < i} X_{T_m}$ and $Y^\prime = \bigcup_{m < i} X^\prime_{T_m}$ and $i = k$, i.e.~in the next step, we \emph{will} complete $X^n \simeq (X^\prime)^n$.
+
+    The steps up to creating the commutative diagram \eqref{eqn:gluing_commutative_diagram_proof} are exactly the same as in Case 1. However, we must make a further argument to ensure the inductive hypotheses continue to be true for the next inductive step. Suppose we have completed the adjunction spaces $ Y \sqcup_f X_{T_i}$ and $Y^\prime\sqcup_g X^\prime_{T_i}$ and have a homotopy equivalence $\sigma$ between them. In this case, $ Y \sqcup_f X_{T_i} \cong X^n$ and $Y^\prime\sqcup_g X^\prime_{T_i} \cong (X^\prime)^{n}$, so $\sigma$ is a homotopy equivalence $\sigma \colon X^n \to (X^\prime)^n$. For the next step we will replace both $\phi_1$ and $\phi_3$ with $\sigma$. We immediately acheive inductive hypotheses 1 and 3. But 2 is not obvious.
     
-    In Case 1, we have that any $Q \subsetneq \tilde{T}$ corresponds to cells in $X^{n-1}$. By the inductive hypothesis, we can restrict $\phi_1 \colon Y \to Y^\prime$ to $X^{n-1}$, and thus we can do the same for $\sigma$ and so the restriction $\sigma|_{X^{n-1}}$ is well--defined, we can get \eqref{eqn:commutative_Y_inductive_hyp} with the appropriate replacements and proceed inductively. 
-
-    In Case 2, $Y \sqcup_f X_T$ and $Y^\prime\sqcup_g X^\prime_T$ are $X^n$ and $(X^\prime)^n$ respectively. Some $Q\subsetneq \tilde{T}$ will correspond to cells in $X^n$, but $\sigma$ is exactly the restriction $\sigma|_{X^n}$ so, the restriction is well--defined. We get \eqref{eqn:commutative_Y_inductive_hyp} with the appropriate replacements and proceed inductively.
-
-    The base case is $X_\emptyset \simeq X^\prime_\emptyset \simeq \Set{\bullet}$.
+    Recall that we had fixed an ordering $(T_1, T_2, \ldots , T_K)$ for $\mathcal{S}^{n}_W$. We see that in the intermediate steps between constructing the $(n-1)$--skeletons and the $n$--skeletons, we constructed all $\bigcup_{m \leq i} X_{T_i}$ and $\bigcup_{m \leq i} X_{T_i}$ for each $i\leq k$. Furthermore, we constructed homotopy equivalences between $\bigcup_{m \leq i} X_{T_i}$ and $\bigcup_{m \leq i} X_{T_i}$$X^n$ that are restrictions of our homotopy equivalence between $X^n$ and $(X^\prime)^n$. Therefore, we have inductive hypothesis 2, but only for subsets of $\mathcal{S}_W^n$ that correspond to a prefix of our ordering $(T_1, T_2, \ldots , T_K)$. Clearly this is not all subsets of $\mathcal{S}_W^n$.
+    
+    However, suppose we are given an arbitrary subset $\mathcal{T} \subseteq \mathcal{S}_W^n$. We could have chosen an ordering $\chi = (T_{a_1}, T_{a_2}, \ldots, T_{a_k})$ of $\mathcal{S}^n_W$ such that $\mathcal{T}$ is some prefix of $\chi$. We would have continued through the same steps and obtained a (potentially different) homotopy equivalence $\sigma_\chi \colon X^n \to (X^\prime)^n$. We observe from \eqref{eqn:gluing_commutative_diagram_proof} that the homotopy equivalence must restrict to a homotopy equivalence $\rho_l \colon X_{T_l} \to X^\prime_{T_l}$ for all $1\leq l \leq k$. Since we fixed these $\rho_l$ and $ \bigcup_{1\leq i\leq k} X_{T_i} = X^n$, we see that, as a map, $\sigma = \sigma_\chi$. Thus, $\sigma$ is independent of our choice of ordering and the restriction of $\sigma$ to $\bigcup_{Q \in \mathcal{T}}X_Q$ for \emph{any} $\mathcal{T}\subseteq \mathcal{S}^n_W$ is the necessary homotopy equivalence to satisfy inductive hypothesis 2.
+    
+    Our proof concludes by observing that there is a minimal $n$ such that $\mathcal{S}^{n+1}_W = \emptyset$, and thus $X^n = X$ and $(X^\prime)^n = X^\prime$. The inductive process outlined above eventually ends with a homotopy equivalence witnessing $X \simeq X^\prime$.
 \end{proof}
 
 \end{document}

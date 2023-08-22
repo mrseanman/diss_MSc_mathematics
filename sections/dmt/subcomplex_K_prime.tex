@@ -68,11 +68,11 @@ The first property of $K^\prime_W$ we must prove is that $K^\prime_W$ is indeed 
 \begin{proof}
     We first concentrate on the infinite $f \in \eta^{-1}(d)$. We need to show that some infinite $f \in F$, if $\tau \in f^\prime$ and $\sigma \lessdot \tau$, then there exists some $g \in F$ such that $\sigma \in g^\prime$. Let $s = (x_n)_{n \in \Z}$ be the sequence of group elements corresponding to $f$ and let $\tau = [x_0|\cdots|x_{d-1}]$. Let $\tau$ be between $\alpha$ and $\omega$ both in $f \cap X^\prime_W$. See \cref{fig:acyclic_matching_fibre_components}. By \cref{lem:all_decompositions_of_w_T_are_R} all of $[-\infty, \alpha]$ and $[-\infty, \omega]$ are also in $X^\prime_W$, so we may assume that both $\alpha$ and $\omega$ are in the \emph{bottom row} of the Hasse diagram of $f^\prime$ and accordingly consist of $d-1$ group elements. Choose $a,z \in \Z$ such that $\alpha = [x_a | \cdots | x_{a+d-2}]$ and $\omega = [x_z|\cdots|x_{z+d-2}]$.
     
-    $\bullet$ First we will prove the case where $\tau$ is in the top of the Hasse diagram for $f^\prime$ such that $x_0x_1\ldots x_{d-1} = w$. The two faces $[x_1|\cdots|x_{d-1}]$ and $[x_0|\cdots|x_{d-2}]$ are both already in $f^\prime$, so we need only check the faces
+    $\bullet$ First we will prove the case where $\tau$ is in the top row of the Hasse diagram for $f^\prime$ such that $x_0x_1\ldots x_{d-1} = w$. The two faces $[x_1|\cdots|x_{d-1}]$ and $[x_0|\cdots|x_{d-2}]$ are both already in $f^\prime$, so we need only check the faces
     \begin{equation*}
         \sigma^i = [x_0|\cdots|x_ix_{i+1}|\cdots|x_{d-1}] \lessdot \tau.
     \end{equation*}
-    Clearly each $\sigma^i \in \eta^{-1}(d-1)$. From the sequence $s$, we define the following.
+    Each of the $\sigma^i$  are in $\eta^{-1}(d-1)$. Given the sequence $s = (x_n)_{n \in \Z}$, we define the following.
     \begin{equation*}
         s^i \coloneq (y^i_n)_{n \in \Z} = (\ldots, x_0, x_1, \ldots, x_ix_{i+1}, \ldots x_{d}, \ldots, x_{d+i}x_{d+i+1}, \ldots, x_{2d}, \ldots)
     \end{equation*}
@@ -103,8 +103,8 @@ The first property of $K^\prime_W$ we must prove is that $K^\prime_W$ is indeed 
 
 For the definition of $K^\prime$ to be well--defined, we require that the construction of each $f^\prime$ be well--defined. This requires that $f \cap X^\prime_W \neq \emptyset$ for each infinite $f$. This happens to be a detail for which the proof relies on $W$ being of affine type.
 
-\begin{lemma}[{\cite[Lemma 7.6]{paolini_salvetti_kpi1_2021}}]
-    Given a Coxeter group $W$ of affine type and $f\in F$ is a $d$--fibre component, then there exists a simplex $\tau = [x_1|x_2|\cdots|x_{d-1}] \in f$ such that $\tau$ is also in $X_W^\prime$. 
+\begin{lemma}[{\hspace{1sp}\cite[Lemma 7.6]{paolini_salvetti_kpi1_2021}}]
+    Given a Coxeter group $W$ of affine type and $f\in F$ a $d$--fibre component, there exists a simplex $\tau = [x_1|x_2|\cdots|x_{d-1}] \in f$ such that $\tau$ is also in $X_W^\prime$. 
 \end{lemma}
 
 This covers all the details of \cref{def:subcomplex_K_prime} and so $K_W^\prime$ is a valid subcomplex of $K_W$. We now get to reap the benefits of working in this strange setting of face posets.
@@ -178,7 +178,7 @@ This covers all the details of \cref{def:subcomplex_K_prime} and so $K_W^\prime$
     \label{fig:acyclic_matching_fibre_components}
 \end{figure}
 
-\begin{theorem}[{\cite[Theorem 7.9, Lemma 7.11]{paolini_salvetti_kpi1_2021}}]
+\begin{theorem}[{\hspace{1sp}\cite[Theorem 7.9, Lemma 7.11]{paolini_salvetti_kpi1_2021}}]
     The subcomplex $K_W^\prime$ is a deformation retract of $K_W$.
     \label{thm:subcomplex_K_prime_hom_equiv_K}
 \end{theorem}
