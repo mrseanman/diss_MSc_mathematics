@@ -25,3 +25,13 @@
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QFSC=[circle, draw=black!50,fill=black!20,thick, inner sep=0pt,minimum size=1.5mm] a=[red] b=[blue] c=[black!30!green] light=[black!22!white]\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qconjecture.\\E$"}
 {"rule":"SENTENCE_WHITESPACE","sentence":"^\\QK pi 1.\\E$"}
+{"rule":"ADVERB_OR_HYPHENATED_ADJECTIVE","sentence":"^\\QWith \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q being the unique induced map as below.\\E$"}
+{"rule":"ALL_OF_THE","sentence":"^\\QSince \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, we have that \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is nullhomotopic and so can be extended over all of the closure of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QWe now have a commutative diagram of maps as in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and the following induced commutative diagram on homotopy groups.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QX W homotopy equiv.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qto X prime W.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QK prime.\\E$"}
+{"rule":"NON_STANDARD_WORD","sentence":"^\\Q= 0.5; = 0.9; m=[green!70!black, arrow_me=stealth] not_m=[arrow_me=stealth] FSC_highlight=[circle, draw=black!50,fill=red!40,thick, inner sep=0pt,minimum size=1.5mm] The unique acyclic matching \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q on \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q such that the critical cells correspond to exactly \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Q= 0.5; = 0.9; m=[green!70!black, arrow_me=stealth] not_m=[arrow_me=stealth] FSC_highlight=[circle, draw=black!50,fill=red!40,thick, inner sep=0pt,minimum size=1.5mm] The unique acyclic matching \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q on \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q such that the critical cells correspond to exactly \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"DT_JJ_NO_NOUN","sentence":"^\\QFurthermore, a matching is proper if for all \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, the set of all nodes in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q reachable by a directed path from \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is finite.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QX W Prime.\\E$"}

@@ -5,24 +5,27 @@
 \section{Configuration space}
 \label{sec:config_space_intro}
 
-This section contains the definition of the configuration space $Y_W$ for a given Coxeter group $W$ and an example where we will show, for $W$ of type $A_n$, that $\pi_1(Y_W) \cong G_W$ and that $\pi_n(Y_W)$ is trivial for $n>1$ \cite{fox_neuwirth_braid_1962}.
+This section contains the definition of the configuration space $Y_W$ for a given Coxeter group $W$. We also introduce the $A_n$ family of Coxeter groups for which the space $Y_W$ is the space of configurations of $n+1$ labelled points in $\C$. 
 
-For some finite or affine Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ acts on $\R^n$ by reflection through hyperplanes, one for each $r \in R$. For some $r \in R$ denote its hyperplane by $H(r) \subseteq \R^n$. Denote the union of all hyperplanes by $\mathcal{H} \coloneqq \bigcup_{r \in R} H(r)$.
+For some finite or affine Coxeter group $W$ acting on $\R^n$, the set of reflections $R \in W$ acts on $\R^n$ by reflection through hyperplanes, one for each $r \in R$. For some $r \in R$, denote its hyperplane by $H(r) \subseteq \R^n$. Denote the union of all hyperplanes by $\mathcal{H} \coloneqq \bigcup_{r \in R} H(r)$.
 Consider the tensor product $\R^n \otimes \C$. This is isomorphic to $\C^n$ under the natural isomorphism $x \otimes \lambda \mapsto x\lambda$. We can extend the action $W\acts \R^n$ to $W\acts (\R^n \otimes \C)$ via $w\cdot(x \otimes \lambda) = (w\cdot x)\otimes \lambda$. We call this act of transporting objects related to $\R^n$ over to $\R^n \times \C$ (which is isomorphic to $\C^n$) via the tensor product \emph{complexification}.
-With these tools in mind, we can then make our definition.
 
+\begin{remark}
+	\label{rmk:action_well_defined_on_complement}
+	Since $R$ generates $W$, the action of $W \acts \R^n$ fixes $\mathcal{H}$ and $w \cdot x \in \mathcal{H} \implies w \in \mathcal{H}$.
+\end{remark}
 \begin{definition}
 	For an affine Coxeter group $W$ and associated hyperplane system $\mathcal{H}$ as above, we define
 	\begin{equation*}
 		Y \coloneqq (\R^n\otimes \C) \, \setminus \, \left( \mathcal{H} \otimes \C \right)
 	\end{equation*}
-	and define the \emph{configuration space} $Y_W$ to be the quotient $Y/W$ with the action defined as above.
+	and define the \emph{configuration space} $Y_W$ to be the quotient $Y/W$ with the action of $W$ defined above. This action is well--defined by \cref{rmk:action_well_defined_on_complement}.
 	\label{def:config_space}
 \end{definition}
 
-Note that the importance of $\C$ is that it is 2 dimensional. When one takes the complement of a co-dimension 1 object, you typically will not get any interesting topology. By complexifying the hyperplanes and then taking the complement within $\R^n \otimes \C$, we are effectively taking the complement of a codimension--2 object, and there is much more room for interesting topologies. The same construction can be achieved using $\R^{2n}$ and $\mathcal{H}\times\mathcal{H}$. A more general construction of $Y_W$ for all Coxeter groups using the \emph{Tits cone} can be found in \cite{paris_kpi1_2014}.
+Note that the importance of $\C$ is that it is 2 dimensional. When one takes the complement of a co-dimension 1 object, you typically will not get any interesting topology. By complexifying the hyperplanes and then taking the complement within $\R^n \otimes \C$, we are effectively taking the complement of a codimension--2 object, and there is much more room for interesting topologies. The same construction can be achieved using $\R^{2n}$ and $\mathcal{H}\times\mathcal{H}$. A more general construction of $Y_W$ for all Coxeter groups using the \emph{Tits cone} can be found in \cite{paris_kpi1_2014}. We will not go in to the details of this construction, but will assume $Y_W$ to be defined for all Coxeter groups $W$.
 
-For a concrete example, we will introduce the $A_n$ family of Coxeter groups and show that the space $Y_W$ for these groups is the space of configurations of $n+1$ points in $\C$, thus explaining the name \emph{configuration space} for general $Y_W$.
+For a concrete example concerning $Y_W$, we will introduce the $A_n$ family of Coxeter groups and show that the space $Y_W$ for these groups is the space of configurations of $n+1$ points in $\C$, thus explaining the name \emph{configuration space} for general $Y_W$.
 
 The family $A_n$ all have Coxeter diagrams of the form as in \cref{fig:A_n_dynkin_diagrams} and a specific $A_n$ will have presentation.
 \begin{equation}
@@ -69,7 +72,7 @@ The family $A_n$ all have Coxeter diagrams of the form as in \cref{fig:A_n_dynki
 The action of $A_n$ as a reflection group is realised on the space $\R^{n+1}$ with basis $\Set{e_i}$, where $A_n \acts \R^{n+1}$ by permuting components with respect to that basis.
 The set of reflections $R$ of $A_n$ is all conjugations of the $n$ adjacent generating transpositions $(l, l+1)$. So, $R$ is the set of all transpositions $(l, k)$.
 Some $(l, k) \in R$ acts on $\R^{n+1}$ as reflection through the plane $\Set{ (x_1, \ldots, x_{n+1} ) \in \R^{n+1} \mid x_l = x_k}$. Thus, taking the complement of the complexification of all such planes, we have $Y = \Set{(\mu_1, \ldots \mu_{n+1}) \in \C^{n+1} \given \forall i,j \,\,\, \mu_i \neq \mu_j}$ (here $Y$ is as in \cref{def:config_space}).
-We can think of this as the space of $n+1$ distinct labelled points in $\C$, denoted $\conf_{n+1}(\C)$.
+We can think of this as the space of $n+1$ distinct, labelled points in $\C$, denoted $\conf_{n+1}(\C)$.
 
 Historically, Artin \cite{artin_braids_1947} originally defined the braid group on $n$ strands $B_n$ to be $\pi_1(\conf_n(\R^2))$. He then proved the well known presentation of the braid group. 
 

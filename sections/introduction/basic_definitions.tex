@@ -16,7 +16,7 @@ In this section we will cover the constructions and properties of Coxeter groups
 	The data of $m$ and $S$ along with the associated Coxeter group $W$ is denoted $(W,S)$ and called a \emph{Coxeter system}.
 \end{definition}
 
-The pairs $(s,t)$ such that $m(s,t)=\infty$ correspond to pairs of elements that have no explicit relations. Since $m(s,s)=1$ for all $s \in S$, all generators have order 2. Note that the data of $S$ and $m$ is not uniquely determined by the isomorphism class of $W$, hence the need to distinguish a Coxeter system, not just a Coxeter group. The set $R \coloneq \Set{wsw^{-1} \mid w \in W, s \in S}$ is the set of \emph{reflections} in $W$. Sometimes $S$ is referred to as the set of \emph{basic reflections}, or that a choice of $S$ is a choice of basic reflections.
+The pairs $(s,t)$ such that $m(s,t)=\infty$ are  airs of generators that have no explicit relations. Since $m(s,s)=1$ for all $s \in S$, all generators have order 2. Note that the data of $S$ and $m$ is not uniquely determined by the isomorphism class of $W$, hence the need to distinguish a Coxeter system, not just a Coxeter group. The set $R \coloneq \Set{wsw^{-1} \mid w \in W, s \in S}$ is the set of \emph{reflections} in $W$. Sometimes $S$ is referred to as the set of \emph{basic reflections}, or that a choice of $S$ is a choice of basic reflections.
 
 A labelled graph, called the \emph{Coxeter diagram}, is often used to encode the data of the matrix $m$ and its corresponding Coxeter group. In this graph, each element of $S$ is a node and relations between pairs in $S$ correspond to labelled edges. There are two conventions for this labelling: The \emph{classical labelling}, where edges with $m(s,t)=2$ are not drawn, edges with $m(s,t)=3$ are drawn but not labelled and all other edges are drawn with the value of $m(s,t)$ as their label. And the \emph{modern labelling}, where edges with $m(s,t)=\infty$ are not drawn, edges with $m(s,t)=2$ are drawn but not labelled and all other edges are drawn and labelled. An example highlighting these different conventions is given in  \cref{fig:example_coxeter_diagrams}. We will only use the classical labelling here, but awareness of the modern labelling is useful.
 
@@ -24,7 +24,7 @@ A labelled graph, called the \emph{Coxeter diagram}, is often used to encode the
 	\begin{center}
 	\begin{tikzpicture}[scale=1.2]
 		\tikzstyle{every label}=[font=\tiny]
-		\tikzstyle{every node}=[font=\footnotesize]
+		\tikzstyle{every node}=[font=\scriptsize]
 		
 		\node[FSC] (1)	at (0,0)	   						{};
 		\node[FSC] (2)	at ($ (1) + (-0.866, 0.5)$)			{};
@@ -40,7 +40,7 @@ A labelled graph, called the \emph{Coxeter diagram}, is often used to encode the
 	\hspace{2cm}
 	\begin{tikzpicture}[scale=1.2]
 		\tikzstyle{every label}=[font=\tiny]
-		\tikzstyle{every node}=[font=\footnotesize]
+		\tikzstyle{every node}=[font=\scriptsize]
 		
 		\node[FSC] (1)	at (0,0)	   						{};
 		\node[FSC] (2)	at ($ (1) + (-0.866, 0.5)$)			{};
@@ -49,7 +49,7 @@ A labelled graph, called the \emph{Coxeter diagram}, is often used to encode the
 		\node[FSC] (5) 	at ($ (4) + (1,0)$)					{};
 		
 		\draw (1) 	to node[auto]	{3}			(2);
-		\draw (1)	to node[right]	{3}			(3);
+		\draw (1)	to node[left]	{3}			(3);
 		\draw (2)	to node[auto]	{3}			(3);
 		\draw (1)	to							(4);
 		\draw (3)	to							(4);
@@ -59,21 +59,21 @@ A labelled graph, called the \emph{Coxeter diagram}, is often used to encode the
 	\label{fig:example_coxeter_diagrams}
 	\end{figure}
 
-In the classical labelling, if the diagram has multiple connected components then $W$ is a direct product of the groups corresponding to those components. Similarly, in the modern labelling connected components are factors in a free product. Other topological properties of these diagrams can be used, for example, in work of Huang \cite{huang_labeled_2023} which proves the $K(\pi, 1)$ conjecture for certain $W$ with diagrams being trees or containing cycles. The property of Coxeter groups that allows us to make this graph construction is that every relation in a Coxeter group only involves two generators and is encoded by a number. 
+In the classical labelling, if the diagram has multiple connected components then $W$ is a direct product of the groups corresponding to those components. Similarly, in the modern labelling, connected components are factors in a free product. Other topological properties of these diagrams can be used, for example, in work of Huang \cite{huang_labeled_2023} which proves the $K(\pi, 1)$ conjecture for certain $W$ with diagrams being trees or containing cycles. The property of Coxeter groups that allows us to make this graph construction is that every relation in a Coxeter group only involves two generators and is encoded by a number. 
 
 To each Coxeter system $(W,S)$ there is an associated Artin group $G_W$ defined as follows.
 
 \begin{definition}
 	For group elements $s$ and $t$, let $\Pi(s,t;n)$ be the alternating product of $s$ and $t$ starting with $s$ with total length $n$, e.g.~$\Pi(s,t;3) = sts$. Given a Coxeter system $(W,S)$ with associated matrix $m$, the associated \emph{Artin group} is
 	\begin{equation*}
-		G_W \coloneq \GroupPres{ S \relations \Pi(s,t;{m(s,t)}) = \Pi(t,s;{m(s,t)}) \,\,\, \forall s \neq t \,\, \text{and} \,\, m(s,t) \neq \infty}
+		G_W \coloneq \GroupPres{ S \relations \Pi(s,t;{m(s,t)}) = \Pi(t,s;{m(s,t)}) \,\,\, \forall s \neq t \,\, \text{and} \,\, m(s,t) \neq \infty}.
 	\end{equation*}
 	\label{def:artin_group}
 \end{definition}
 
-Note that $m(s,s)=1$ now carries no meaning in the presentation of $G_W$ and that if we add the relation $s^2=1$ for all $s \in S$ we retrieve the original Coxeter group. The Coxeter diagram for $W$ also encodes the data of $G_W$ and the connected components of the diagram correspond to factors of $G_W$ as a direct product or as a free product as with $W$.
+Note that $m(s,s)=1$ now carries no meaning in the presentation of $G_W$ and that if we add the relations $s^2=1$ for all $s \in S$ we retrieve the original Coxeter group. The Coxeter diagram for $W$ also encodes the data of $G_W$ and the connected components of the diagram correspond to factors of $G_W$ as a direct product or as a free product as with $W$.
 
-Our notation for Artin groups (as with much of the notation here) is from \cite{paolini_salvetti_kpi1_2021}. Another common notation is $W_\Gamma$ and $A_\Gamma$ for the Coxeter and Artin group corresponding to the Coxeter diagram $\Gamma$. When classifying Artin groups, it is common to inherit properties from the corresponding Coxeter group such that ``\texttt{property} (type) Artin groups'' describes a family of Artin groups to which their corresponding Coxeter groups are \texttt{property}.
+Our notation for Artin groups (as with much of the notation here) is from \cite{paolini_salvetti_kpi1_2021}. Another common notation is $W_\Gamma$ and $A_\Gamma$ for the Coxeter and Artin groups corresponding to the Coxeter diagram $\Gamma$. When classifying Artin groups, it is common to inherit properties from the corresponding Coxeter group such that ``\texttt{property} (type) Artin groups'' describes a family of Artin groups to which their corresponding Coxeter groups are \texttt{property}.
 
 In particular, spherical or finite type Artin groups have associated spherical or finite Coxeter groups. Similarly, affine Artin groups have associated Coxeter groups which are affine.
 

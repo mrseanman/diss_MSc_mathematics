@@ -5,7 +5,7 @@
 \section{Poset complex}
 \label{sec:poset_cx}
 
-For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. To do this, we must first make some definitions. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets.
+For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. First we make some definitions. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets.
 
 \begin{definition}
 	Given a finite abstract simplicial complex $X$, the \emph{geometric realisation} of that simplicial complex is defined as follows: For each single element set in $X$ assign a point. For each two element set assign an open edge between the two vertices it contains. For each three element set assign an open triangle, the interior of the three edges of its three subsets of size two. In this way, continue constructing simplices of dimension $n$ for each $n+1$ size set in $X$.
@@ -14,7 +14,7 @@ For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P
 
 The set of all chains in a poset $P$ is an abstract simplicial complex. We define $\Delta(P)$ to be the geometric simplicial complex corresponding to the set of all chains in $P$ where each $n$--simplex is an $n$--chain of $P$. Note that as in \cite[Definition 1.7]{mccammond_sulway_artin_2017}, we define an $n$--chain to have $n-1$ elements, e.g.~$(\{1\} \subseteq \{1,2\})$ is a 1--chain.
 
-For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be three 3--simplices all sharing an edge (a 1--simplex) corresponding to the 1--chain $(\emptyset \subseteq \{1,2,3,4\})$ with two of them sharing a face corresponding to the 2--chain  $(\emptyset \subseteq \Set{1} \subseteq \Set{1,2,3,4})$. We also assign an orientation on edges in $\Delta(P)$ such that the edge corresponding to the 1--chain $(x \leq y)$ points from $x$ to $y$. For a two--dimensional example, consider the following poset $P$ and corresponding $\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
+For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be three 3--simplices all sharing an edge (a 1--simplex) corresponding to the 1--chain $(\emptyset \subseteq \{1,2,3,4\})$. Two of the 3--simplices would share a face corresponding to the 2--chain  $(\emptyset \subseteq \Set{1} \subseteq \Set{1,2,3,4})$. We also assign an orientation on edges in $\Delta(P)$ such that the edge corresponding to the 1--chain $(x \leq y)$ points from $x$ to $y$. For a two--dimensional example, consider the following poset $P$ and corresponding $\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
 
 \begin{figure}[ht]
 \centering
@@ -121,9 +121,10 @@ We continue, now using an edge labelling on $P$ (\cref{fig:example_edge_labelled
 \end{figure}
 
 To construct $K(P)$, first we define a labelling on 1--chains in $P$ which extends the edge labelling in $P$. Let $A^*$ denote the set of all words corresponding to the alphabet $A$.
+\what[In the last draft I got this completely wrong. The extended labelling only extends to 1--chains. Not $n$--chains. This is important for how we identify $n$--simplices in $K(P)$, which has also changed since the last draft.]
 
 \begin{definition}
-	 Given some edge--labelled poset $(P,\leq,l \colon \mathcal{E}(P) \to A)$ and some 1--chain $\sigma = (x \leq y)$ in $P$, the \emph{extended label} $\mathcal{L}(\sigma) \subseteq A^*$ is the language of all words corresponding to all saturated chains that start at $x$ and end at $y$.
+	 Given some edge--labelled poset $(P,\leq,l \colon \mathcal{E}(P) \to A)$ and some 1--chain $(x \leq y)$ in $P$, the \emph{extended label} $\mathcal{L}(\sigma) \subseteq A^*$ is the language of all words corresponding to all saturated chains that start at $x$ and end at $y$.
 \end{definition}
 
 For example, consider the chain $(\Set{2} \subseteq \Set{1,2,3,4})$ in the context of \cref{fig:example_edge_labelled_poset_with_KP} (left). There are two corresponding saturated chains, $(\Set{2} \subseteq \Set{1,2} \subseteq \Set{1,2,3,4})$ and $(\Set{2} \subseteq \Set{2,3} \subseteq \Set{1,2,3,4})$, which respectively correspond to the words $ba$ and $ab$. So $\mathcal{L}(\Set{2} \subseteq \Set{1,2,3,4}) = \Set{ba, ab}$. Here are some illustrative examples:
@@ -134,17 +135,17 @@ For example, consider the chain $(\Set{2} \subseteq \Set{1,2,3,4})$ in the conte
 	\item $\mathcal{L}(\{1\}) = \mathcal{L}(\{2\}) = \mathcal{L}(\{1,2\}) = \cdots = \emptyset$.
 \end{itemize}
 
-We use this extended labelling to form quotient space of $\Delta(P)$. Recall the orientation of the edge $(x \leq y)$ is from $x$ to $y$. Consider two $n$--simplices $e^n_\alpha$ and $e^n_\beta$ in $\Delta(P)$. We form a relation $\sim$ on $n$--simplices such that $e^n_\alpha \sim e^n_\beta$ iff there exists a continuous edge--orientation and extended label preserving map $f \colon e^n_\alpha \to e^n_\beta$.
+We use this extended labelling to form a quotient space of $\Delta(P)$. Recall the orientation of the edge $(x \leq y)$ is from $x$ to $y$. Consider two closed $n$--simplices $e^n_\alpha$ and $e^n_\beta$ in $\Delta(P)$. We form a relation $\sim$ on $n$--simplices such that $e^n_\alpha \sim e^n_\beta$ iff there exists a continuous edge--orientation and extended label preserving map $f \colon e^n_\alpha \to e^n_\beta$.
 
 
 \begin{definition}[{Poset Complex \cite[Definition 1.6]{mccammond_introduction_2005}}]
-	Given some finite height edge--labelled poset $P$, the poset complex $K(P)$ is the quotient space $\Delta(P)/\sim$ where $\sim$ identifies $n$--simplices using the map $f \colon e^n_\alpha \to e^n_\beta$ corresponding to $\sim$ defined above.
+	Given some finite height edge--labelled poset $P$, the poset complex $K(P)$ is the quotient space $\Delta(P)/\approx$ where $\approx$ identifies all $n$--simplices (for any $n$) using the map $f \colon e^n_\alpha \to e^n_\beta$ corresponding to $\sim$ defined above.
 	\label{def:poset_complex}
 \end{definition}
 
 In the example in \cref{fig:example_edge_labelled_poset_with_KP}, three red edges are identified, four blue edges are identified, two black edges are identified, two orange triangles are identified and two purple triangles are identified. The orientation of the triangles is indicated by a $\acts$ symbol.
 
-We see that this space is homeomorphic to a torus, which has fundamental group $\mathbb{Z}^2 \cong \left\langle a,b \mid ab = ba \right\rangle$, which is also the $G(P)$ for this edge--labelled poset. This fact holds in general.
+We see that this space is homeomorphic to a torus, which has fundamental group $\mathbb{Z}^2 \cong \left\langle a,b \mid ab = ba \right\rangle$, which is also the $G(P)$ for this edge--labelled poset. This fact holds in general, which we now begin to prove.
 
 \begin{lemma}
 	Given an edge labelled poset $(P, \, \leq, \, l \colon \mathcal{E}(P) \to A)$, the group $\pi_1(K(P))$ is generated by a set of loops in bijection with $\image(l)$.
@@ -155,11 +156,11 @@ We see that this space is homeomorphic to a torus, which has fundamental group $
 
 	\begin{enumerate}
 		\item Let $\Sigma$ denote 1--chains in $P$.
-		\item Let $\Omega$ denote paths between vertices in $\Delta(P)$ and along edges in $\Delta(P)$ such that the direction along the edge corresponding to $(x \leq y)$ is from $x$ to $y$.
-		\item Let $\Lambda$ denote loops in $K(P)$ that start and end at $p_0$. If $\lambda \in \Lambda$, then $[\lambda] \in \pi_1(K(P),p_0)$.  
+		\item Let $\Omega$ denote paths between vertices in $\Delta(P)$ along 1--simplices in $\Delta(P)$ such that the direction along the edge corresponding to $(x \leq y)$ is from $x$ to $y$.
+		\item Let $\Lambda$ denote loops along 1--simplices in $K(P)$ that start and end at $p_0$. If $\lambda \in \Lambda$, then $[\lambda] \in \pi_1(K(P),p_0)$.  
 	\end{enumerate}
 	
-	Let $\alpha$, be the map from 1--chains to corresponding paths in $\Delta(P)$ and $\beta \colon \Delta(P) \to K(P)$ be the quotient map. We have the following diagram.
+	Let $\alpha$, be the map from 1--chains to corresponding paths in $\Delta(P)$ and $\beta \colon \Delta(P) \to K(P)$ be the quotient map as in the definition of $K(P)$. We have the following diagram.
 
 	\begin{equation*}
 		\begin{tikzcd}
@@ -167,13 +168,13 @@ We see that this space is homeomorphic to a torus, which has fundamental group $
 		\end{tikzcd}
 	\end{equation*}
 	
-	By our remarks on the 1--skeleton of $K(P)$, we see that $\pi_1(K(P), p_0)$ is generated by loops in $\image(\beta \circ \alpha)$. Let $\sigma = (x \leq y) \in \Sigma$ be a 1--chain and let $\lambda$ be such that $\beta ( \alpha (\sigma)) = \lambda$. Let concatenation of loops $\lambda$ and $\lambda^\prime$ be denoted $\lambda\lambda^\prime$ such that $[\lambda][\lambda^\prime] = [\lambda\lambda^\prime]$. We will show that $\lambda$ has a factorisation where one of the factors is $\beta(\alpha(x \lessdot z))$ for some $z \in P$.
+	By our remarks on the 1--skeleton of $K(P)$, we see that $\pi_1(K(P), p_0)$ is generated by the homotopy classes of $\image(\beta \circ \alpha)$. Let $\sigma = (x < y) \in \Sigma$ be a 1--chain and let $\lambda$ be such that $\beta ( \alpha (\sigma)) = \lambda$. Let concatenation of loops $\lambda$ and $\lambda^\prime$ be denoted $\lambda\lambda^\prime$ such that $[\lambda][\lambda^\prime] = [\lambda\lambda^\prime]$. We will show that $\lambda$ has a factorisation where one of the factors is $\beta(\alpha(x \lessdot z))$ for some $z \in P$.
 
 
 	There exists $z \in P$ such that $x \lessdot z \leq y$. If $z \neq y$, there is a 2--simplex in $\Delta(P)$ corresponding to the 2--chain $(x \lessdot z < y)$. One of the edges of this 2--simplex corresponds to the 1--chain $(x\lessdot z)$.
 	The path $\alpha(x \leq y)$ is homotopic (through the 2--simplex $(x \lessdot z < y)$) to the path $\alpha(x \lessdot z)\alpha(z < y)$. Let $H$ witness this homotopy. We have that $\beta \circ H$ is well--defined (and continuous), so the loop $\lambda$ is homotopic to the loop $\beta(\alpha(x \lessdot z)\alpha(z < y)) = \beta(\alpha(x \lessdot z))\beta(\alpha(z < y))$. We repeat the process replacing $\sigma$ with $(z<y)$. Eventually this must stop since our poset is of finite height. After this, we achieve a factorisation of $\lambda$, entirely in factors of the form $\beta(\alpha(r\lessdot s))$.
 	
-	We see that $\pi_1(K(P),p_0)$ is generated by the loops in $\image(\beta \circ \alpha|_{\mathcal{E}(P)})$. Each covering relation $(r\lessdot s)$ has extended label $\Set{l(r\lessdot s)}$, therefore $\image(\beta \circ \alpha |_{\mathcal{E}(P)})$ is in bijection with $\image(l)$.
+	Consider $\mathcal{E}(P)$ as a subset of all 1--chains in $P$. We see that $\pi_1(K(P),p_0)$ is generated by the homotopy classes of loops in $\image(\beta \circ \alpha|_{\mathcal{E}(P)})$. Each covering relation $(r\lessdot s)$ has extended label $\Set{l(r\lessdot s)}$, therefore $\image(\beta \circ \alpha |_{\mathcal{E}(P)})$ is in bijection with $\image(l)$.
 \end{proof}
 
 \begin{lemma}
@@ -194,6 +195,7 @@ To finish our proof, it is necessary to provide an inverse to $\phi$, which we n
 
 \begin{theorem}
 	Given an edge labelled poset $(P, \, \leq, \, l \colon \mathcal{E}(P) \to A)$, we have $\pi_1(K(P)) \cong G(P)$.
+	\label{thm:fund_group_poset_complex_poset_group}
 \end{theorem}
 \begin{proof}
 	We again follow the notation from \cref{lem:fund_group_poset_complex_gen_labels}.
@@ -201,9 +203,9 @@ To finish our proof, it is necessary to provide an inverse to $\phi$, which we n
 	\begin{equation*}
 		\mathcal{L}(\Sigma) \coloneq \Set{\mathcal{L}(C) \given C \text{ is a 1--chain}}.
 	\end{equation*}
-Let $\chi \colon \mathcal{L}(\Sigma) \to \pi_1(K(P), p_0)$ denote this bijection. We now think of this presentation abstractly, and work to give a set of relations $R$ such that we obtain a group $\GroupPres{\,\mathcal{L}(\Sigma) \relations R\,\,} \cong \pi_1(K(P),p_0)$ where the isomorphism is an extension of $\chi$.
+Let $\chi \colon \mathcal{L}(\Sigma) \to \pi_1(K(P), p_0)$ denote this bijection. We now think of this presentation abstractly, and work to give a set of relations $R$ such that we obtain a group $\GroupPres{\mathcal{L}(\Sigma) \relations R\,} \cong \pi_1(K(P),p_0)$ where the isomorphism is an extension of $\chi$.
 
-By the structure of the 1--skeleton of $K(P)$ remarked in the proof of \cref{lem:fund_group_poset_complex_gen_labels}, there is a set of relations $R$ in bijection with the set of 2--simplices in $K(P)$. Let $e^2$ be a 2--simplex with edges $e^1_i$ for $i \in \Set{1,2,3}$. Let the $e_i$ be oriented acyclically as in \cref{fig:example_simplex_in_KP}.
+By the structure of the 1--skeleton of $K(P)$ remarked in the proof of \cref{lem:fund_group_poset_complex_gen_labels}, there is a set of relations $R$ in bijection with the set of 2--simplices in $K(P)$. Let $e^2$ be a 2--simplex with edges $e^1_i$ for $i \in \Set{1,2,3}$. We have that the edges $e^1_i$ are oriented acyclically as in \cref{fig:example_simplex_in_KP}.
 
 \begin{figure}[h]
 	\centering
@@ -220,23 +222,23 @@ By the structure of the 1--skeleton of $K(P)$ remarked in the proof of \cref{lem
 	\label{fig:example_simplex_in_KP}
 \end{figure}
 
-All simplices are oriented this way, this is because if $x \leq y$ and $y \leq z$ then $x \leq z$.
+All simplices are oriented this way because if $x \leq y$ and $y \leq z$ then $x \leq z$.
 Let the attaching map for each $e^1_i$ trace the loop $\lambda_i \in \Lambda$ and choose extended labels $\ell_i$ such that $\chi(\ell_i) = \lambda_i$. We see that the 2--simplex $e^2$ corresponds to the relation $\ell_1\ell_2\ell_3^{-1} = 0$. Here multiplication of extended labels is formal. As are inverses, denoted $\ell^{-1}$. Define $R$ to be the following set of relations for $\GroupPres{\, \mathcal{L}(\Sigma)\,}$.
 
 \begin{equation*}
-	R \coloneq \Set*{\ell_1\ell_2\ell_3^{-1} = 0 \given \exists \text{ 2--chain } x\leq y \leq z \text{ where} \quad
+	R \coloneq \Set*{\ell_1\ell_2\ell_3^{-1} = 0 \given \exists \text{ 2--chain } x< y < z \text{ where} \quad
 	\begin{aligned}
-		&\mathcal{L}(x \leq y) = \ell_1 \\
-		&\mathcal{L}(y \leq z) = \ell_2 \\
-		&\mathcal{L}(x \leq z) = \ell_3
+		&\mathcal{L}(x < y) = \ell_1 \\
+		&\mathcal{L}(y < z) = \ell_2 \\
+		&\mathcal{L}(x < z) = \ell_3
 	\end{aligned}}
 \end{equation*}
 
-Following the definition of $K(P)$, these are exactly the relations we need to extend $\chi$ to an isomorphism witnessing $\GroupPres{\, \mathcal{L}(\Sigma) \relations R \,\,} \cong \pi_1(K(P),p_0)$.
+Following from the definition of $K(P)$, these are exactly the relations we need to extend $\chi$ to an isomorphism witnessing $\GroupPres{ \mathcal{L}(\Sigma) \relations R \,} \cong \pi_1(K(P),p_0)$.
 
 We now make some geometric observations about $R$. To each relation $r \in R$, there is a corresponding 2--simplex $e^2(r) \subseteq \Delta(P)$. Let $\omega_i \in \Omega$ be the paths going along the edges $e^1_i$ in either cyclic direction around $e^2(r)$ and choose $\ell_i$ such that $\chi(\ell_i) = \beta \circ \omega_i \in \pi_1(K(P),p_0)$. The two sides of any equation resulting from the relation $r$ correspond to two paths along the edges of $e^2(r)$ that start and end at the same point e.g.~$\ell_1\ell_2 = \ell_3, \, \ell_1 = \ell_3\ell_2^{-1}, \, \ell_1\ell_2\ell_3^{-1} = 0$, where 0 corresponds to the trivial path.
 
-This also holds for repeated application of any number of relations in $R$. Suppose we are given some $x_i,y_i \in \mathcal{L}(\Sigma)$ such that we have an equation $x_1x_2 \cdots x_m  = y_1y_2 \cdots y_n$ which is derived from relations in $R$. We see there must be two edge paths $s = s_1,s_2,\ldots,s_{m-1}$ and $t = t_1,t_2,\ldots,t_{n-1}$ where $s_i,t_i$ are vertices in $\Delta(P)$ such that $\mathcal{L}(s_i\leq s_{i+1}) = x_i$ and $\mathcal{L}(t_i\leq t_{i+1}) = y_i$ with $s_1 = t_1$ and $s_m = t_n$.
+This also holds for repeated application of any number of relations in $R$. Suppose we are given some $x_i,y_i \in \mathcal{L}(\Sigma)$ such that we have the equation $x_1x_2 \cdots x_m  = y_1y_2 \cdots y_n$ in $\GroupPres{ \mathcal{L}(\Sigma) \relations R \,}$. We see there must be two edge paths $s = s_1,s_2,\ldots,s_{m-1}$ and $t = t_1,t_2,\ldots,t_{n-1}$ where $s_i,t_i$ are vertices in $\Delta(P)$ such that $\mathcal{L}(s_i\leq s_{i+1}) = x_i$ and $\mathcal{L}(t_i\leq t_{i+1}) = y_i$ with $s_1 = t_1$ and $s_m = t_n$.
 
 Recall that $\pi_1(K(P),p_0)$ is generated by loops corresponding to covering relations, so the subgroup $\GroupPres{ \mathcal{L}(\mathcal{E}(P))}$ is all of $\GroupPres{\, \mathcal{L}(\Sigma) \relations R \,}$. Now consider an equation as above where all the $x_i$ and $y_i$ are single set labels $\Set{a} \in \mathcal{L}(\mathcal{E}(P))$ for some $a \in A$. The paths $s$ and $t$ must consist of covering relations, i.e. $s_i \lessdot s_{i+1}$ and $t_i \lessdot t_{i+1}$ for all $i$. Edges in $\Delta(P)$ of the form $(r \lessdot s)$ correspond to edges in the Hasse diagram of $P$. So such an edge path in $\Delta(P)$ where all edges are covering relations corresponds to a path in the Hasse diagram of $P$. Therefore, any equation relating formal words in $\mathcal{L}(\mathcal{E}(P))$ corresponds to two paths in the Hasse diagram of $P$ that start and end in the same point.
 
