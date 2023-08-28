@@ -14,7 +14,7 @@ For a finite dimensional and connected CW--complex, $\mathcal{F}(X)$ is a bounde
 Consider some subset of the covering relations  $\mathcal{M} \subseteq \mathcal{E}(P)$. We consider this as a set of edges in the Hasse diagram for $P$, which is denoted $H$. From $\mathcal{M}$ we define an ordering on the graph $H$ such that $p \lessdot q$ is oriented from $p$ to $q$ if $(p \lessdot q) \in \mathcal{M}$, and otherwise in the opposite direction. We denote this oriented graph $H_\mathcal{M}$.
 We call $\mathcal{M}$ a \emph{matching} if for all $p \in P$, at most one $m \in \mathcal{M}$ contains $p$. A matching is \emph{acyclic} if $H_\mathcal{M}$ contains no directed cycles. Furthermore, a matching is \emph{proper} if for all $p\in P$, the set of all nodes in $H_\mathcal{M}$ reachable by a directed path from $p$ is finite. \cref{fig:matchings} gives some (non)examples of matchings.
 
-We observe that the requirement of being a matching means that any path through $H_\mathcal{M}$ will never consecutively go through two edges in $\mathcal{M}$. A cycle in $H_\mathcal{M}$ must clearly start and end at the same rank. Since edges in $\mathcal{M}$ increase rank and edges in $\mathcal{E}(P)\setminus\mathcal{M}$ decrease rank, a cycle must therefore be (cyclically)  alternating between edges in $\mathcal{M}$ and edges in $\mathcal{E}(P)\setminus\mathcal{M}$. Therefore, if a cycle is to start at $p\in P$, it must completely occur in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,1}}$ or completely in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,-1}}$. I.e.~the horizontal bands above or below $p$ in $H$. Since it is alternating, a cycle must also comprise an even number of edges.
+We observe that the requirement of being a matching means that any path through $H_\mathcal{M}$ will never consecutively go through two edges in $\mathcal{M}$. A cycle in $H_\mathcal{M}$ must clearly start and end at the same rank. Since edges in $\mathcal{M}$ increase rank and edges in $\mathcal{E}(P)\setminus\mathcal{M}$ decrease rank, a cycle must therefore be (cyclically)  alternating between edges in $\mathcal{M}$ and edges in $\mathcal{E}(P)\setminus\mathcal{M}$. Therefore, if a cycle is to start at $p\in P$, it must completely occur in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,1}}$ or completely in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,-1}}$, i.e.~the horizontal bands above or below $p$ in $H$. Since it is alternating, a cycle must also comprise an even number of edges.
 
 \tikzstyle{m}=[green!70!black, arrow_me=stealth]
 \tikzstyle{not_m}=[arrow_me=stealth]
@@ -108,7 +108,7 @@ We call $\sigma$ a \emph{face} of $\tau$ if $\sigma \lessdot \tau$. Consider $\P
 For a matching $\mathcal{M}$, any $p \in P$ that is disjoint from all of $\mathcal{M}$ is called \emph{critical}. In this context, a \emph{critical cell}.
 We can now state the version of discrete Morse theory we will use.
 
-\begin{theorem}[{\cite[Theorem 2.4]{paolini_salvetti_kpi1_2021}}]
+\begin{theorem}[{\hspace{1sp}\cite[Theorem 2.4]{paolini_salvetti_kpi1_2021}}]
     Consider a CW--complex $X$, a subcomplex $Y \subseteq X$, and a proper, acyclic matching $\mathcal{M}$ on $X$. If $\mathcal{F}(Y) \subseteq \mathcal{F}(X)$ is the set of critical cells in $X$ with respect to $\mathcal{M}$ and every if $\sigma$ is a regular face of $\tau$ for every $(\sigma \lessdot \tau) \in \mathcal{M}$, then $X$ deformation retracts on to $Y$.
     \label{thm:dmt}
 \end{theorem}

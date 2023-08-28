@@ -1,0 +1,17 @@
+% !TeX root = ../../main.tex
+\documentclass[class=article, crop=false]{standalone}
+\begin{document}
+\section{Fibre doubling and junctions}
+
+Let $h \colon \N \to \N$ be the poset map such that $h(n) = 2\cdot \lfloor n/2 \rfloor$ and recall $\mu$ from \eqref{eqn:mu_poset_map}. Consider the following map $\nu$.
+\begin{equation*}
+    \nu \, \colon \!\!\begin{tikzcd}
+        \mathcal{F}(K_W) \ar[r, "\mu"] & \N \ar[r, "h"] &\N
+    \end{tikzcd}
+\end{equation*}
+We have that $\nu$ is also a poset map.
+The fibres $\nu^{-1}(d)$ are of the form $\mu^{-1}(d) \cup \mu^{-1}(d+1)$. We call a connected component of such a $\nu^{-1}(d)$ \emph{double fibre components}. Let $G$ denote the set of double fibre components and $F$ denote the set of fibre components as in \cref{sec:subcomplex_K_prime}. To each $g \in G$ we associate a subset $D(g) \subseteq F$ that is the set of fibre components in $F$ that comprise the double fibre component $g$.
+
+Let $f$ be a $d$--fibre component and $f^\prime$ be a $(d+1)$--fibre component such that $f, f^\prime \in D(g)$ for some $g \in G$. Let $\sigma \in f^\prime$ be such that there exists a $\tau \in f$ with $\tau \lessdot \sigma$. Such a $\sigma$ necessarily exists given $f$ and $f^\prime$ as above. We call the section of $g$ that corresponds to $\sigma$ and all the faces of $\sigma$ \emph{the junction corresponding to $\sigma$}.
+
+\end{document}

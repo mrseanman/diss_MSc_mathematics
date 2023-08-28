@@ -3,14 +3,16 @@
 \begin{document}
 
 \section{A New Subcomplex, \texorpdfstring{$K^\prime_W$}{K prime}}
+\label{sec:subcomplex_K_prime}
 
 We now introduce the particular poset map we will use. Recall that $w$ is a choice of Coxeter element. Given the standard ordering of $\N$, the map $\eta \colon \mathcal{F}(K_W) \to \N$ with
-\begin{equation*}
+\begin{equation}
     \eta([x_1|x_2|\cdots|x_d]) \coloneq \begin{cases}
         d   &\text{if } x_1x_2\ldots x_d = w\\
         d+1 &\text{otherwise }
     \end{cases}
-\end{equation*}
+    \label{eqn:mu_poset_map}
+\end{equation}
 is a poset map. This can be readily checked. We call a connected component of $\eta^{-1}(d)$ a \emph{$d$--fibre component}. We now investigate the form of these $d$--fibre components. Again, denote $\mathcal{F}(K_W)$ by $P$. Consider such a $d$--fibre component $C$ such that $x \coloneq [x_1|x_2|\cdots|x_d] \in C$. Clearly $x_1x_2\ldots x_d = w$ and so $x$ is not the face of anything in $P$. The faces of $x$ are $[x_2|\cdots|x_d]$, $[x_1|\cdots|x_{d-1}]$ and $[x_1|\cdots|x_ix_{i+1}|\cdots|x_d]$ for all $i<d$. Only the first two faces will be in $C$ since $\eta([x_1|\cdots|x_ix_{i+1}|\cdots|x_d]) = d-1$. Therefore, a $d$--fibre component will look like \cref{fig:fibre_component_eg}.
 
 \begin{figure}
@@ -46,10 +48,13 @@ To each fibre component there is an associated sequence $(x_i)_{i \in \Z}$ such 
     \label{rmk:finite_sequence_repetition}
 \end{remark}
 
-The previous remark already shows that each sequence $s \in S_d$ is uniquely determined by any length $(d-1)$ subsequence. This is made clearer by the following observation. Let $\phi$ denote conjugation by $w$, i.e.~$\phi(x) = w^{-1}xw$. Then we have $\phi(x_i) = x_{i+d}$ by the following factorisation.
+The previous remark shows that each sequence $s \in S_d$ is uniquely determined by any length $(d-1)$ subsequence. Furthermore, by the following remark, once we have fixed any length $d$ subsequence we have an explicit formula for translating this subsequence to generate the whole sequence.
+\begin{remark}
+    Let $\phi$ denote conjugation by $w$, i.e.~$\phi(x) = w^{-1}xw$. Then we have $\phi(x_i) = x_{i+d}$ and $\phi^{-1}(x_i) = x_{i-d}$ by the following factorisation.
 \begin{equation*}
     \phi(x_i) = (x_{i+d-1}^{-1}x_{i+d-2}^{-1}\ldots x_i^{-1})x_i(x_{i+1}x_{i+2}\ldots x_{i+d})
 \end{equation*}
+\end{remark}
 
 We will now define a subcomplex $K^\prime_W \subseteq K_W$ based on these fibre components, after which we will prove the necessary properties of $K^\prime_W$. Let $F\subseteq 2^{\mathcal{F}(K)}$ be the set of all connected fibre components such that $\bigcup_{f \in F}f = \eta^{-1}(\N)$. Recall  $X^\prime_W$ from \cref{def:subcomplex_X_prime}.
 
@@ -104,6 +109,7 @@ The first property of $K^\prime_W$ we must prove is that $K^\prime_W$ is indeed 
 For the definition of $K^\prime$ to be well--defined, we require that the construction of each $f^\prime$ be well--defined. This requires that $f \cap X^\prime_W \neq \emptyset$ for each infinite $f$. This happens to be a detail for which the proof relies on $W$ being of affine type.
 
 \begin{lemma}[{\hspace{1sp}\cite[Lemma 7.6]{paolini_salvetti_kpi1_2021}}]
+    \label{lem:intersection_fibre_components_X_prime}
     Given a Coxeter group $W$ of affine type and $f\in F$ a $d$--fibre component, there exists a simplex $\tau = [x_1|x_2|\cdots|x_{d-1}] \in f$ such that $\tau$ is also in $X_W^\prime$. 
 \end{lemma}
 
@@ -183,7 +189,7 @@ This covers all the details of \cref{def:subcomplex_K_prime} and so $K_W^\prime$
     \label{thm:subcomplex_K_prime_hom_equiv_K}
 \end{theorem}
 \begin{proof}
-We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M}_f$ such that the critical vertices corresponding to $\mathcal{M}_f$ are exactly those contained in $K_W^\prime$. For finite $f$, this is trivial. We choose $\mathcal{M}_f = \emptyset$. For infinite $f$, choosing such an $\mathcal{M}_f$ is very simple. As shown in \cref{fig:acyclic_matching_fibre_components}. There is a unique choice of $\mathcal{M}_f$. The union of these $\mathcal{M}_f$ is an acyclic matching on $\mathcal{F}(K_W)$ by \cref{thm:patchwork_theorem}. This acyclic matching gives a deformation retract on to the union of critical cells, which is exactly $K_W^\prime$, by \cref{thm:dmt}.
+We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M}_f$ such that the critical vertices corresponding to $\mathcal{M}_f$ are exactly those contained in $K_W^\prime$. For finite $f$, this is trivial. We choose $\mathcal{M}_f = \emptyset$. For infinite $f$, choosing such an $\mathcal{M}_f$ is very simple, as shown in \cref{fig:acyclic_matching_fibre_components}. This choice of $\mathcal{M}_f$ is unique. The union of these $\mathcal{M}_f$ is an acyclic matching on $\mathcal{F}(K_W)$ by \cref{thm:patchwork_theorem}. By \cref{thm:dmt}, this acyclic matching gives a deformation retract on to the union of critical cells, which is exactly $K_W^\prime$.
 \end{proof}
 
 
