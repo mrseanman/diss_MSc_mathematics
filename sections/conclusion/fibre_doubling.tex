@@ -2,6 +2,8 @@
 \documentclass[class=article, crop=false]{standalone}
 \begin{document}
 \section{Fibre doubling and junctions}
+In this section we will explore a potential method of proving $K^\prime \simeq X^\prime_W$ different to that in \cite[Section 8]{paolini_salvetti_kpi1_2021}. This will involve utilizing fibre components and the patchwork theorem, as in \cref{sec:subcomplex_K_prime}, but altering the poset map used to define the fibres. We will not prove this 
+
 
 Let $h \colon \N \to \N$ be the poset map such that $h(n) = 2\cdot \lfloor n/2 \rfloor$ and recall $\mu$ from \eqref{eqn:mu_poset_map}. Consider the following map $\nu$.
 \begin{equation*}
@@ -10,8 +12,135 @@ Let $h \colon \N \to \N$ be the poset map such that $h(n) = 2\cdot \lfloor n/2 \
     \end{tikzcd}
 \end{equation*}
 We have that $\nu$ is also a poset map.
-The fibres $\nu^{-1}(d)$ are of the form $\mu^{-1}(d) \cup \mu^{-1}(d+1)$. We call a connected component of such a $\nu^{-1}(d)$ \emph{double fibre components}. Let $G$ denote the set of double fibre components and $F$ denote the set of fibre components as in \cref{sec:subcomplex_K_prime}. To each $g \in G$ we associate a subset $D(g) \subseteq F$ that is the set of fibre components in $F$ that comprise the double fibre component $g$.
+If $d$ is odd then $\nu^{-1}(d) = \emptyset$. If $d$ is even then $\nu^{-1}(d) = \mu^{-1}(d) \cup \mu^{-1}(d+1)$. We call the connected (non--empty) components of such a $\nu^{-1}(d)$ \emph{double fibre components}. Let $G$ denote the set of double fibre components and $F$ denote the set of fibre components as in \cref{sec:subcomplex_K_prime}. To each $g \in G$ we associate a subset $D(g) \subseteq F$ that is the set of fibre components in $F$ that comprise the double fibre component $g$.
 
-Let $f$ be a $d$--fibre component and $f^\prime$ be a $(d+1)$--fibre component such that $f, f^\prime \in D(g)$ for some $g \in G$. Let $\sigma \in f^\prime$ be such that there exists a $\tau \in f$ with $\tau \lessdot \sigma$. Such a $\sigma$ necessarily exists given $f$ and $f^\prime$ as above. We call the section of $g$ that corresponds to $\sigma$ and all the faces of $\sigma$ \emph{the junction corresponding to $\sigma$}.
+Given some fibre component $f \in F$. Define $\Sigma(f)$ to be a sequence $(\sigma_i)_{i \in \Z}$ of elements in $\mathcal{F}(K_W)$ such that $\bigcup_{i \in \Z} \sigma_i = f$, and such that $(\sigma_i)_{i \in \Z}$ respects the order in $f$. This sequence is unique up to translation of indices.
+
+\begin{definition}
+    Given some $g$ a connected component of $\nu^{-1}(d)$, let $f,f^\prime\in D(g)$ be two distinct fibre components comprising $g$ such that $f$ is a $d$--fibre component and $f^\prime$ is a $(d+1)$--fibre component. Let $\Sigma(f) = (\sigma_i)_{i \in \Z}$ and $\Sigma(f^\prime) = (\sigma^\prime_i)_{i \in \Z}$.
+    Suppose there is a consecutive sequence of integers $(n, n+1, \ldots , n+j)$ and some constant of translation $m \in \Z$ such that $\sigma_i \lessdot \sigma^\prime_{i+m}$ for all $i \in (n, n+1, \ldots, n+j)$. We say that 
+    \begin{equation*}
+        \bigcup_{n\leq i \leq n+j}\sigma_i \qquad \cup \qquad \bigcup_{n+m \leq i \leq n+j+m} \sigma^\prime_i
+    \end{equation*}
+    is the \emph{junction} between $f$ and $f^\prime$ of length $j$, starting at $(\sigma_n,\sigma^\prime_{n+m})$.
+\end{definition}
+
+Note that by our construction, given such $g$, $f$ and $f^\prime$, a junction of some length necessarily exists. See \cref{fig:junction_example} for an example picture of a junction.
+
+A useful property of junctions is that they enable us to change orientation in a matching, see \cref{fig:junction_matching_switch}. However, we see that this change of direction is necessarily paired with the other fibre component.
+\tikzmath{
+	\hsep = 1.4;
+	\vsep = 1.0;
+}
+\contournumber{60}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \tikzstyle{every label}=[font=\scriptsize]
+        \tikzstyle{every node}=[font=\footnotesize]
+        \node (x0x1) at (0,0) {$[x_0 | x_1]$};
+        \node (x1) at ($(x0x1) + (\hsep,-\vsep)$) {$[x_1]$};
+        \node (x0) at ($(x0x1) + (-\hsep,-\vsep)$) {$[x_0]$};
+        \node (x-1x0) at ($(x0x1) + 2*(-\hsep,0)$) {$[x_{-1}|x_0]$};
+        \node (x1x2) at ($(x0x1) + 2*(\hsep,0)$) {$[x_1|x_2]$};
+        \node (x2) at ($(x1x2) + (\hsep,-\vsep)$) {$[x_2]$};
+
+
+        \node (x0y1y2) at ($(x0x1) + 2.3*(0,\vsep)$) {$[y_0|y_1|y_2]$};
+        \node (x0y1) at ($(x0y1y2) + (-\hsep,-\vsep)$) {$[y_0|y_1]$};
+        \node (y1y2) at ($(x0y1y2) + (\hsep,-\vsep)$) {$[y_1|y_2]$};
+        \node (y-1x0y1) at ($(x0y1y2) + (-2*\hsep,0)$) {$[y_{-1}|y_0|y_1]$};
+        \node (y1y2y3) at ($(x0y1y2) + (2*\hsep,0)$) {$[y_1|y_2|y_3]$};
+        \node (y2y3) at ($(y1y2y3) + (\hsep,-\vsep)$) {$[y_2|y_3]$};
+
+        \node (ul) at ($ (y-1x0y1) + (-\hsep,-\vsep)$) {};
+        \node (ur) at ($ (y2y3) + (\hsep,\vsep)$) {};
+
+        \node (dl) at ($ (x-1x0) + (-\hsep,-\vsep)$) {};
+        \node (dr) at ($ (x2) + (\hsep,\vsep)$) {};
+
+        
+        \draw (x-1x0) to (x0) to (x0x1) to (x1) to (x1x2) to (x2);
+        \draw (y-1x0y1) to (x0y1) to (x0y1y2) to (y1y2) to (y1y2y3) to (y2y3);
+        
+        \draw (x0y1) to (x0);
+        \draw (x0y1y2) to (x0x1);
+        \draw (y1y2) to (x1);
+        \draw (y1y2y3) to (x1x2);
+
+        \draw[dotted, thick] (y-1x0y1) to (ul);
+        \draw[dotted, thick] (y2y3) to (ur);
+        \draw[dotted, thick] (x-1x0) to (dl);
+        \draw[dotted, thick] (x2) to (dr);
+            
+    \end{tikzpicture}
+    \caption{A length 4 junction starting at $([x_0],[y_0|y_1])$. This corresponds to a connected component of $\nu^{-1}(2)$. Here $f$ is the $2$--fibre component with sequence $(x_i)_{i \in \Z}$ and $f^\prime$ is the $3$--fibre component with sequence $(y_i)_{i \in \Z}$ such that $y_1y_2 = x_1$. This necessitates $y_0=x_0$ and $y_3=x_2$.}
+    \label{fig:junction_example}
+\end{figure}
+
+\tikzmath{
+	\hsep = 0.7;
+	\vsep = 0.5;
+}
+\tikzstyle{m}=[green!70!black, arrow_me=stealth]
+\tikzstyle{not_m}=[arrow_me=stealth]
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=1.2, baseline=0.5cm]
+        \node (dL) at (0,0) {};
+        \foreach \x in {2,4,...,8}
+        \node[FSC] (d\x) at ($(\x*\hsep, 0)$) {};
+        \node (dR) at ($(d8) + (2*\hsep,0)$) {};
+        \foreach \x in {1,3,...,9}
+        \node[FSC] (d\x) at ($(\x*\hsep, \vsep)$) {};
+
+
+        \node (uL) at ($(dL) + 2*(0,\vsep)$) {};
+        \foreach \x in {2,4,...,8}
+        \node[FSC] (u\x) at ($(uL) + (\x*\hsep, 0)$) {};
+        \node (uR) at ($(u8) + (2*\hsep,0)$) {};
+        \foreach \x in {1,3,...,9}
+        \node[FSC] (u\x) at ($(uL) + (\x*\hsep, \vsep)$) {};
+
+        \draw[dotted, thick] (dL) to (d1);
+        \draw[dotted, thick] (d9) to (dR);
+
+        \draw[dotted, thick] (uL) to (u1);
+        \draw[dotted, thick] (u9) to (uR);
+
+        \foreach \x in {2,4}
+        \draw[m] (d\x) to (d\the\numexpr \x -1\relax);
+        \foreach \x in {2,4}
+        \draw[m] (u\x) to (u\the\numexpr \x -1\relax);
+
+        \foreach \x in {3,5}
+        \draw[not_m] (d\x) to (d\the\numexpr \x -1\relax);
+        \foreach \x in {3,5}
+        \draw[not_m] (u\x) to (u\the\numexpr \x -1\relax);
+
+        \foreach \x in {6,8}
+        \draw[m] (d\x) to (d\the\numexpr \x +1\relax);
+        \foreach \x in {6,8}
+        \draw[m] (u\x) to (u\the\numexpr \x +1\relax);
+        
+        \foreach \x in {5,7}
+        \draw[not_m] (d\x) to (d\the\numexpr \x +1\relax);
+        \foreach \x in {5,7}
+        \draw[not_m] (u\x) to (u\the\numexpr \x +1\relax);
+
+        \draw[m] (d5) to (u5);
+    \end{tikzpicture}
+    \caption{A demonstration of how a junction can be used to simultaneously change matching orientation on a pair of fibre components. In our case, we require one of the bridges of the junction to be between the upper rows of the respective fibre components.}
+    \label{fig:junction_matching_switch}
+\end{figure}
+There are some immediate limitations to this technique. Let $d_{\max} \coloneq \max\Set{d\in\N \given \mu^{-1}(d)\neq \emptyset}$. Since $\mu^{-1}(n) = \emptyset$ for all $n\leq 0$, we see that if $d_{\max}$ is odd then we see that $\nu^{-1}(d_{\max}) = \mu^{-1}(d_{\max})$ and this construction leads to simple, linear fibre components as in \cref{fig:fibre_component_eg}. For which the necessary matching is impossible. For a given Coxeter system $(W,S)$ and Coxeter element $w$, the value of $d_{\max}$ is $\Abs{S}$. So this construction will not be useful for Coxeter systems for which $\Abs{S}$ is odd.
+
+
+
+\vspace{5cm}
+For fibre doubling to be useful in showing $K^\prime_W \simeq X^\prime_W$, we need the following to be true.
+\begin{enumerate}
+    \item For each section of a fibre component in $\mathcal{F}(K_W^\prime)\setminus\mathcal{F}(X_W^\prime)$ bounded between two elements of $\mathcal{F}(X^\prime_W)$, we require that there is a similar section belonging to a different fibre component such that a junction as in \cref{fig:junction_matching_switch}.
+\end{enumerate}
 
 \end{document}

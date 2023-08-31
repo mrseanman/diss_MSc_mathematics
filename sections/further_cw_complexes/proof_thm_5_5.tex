@@ -95,13 +95,15 @@ The following proof uses induction on the steps presented in \cref{eg:inductive_
     The base case is $X_\emptyset \simeq X^\prime_\emptyset \simeq \Set{\bullet}$.
     Fix an ordering $(T_1, T_2, \ldots , T_k)$ on $\mathcal{S}^n_W$.
     For each $T_i$ we can extend the map $\phi_i \colon \bigcup_{Q \subsetneq T_i} X_{Q} \to \bigcup_{Q \subsetneq T_i} X^\prime_{Q}$ to $\psi_i \colon X_{T_i} \to X^\prime_{T_i}$ such that we have the following commutative diagram.
+    \vspace{0.2cm}
     \begin{equation*}
         \begin{tikzcd}
 \bigcup_{Q \subsetneq T_i} X_{Q}  \ar[r, "\phi_i"]             &   \bigcup_{Q \subsetneq T_i} X^\prime_{Q}                                  \\
 X_{T_i} \ar[r, "\psi_i" ] \ar[from = u, hookrightarrow]                                  &   X^\prime_{T_i}  \ar[from = u, hookrightarrow]      \\
         \end{tikzcd}
     \end{equation*}
-    This is possible by \cref{lem:extendability_of_maps}. Fix each $\psi_i$.
+    \vspace{-0.2cm}
+    This is possible by \cref{lem:extendability_of_maps}. The extra axioms in the case where $\Abs{T}=2$ are satisfied due to inductive hypothesis 2. Fix each $\psi_i$.
 
     $\bullet$ Case 1: Suppose $Y = \bigcup_{m < i} X_{T_m}$ and $Y^\prime = \bigcup_{m < i} X^\prime_{T_m}$ and $i\leq k-1$, i.e.~in the next step, we will \emph{not} complete $X^n \simeq (X^\prime)^n$.
 

@@ -47,14 +47,14 @@
 
 \providecommand\relations{} % is redefined in \Set
 \DeclarePairedDelimiterX\GroupPres[1]{\langle}{\rangle}{
-	\renewcommand\relations{\,\SetSymbol[\delimsize]\,}
-	#1
+	\renewcommand\relations{\mkern1mu\SetSymbol[\delimsize]\mkern1mu}
+	\mkern2mu#1\mkern2mu
 }
 
 % -----  Custom abs  ------------------------------
 
 \DeclarePairedDelimiterX\Abs[1]{|}{|}{
-	\,#1\,
+	\mkern1mu#1\mkern1mu
 }
 
 % vertical equal to 
