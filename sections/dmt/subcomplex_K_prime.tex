@@ -56,7 +56,7 @@ The previous remark shows that each sequence $s \in S_d$ is uniquely determined 
 \end{equation*}
 \end{remark}
 
-We will now define a subcomplex $K^\prime_W \subseteq K_W$ based on these fibre components, after which we will prove the necessary properties of $K^\prime_W$. Let $F\subseteq 2^{\mathcal{F}(K)}$ be the set of all connected fibre components such that $\bigcup_{f \in F}f = \eta^{-1}(\N)$. Recall  $X^\prime_W$ from \cref{def:subcomplex_X_prime}.
+We will now define a subcomplex $K^\prime_W \subseteq K_W$ based on these fibre components, after which we will prove the necessary properties of $K^\prime_W$. Denote the power set of $\mathcal{F}(K_W)$ by $\mathcal{P}({\mathcal{F}(K)})$. Let $F\subseteq \mathcal{P}({\mathcal{F}(K)})$ be the set of all connected fibre components such that $\bigcup_{f \in F}f = \mathcal{F}(K_W)$. Recall  $X^\prime_W$ from \cref{def:subcomplex_X_prime}.
 
 \begin{definition}[The subcomplex $K^\prime_W$]
     For each infinite $f \in F$ let $f^\prime$ be the elements of $f$ in between and including the first and last elements of $f \cap X_W^\prime$, where \emph{first}, \emph{last} and \emph{in between} derive from the linear form of the fibre components as in \eqref{fig:fibre_component_eg}. Define $K^\prime_W$ to be the union of all finite $f$ and $f^\prime$ such that $f$ is infinite. 
@@ -191,6 +191,4 @@ This covers all the details of \cref{def:subcomplex_K_prime} and so $K_W^\prime$
 \begin{proof}
 We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M}_f$ such that the critical vertices corresponding to $\mathcal{M}_f$ are exactly those contained in $K_W^\prime$. For finite $f$, this is trivial. We choose $\mathcal{M}_f = \emptyset$. For infinite $f$, choosing such an $\mathcal{M}_f$ is very simple, as shown in \cref{fig:acyclic_matching_fibre_components}. This choice of $\mathcal{M}_f$ is unique. The union of these $\mathcal{M}_f$ is an acyclic matching on $\mathcal{F}(K_W)$ by \cref{thm:patchwork_theorem}. Denote this matching $\mathcal{M}$. Denote the directed graph resulting from orientation of edges in the Hasse diagram of $\mathcal{F}(K_W)$ by this matching as $H_\mathcal{M}$. We have that $\mathcal{M}$ is also proper since any directed path in $H_\mathcal{M}$ can only travel inwards along fibre components, eventually reaching some element in $\mathcal{F}(K^\prime_W)$. After reaching an element of $\mathcal{F}(K^\prime_W)$, the path can only travel downwards. Since $\mathcal{F}(K_W)$ is finite--height, this path must eventually terminate. So by $\mathcal{M}$ is an acyclic, proper matching. By \cref{thm:dmt}, this gives a deformation retract on to the union of the critical cells of $\mathcal{M}$, which is exactly $K_W^\prime$.
 \end{proof}
-
-
 \end{document}

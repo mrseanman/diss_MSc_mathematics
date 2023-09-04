@@ -10,7 +10,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 
-\ExecuteOptions{phd}
+\ExecuteOptions{msc}
 \ProcessOptions
 
 \LoadClass[11pt,oneside]{book}
@@ -24,7 +24,7 @@
 \setlength{\evensidemargin}{\oddsidemargin}
 \setlength{\topmargin}{0pt} \addtolength{\topmargin}{-\headheight}
 \addtolength{\topmargin}{-\headsep}
-\renewcommand{\baselinestretch}{1.5} % should be 1.5
+\renewcommand{\baselinestretch}{1.4} % should be 1.5
 \renewcommand{\bibname}{References}
 \renewenvironment{thebibliography}[1]
      {\chapter*{\bibname}%

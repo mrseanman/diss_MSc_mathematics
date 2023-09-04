@@ -10,6 +10,7 @@ Let $h \colon \N \to \N$ be the poset map such that $h(n) = 2\cdot \lfloor n/2 \
     \nu \, \colon \!\!\begin{tikzcd}
         \mathcal{F}(K_W) \ar[r, "\mu"] & \N \ar[r, "h"] &\N
     \end{tikzcd}
+    \label{eqn:nu_poset}
 \end{equation*}
 We have that $\nu$ is also a poset map.
 If $d$ is odd then $\nu^{-1}(d) = \emptyset$. If $d$ is even then $\nu^{-1}(d) = \mu^{-1}(d) \cup \mu^{-1}(d+1)$. We call the connected (non--empty) components of such a $\nu^{-1}(d)$ \emph{double fibre components}. Let $G$ denote the set of double fibre components and $F$ denote the set of fibre components as in \cref{sec:subcomplex_K_prime}. To each $g \in G$ we associate a subset $D(g) \subseteq F$ that is the set of fibre components in $F$ that comprise the double fibre component $g$.
@@ -25,6 +26,7 @@ Given some fibre component $f \in F$. Define $\Sigma(f)$ to be a sequence $(\sig
     is the \emph{junction} between $f$ and $f^\prime$ of length $j$, starting at $(\sigma_n,\sigma^\prime_{n+m})$.
 \end{definition}
 
+We say that the individual $\sigma_i \lessdot \sigma^\prime_{i+m}$ corresponding to a junction are the \emph{bridges} of that junction.
 Note that by our construction, given such $g$, $f$ and $f^\prime$, a junction of some length necessarily exists. See \cref{fig:junction_example} for an example picture of a junction.
 
 A useful property of junctions is that they enable us to change orientation in a matching, see \cref{fig:junction_matching_switch}. However, we see that this change of direction is necessarily paired with the other fibre component.
@@ -44,7 +46,7 @@ A useful property of junctions is that they enable us to change orientation in a
         \node (x-1x0) at ($(x0x1) + 2*(-\hsep,0)$) {$[x_{-1}|x_0]$};
         \node (x1x2) at ($(x0x1) + 2*(\hsep,0)$) {$[x_1|x_2]$};
         \node (x2) at ($(x1x2) + (\hsep,-\vsep)$) {$[x_2]$};
-
+        \node (x2x3) at ($(x2) + (\hsep, \vsep)$) {$[x_2|x_3]$};
 
         \node (x0y1y2) at ($(x0x1) + 2.3*(0,\vsep)$) {$[y_0|y_1|y_2]$};
         \node (x0y1) at ($(x0y1y2) + (-\hsep,-\vsep)$) {$[y_0|y_1]$};
@@ -52,29 +54,31 @@ A useful property of junctions is that they enable us to change orientation in a
         \node (y-1x0y1) at ($(x0y1y2) + (-2*\hsep,0)$) {$[y_{-1}|y_0|y_1]$};
         \node (y1y2y3) at ($(x0y1y2) + (2*\hsep,0)$) {$[y_1|y_2|y_3]$};
         \node (y2y3) at ($(y1y2y3) + (\hsep,-\vsep)$) {$[y_2|y_3]$};
+        \node (y2y3y4) at ($(y2y3) + (\hsep,\vsep)$) {$[y_2|y_3|y_4]$};
 
         \node (ul) at ($ (y-1x0y1) + (-\hsep,-\vsep)$) {};
-        \node (ur) at ($ (y2y3) + (\hsep,\vsep)$) {};
+        \node (ur) at ($ (y2y3y4) + (\hsep,-\vsep)$) {};
 
         \node (dl) at ($ (x-1x0) + (-\hsep,-\vsep)$) {};
-        \node (dr) at ($ (x2) + (\hsep,\vsep)$) {};
+        \node (dr) at ($ (x2x3) + (\hsep,-\vsep)$) {};
 
         
-        \draw (x-1x0) to (x0) to (x0x1) to (x1) to (x1x2) to (x2);
-        \draw (y-1x0y1) to (x0y1) to (x0y1y2) to (y1y2) to (y1y2y3) to (y2y3);
+        \draw (x-1x0) to (x0) to (x0x1) to (x1) to (x1x2) to (x2) to (x2x3);
+        \draw (y-1x0y1) to (x0y1) to (x0y1y2) to (y1y2) to (y1y2y3) to (y2y3) to (y2y3y4);
         
         \draw (x0y1) to (x0);
         \draw (x0y1y2) to (x0x1);
         \draw (y1y2) to (x1);
         \draw (y1y2y3) to (x1x2);
+        \draw (x2) to (y2y3);
 
         \draw[dotted, thick] (y-1x0y1) to (ul);
-        \draw[dotted, thick] (y2y3) to (ur);
+        \draw[dotted, thick] (y2y3y4) to (ur);
         \draw[dotted, thick] (x-1x0) to (dl);
-        \draw[dotted, thick] (x2) to (dr);
+        \draw[dotted, thick] (x2x3) to (dr);
             
     \end{tikzpicture}
-    \caption{A length 4 junction starting at $([x_0],[y_0|y_1])$. This corresponds to a connected component of $\nu^{-1}(2)$. Here $f$ is the $2$--fibre component with sequence $(x_i)_{i \in \Z}$ and $f^\prime$ is the $3$--fibre component with sequence $(y_i)_{i \in \Z}$ such that $y_1y_2 = x_1$. This necessitates $y_0=x_0$ and $y_3=x_2$.}
+    \caption{A length 5 junction starting at $([x_0],[y_0|y_1])$. This corresponds to a connected component of $\nu^{-1}(2)$. Here $f$ is the $2$--fibre component with sequence $(x_i)_{i \in \Z}$ and $f^\prime$ is the $3$--fibre component with sequence $(y_i)_{i \in \Z}$ such that $y_1y_2 = x_1$. This necessitates $y_0=x_0$ and $y_3=x_2$.}
     \label{fig:junction_example}
 \end{figure}
 
@@ -133,14 +137,115 @@ A useful property of junctions is that they enable us to change orientation in a
     \caption{A demonstration of how a junction can be used to simultaneously change matching orientation on a pair of fibre components. In our case, we require one of the bridges of the junction to be between the upper rows of the respective fibre components.}
     \label{fig:junction_matching_switch}
 \end{figure}
-There are some immediate limitations to this technique. Let $d_{\max} \coloneq \max\Set{d\in\N \given \mu^{-1}(d)\neq \emptyset}$. Since $\mu^{-1}(n) = \emptyset$ for all $n\leq 0$, we see that if $d_{\max}$ is odd then we see that $\nu^{-1}(d_{\max}) = \mu^{-1}(d_{\max})$ and this construction leads to simple, linear fibre components as in \cref{fig:fibre_component_eg}. For which the necessary matching is impossible. For a given Coxeter system $(W,S)$ and Coxeter element $w$, the value of $d_{\max}$ is $\Abs{S}$. So this construction will not be useful for Coxeter systems for which $\Abs{S}$ is odd.
+There are some immediate limitations to this technique. Let $d_{\max} \coloneq \max\Set{d\in\N \given \mu^{-1}(d)\neq \emptyset}$. Since $\mu^{-1}(n) = \emptyset$ for all $n\leq 0$, we see that if $d_{\max}$ is even then $\nu^{-1}(d_{\max}) = \mu^{-1}(d_{\max})$ and some connected components will be simple and linear as in \cref{fig:fibre_component_eg} and for which a matching of the required properties is impossible. For a given Coxeter system $(W,S)$ and Coxeter element $w$, the value of $d_{\max}$ is $\Abs{S}$. So this particular construction will not be useful for Coxeter systems for which $\Abs{S}$ is even. However, given $\Abs{S}$ is odd, we always have junctions between fibre components.
+
+\begin{lemma}[{\hspace{1sp}\cite[Lemma 5.1]{paolini_salvetti_kpi1_2021}}]
+    Fix a Coxeter system $(W,S)$ with set of reflections $R \subseteq W$ and let $l_R \colon W \to \N$ be the length function on $W$ with respect to the generating suet $R$. For any Coxeter element $w \in W$, we have $l_R(w) = \Abs{S}$.
+    \label{lem:constant_reflection_length_of_cox_elt}
+\end{lemma}
+\begin{lemma}
+   Fix a Coxeter system $(W,S)$ such that $\Abs{S}\geq 3$ is odd and fix a Coxeter element $w \in W$. For some $d\geq 1$, either $\nu^{-1}(d) = \emptyset$ or $\nu^{-1}(d)$ contains a junction.
+   \label{lem:junctions_exist}
+\end{lemma}
+\begin{proof}
+    Denote the set of reflections by $R$.
+    Suppose $\nu^{-1}(d)  = \mu^{-1}(d) \cup \mu^{-1}(d +1)\neq \emptyset$. We have that $d$ is even. Furthermore, $\mu^{-1}(n) \neq \emptyset \iff 1 \leq n \leq \Abs{S}$. At least one of $\mu^{-1}(d)$ or $\mu^{-1}(d+1)$ are non--empty. Given our restrictions, $\mu^{-1}(d)$ is definitely non--empty. Since $d$ is even, $d \leq \Abs{S}$ and $\Abs{S}$ is odd, we have $d < \Abs{S}$.
+
+    Now let $\sigma = [x_1 | \cdots |x_{d-1}]$ be in some $d$--fibre component such that $x_1x_2\cdots x_{d} = w$. There is a factorisation of $w$ in $R$ that respect the factors $x_1x_2\cdots x_{d} = w$ in $R$. By \cref{lem:constant_reflection_length_of_cox_elt}, this factorisation contains $\Abs{S}$ factors. Since $\Abs{S} > d$, by pigeonhole principle there is at least one $x_i \in \Set{x_1, \ldots, x_{d}}$ that non--trivially factors in $R$. Suppose $x_i = r_1r_2\cdots r_k$ is this factorisation, where the $r_j$ are in $R$. We have that
+    \begin{equation*}
+        \tau = [x_1|\cdots |x_{i-1}|r_1|r_2r_3\cdots r_k|x_{i+1}|\cdots|x_{d}] \in \mu^{-1}(d+1)
+    \end{equation*}
+    and $\sigma \lessdot \tau$.
+\end{proof}
+
+\begin{remark}
+    The construction of this proof is doing the construction in the proof of \cref{lem:K_prime_valid_subcomplex} with $s^i$, but in the inverse order (i.e.~the inverse of the map $s \mapsto s^i$ in the proof of \cref{lem:K_prime_valid_subcomplex}). The above construction results in a junction of length at least $2d +1$. See \cref{fig:junction_example} for an example of such a junction.
+    \label{rmk:junction_length}
+\end{remark}
+
+At this point it is worth noting why we have chosen to define $\nu$ as in \eqref{eqn:nu_poset}. Suppose in \eqref{eqn:nu_poset} we had instead chosen $h$ to be $h(n) = 2\lceil n/2 \rceil$ instead of  $h(n) = 2\lfloor n/2 \rfloor$. The non--empty fibres of $\nu$ would look like $\mu^{-1}(d) \cup \mu^{-1}(d-1)$ and this construction could potentially work for $(W,S)$ where $\Abs{S}$ is even. However, consider now $\mu^{-1}(1)$. This comprises two elements $[\,]$ and $[w]$. If we chose $h(n) = 2\lceil n/2 \rceil$ then we would have $\nu^{-1}(2) = \mu^{-1}(2) \cup \mu^{-1}(1)$. There would be no way to use the junctions between $[w] \in \mu^{-1}(1)$ and all the 2--fibre components to construct a useful matching. The relevant picture would be to imagine \cref{fig:junction_matching_switch} but with only one vertex in the bottom row, to be shared between all 2--fibre components. Hence, why we made our specific choice for $h$ in defining $\nu$.
+
+Also note that $\nu^{-1}(0) = \mu^{-1}(1)$ is missed out by \cref{lem:junctions_exist}. This poses no issues since $\mu^{-1}(1)$ is always subset of $X^\prime_W$ by our previous remarks and so no matching construction is necessary on this fibre. 
+
+At this point we should address how this construction could avoid using \cref{lem:intersection_fibre_components_X_prime}, which is only proven for affine Coxeter groups. Suppose we had some infinite fibre component $f$ such that $f \cap X^\prime_W = \emptyset$. It may seem possible that we could form a matching as in \cref{fig:improper_infinite_matching} which has no critical cells. However, the number of cells reachable by a directed path from any of the cells in this matching is infinite. So the matching is improper and is not useful for our construction.
+
+\tikzmath{
+	\hsep = 1.0;
+	\vsep = 0.8;
+}
+\tikzstyle{m}=[green!70!black, arrow_me=stealth]
+\tikzstyle{not_m}=[arrow_me=stealth]
+\tikzstyle{FSC_highlight}=[circle, draw=black!50,fill=red!40,thick, inner sep=0pt,minimum size=1.5mm]
+\begin{figure}[ht]
+    \centering
+    \vspace{0.3cm}
+    \begin{tikzpicture}[scale=1.2, baseline=0.5cm]
+        \node (d0) at (0,0) {};
+        \node (d6) at ($ (d0) + 6*(\hsep,0)$) {};
+        \foreach \x in {1,...,5}
+        \node[FSC] (d\x) at ($ (d0) + \x*(\hsep,0)$) {};
 
 
+        \node[FSC] (u0) at ($(d0) + (0,\vsep) + 0.5*(\hsep,0)$) {};
+        \foreach \x in {1,...,5}
+        \node[FSC] (u\x) at ($ (u0) + \x*(\hsep,0)$) {};
 
-\vspace{5cm}
-For fibre doubling to be useful in showing $K^\prime_W \simeq X^\prime_W$, we need the following to be true.
-\begin{enumerate}
-    \item For each section of a fibre component in $\mathcal{F}(K_W^\prime)\setminus\mathcal{F}(X_W^\prime)$ bounded between two elements of $\mathcal{F}(X^\prime_W)$, we require that there is a similar section belonging to a different fibre component such that a junction as in \cref{fig:junction_matching_switch}.
-\end{enumerate}
+        \draw[dotted, thick] (d0) to (u0);
+        \draw[dotted, thick, green!70!black] (d6) to (u5);
+
+        \foreach \x in {1,2,3,4,5}
+        \draw[m] (d\x) to (u\the\numexpr \x -1\relax);
+
+
+        \foreach \x in {1,2,3,4,5}
+        \draw[not_m] (u\x) to (d\x);
+
+
+    \end{tikzpicture}
+    \caption{A matching on an infinite component with no critical cells. However, this matching is not proper.}
+    \label{fig:improper_infinite_matching}
+\end{figure}
+
+However, consider the case where there is a junction $j$ between $f$ and another fibre component such that a bridge of $j$ attaches to the bottom row of $f$, then we could construct a matching as in \cref{fig:proper_infinite_matching}. This matching is proper on $f$ and no critical cells are in $f$.
+
+\begin{figure}[ht]
+    \centering
+    \vspace{0.3cm}
+    \begin{tikzpicture}[scale=1.2, baseline=0.5cm]
+        \node (d0) at (0,0) {};
+        \node (d6) at ($ (d0) + 6*(\hsep,0)$) {};
+        \foreach \x in {1,...,5}
+        \node[FSC] (d\x) at ($ (d0) + \x*(\hsep,0)$) {};
+
+        \node[FSC] (u0) at ($(d0) + (0,\vsep) + 0.5*(\hsep,0)$) {};
+        \foreach \x in {1,...,5}
+        \node[FSC] (u\x) at ($ (u0) + \x*(\hsep,0)$) {};
+
+        \node[FSC] (cap mid) at ($(d3) + 2.1*(0, \vsep)$) {};
+        \node (capl) at ($(cap mid) + (-\hsep,0)$) {};
+        \node (capr) at ($(cap mid) + (\hsep,0)$) {};
+
+        \draw[dotted, thick, green!70!black] (d0) to (u0);
+        \draw[dotted, thick, green!70!black] (d6) to (u5);
+        \draw[dotted, thick] (capl) to (cap mid) to (capr);
+
+        \foreach \x in {1,2}
+        \draw[m] (d\x) to (u\x);
+
+        \foreach \x in {1,2,3}
+        \draw[not_m] (u\the\numexpr \x -1\relax) to (d\x);
+
+        \foreach \x in {4,5}
+        \draw[m] (d\x) to (u\the\numexpr \x -1\relax);
+
+        \foreach \x in {3,4,5}
+        \draw[not_m] (u\x) to (d\x);
+
+        \draw[m] (d3) to (cap mid);
+
+    \end{tikzpicture}
+    \caption{A proper matching on an infinite component $f$ such that no critical cells are in $f$. This utilises a junction from the bottom row of $f$ to some other fibre component.}
+    \label{fig:proper_infinite_matching}
+\end{figure}
 
 \end{document}
