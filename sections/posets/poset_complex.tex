@@ -5,16 +5,18 @@
 \section{Poset complex}
 \label{sec:poset_cx}
 
-For some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. First we make some definitions. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets.
+Given some edge labelled poset $P$, we can construct a cell complex $K(P)$ from $P$ such that $\pi_1(K(P))$ is $G(P)$. First we make some definitions. An \emph{abstract simplicial complex} is a family of sets that is closed under taking arbitrary subsets.
 
 \begin{definition}
-	Given a finite abstract simplicial complex $X$, the \emph{geometric realisation} of that simplicial complex is defined as follows: For each single element set in $X$ assign a point. For each two element set assign an open edge between the two vertices it contains. For each three element set assign an open triangle, the interior of the three edges of its three subsets of size two. In this way, continue constructing simplices of dimension $n$ for each $n+1$ size set in $X$.
+	Given a finite abstract simplicial complex $X$, the \emph{geometric realisation} of that simplicial complex is defined as follows. For each single element set in $X$ assign a point. For each two element set assign an open 1--simplex between the two vertices it contains. For each three element set assign an open 2--simplex, which is the interior of the three 1--simplices corresponding to its three subsets of size two. In this way, continue constructing simplices of dimension $n$ for each $n+1$ size set in $X$.
 	\label{def:geometric_simplicial_cx}
 \end{definition}
 
 The set of all chains in a poset $P$ is an abstract simplicial complex. We define $\Delta(P)$ to be the geometric simplicial complex corresponding to the set of all chains in $P$ where each $n$--simplex is an $n$--chain of $P$. Note that as in \cite[Definition 1.7]{mccammond_sulway_artin_2017}, we define an $n$--chain to have $n-1$ elements, e.g.~$(\{1\} \subseteq \{1,2\})$ is a 1--chain.
 
-For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be three 3--simplices all sharing an edge (a 1--simplex) corresponding to the 1--chain $(\emptyset \subseteq \{1,2,3,4\})$. Two of the 3--simplices would share a face corresponding to the 2--chain  $(\emptyset \subseteq \Set{1} \subseteq \Set{1,2,3,4})$. We also assign an orientation on edges in $\Delta(P)$ such that the edge corresponding to the 1--chain $(x \leq y)$ points from $x$ to $y$. For a two--dimensional example, consider the following poset $P$ and corresponding $\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
+For example, in \cref{fig:example_edge_labelled_poset}, $\Delta(P)$ would be three 3--simplices all sharing an edge (a 1--simplex) corresponding to the 1--chain $(\emptyset \subseteq \{1,2,3,4\})$. Two of the 3--simplices would share a face corresponding to the 2--chain  $(\emptyset \subseteq \Set{1} \subseteq \Set{1,2,3,4})$.
+
+We also assign an orientation on edges in $\Delta(P)$ such that the edge corresponding to the 1--chain $(x \leq y)$ points from $x$ to $y$. For a two--dimensional example, consider the following poset $P$ and corresponding $\Delta(P)$. Here we forget about edge labelling in $P$ for a moment.
 
 \begin{figure}[ht]
 \centering
@@ -120,11 +122,11 @@ We continue, now using an edge labelling on $P$ (\cref{fig:example_edge_labelled
 \label{fig:example_edge_labelled_poset_with_KP}
 \end{figure}
 
-To construct $K(P)$, first we define a labelling on 1--chains in $P$ which extends the edge labelling in $P$. Let $A^*$ denote the set of all words corresponding to the alphabet $A$.
+To construct $K(P)$, first we define a labelling on 1--chains in $P$ (which are edges in $\Delta(P)$) which extends the edge labelling $l$.
 % \what[In the last draft I got this completely wrong. The extended labelling only extends to 1--chains. Not $n$--chains. This is important for how we identify $n$--simplices in $K(P)$, which has also changed since the last draft.]
 
 \begin{definition}
-	 Given some edge--labelled poset $(P,\leq,l \colon \mathcal{E}(P) \to A)$ and some 1--chain $(x \leq y)$ in $P$, the \emph{extended label} $\mathcal{L}(\sigma) \subseteq A^*$ is the language of all words corresponding to all saturated chains that start at $x$ and end at $y$.
+	 Given some edge--labelled poset $(P,\leq,l \colon \mathcal{E}(P) \to A)$ and some 1--chain $\sigma = (x \leq y)$ in $P$, the \emph{extended label} $\mathcal{L}(\sigma) \subseteq A^*$ is the language of all words corresponding to all saturated chains that start at $x$ and end at $y$. For any element $p \in P$ (a 0--chain), define $\mathcal{L}(p)$ to be $\emptyset$. 
 \end{definition}
 
 For example, consider the chain $(\Set{2} \subseteq \Set{1,2,3,4})$ in the context of \cref{fig:example_edge_labelled_poset_with_KP} (left). There are two corresponding saturated chains, $(\Set{2} \subseteq \Set{1,2} \subseteq \Set{1,2,3,4})$ and $(\Set{2} \subseteq \Set{2,3} \subseteq \Set{1,2,3,4})$, which respectively correspond to the words $ba$ and $ab$. So $\mathcal{L}(\Set{2} \subseteq \Set{1,2,3,4}) = \Set{ba, ab}$. Here are some illustrative examples:
@@ -135,18 +137,23 @@ For example, consider the chain $(\Set{2} \subseteq \Set{1,2,3,4})$ in the conte
 	\item $\mathcal{L}(\{1\}) = \mathcal{L}(\{2\}) = \mathcal{L}(\{1,2\}) = \cdots = \emptyset$.
 \end{itemize}
 
-We use this extended labelling to form a quotient space of $\Delta(P)$. Recall the orientation of the edge $(x \leq y)$ is from $x$ to $y$. Consider two closed $n$--simplices $e^n_\alpha$ and $e^n_\beta$ in $\Delta(P)$. We form a relation $\sim$ on $n$--simplices such that $e^n_\alpha \sim e^n_\beta$ iff there exists a continuous edge--orientation and extended label preserving map $f \colon e^n_\alpha \to e^n_\beta$.
-
+We use this extended labelling to form a quotient space of $\Delta(P)$. Recall the orientation of the edge $(x \leq y)$ is from $x$ to $y$. Consider the closure of two $n$--simplices $e^n_\alpha$ and $e^n_\beta$ in $\Delta(P)$ (i.e.~consider the simplices with all of their edges and faces). We form a relation $\sim_{\scriptscriptstyle 1}$ on $n$--simplices such that $e^n_\alpha \sim_{\scriptscriptstyle 1} e^n_\beta$ iff there exists a continuous edge--orientation and extended label preserving map $f \colon e^n_\alpha \to e^n_\beta$.
 
 \begin{definition}[{Poset Complex \cite[Definition 1.6]{mccammond_introduction_2005}}]
-	Given some finite height edge--labelled poset $P$, the poset complex $K(P)$ is the quotient space $\Delta(P)/\approx$ where $\approx$ identifies all $n$--simplices (for any $n$) using the map $f \colon e^n_\alpha \to e^n_\beta$ corresponding to $\sim$ defined above.
+	Define a further relation $\sim_{\scriptscriptstyle 2}$ as follows. For any $n$, given two $n$--simplices $e^n_\alpha$ and $e^n_\beta$, if $e^n_\alpha \sim_{\scriptscriptstyle 1} e^n_\beta$ then $\sim_{\scriptscriptstyle 2}$ identifies the points of $e^n_\alpha$ and $e^n_\beta$ using the relevant $f \colon e^n_\alpha \to e^n_\beta$ corresponding to $\sim_{\scriptscriptstyle 1}$ as above.
+	Given some finite height, edge--labelled poset $P$, define the \emph{poset complex} $K(P)$ to be the quotient space $\Delta(P)/\!\!\sim_{\scriptscriptstyle 2}$.
 	\label{def:poset_complex}
 \end{definition}
 
 In the example in \cref{fig:example_edge_labelled_poset_with_KP}, three red edges are identified, four blue edges are identified, two black edges are identified, two orange triangles are identified and two purple triangles are identified. The orientation of the triangles is indicated by a $\acts$ symbol.
 
 We see that this space is homeomorphic to a torus, which has fundamental group $\mathbb{Z}^2 \cong \left\langle a,b \mid ab = ba \right\rangle$, which is also the $G(P)$ for this edge--labelled poset. This fact holds in general, which we now begin to prove.
-Let $A^*$ denote all formal words, including formal inverses, in $A$.
+
+Here, and in several other places in this work, we will be computing the fundamental group of a CW--complex with only one 0--cell. Given such a CW--complex $X$, denote its set of 1--cells $\Set{e^1_\alpha}_{\alpha \in A}$ and set of 2--cells $\Set{e^2_\beta}_{\beta \in B}$. Let $\psi_b \colon S^1 \to X^1$ be the attaching map for the 2--cell $e^2_\beta$. Define such a $\psi_\beta$ for each $\beta \in B$. Let $\lambda_\alpha$ be a loop (in any orientation) going around the 1--cell $e^1_\alpha$. The fundamental group of $X$ will have the following useful presentation using only this data \cite[Proposition 1.26]{hatcher_algebraic_2001}.
+\begin{equation*}
+	\pi_1(X) = \GroupPres{\Set{[\lambda_\alpha]}_{\alpha \in A} \relations \Set{[\psi_\beta]}_{\beta \in B}}
+\end{equation*}
+Each relation $[\psi_\beta]$ should be thought of as the equation $[\psi_\beta] = 1$ where the left hand side is a factorisation of $[\psi_\beta]$ in the set $\Set{[\lambda_\alpha]}_{\alpha \in A}$, which is always possible. Accepting that the fundamental group of $X^1$ is the free group generated by $\Set{[\lambda_\alpha]}_{\alpha \in A}$, we get this result by repeated use of Van--Kampen's theorem, inductively attaching each 2--cell in $\Set{e^2_\beta}_{\beta \in B}$. An immediate corollary of this is that the fundamental group of such a CW--complex depends only on its 2--skeleton. This holds for general CW--complexes also \cite[Corollary 4.12]{hatcher_algebraic_2001}.
 
 \begin{lemma}
 	Given an edge labelled poset $(P, \, \leq, \, l \colon \mathcal{E}(P) \to A)$, the group $\pi_1(K(P))$ is generated by a set of loops in bijection with $A$.

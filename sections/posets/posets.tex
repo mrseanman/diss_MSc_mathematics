@@ -5,7 +5,7 @@
 \section{Posets}
 \label{sec:posets}
 
-A partially ordered set or \emph{poset} $(P, \leq)$ is a set $P$ with a relation $\leq$ on pairs in $P$ which encodes the topology of $\R$. The textbook \cite{gratzer_lattice_2011} provides a good introduction. An important note is that there is no requirement for every pair to be related, hence the name \emph{partial order}. We will use $P$ as shorthand for $(P, \leq)$ where possible.
+A partially ordered set or \emph{poset} $(P, \leq)$ is a set $P$ with a relation $\leq$ on pairs in $P$ with the same restrictions we would expect considering $\leq$ as a relator on $\R$. The textbook \cite{gratzer_lattice_2011} provides a good introduction. An important note is that there is no requirement for every pair to be related, i.e.~there may exist pairs $(x,y)$ such that neither $x \leq y$ nor $y \leq x$ are true, hence the name \emph{partial order}. We will use $P$ as shorthand for $(P, \leq)$ where possible.
 
 In a poset $P$ we define the \emph{interval} between two elements $[x,y]$ as $[x,y] \coloneq \Set{u \in P \given x\leq u \leq y}$, which is itself a poset. For convenience, we define $[-\infty,w] \coloneq \Set{u \in P \given u \leq w}$ and equivalently for $[w, \infty]$. A \emph{chain} is a subset $C \subseteq P$ that is a totally ordered, i.e.~every pair in $(u,v) \in C\times C$ satisfies $u\leq v$ or $v\leq u$. The \emph{covering relations} of $P$, denoted $\mathcal{E}(P)$ are defined as follows.
 \begin{equation*}
@@ -17,10 +17,10 @@ These are strictly ordered pairs $x < y$ such that there does not exist any $z \
 By transitivity, the covering relations encode the whole poset structure, which can in turn be drawn in a diagram.
 
 \begin{definition}
-	Given a poset $P$, the \emph{Hasse Diagram} is the directed graph encoding $\mathcal{E}(P)$ in the following way: For each element $x \in P$ draw a vertex. For each pair $(x,y) \in \mathcal{E}(P)$ draw a directed edge from $x$ to $y$.
+	Given a poset $P$, the \emph{Hasse Diagram} is the directed graph encoding $\mathcal{E}(P)$ in the following way. For each element $x \in P$ draw a vertex. For each pair $(x,y) \in \mathcal{E}(P)$ draw a directed edge from $x$ to $y$.
 \end{definition}
 
-As is typical, we will draw Hasse diagrams such that for each edge $x \lessdot y$, the vertex $x$ will be at a lower position on the page than $y$. Thus, we will not need to draw arrows to show direction. In this work, we will only with deal with graded and bounded posets. \emph{Bounded} means that there are minimal and maximal elements, denoted $\hat{0}$ and $\hat{1}$ such that $\hat{0} \leq x \leq \hat{1}$ for all $x \in P$, and \emph{graded} means that every saturated chain from $\hat{0}$ to $\hat{1}$ has the same (finite) length. In the Hasse diagram for a bounded, graded poset, we will draw $\hat{0}$ at the bottom, $\hat{1}$ at the top, and put all other elements in discrete vertical levels between these based on the position in the saturated chains between $\hat{0}$ and $\hat{1}$ where each element occurs. See \cref{fig:A4_interval} for an example. Graded posets have a natural notion of a \emph{rank function} $\rk \colon P \to \N$ that encodes the height above $\hat{0}$ at which an element $p \in P$ occurs in the Hasse diagram. Rank is also well--defined for posets with multiple minimal or maximal elements, so long as all saturated chains from any minimal element to any maximal element have the same length.
+As is typical, we will draw Hasse diagrams such that for each edge $x \lessdot y$, the vertex $x$ will be at a lower position on the page than $y$. Thus, we will not need to draw arrows to show direction. In this work, we will typically with deal with graded and bounded posets. \emph{Bounded} means that there are minimal and maximal elements, denoted $\hat{0}$ and $\hat{1}$ such that $\hat{0} \leq x \leq \hat{1}$ for all $x \in P$, and \emph{graded} means that every saturated chain from $\hat{0}$ to $\hat{1}$ has the same (finite) length. In the Hasse diagram for a bounded, graded poset, we will draw $\hat{0}$ at the bottom, $\hat{1}$ at the top, and put all other elements in discrete vertical levels between these based on the position in the saturated chains between $\hat{0}$ and $\hat{1}$ where each element occurs. See \cref{fig:A4_interval} for an example. Graded posets have a natural notion of a \emph{rank function} $\rk \colon P \to \N$ that encodes the height above $\hat{0}$ at which an element $p \in P$ occurs in the Hasse diagram. Rank is also well--defined for posets with multiple minimal or maximal elements, so long as all saturated chains from any minimal element to any maximal element have the same length.
 
 \begin{definition}
 	We define an \emph{edge labelled poset} to be a triple $(P,\leq,l)$ where $(P,\leq)$ is a poset and the function $l: \mathcal{E}(P) \to A$ is a labelling of covering relations with alphabet $A$. For simplicity of notation, we require that $l$ be surjective.
@@ -36,6 +36,8 @@ As is typical, we will draw Hasse diagrams such that for each edge $x \lessdot y
 \begin{figure}
 \centering
 \begin{tikzpicture}
+	\tikzstyle{every label}=[font=\footnotesize]
+	\tikzstyle{every node}=[font=\footnotesize]
 	\node[FSC] (base)		at (0,0)				[label=below:$\emptyset$]			{};
 	\node[FSC] (bottom left)	at ($(base) + (-0.8,1) $)   		[label={[label distance=-0.1cm]200:$\{1\}$}]    {};
 	\node[FSC] (bottom right)	at ($(bottom left) + (1.6,0)$)  	[label={[label distance=-0.1cm]300:$\{2\}$}]    {};
@@ -86,9 +88,10 @@ As is typical, we will draw Hasse diagrams such that for each edge $x \lessdot y
 \label{fig:example_edge_labelled_poset}
 \end{figure}
 
-We will use $P$ as a shorthand for $(P,\leq,l)$ where possible. Given an edge labelled poset $P$, we can construct a group encoded by its labelling the and geometry of its Hasse diagram.
+We will use $P$ as a shorthand for $(P,\leq,l)$ where possible. The labelling $l$ also gives a labelling on the edges of the Hasse Diagram for $P$.
 
-The \emph{word corresponding to a saturated chain} is the word of the labels traversed in the Hasse diagram while tracing out that saturated chain.
+Let $A^*$ denote all formal words in $A$.
+The \emph{word corresponding to a saturated chain} is the word in $A^*$ of the labels traversed in the Hasse diagram while tracing out that saturated chain. Given an edge labelled poset $P$, we can construct a group encoded by its labelling the and geometry of its Hasse diagram in the following way.
 \begin{definition}
 	\label{def:poset_group}
 	Given some edge labelled poset $(P,\,\leq,\,l \colon \mathcal{E}(P) \to A)$, define the \emph{poset group} $G(P)$ to be the group generated by $A$ with relations equating words corresponding to saturated chains in the Hasse diagram of $P$ which start and end at the same vertices.

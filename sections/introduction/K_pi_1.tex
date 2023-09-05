@@ -10,16 +10,16 @@ Given a group $G$ and natural number $n$, an \emph{Eilenberg-MacLane space} \cit
 
 Admittedly, the use of $\pi$ in the name of the conjecture is confusing. An equivalent formulation of the conjecture is that the universal cover of $Y_W$ is contractible. These statements are equivalent since a cover $p \colon \widetilde{X} \to X$, induces an isomorphism  $p_* \colon \pi_n(\widetilde{X},\widetilde{x_0}) \to \pi_n(X,x_0)$ for all $n\geq 2$ \cite[Proposition 4.1]{hatcher_algebraic_2001}.
 
-In the previous section we focused on Coxeter groups of type $A_n$. We quoted the result that $\pi_1(Y_W) \cong G_W$ for these groups. We now prove the $K(\pi,1)$ conjecture for this same family of Coxeter groups. To do so, we need to verify that the higher homotopy groups of $Y_W$ are trivial.
+In the previous section we focused on Coxeter groups of type $A_n$. We gave context to and quoted the result that $\pi_1(Y_W) \cong G_W$ for these Coxeter groups. We now prove the $K(\pi,1)$ conjecture for this same family of Coxeter groups. To do so, we need to verify that the higher homotopy groups of $Y_W$ are trivial.
 
 \begin{lemma}
 	For all $k>1$, $\pi_k(\conf_n(\C))$ is trivial.
 	\label{lem:labelled_conf_classiftying_space}
 \end{lemma}
 \begin{proof}
-	We use that $\conf_n(\C)$ is a fibre bundle over $\conf_{n-1}(\C)$ with projection $p$ forgetting a point and fibres homeomorphic to $\C \setminus \Set{\text{n distinct points}}$ \cite[Theorem 3]{fadell_neuwirth_configuration_1962}.
+	We use a result of Fadell and Neuwirth \cite[Theorem 3]{fadell_neuwirth_configuration_1962} which tells us that $\conf_n(\C)$ is a fibre bundle over $\conf_{n-1}(\C)$ with projection $p$ forgetting a point and fibres homeomorphic to $\C \setminus \Set{\text{n distinct points}}$.
 
-The space $\C \setminus \Set{\text{n distinct points}}$ is homotopy equivalent to $\bigvee_n S^1$, so we have the fibration $\bigvee_n S^1 \hookrightarrow \conf_n(\C) \to \conf_{n-1}(\C)$ and the corresponding short exact sequence
+The space $\C \setminus \Set{\text{n distinct points}}$ is homotopy equivalent to $\bigvee_n S^1$, so we have the fibration $\C \setminus \Set{\text{n distinct points}} \hookrightarrow \conf_n(\C) \to \conf_{n-1}(\C)$ and the corresponding short exact sequence
 \begin{equation}
 	\begin{tikzcd}
 		&\pi_k(\bigvee_{n-1} S^1) \arrow[hook]{r} &\pi_k(\conf_n(\C)) \arrow{r}{p} &\pi_k(\conf_{n-1}(\C))
@@ -27,21 +27,20 @@ The space $\C \setminus \Set{\text{n distinct points}}$ is homotopy equivalent t
 	\label{eqn:conf_fibration}
 \end{equation}
 for all $k$.
-We prove that $\pi_k(\conf_n{\C})=0$ for all $k$ by induction on $n$. We know $\pi_k(\bigvee_nS^1)=0$ for all $k>1$ and for all $n$. So the leftmost term in \eqref{eqn:conf_fibration} is always trivial. Our base case is $n=2$. The rightmost term in \eqref{eqn:conf_fibration} is $\conf_1(\C) \cong \C$, which has trivial higher homotopy. The leftmost term is $\bigvee_1 S^1 \cong S^1$ which also has trivial higher homotopy. Thus, $\conf_2(\C)$ has trivial higher homotopy. Assuming now that $\pi_k(\conf_{n-1}(\C)) = 0$ for all $k>1$, the inductive step follows immediately from the short exact sequence.
+We prove that $\pi_k(\conf_n{\C})=0$ for all $k>1$ by induction on $n$. The base case is $n=1$, where trivially $\conf_n(\C) \cong \C$ which is contractible. For the inductive step, we know $\pi_k(\bigvee_nS^1)=0$ for all $k>1$ and for all $n$. So the leftmost term in \eqref{eqn:conf_fibration} is always trivial. Assuming now that $\pi_k(\conf_{n-1}(\C)) = 0$ for all $k>1$, the inductive step follows immediately from the short exact sequence.
 \end{proof}
 
-Note that so far we have only proved that $Y$ (from \cref{def:config_space}) has trivial higher homotopy, not $Y_W$. We now prove this.
+Note that so far we have only proved that $Y$ (from \cref{def:config_space}) has trivial higher homotopy, not $Y_W$ (which in this case is $\confu_n(\C)$). We now prove this.
 
 \begin{theorem}
 	The $K(\pi,1)$ conjecture holds for Coxeter groups of type $A_n$.
 \end{theorem}
 \begin{proof}
-	The action $A_n \acts Y$ is by permutation of points, therefore $Y_W$ is the space of configurations of $n+1$ \emph{unlabelled} points. Let $q \colon \widetilde{Y} \to Y$ be the universal cover for $Y$. Let $r \colon Y \to Y_W$ be the quotient map induced by the group action. We see that $r$ is a covering map such that $r^{-1}(z)$ is finite for all $z \in Y_W$. Thus, by \cite[Exercise 53.4]{munkres_topology_2000}
+	Denote $\conf_n(\C)$ and $\confu_n(\C)$ by $Y$ and $Y_W$ respectively. Let $p \colon \widetilde{Y} \to Y$ be the universal cover for $Y$. Let $q \colon Y \to Y_W$ be the quotient map induced by the action $A_n \acts Y$ as in \cref{def:config_space}. We see that $q$ is a covering map such that $q^{-1}(z)$ is finite for all $z \in Y_W$. Thus, by \cite[Exercise 53.4]{munkres_topology_2000}
 	% \what[{Unfortunately I couldn't find a better (non-exercise) reference for this. The proof is OK, but not that short and a bit of a detour in my opinion}]
-	the composition $r \circ q$ is also a covering map so $\widetilde{Y}$ is also the universal cover of $Y_W$ and so $Y_W$ also has trivial higher homotopy by \cref{lem:labelled_conf_classiftying_space}.
+	the composition $q \circ p$ is also a covering map so $\widetilde{Y}$ is also the universal cover of $Y_W$ and so $Y_W$ also has trivial higher homotopy by \cref{lem:labelled_conf_classiftying_space} and \cite[Proposition 4.1]{hatcher_algebraic_2001}.
 \end{proof}
-
-A vital result due to Deligne expands on this result.
+A vital result due to Deligne expands on this.
 \begin{theorem}[\hspace{1sp}{\cite{deligne_immeubles_1972}}]
 	The $K(\pi,1)$ conjecture holds for all finite Coxeter groups $W$.
 	\label{thm:k_pi_1_finite}
