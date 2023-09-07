@@ -3,20 +3,20 @@
 \begin{document}
 \section{How fibre doubling could be used}
 
-We will now outline exactly how fibre doubling could be used to show the homotopy equivalence $K^\prime_W \simeq X^\prime_W$.
+We will now outline more explicitly how fibre doubling could be used to show the homotopy equivalence $K^\prime_W \simeq X^\prime_W$.
 
-Let $F$ denote the set of fibre components of $K_W$ as in \cref{sec:subcomplex_K_prime}. Alter \cref{def:subcomplex_K_prime} such that all $f \in F$ with $f \cap X^\prime_W = \emptyset$ are a subset of $K^\prime_W$ (eliminating the need for \cref{lem:intersection_fibre_components_X_prime}). Denote by $M$ the set of connected components of $f \cap K^\prime_W \setminus X^\prime_W$ as $f$ ranges through $F$. Each $m \in M$ is a connected section of a fibre component in $K^\prime_W \setminus X^\prime_W$ bounded (not inclusively) at each end by an element of $X^\prime_W$, as in \cref{fig:no_matching}. We have that $\bigcup_{m \in M}m = K^\prime_W \setminus X^\prime_W$.
-For each $f \in F$ we need to construct a matching on all $m \subseteq f$ with critical cells being exactly $f \cap X^\prime_W$. Define $\nu$ as before and denote the set of double fibre components by $G$. For each $g \in G$, denote by $M(g)$ the set of $m \in M$ such that $m \subseteq g$. Find a pairing $P \subseteq M(g)\times M(g)$ such that
+Let $F$ denote the set of fibre components of $K_W$ as in \cref{sec:subcomplex_K_prime}. Alter \cref{def:subcomplex_K_prime} such that all $f \in F$ with $f \cap X^\prime_W = \emptyset$ are included in $K^\prime_W$ (eliminating the need for \cref{lem:intersection_fibre_components_X_prime}). Denote by $M$ the set of connected components of $f \cap K^\prime_W \setminus X^\prime_W$ as $f$ ranges through $F$. Each $m \in M$ is a connected section of a fibre component in $K^\prime_W \setminus X^\prime_W$ bounded (not inclusively) at each end by an element of $X^\prime_W$, as in \cref{fig:no_matching}. We have that $\bigcup_{m \in M}m = K^\prime_W \setminus X^\prime_W$.
+For each $f \in F$ we need to construct a matching on all $m \subseteq f$ with critical cells being exactly $f \cap X^\prime_W$. Define $\nu$ as before and denote the set of double fibre components by $G$. For each $g \in G$, denote by $M(g)$ the set of $m \in M$ such that $m \subseteq g$. We must find a pairing $\Pi \subseteq M(g)\times M(g)$ such that
 \begin{enumerate}
-    \item For each pair $(m,s) \in P$, $m$ is finite iff $s$ is finite.
-    \item For each pair $(m,s) \in P$ with $m$ and $s$ finite, there is a bridge of a junction $b((m,s))$ with one end of $b((m,s))$ contained in the top row of $m$ and one end in top row of $s$.
-    \item For each pair $(m,s) \in P$ with $m$ and $s$ infinite, there is a bridge of a junction $b((m,s))$ with one end of $b((m,s))$ contained in the bottom row of $m$ and one end in the bottom row of $s$.
-    \item For all $p_1,p_2 \in P$, the ends of $b(p_1)$ and $b(p_2)$ are distinct.
-    \item For all $m \in M$ the size of the set $\Set{p \in P \given b(p) \cap m \neq \emptyset}$ is finite and odd.  
+    \item For each pair $(m,s) \in \Pi$, $m$ is finite iff $s$ is finite.
+    \item For each pair $(m,s) \in \Pi$ with $m$ and $s$ finite, there is a bridge of a junction $b((m,s))$ with one end of $b((m,s))$ contained in the top row of $m$ and one end in top row of $s$.
+    \item For each pair $(m,s) \in \Pi$ with $m$ and $s$ infinite, there is a bridge of a junction $b((m,s))$ with one end of $b((m,s))$ contained in the bottom row of $m$ and one end in the bottom row of $s$.
+    \item For all $p_1,p_2 \in \Pi$, the ends of $b(p_1)$ and $b(p_2)$ are distinct.
+    \item For all $m \in M$ the size of the set $\Set{p \in \Pi \given b(p) \cap m \neq \emptyset}$ is finite and odd.  
 \end{enumerate}
-Given such a pairing $P$ for each $g \in G$, we conjecture that we can then form a matching on all the fibres of $\nu$ such that the critical cells of that matching are $X^\prime_W$. We will only motivate this, without proof.
+Given such a pairing $\Pi$ for each $g \in G$, we conjecture that we can then form a matching on all the fibres of $\nu$ such that the critical cells of that matching are $X^\prime_W$. We will only motivate this, without proof.
 
-We need only create such a matching for each $g \in G$. Given such a pairing $P$ as above, every bridge $\Set{b(p) \given p \in P}$ is included in a matching $\mathcal{M}_g$ on $g$. We continue along sections $m \in M$ such that $m \subseteq g$, alternately including edges not involved in a bridge in $\mathcal{M}_g$. For finite sections this looks like \cref{fig:junction_matching_switch} and for infinite sections like \cref{fig:proper_infinite_matching}. Given requirement 4, this is a valid matching. Given requirement 5, we switch direction of the matching on each $m \in M$ an odd number of times, thus allowing us to create a matching with the required critical cells.
+Fix some $g \in G$. Given such a pairing $\Pi$ as above, every bridge $\Set{b(p) \given p \in \Pi}$ is included in a matching $\mathcal{M}_g$ on $g$. We continue along sections $m \in M$ such that $m \subseteq g$, alternately including edges not involved in a bridge in $\mathcal{M}_g$. For finite sections this looks like \cref{fig:junction_matching_switch} and for infinite sections like \cref{fig:proper_infinite_matching}. Given requirement 4, this is a valid matching. Given requirement 5, we switch direction of the matching on each $m \in M$ an odd number of times, thus allowing us to create a matching with the required critical cells. We then complete this for all $g \in G$, obtaining a matching on all the fibres on $\nu$. We would then conclude using the patchwork theorem.
 
 These may seem like very difficult restrictions to meet, but given \cref{rmk:junction_length}, we can construct relatively long junctions very easily between certain pairs of fibres in $F$. The exercise may be more in bookkeeping (ensuring requirement 4 and 5 mainly), if it is possible at all. At this point we can only pose the following question.
 
@@ -24,6 +24,6 @@ These may seem like very difficult restrictions to meet, but given \cref{rmk:jun
     Is there a way to form pairings $P$ as above? If this is not possible for all Coxeter groups $W$, is there a non--empty class of Coxeter groups for which it is possible?
 \end{question}
 
-Of course, even if this were true for some $W$, we would also need to prove that $K_W$ is a $K(W_w,1)$ or $K(G_W,1)$ to prove the $K(\pi,1)$ conjecture for that $W$.
+Of course, even if this were true for some $W$, we would also need to prove that $K_W$ is a $K(W_w,1)$ or $K(G_W,1)$ to prove the $K(\pi,1)$ conjecture for those $W$.
 
 \end{document}

@@ -13,7 +13,9 @@ We now introduce the particular poset map we will use. Recall that $w$ is a choi
     \end{cases}
     \label{eqn:mu_poset_map}
 \end{equation}
-is a poset map. This can be readily checked. We call a connected component of $\eta^{-1}(d)$ a \emph{$d$--fibre component}. We now investigate the form of these $d$--fibre components. Again, denote $\mathcal{F}(K_W)$ by $P$. Consider such a $d$--fibre component $C$ such that $x \coloneq [x_1|x_2|\cdots|x_d] \in C$. Clearly $x_1x_2\ldots x_d = w$ and so $x$ is not the face of anything in $P$. The faces of $x$ are $[x_2|\cdots|x_d]$, $[x_1|\cdots|x_{d-1}]$ and $[x_1|\cdots|x_ix_{i+1}|\cdots|x_d]$ for all $i<d$. Only the first two faces will be in $C$ since $\eta([x_1|\cdots|x_ix_{i+1}|\cdots|x_d]) = d-1$. Therefore, a $d$--fibre component will look like \cref{fig:fibre_component_eg}. We say that $[x_1 |\cdots|x_d]$ satisfying the first case of \eqref{eqn:mu_poset_map} such that $x_1x_2\cdots x_d = w$ are in the \emph{top row} of their fibre component. The elements satisfying the second case of \eqref{eqn:mu_poset_map} are in the \emph{bottom row} of their fibre component.
+is a poset map. This can be readily checked. We call a connected component of $\eta^{-1}(d)$ a \emph{$d$--fibre component}. We now investigate the form of these $d$--fibre components.
+
+Consider such a $d$--fibre component $f$ such that $\sigma \coloneq [x_1|x_2|\cdots|x_d] \in f$. We must have $x_1x_2\ldots x_d = w$ and so if $\sigma \lessdot \tau$ for some $\tau$, then $\tau$ would be in $\eta^{-1}(d+1)$, not in $f$. The faces of $\sigma$ are $[x_2|\cdots|x_d]$, $[x_1|\cdots|x_{d-1}]$ and $[x_1|\cdots|x_ix_{i+1}|\cdots|x_d]$ for all $i<d$. Only the first two of these faces will be in $f$ since $\eta([x_1|\cdots|x_ix_{i+1}|\cdots|x_d]) = d-1$. Therefore, a $d$--fibre component will look like \cref{fig:fibre_component_eg}. We say that $[x_1 |\cdots|x_d]$ satisfying the first case of \eqref{eqn:mu_poset_map} such that $x_1x_2\cdots x_d = w$ are in the \emph{top row} of their fibre component. The cells satisfying the second case of \eqref{eqn:mu_poset_map} are in the \emph{bottom row} of their fibre component.
 
 \begin{figure}
 \centering
@@ -43,7 +45,7 @@ is a poset map. This can be readily checked. We call a connected component of $\
 To each fibre component there is an associated sequence $(x_i)_{i \in \Z}$ such that every product of $d$ consecutive elements is equal to $w$ and each corresponding cell from the sequence is in $K_W$. Denote the set of all such sequences $S_d$. For each fibre component, the choice of $s \in S_d$ is unique up translation of indices.
 
 \begin{remark}
-    Consider some cell $[x_1|\cdots|x_{d-1}]$, i.e.~a cell in the bottom row of \cref{fig:fibre_component_eg}. To form the whole fibre component, you may choose to move up and to the right along the Hasse diagram from to $[x_1|\cdots|x_{d}]$. This is always possible and completely deterministic, since $x_1x_2\ldots x_{d-1}$ is a prefix of a minimal factorisation of $w$ and the product $x_1x_2\ldots x_d$ must equal $w$. Similarly, a movement up and leftward is always possible and deterministic using the balanced property of $K_W$. Thus, a fibre component does not have initial of final nodes and its Hasse diagram will either be homeomorphic to $\R$ or $S^1$.
+    Consider some cell $[x_1|\cdots|x_{d-1}]$, i.e.~a cell in the bottom row of \cref{fig:fibre_component_eg}. To form the whole fibre component, you may choose to move up and to the right along the Hasse diagram from to $[x_1|\cdots|x_{d}]$. This is always possible and completely deterministic, since $x_1x_2\ldots x_{d-1}$ is a prefix of a minimal factorisation of $w$ and the product $x_1x_2\ldots x_d$ must equal $w$. Similarly, a movement up and leftward is always possible and deterministic using the balanced property of $[1,w]^W$. Thus, a fibre component does not have initial of final nodes and its Hasse diagram will either be homeomorphic to $\R$ or $S^1$.
     A finite fibre component will have a repeating sequence. If the sequence repeats every $n$, then the Hasse diagram of the fibre component will contain $2n$ nodes. An infinite fibre component will be non--repeating, though an individual group element $x_i$ may be repeated in the sequence.
     \label{rmk:finite_sequence_repetition}
 \end{remark}
@@ -56,24 +58,32 @@ The previous remark shows that each sequence $s \in S_d$ is uniquely determined 
 \end{equation*}
 \end{remark}
 
-We will now define a subcomplex $K^\prime_W \subseteq K_W$ based on these fibre components, after which we will prove the necessary properties of $K^\prime_W$. Denote the power set of $\mathcal{F}(K_W)$ by $\mathcal{P}({\mathcal{F}(K)})$. Let $F\subseteq \mathcal{P}({\mathcal{F}(K)})$ be the set of all connected fibre components such that $\bigcup_{f \in F}f = \mathcal{F}(K_W)$. Recall  $X^\prime_W$ from \cref{def:subcomplex_X_prime}.
+We will now define a subcomplex $K^\prime_W \subseteq K_W$ based on these fibre components. Denote the power set of $\mathcal{F}(K_W)$ by $\mathcal{P}({\mathcal{F}(K)})$. Let $F\subseteq \mathcal{P}({\mathcal{F}(K)})$ be the set of all connected fibre components such that $\bigcup_{f \in F}f = \mathcal{F}(K_W)$. Recall  $X^\prime_W$ from \cref{def:subcomplex_X_prime}.
 
 \begin{definition}[The subcomplex $K^\prime_W$]
     For each infinite $f \in F$ let $f^\prime$ be the elements of $f$ in between and including the first and last elements of $f \cap X_W^\prime$, where \emph{first}, \emph{last} and \emph{in between} derive from the linear form of the fibre components as in \eqref{fig:fibre_component_eg}. Define $K^\prime_W$ to be the union of all finite $f$ and $f^\prime$ such that $f$ is infinite. 
     \label{def:subcomplex_K_prime}
 \end{definition}
 
-Note that since for finite $f$, the Hasse diagram of $f$ is homeomorphic to $S^1$. So, for finite $f$ there is no notion of \emph{in between}. Recall that $X^\prime_W$ is finite, so $f \cap X^\prime_W$ is finite and \emph{first} and \emph{last} are well--defined.
-The first property of $K^\prime_W$ we must prove is that $K^\prime_W$ is indeed a valid subcomplex, satisfying \eqref{eqn:valid_subcomplex_requirement}.
+For $K^\prime$ to be well--defined, we require that the construction of each $f^\prime$ be well--defined. This requires that $f \cap X^\prime_W \neq \emptyset$ for each infinite $f$. This happens to be a detail for which the proof relies on $W$ being of affine type.
+
+\begin{lemma}[{\hspace{1sp}\cite[Lemma 7.6]{paolini_salvetti_kpi1_2021}}]
+    \label{lem:intersection_fibre_components_X_prime}
+    Given a Coxeter group $W$ of affine type and $f\in F$ a $d$--fibre component, there exists a simplex $\tau = [x_1|x_2|\cdots|x_{d-1}] \in f$ such that $\tau$ is also in $X_W^\prime$. 
+\end{lemma}
+
+Note that for finite $f$, the Hasse diagram of $f$ is homeomorphic to $S^1$. So, for finite $f$ there is no notion of \emph{in between}. Recall that $X^\prime_W$ is finite, so $f \cap X^\prime_W$ is finite and \emph{first} and \emph{last} are well--defined.
+
+The next property of $K^\prime_W$ we must prove is that $K^\prime_W$ is indeed a valid subcomplex of $K_W$, satisfying \eqref{eqn:valid_subcomplex_requirement}.
 
 \begin{lemma}
     As defined above, $K^\prime_W$ is a valid subcomplex of $K_W$.
     \label{lem:K_prime_valid_subcomplex}   
 \end{lemma}
 \begin{proof}
-    We first concentrate on the infinite $f \in \eta^{-1}(d)$. We need to show that some infinite $f \in F$, if $\tau \in f^\prime$ and $\sigma \lessdot \tau$, then there exists some $g \in F$ such that $\sigma \in g^\prime$. Let $s = (x_n)_{n \in \Z}$ be the sequence of group elements corresponding to $f$ and let $\tau = [x_0|\cdots|x_{d-1}]$. Let $\tau$ be between $\alpha$ and $\omega$ both in $f \cap X^\prime_W$. See \cref{fig:acyclic_matching_fibre_components}. By \cref{lem:all_decompositions_of_w_T_are_R} all of $[-\infty, \alpha]$ and $[-\infty, \omega]$ are also in $X^\prime_W$, so we may assume that both $\alpha$ and $\omega$ are in the \emph{bottom row} of the Hasse diagram of $f^\prime$ and accordingly consist of $d-1$ group elements. Choose $a,z \in \Z$ such that $\alpha = [x_a | \cdots | x_{a+d-2}]$ and $\omega = [x_z|\cdots|x_{z+d-2}]$.
+    We first concentrate on the infinite $f \in \eta^{-1}(d)$. We need to show that for any infinite $f \in F$, if $\tau \in f^\prime$ and $\sigma \lessdot \tau$, then there exists some $g \in F$ such that $\sigma \in g^\prime$. Let $s = (x_n)_{n \in \Z}$ be the sequence of group elements corresponding to $f$ such that $x_0$ is the first group element in the symbol for $\tau$ (i.e.~$\tau$ begins with $[x_0| \, \cdots$). Let $\tau$ be between $\alpha$ and $\omega$ both in $f \cap X^\prime_W$. See \cref{fig:acyclic_matching_fibre_components}. All of $[-\infty, \alpha]$ and $[-\infty, \omega]$ are also in $X^\prime_W$, so we may assume that both $\alpha$ and $\omega$ are in the bottom row of the Hasse diagram of $f^\prime$ and accordingly each consist of $d-1$ group elements. Choose $a,z \in \Z$ such that $\alpha = [x_a | \cdots | x_{a+d-2}]$ and $\omega = [x_z|\cdots|x_{z+d-2}]$.
     
-    $\bullet$ First we will prove the case where $\tau$ is in the top row of $f^\prime$ such that $x_0x_1\ldots x_{d-1} = w$. The two faces $[x_1|\cdots|x_{d-1}]$ and $[x_0|\cdots|x_{d-2}]$ are both already in $f^\prime$, so we need only check the faces
+    $\bullet$ First we will prove the case where $\tau$ is in the top row of $f^\prime$ such that $\tau = [x_0|x_1|\cdots | x_{d-1}]$ with $x_0x_1\cdots x_{d-1} = w$. The two faces $[x_1|\cdots|x_{d-1}]$ and $[x_0|\cdots|x_{d-2}]$ are both already in $f^\prime$, so we need only check the faces
     \begin{equation*}
         \sigma^i = [x_0|\cdots|x_ix_{i+1}|\cdots|x_{d-1}] \lessdot \tau.
     \end{equation*}
@@ -99,19 +109,12 @@ The first property of $K^\prime_W$ we must prove is that $K^\prime_W$ is indeed 
         \end{equation*}
         We choose $\alpha^\prime = [x_a|\cdots|x_{a+i}x_{a+i+1}|\cdots|x_{a+d-2}]$.
     \end{enumerate}
-    In all cases $\alpha^\prime$ is a cell in the bottom row of $g^\prime$ and a face of $\alpha$. The same argument works for $\omega$ as well. We see that $\sigma$ is indeed in a fibre component between two cells in $X^\prime_W$.
+    In all cases $\alpha^\prime$ is a cell in the bottom row of $g^\prime$ and in $[-\infty,\alpha]$. The same argument works for $\omega$ as well. We see that $\sigma$ is indeed between two cells in $X^\prime_W$ within some fibre component.
 
-    $\bullet$ For the case where $\tau$ is in the bottom row of $f^\prime$ we may set $\tau = [x_0|\cdots|x_{d-2}]$. We can use the same methods as before. The extra two faces $[x_1|\cdots|x_{d-2}]$ and $[x_0|\cdots|x_{d-3}]$ to consider do not pose any extra difficulty. We can choose an appropriate $s^i$ and proceed as before.
+    $\bullet$ Now we consider the case where $\tau = [x_0|\cdots|x_{d-2}]$ is in the bottom row of $f^\prime$. We can use the same methods as before. The two additional faces $[x_1|\cdots|x_{d-2}]$ and $[x_0|\cdots|x_{d-3}]$ to consider do not pose any extra difficulty. We can choose an appropriate $s^i$ and proceed as before.
 
     We now focus on the case where $\tau \in f$ and $f$ is finite. By \cref{rmk:finite_sequence_repetition} the sequence $s$ associated to $f$ will be repeating. We can again case--split whether $\tau$ is in the top or bottom row of the Hasse diagram for $f$. In either case, a face $\sigma \lessdot \tau$ will be in a component $g \in F$ associated to an appropriately chosen $s^i$. This $s^i$ will also be repeating, thus the associated $g$ will be finite.
 \end{proof}
-
-For the definition of $K^\prime$ to be well--defined, we require that the construction of each $f^\prime$ be well--defined. This requires that $f \cap X^\prime_W \neq \emptyset$ for each infinite $f$. This happens to be a detail for which the proof relies on $W$ being of affine type.
-
-\begin{lemma}[{\hspace{1sp}\cite[Lemma 7.6]{paolini_salvetti_kpi1_2021}}]
-    \label{lem:intersection_fibre_components_X_prime}
-    Given a Coxeter group $W$ of affine type and $f\in F$ a $d$--fibre component, there exists a simplex $\tau = [x_1|x_2|\cdots|x_{d-1}] \in f$ such that $\tau$ is also in $X_W^\prime$. 
-\end{lemma}
 
 This covers all the details of \cref{def:subcomplex_K_prime} and so $K_W^\prime$ is a valid subcomplex of $K_W$. We now get to reap the benefits of working in this strange setting of face posets.
 
@@ -189,6 +192,6 @@ This covers all the details of \cref{def:subcomplex_K_prime} and so $K_W^\prime$
     \label{thm:subcomplex_K_prime_hom_equiv_K}
 \end{theorem}
 \begin{proof}
-We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M}_f$ such that the critical vertices corresponding to $\mathcal{M}_f$ are exactly those contained in $K_W^\prime$. For finite $f$, this is trivial. We choose $\mathcal{M}_f = \emptyset$. For infinite $f$, choosing such an $\mathcal{M}_f$ is very simple, as shown in \cref{fig:acyclic_matching_fibre_components}. This choice of $\mathcal{M}_f$ is unique. The union of these $\mathcal{M}_f$ is an acyclic matching on $\mathcal{F}(K_W)$ by \cref{thm:patchwork_theorem}. Denote this matching $\mathcal{M}$. Denote the directed graph resulting from orientation of edges in the Hasse diagram of $\mathcal{F}(K_W)$ by this matching as $H_\mathcal{M}$. We have that $\mathcal{M}$ is also proper since any directed path in $H_\mathcal{M}$ can only travel inwards along fibre components, eventually reaching some element in $\mathcal{F}(K^\prime_W)$. After reaching an element of $\mathcal{F}(K^\prime_W)$, the path can only travel downwards. Since $\mathcal{F}(K_W)$ is finite--height, this path must eventually terminate. So by $\mathcal{M}$ is an acyclic, proper matching. By \cref{thm:dmt}, this gives a deformation retract on to the union of the critical cells of $\mathcal{M}$, which is exactly $K_W^\prime$.
+We will utilise the patchwork theorem (\cref{thm:patchwork_theorem}). We need to show that for each $f \in F$, we have an acyclic matching $\mathcal{M}_f$ such that the critical vertices corresponding to $\mathcal{M}_f$ are exactly those contained in $K_W^\prime$. For finite $f$, this is trivial. We choose $\mathcal{M}_f = \emptyset$. For infinite $f$, choosing such an $\mathcal{M}_f$ is very simple, as shown in \cref{fig:acyclic_matching_fibre_components}. This choice of $\mathcal{M}_f$ is unique. The union of these $\mathcal{M}_f$ is an acyclic matching on $\mathcal{F}(K_W)$ by \cref{thm:patchwork_theorem}. Denote this matching $\mathcal{M}$. Denote the directed graph resulting from orientation of edges in the Hasse diagram of $\mathcal{F}(K_W)$ by this matching as $H_\mathcal{M}$. We have that $\mathcal{M}$ is also proper since any directed path in $H_\mathcal{M}$ can only travel inwards along fibre components, eventually reaching some element in $\mathcal{F}(K^\prime_W)$. After reaching an element of $\mathcal{F}(K^\prime_W)$, the path can only travel downwards. Since $\mathcal{F}(K_W)$ is finite--height, this path must eventually terminate. So by $\mathcal{M}$ is an acyclic, proper matching. By \cref{thm:dmt}, this gives a deformation retract on to the union of the critical cells of $\mathcal{M}$, which is exactly $K_W^\prime$.
 \end{proof}
 \end{document}

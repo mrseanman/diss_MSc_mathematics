@@ -4,17 +4,17 @@
 
 \section{The Face Poset and Acyclic Matchings}
 
-In previous sections we gave constructions that formed spaces from posets, we now give a construction in the opposite direction. Given a CW--complex $X$ denote the set of open cells as $X^*$. Given some $\sigma \in X^*$, denote its closure by $\overline{\sigma}$.
+In \cref{sec:poset_cx} we defined a construction that formed spaces from posets, we now define a construction in the opposite direction. Given a CW--complex $X$ denote the set of open cells as $X^*$. Given some $\sigma \in X^*$, denote its closure by $\overline{\sigma}$.
 
 \begin{definition}
     Given a CW--complex $X$, the \emph{face poset} $\mathcal{F}(X)$ is an ordering on $X^*$ where $\tau \leq \sigma$ when $\overline{\tau} \subseteq \overline{\sigma}$.
 \end{definition}
 
 For a finite dimensional and connected CW--complex, $\mathcal{F}(X)$ is a bounded and graded poset with rank function $\rk(\sigma) = \dim(\sigma)$. Let $P$ denote $\mathcal{F}(X)$.
-Consider some subset of the covering relations  $\mathcal{M} \subseteq \mathcal{E}(P)$. We consider this as a set of edges in the Hasse diagram for $P$, which is denoted $H$. From $\mathcal{M}$ we define an ordering on the graph $H$ such that $p \lessdot q$ is oriented from $p$ to $q$ if $(p \lessdot q) \in \mathcal{M}$, and otherwise in the opposite direction. We denote this oriented graph $H_\mathcal{M}$.
+Consider some subset of the covering relations  $\mathcal{M} \subseteq \mathcal{E}(P)$. We consider this as a set of edges in the Hasse diagram for $P$, which is denoted $H$. From $\mathcal{M}$ we define an edge--orientation on the graph $H$ such that $(p \lessdot q)$ is oriented from $p$ to $q$ if $(p \lessdot q) \in \mathcal{M}$, and otherwise in the opposite direction. We denote this oriented graph $H_\mathcal{M}$.
 We call $\mathcal{M}$ a \emph{matching} if for all $p \in P$, at most one $m \in \mathcal{M}$ contains $p$. A matching is \emph{acyclic} if $H_\mathcal{M}$ contains no directed cycles. Furthermore, a matching is \emph{proper} if for all $p\in P$, the set of all nodes in $H_\mathcal{M}$ reachable by a directed path from $p$ is finite. \cref{fig:matchings} gives some (non)examples of matchings.
 
-We observe that the requirement of being a matching means that any path through $H_\mathcal{M}$ will never consecutively go through two edges in $\mathcal{M}$. A cycle in $H_\mathcal{M}$ must clearly start and end at the same rank. Since edges in $\mathcal{M}$ increase rank and edges in $\mathcal{E}(P)\setminus\mathcal{M}$ decrease rank, a cycle must therefore be (cyclically)  alternating between edges in $\mathcal{M}$ and edges in $\mathcal{E}(P)\setminus\mathcal{M}$. Therefore, if a cycle is to start at $p\in P$, it must completely occur in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,1}}$ or completely in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,-1}}$, i.e.~the horizontal bands above or below $p$ in $H$. Since it is alternating, a cycle must also comprise an even number of edges.
+We observe that the requirement of being a matching means that any path through $H_\mathcal{M}$ will never consecutively go through two edges in $\mathcal{M}$. A cycle in $H_\mathcal{M}$ must start and end at the same rank. So, since edges in $\mathcal{M}$ increase rank and edges in $\mathcal{E}(P)\setminus\mathcal{M}$ decrease rank, a cycle must therefore be (cyclically) alternating between edges in $\mathcal{M}$ and edges in $\mathcal{E}(P)\setminus\mathcal{M}$. Therefore, if a cycle is to start at $p\in P$, it must completely occur in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,1}}$ or completely in $\Set{q \in P \given \rk(q) - \rk(p) \in \Set{0,-1}}$, i.e.~the horizontal bands above or below $p$ in $H$. Since it is alternating, a cycle must also comprise an even number of edges.
 
 \tikzstyle{m}=[green!70!black, arrow_me=stealth]
 \tikzstyle{not_m}=[arrow_me=stealth]
@@ -97,13 +97,17 @@ We observe that the requirement of being a matching means that any path through 
     \label{fig:matchings}
 \end{figure}
 
-We call $\sigma$ a \emph{face} of $\tau$ if $\sigma \lessdot \tau$. Consider $\Phi$, the characteristic map of some  $n$--cell $\tau$ with $\Phi \colon D^n \to X$. We call $\sigma$ a \emph{regular face} of $\tau$ if it is a face and the following hold.
+We call $\sigma$ a \emph{face} of $\tau$ if $\sigma \lessdot \tau$. Let $\Phi \colon D^n \to X$ be the characteristic map of some $n$--cell $\tau$. We call $\sigma$ a \emph{regular face} of $\tau$ if it is a face and the following hold.
 
 \begin{enumerate}[1)]
     \item $\Phi|_{\Phi^{-1}(\sigma)} \colon \Phi^{-1}(\sigma) \to \sigma$ is a homeomorphism.
-    \item $\overline{\Phi^{-1}(\sigma)}$ is homeomorphic to $D^{n-1}$ as a subset of $D^n$.
+    \item $\overline{\Phi^{-1}(\sigma)}$ as a subset of $D^n$ is homeomorphic to $D^{n-1}$.
     % \what[Surely 2 always follows from 1. Since $\sigma \cong \Phi^{-1}(\sigma)$ and $\sigma$ is an open $(n-1)$--disk. Maybe this is to do with pathological CW--complexes.]
 \end{enumerate}
+
+\begin{remark}
+    Given some natural number $n>1$ and an $n$--cell $\sigma = [x_1|\cdots|x_n]$ in $K_W$, all the $n+1$ faces of $\sigma$ are distinct. Thus, since $K_W$ is a simplicial complex, every face of $[x_1|\cdots|x_n]$ is a regular face (considering $K_W$ as a CW--complex). The only non--regular face of $K_W$ is $[\,\,] \lessdot [w]$.
+\end{remark}
 
 For a matching $\mathcal{M}$, any $p \in P$ that is disjoint from all of $\mathcal{M}$ is called \emph{critical}. In this context, a \emph{critical cell}.
 We can now state the version of discrete Morse theory we will use.
@@ -113,7 +117,7 @@ We can now state the version of discrete Morse theory we will use.
     \label{thm:dmt}
 \end{theorem}
 
-You may notice that this seems to have no link to discrete functions $X^* \to \N$, as promised in the prologue of this section. Indeed, this statement is a reformulation of Discrete Morse Theory due \cite{chari_discrete_2000} and \cite{batzies_discrete_2002}. The original formulation of Discrete Morse Theory is due to \cite{forman_morse_1998}. The exact wording of \cref{thm:dmt} is important, we explore this in the following example.
+You may notice that this seems to have no link to discrete functions $X^* \to \N$, as promised in the prologue of this section. Indeed, this statement is a reformulation of discrete Morse theory due \cite{chari_discrete_2000} and \cite{batzies_discrete_2002}. The original formulation of discrete Morse theory is due to \cite{forman_morse_1998}. The exact wording of \cref{thm:dmt} is important, we explore this in the following example.
 
 \begin{example}
     The Hasse diagrams in \cref{fig:matchings} correspond to the obvious CW--complex for a triangle. \cref{subfig:cyclic_matching,subfig:acyclic_matching_invalid} are for a hollow 1--dimensional triangle and \cref{subfig:acyclic_matching_valid} is for a filled 2--dimensional triangle. We know that a hollow triangle cannot deformation retract on to any of its subcomplexes, thus the required construction for \cref{thm:dmt} should fail for \cref{subfig:cyclic_matching,subfig:acyclic_matching_invalid}. We see that \cref{subfig:cyclic_matching} is a cyclic matching, but we achieve an acyclic (vacuously proper) matching in \cref{subfig:acyclic_matching_invalid}. Importantly, the space corresponding to the union of the critical cells, which are highlighted in the figure, is not a valid subcomplex, thus \cref{thm:dmt} does not apply. For a subset of cells $Y^* \subseteq X^*$ to correspond to a valid subcomplex $Y \subseteq X$, we require

@@ -23,7 +23,7 @@ Consider the tensor product $\R^n \otimes \C$. This is isomorphic to $\C^n$ unde
 	\label{def:config_space}
 \end{definition}
 
-Note that the importance of $\C$ is that it is 2--dimensional. When one takes the complement of a codimension--1 object, you typically will not get any interesting topology. By complexifying the hyperplanes and then taking the complement within $\R^n \otimes \C$, we are effectively taking the complement of a codimension--2 object, and there is much more room for interesting topologies. The same construction can be achieved using $\R^{2n}$ and $\mathcal{H}\times\mathcal{H}$. A more general construction of $Y_W$ for all Coxeter groups using the \emph{Tits cone} can be found in \cite{paris_kpi1_2014}. We will not go in to the details of this construction, but will assume $Y_W$ to be defined for all Coxeter groups $W$, not just affine $W$ as in \cref{def:config_space}.
+Note that the importance of $\C$ is that it is 2--dimensional. When one takes the complement of a codimension--1 object, typically the resulting topology is not very interesting. By complexifying the hyperplanes and then taking the complement within $\R^n \otimes \C$, we are effectively taking the complement of a codimension--2 object, and there is much more room for interesting topologies. The same construction can be achieved using $\R^{2n}$ and $\mathcal{H}\times\mathcal{H}$. A more general construction of $Y_W$ for all Coxeter groups using the \emph{Tits cone} can be found in \cite{paris_kpi1_2014}. We will not go in to the details of this construction, but will assume $Y_W$ to be defined for all Coxeter groups $W$, not just affine $W$ as in \cref{def:config_space}.
 
 For a concrete example concerning $Y_W$, we will introduce the $A_n$ family of Coxeter groups and show that the space $Y_W$ for these groups is the space of configurations of $n+1$ points in $\C$, thus explaining the name \emph{configuration space} for general $Y_W$.
 
@@ -43,7 +43,7 @@ The family $A_n$ all have Coxeter diagrams of the form as in \cref{fig:A_n_dynki
 
 \begin{figure}
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[baseline=0.7em]
 \node[FSC] (1) 			at (0,0) 	{};
 \node[FSC] (2) 			at (1,0) 	{};
 \node[FSC] (3) 			at (2,0) 	{};
@@ -71,7 +71,7 @@ The family $A_n$ all have Coxeter diagrams of the form as in \cref{fig:A_n_dynki
 
 The action of $A_n$ as a reflection group is realised on the space $\R^{n+1}$ with basis $\Set{e_i}$, where $A_n$ acts on $\R^{n+1}$ by permuting components with respect to that basis.
 The set of reflections $R$ of $A_n$ is all conjugations of the $n$ adjacent generating transpositions $(l, l+1)$. So, $R$ is the set of all transpositions $(l, k)$.
-Some $(l, k) \in R$ acts on $\R^{n+1}$ as reflection through the plane $\Set{ (x_1, \ldots, x_{n+1} ) \in \R^{n+1} \mid x_l = x_k}$. Thus, taking the complement of the complexification of all such planes, we have $Y = \Set{(\mu_1, \ldots \mu_{n+1}) \in \C^{n+1} \given \forall i,j \,\,\, \mu_i \neq \mu_j}$ (here $Y$ is as in \cref{def:config_space}).
+Some $(l, k) \in R$ acts on $\R^{n+1}$ as reflection through the plane $\Set{ (x_1, \ldots, x_{n+1} ) \in \R^{n+1} \mid x_l = x_k}$. Thus, taking the complement of the complexification of all such planes, we have $Y = \Set{(\mu_1, \ldots ,\mu_{n+1}) \in \C^{n+1} \given \forall i,j \,\,\, \mu_i \neq \mu_j}$ (here $Y$ is as in \cref{def:config_space}).
 We can think of this as the space of $n+1$ distinct, labelled points in $\C$, denoted $\conf_{n+1}(\C)$. The action of $A_n$ on $\R^n \otimes \C$ is also by permutation of components, so $Y_W = Y/A_n$ is the space of $n+1$ \emph{unlabelled} points in $\C$, denoted $\confu_n(\C)$
 
 Historically, Artin \cite{artin_braids_1947} originally defined the braid group on $n$ strands $B_n$ to be $\pi_1(\confu_n(\C))$. He then proved the well known presentation of the braid group. 
