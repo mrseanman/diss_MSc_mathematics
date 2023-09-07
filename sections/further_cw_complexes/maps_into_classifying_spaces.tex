@@ -15,7 +15,7 @@ Here we will show a fundamental link between homomorphisms in to groups $G$ and 
 
     \begin{equation*}
         \begin{tikzcd}
-            &S^n \times I       \arrow[d, "q"]      \arrow[r, "H"]                                &X \\
+            &S^n \times I       \arrow[d, "q"']      \arrow[r, "H"]                                &X \\
             &(S^n \times I)/(S^n \times \Set{1})    \arrow[ru, "\exists ! \sigma", swap, dotted]
         \end{tikzcd}
     \end{equation*}
@@ -28,7 +28,7 @@ Here we will show a fundamental link between homomorphisms in to groups $G$ and 
 \end{theorem}
 
 \begin{proof}
-    We construct the map $\overline{\phi}$ by inductively constructing it on the $n$--skeletons of $X$. We must have $\overline{\phi}(x_0) = y_0$. The 1--skeleton $X^1$ will be a wedge of circles. Let $A$ be an indexing set for the 1--cells of $X$. For each $\alpha \in A$, let each $\lambda_\alpha$ be a loop going around the closure of the 1--cell $e^1_\alpha$ in either orientation. We restrict that each $\lambda_\alpha$ be a homeomorphism witnessing $S^1 \cong e^1_\alpha \cup \Set{x_0}$. Let $B$ be an indexing set for the 2--cells of $X$. For each $\beta \in B$, let $r_\beta$ be a factorisation in the set $\Set{[\lambda_\alpha]}_{\alpha \in A}$ of the homotopy class of the attaching map $\psi_\beta \colon S^1 \to X^1$ for a 2--cell $e^2_\beta$. We have the following presentation for $\pi_1(X, x_0)$, as in \eqref{eqn:CW_fund_group_presentation}.
+    We construct the map $\overline{\phi}$ by inductively constructing it on the $n$--skeletons of $X$. We must have $\overline{\phi}(x_0) = y_0$. The 1--skeleton $X^1$ will be a wedge of circles. Let $A$ be an indexing set for the 1--cells of $X$. For each $\alpha \in A$, let each $\lambda_\alpha$ be a loop going around the closure of the 1--cell $e^1_\alpha$ in either orientation. We restrict that each $\lambda_\alpha$ be a homeomorphism witnessing $S^1 \cong e^1_\alpha \cup \Set{x_0}$. Let $B$ be an indexing set for the 2--cells of $X$. For each $\beta \in B$, let $r_\beta$ be a factorisation in the set $\Set{[\lambda_\alpha]}_{\alpha \in A} \cup \Set{[\lambda_\alpha]^{-1}}_{\alpha \in A}$ of the homotopy class of the attaching map $\psi_\beta \colon S^1 \to X^1$ for a 2--cell $e^2_\beta$. We have the following presentation for $\pi_1(X, x_0)$, as in \eqref{eqn:CW_fund_group_presentation}.
     \begin{equation}
         \pi_1(X,x_0) \cong \GroupPres{\Set{[\lambda_\alpha]}_{\alpha \in A} \relations r_\beta}
         \label{eqn:fund_group_presentation_1_skeleton}
