@@ -2,7 +2,7 @@
 \documentclass[class=article, crop=false]{standalone}
 \begin{document}
 
-\section{A New Subcomplex, \texorpdfstring{$K^\prime_W$}{K prime}}
+\section{The subcomplex \texorpdfstring{$K^\prime_W$}{K prime}}
 \label{sec:subcomplex_K_prime}
 
 We now introduce the particular poset map we will use. Recall that $w$ is a choice of Coxeter element. Given the standard ordering of $\N$, the map $\eta \colon \mathcal{F}(K_W) \to \N$ with
@@ -81,7 +81,7 @@ The next property of $K^\prime_W$ we must prove is that $K^\prime_W$ is indeed a
     \label{lem:K_prime_valid_subcomplex}   
 \end{lemma}
 \begin{proof}
-    We first concentrate on the infinite $f \in \eta^{-1}(d)$. We need to show that for any infinite $f \in F$, if $\tau \in f^\prime$ and $\sigma \lessdot \tau$, then there exists some $g \in F$ such that $\sigma \in g^\prime$. Let $s = (x_n)_{n \in \Z}$ be the sequence of group elements corresponding to $f$ such that $x_0$ is the first group element in the symbol for $\tau$ (i.e.~$\tau$ begins with $[x_0| \, \cdots$). Let $\tau$ be between $\alpha$ and $\omega$ both in $f \cap X^\prime_W$. See \cref{fig:acyclic_matching_fibre_components}. All of $[-\infty, \alpha]$ and $[-\infty, \omega]$ are also in $X^\prime_W$, so we may assume that both $\alpha$ and $\omega$ are in the bottom row of the Hasse diagram of $f^\prime$ and accordingly each consist of $d-1$ group elements. Choose $a,z \in \Z$ such that $\alpha = [x_a | \cdots | x_{a+d-2}]$ and $\omega = [x_z|\cdots|x_{z+d-2}]$.
+    We first concentrate on the infinite $f \in \eta^{-1}(d)$. We need to show that for any infinite $f \in F$, if $\tau \in f^\prime$ and $\sigma \lessdot \tau$, then there exists some $g \in F$ such that $\sigma \in g^\prime$. Let $s = (x_n)_{n \in \Z}$ be the sequence of group elements corresponding to $f$ such that $x_0$ is the first group element in the symbol for $\tau$ (i.e.~$\tau$ begins with $[x_0| \, \cdots$). Let $\tau$ be between $\alpha$ and $\omega$, both in $f \cap X^\prime_W$. See \cref{fig:acyclic_matching_fibre_components}. All of $[-\infty, \alpha]$ and $[-\infty, \omega]$ are also in $X^\prime_W$, so we may assume that both $\alpha$ and $\omega$ are in the bottom row of the Hasse diagram of $f^\prime$ and accordingly each consist of $d-1$ group elements. Choose $a,z \in \Z$ such that $\alpha = [x_a | \cdots | x_{a+d-2}]$ and $\omega = [x_z|\cdots|x_{z+d-2}]$.
     
     $\bullet$ First we will prove the case where $\tau$ is in the top row of $f^\prime$ such that $\tau = [x_0|x_1|\cdots | x_{d-1}]$ with $x_0x_1\cdots x_{d-1} = w$. The two faces $[x_1|\cdots|x_{d-1}]$ and $[x_0|\cdots|x_{d-2}]$ are both already in $f^\prime$, so we need only check the faces
     \begin{equation*}
@@ -116,7 +116,11 @@ The next property of $K^\prime_W$ we must prove is that $K^\prime_W$ is indeed a
     We now focus on the case where $\tau \in f$ and $f$ is finite. By \cref{rmk:finite_sequence_repetition} the sequence $s$ associated to $f$ will be repeating. We can again case--split whether $\tau$ is in the top or bottom row of the Hasse diagram for $f$. In either case, a face $\sigma \lessdot \tau$ will be in a component $g \in F$ associated to an appropriately chosen $s^i$. This $s^i$ will also be repeating, thus the associated $g$ will be finite.
 \end{proof}
 
-This covers all the details of \cref{def:subcomplex_K_prime} and so $K_W^\prime$ is a valid subcomplex of $K_W$. We now get to reap the benefits of working in this strange setting of face posets.
+\begin{remark}
+    Given some non--repeating sequence $s \in S_d$, repeated application of the map $s \mapsto s^i$ (for valid choices of $i$ each time) must eventually result in a repeating sequence.
+\end{remark}
+
+We now get to reap the benefits of working in this strange setting of face posets.
 
 \tikzmath{
 	\hsep = 0.5;
