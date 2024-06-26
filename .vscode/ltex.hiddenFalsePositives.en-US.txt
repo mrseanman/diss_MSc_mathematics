@@ -1,0 +1,1 @@
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIn \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q we formed a poset using the CW-structure of a space.\\E$"}
